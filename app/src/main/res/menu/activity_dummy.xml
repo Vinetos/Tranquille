@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Test DB query"
+        android:onClick="onQueryDb"/>
+
+    <item
+        android:title="Test featured DB query "
+        android:onClick="onQueryFeaturedDb"/>
+
+    <item
+        android:title="Update DB"
+        android:onClick="onUpdateDb"/>
+
+    <item
+        android:title="Test reviews loading"
+        android:onClick="onTestLoadReviews"/>
+
+</menu>
