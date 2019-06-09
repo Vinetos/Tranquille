@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
                 -> CallReceiver.setEnabled(MainActivity.this, isChecked));
 
+        SwitchCompat blockCallsSwitch = findViewById(R.id.blockCallsSwitch);
+        blockCallsSwitch.setChecked(new Settings(this).getBlockCalls());
+        blockCallsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
+                -> new Settings(this).setBlockCalls(isChecked));
+
         SwitchCompat autoUpdateSwitch = findViewById(R.id.autoUpdateEnabledSwitch);
         autoUpdateSwitch.setChecked(Updater.isAutoUpdateScheduled());
         autoUpdateSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {

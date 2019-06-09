@@ -17,6 +17,7 @@ public class PermissionHelper {
     public static void checkPermissions(AppCompatActivity activity) {
         List<String> requiredPermissions = new ArrayList<>();
         requiredPermissions.add(Manifest.permission.READ_PHONE_STATE);
+        requiredPermissions.add(Manifest.permission.CALL_PHONE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             requiredPermissions.add(Manifest.permission.READ_CALL_LOG);
         }

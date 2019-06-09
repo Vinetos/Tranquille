@@ -2,17 +2,21 @@
     <string name="app_name">Yet Another Call Blocker</string>
 
     <string name="notification_channel_group_name_incoming_calls">Incoming calls</string>
+    <string name="notification_channel_group_name_blocked_calls">Blocked calls</string>
 
     <string name="notification_channel_name_positive_known">Known positive calls</string>
     <string name="notification_channel_name_positive">Positive calls</string>
     <string name="notification_channel_name_neutral">Neutral calls</string>
     <string name="notification_channel_name_unknown">Unknown calls</string>
     <string name="notification_channel_name_negative">Negative calls</string>
+    <string name="notification_channel_name_blocked_info">Blocked info</string>
 
     <string name="notification_incoming_call_positive">Positive call</string>
     <string name="notification_incoming_call_neutral">Neutral call</string>
     <string name="notification_incoming_call_unknown">Unknown call</string>
     <string name="notification_incoming_call_negative">Negative call</string>
+
+    <string name="notification_blocked_call">Blocked call</string>
 
     <string name="notification_incoming_call_text_description">Negative: %d, positive: %d, neutral: %d</string>
 
@@ -42,6 +46,7 @@
     <string name="title_activity_reviews">Reviews</string>
 
     <string name="incoming_call_notifications_enabled">Incoming call notifications enabled</string>
+    <string name="block_calls">Block unwanted calls</string>
     <string name="auto_update_enabled">Auto-update enabled</string>
 
     <string name="open_debug_activity">Open debug screen</string>

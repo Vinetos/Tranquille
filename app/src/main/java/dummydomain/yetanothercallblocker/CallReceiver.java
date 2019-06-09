@@ -5,10 +5,15 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.telephony.TelephonyManager;
+
+import com.android.internal.telephony.ITelephony;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Method;
 
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
@@ -18,6 +23,8 @@ import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem
 public class CallReceiver extends BroadcastReceiver {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallReceiver.class);
+
+    private boolean isOnCall; // TODO: check: is this object not destroyed in-between calls?
 
     public static boolean isEnabled(Context context) {
         return context.getPackageManager()
@@ -44,11 +51,26 @@ public class CallReceiver extends BroadcastReceiver {
         LOG.info("Received intent: action={}, extraState={}, incomingNumber={}",
                 intent.getAction(), telephonyExtraState, incomingNumber);
 
-        if (TelephonyManager.EXTRA_STATE_RINGING.equals(telephonyExtraState)) {
+        if (TelephonyManager.EXTRA_STATE_OFFHOOK.equals(telephonyExtraState)) {
+            isOnCall = true;
+        } else if (TelephonyManager.EXTRA_STATE_RINGING.equals(telephonyExtraState)) {
             if (incomingNumber == null) return;
 
-            NotificationHelper.showIncomingCallNotification(context, getNumberInfo(incomingNumber));
+            NumberInfo numberInfo = getNumberInfo(incomingNumber);
+
+            boolean blocked = false;
+            if (!isOnCall && numberInfo.rating == NumberInfo.Rating.NEGATIVE
+                    && new Settings(context).getBlockCalls()) {
+                blocked = rejectCall(context);
+
+                if (blocked) {
+                    NotificationHelper.showBlockedCallNotification(context, numberInfo);
+                }
+            }
+
+            if (!blocked) NotificationHelper.showIncomingCallNotification(context, numberInfo);
         } else if(TelephonyManager.EXTRA_STATE_IDLE.equals(telephonyExtraState)) {
+            isOnCall = false;
             NotificationHelper.hideIncomingCallNotification(context, incomingNumber);
         }
     }
@@ -86,6 +108,23 @@ public class CallReceiver extends BroadcastReceiver {
         LOG.trace("getNumberInfo() rating={}", numberInfo.rating);
 
         return numberInfo;
+    }
+
+    private boolean rejectCall(@NonNull Context context) {
+        TelephonyManager tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        try {
+            Method m = tm.getClass().getDeclaredMethod("getITelephony");
+            m.setAccessible(true);
+            ITelephony telephony = (ITelephony)m.invoke(tm);
+
+            telephony.endCall();
+
+            return true;
+        } catch (Exception e) {
+            LOG.warn("Error while rejecting call", e);
+        }
+
+        return false;
     }
 
 }

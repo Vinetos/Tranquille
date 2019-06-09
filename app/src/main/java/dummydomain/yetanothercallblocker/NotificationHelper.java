@@ -22,28 +22,41 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseIte
 
 public class NotificationHelper {
 
-    private static final String NOTIFICATION_TAG = "incomingCallNotification";
-    private static final int NOTIFICATION_ID = 1;
+    private static final String NOTIFICATION_TAG_INCOMING_CALL = "incomingCallNotification";
+    private static final String NOTIFICATION_TAG_BLOCKED_CALL = "blockedCallNotification";
+    private static final int NOTIFICATION_ID_INCOMING_CALL = 1;
+    private static final int NOTIFICATION_ID_BLOCKED_CALL = 2;
 
     private static final String CHANNEL_GROUP_ID_INCOMING_CALLS = "incoming_calls";
+    private static final String CHANNEL_GROUP_ID_BLOCKED_CALLS = "blocked_calls";
     private static final String CHANNEL_ID_POSITIVE_KNOWN = "positive_known_calls";
     private static final String CHANNEL_ID_POSITIVE = "positive_calls";
     private static final String CHANNEL_ID_NEUTRAL = "neutral_calls";
     private static final String CHANNEL_ID_UNKNOWN = "unknown_calls";
     private static final String CHANNEL_ID_NEGATIVE = "negative_calls";
+    private static final String CHANNEL_ID_BLOCKED_INFO = "blocked_info";
 
     public static void showIncomingCallNotification(Context context, NumberInfo numberInfo) {
         createNotificationChannels(context);
 
         Notification notification = createIncomingCallNotification(context, numberInfo);
 
-        String tag = numberInfo.number != null ? NOTIFICATION_TAG + numberInfo.number : null;
-        NotificationManagerCompat.from(context).notify(tag, NOTIFICATION_ID, notification);
+        String tag = numberInfo.number != null ? NOTIFICATION_TAG_INCOMING_CALL + numberInfo.number : null;
+        NotificationManagerCompat.from(context).notify(tag, NOTIFICATION_ID_INCOMING_CALL, notification);
     }
 
     public static void hideIncomingCallNotification(Context context, String number) {
-        String tag = number != null ? NOTIFICATION_TAG + number : null;
-        NotificationManagerCompat.from(context).cancel(tag, NOTIFICATION_ID);
+        String tag = number != null ? NOTIFICATION_TAG_INCOMING_CALL + number : null;
+        NotificationManagerCompat.from(context).cancel(tag, NOTIFICATION_ID_INCOMING_CALL);
+    }
+
+    public static void showBlockedCallNotification(Context context, NumberInfo numberInfo) {
+        createNotificationChannels(context);
+
+        Notification notification = createBlockedCallNotification(context, numberInfo);
+
+        String tag = numberInfo.number != null ? NOTIFICATION_TAG_BLOCKED_CALL + numberInfo.number : null; // TODO: handle repeating
+        NotificationManagerCompat.from(context).notify(tag, NOTIFICATION_ID_BLOCKED_CALL, notification);
     }
 
     private static Notification createIncomingCallNotification(Context context, NumberInfo numberInfo) {
@@ -89,6 +102,43 @@ public class NotificationHelper {
             if (category != null && category != NumberCategory.NONE) {
                 title += " - " + NumberCategory.getString(context, category);
             }
+        }
+
+        text += getDescription(context, numberInfo);
+
+        return new NotificationCompat.Builder(context, channelId)
+                .setSmallIcon(icon)
+                .setColor(color)
+                .setContentTitle(title)
+                .setContentText(text)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setShowWhen(false)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC) // TODO: check
+                .setContentIntent(createReviewsIntent(context, numberInfo))
+                .build();
+    }
+
+    private static Notification createBlockedCallNotification(Context context, NumberInfo numberInfo) {
+        String title = context.getString(R.string.notification_blocked_call);
+        String text = getDescription(context, numberInfo);
+
+        return new NotificationCompat.Builder(context, CHANNEL_ID_BLOCKED_INFO)
+                .setSmallIcon(R.drawable.ic_thumb_down_black_24dp)
+                .setColor(0xffffff60)
+                .setContentTitle(title)
+                .setContentText(text)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setContentIntent(createReviewsIntent(context, numberInfo))
+                .build();
+    }
+
+    private static String getDescription(Context context, NumberInfo numberInfo) {
+        String text = "";
+
+        if (numberInfo.communityDatabaseItem != null) {
+            CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
 
             if (numberInfo.name != null) {
                 text += numberInfo.name;
@@ -102,22 +152,12 @@ public class NotificationHelper {
             }
         }
 
+        return text;
+    }
+
+    private static PendingIntent createReviewsIntent(Context context, NumberInfo numberInfo) {
         Intent intent = ReviewsActivity.getNumberIntent(context, numberInfo.number);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-
-        Notification notification = new NotificationCompat.Builder(context, channelId)
-                .setSmallIcon(icon)
-                .setColor(color)
-                .setContentTitle(title)
-                .setContentText(text)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setCategory(NotificationCompat.CATEGORY_CALL)
-                .setShowWhen(false)
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC) // TODO: check
-                .setContentIntent(pendingIntent)
-                .build();
-
-        return notification;
+        return PendingIntent.getActivity(context, 0, intent, 0);
     }
 
     private static void createNotificationChannels(Context context) {
@@ -129,9 +169,15 @@ public class NotificationHelper {
                 return;
             }
 
-            NotificationChannelGroup channelGroup = new NotificationChannelGroup(CHANNEL_GROUP_ID_INCOMING_CALLS,
+            NotificationChannelGroup channelGroupIncoming = new NotificationChannelGroup(
+                    CHANNEL_GROUP_ID_INCOMING_CALLS,
                     context.getString(R.string.notification_channel_group_name_incoming_calls));
-            notificationManager.createNotificationChannelGroup(channelGroup);
+            notificationManager.createNotificationChannelGroup(channelGroupIncoming);
+
+            NotificationChannelGroup channelGroupBlocked = new NotificationChannelGroup(
+                    CHANNEL_GROUP_ID_BLOCKED_CALLS,
+                    context.getString(R.string.notification_channel_group_name_blocked_calls));
+            notificationManager.createNotificationChannelGroup(channelGroupBlocked);
 
             List<NotificationChannel> channels = new ArrayList<>();
 
@@ -141,35 +187,42 @@ public class NotificationHelper {
                     CHANNEL_ID_POSITIVE_KNOWN, context.getString(R.string.notification_channel_name_positive_known),
                     NotificationManager.IMPORTANCE_MIN
             );
-            channel.setGroup(channelGroup.getId());
+            channel.setGroup(channelGroupIncoming.getId());
             channels.add(channel);
 
             channel = new NotificationChannel(
                     CHANNEL_ID_POSITIVE, context.getString(R.string.notification_channel_name_positive),
                     NotificationManager.IMPORTANCE_LOW
             );
-            channel.setGroup(channelGroup.getId());
+            channel.setGroup(channelGroupIncoming.getId());
             channels.add(channel);
 
             channel = new NotificationChannel(
                     CHANNEL_ID_NEUTRAL, context.getString(R.string.notification_channel_name_neutral),
                     NotificationManager.IMPORTANCE_MIN
             );
-            channel.setGroup(channelGroup.getId());
+            channel.setGroup(channelGroupIncoming.getId());
             channels.add(channel);
 
             channel = new NotificationChannel(
                     CHANNEL_ID_UNKNOWN, context.getString(R.string.notification_channel_name_unknown),
                     NotificationManager.IMPORTANCE_MIN
             );
-            channel.setGroup(channelGroup.getId());
+            channel.setGroup(channelGroupIncoming.getId());
             channels.add(channel);
 
             channel = new NotificationChannel(
                     CHANNEL_ID_NEGATIVE, context.getString(R.string.notification_channel_name_negative),
                     NotificationManager.IMPORTANCE_LOW
             );
-            channel.setGroup(channelGroup.getId());
+            channel.setGroup(channelGroupIncoming.getId());
+            channels.add(channel);
+
+            channel = new NotificationChannel(
+                    CHANNEL_ID_BLOCKED_INFO, context.getString(R.string.notification_channel_name_blocked_info),
+                    NotificationManager.IMPORTANCE_LOW
+            );
+            channel.setGroup(channelGroupBlocked.getId());
             channels.add(channel);
 
             notificationManager.createNotificationChannels(channels);
