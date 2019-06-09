@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
                 -> CallReceiver.setEnabled(MainActivity.this, isChecked));
 
+        SwitchCompat autoUpdateSwitch = findViewById(R.id.autoUpdateEnabledSwitch);
+        autoUpdateSwitch.setChecked(Updater.isAutoUpdateScheduled());
+        autoUpdateSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) Updater.scheduleAutoUpdateWorker();
+            else Updater.cancelAutoUpdateWorker();
+        });
+
         PermissionHelper.checkPermissions(this);
     }
 

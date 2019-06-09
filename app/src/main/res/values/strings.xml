@@ -42,6 +42,7 @@
     <string name="title_activity_reviews">Reviews</string>
 
     <string name="incoming_call_notifications_enabled">Incoming call notifications enabled</string>
+    <string name="auto_update_enabled">Auto-update enabled</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>
