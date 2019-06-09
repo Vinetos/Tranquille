@@ -1,7 +1,6 @@
 package dummydomain.yetanothercallblocker;
 
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,27 +11,17 @@ import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
-public class DummyActivity extends AppCompatActivity {
+public class DebugActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dummy);
-
-        PermissionHelper.checkPermissions(this);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        // TODO: handle
+        setContentView(R.layout.activity_debug);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_dummy, menu);
+        getMenuInflater().inflate(R.menu.activity_debug, menu);
         return true;
     }
 
@@ -71,7 +60,7 @@ public class DummyActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                Toast.makeText(DummyActivity.this, "Update finished; DB ver: "
+                Toast.makeText(DebugActivity.this, "Update finished; DB ver: "
                         + DatabaseSingleton.getCommunityDatabase().getEffectiveDbVersion(),
                         Toast.LENGTH_SHORT).show();
             }

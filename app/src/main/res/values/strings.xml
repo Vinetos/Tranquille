@@ -40,5 +40,7 @@
     <string name="sia_category_safe_nonprofit">Safe nonprofit</string>
 
     <string name="title_activity_reviews">Reviews</string>
+    <string name="open_debug_activity">Open debug screen</string>
+    <string name="debug_activity_label">Debug</string>
 
 </resources>
