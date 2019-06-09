@@ -46,5 +46,12 @@
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>
+    <string name="debug_query_db">Query DB</string>
+    <string name="debug_query_featured_db">Query featured DB</string>
+    <string name="debug_load_reviews">Load reviews (online)</string>
+    <string name="debug_default_test_number">74995861192</string>
+    <string name="debug_update_db">Manually update DB</string>
+    <string name="debug_not_found">Not found</string>
+    <string name="debug_update_result">Update finished; DB ver: %d</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package dummydomain.yetanothercallblocker.sia.model.database;
 
+import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
+
 public class CommunityDatabaseItem {
 
     private long number;
@@ -72,7 +74,7 @@ public class CommunityDatabaseItem {
                 ", negativeRatingsCount=" + negativeRatingsCount +
                 ", neutralRatingsCount=" + neutralRatingsCount +
                 ", unknownData=" + unknownData +
-                ", category=" + category +
+                ", category=" + NumberCategory.getById(category) +
                 '}';
     }
 

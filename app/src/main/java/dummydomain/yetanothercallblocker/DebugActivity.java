@@ -3,9 +3,9 @@ package dummydomain.yetanothercallblocker;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
@@ -19,37 +19,53 @@ public class DebugActivity extends AppCompatActivity {
         setContentView(R.layout.activity_debug);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_debug, menu);
-        return true;
-    }
+    public void onQueryDbButtonClick(View view) {
+        setResult("");
 
-    public void onQueryDb(MenuItem item) {
-        new AsyncTask<Void, Void, Void>() {
+        new AsyncTask<Void, Void, CommunityDatabaseItem>() {
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected CommunityDatabaseItem doInBackground(Void... voids) {
                 CommunityDatabaseItem item = DatabaseSingleton.getCommunityDatabase()
-                        .getDbItemByNumber("74995861192");
+                        .getDbItemByNumber(getNumber());
 
-                return null;
+                return item;
             }
-        }.execute();
-    }
 
-    public void onQueryFeaturedDb(MenuItem item) {
-        new AsyncTask<Void, Void, Void>() {
             @Override
-            protected Void doInBackground(Void... voids) {
-                FeaturedDatabaseItem item = DatabaseSingleton.getFeaturedDatabase()
-                        .getDbItemByNumber("74995861192");
-
-                return null;
+            protected void onPostExecute(CommunityDatabaseItem item) {
+                setResult(item != null ? item.toString()
+                        : DebugActivity.this.getString(R.string.debug_not_found));
             }
         }.execute();
     }
 
-    public void onUpdateDb(MenuItem item) {
+    public void onQueryFeaturedDbButtonClick(View view) {
+        setResult("");
+
+        new AsyncTask<Void, Void, FeaturedDatabaseItem>() {
+            @Override
+            protected FeaturedDatabaseItem doInBackground(Void... voids) {
+                FeaturedDatabaseItem item = DatabaseSingleton.getFeaturedDatabase()
+                        .getDbItemByNumber(getNumber());
+
+                return item;
+            }
+
+            @Override
+            protected void onPostExecute(FeaturedDatabaseItem item) {
+                setResult(item != null ? item.toString()
+                        : DebugActivity.this.getString(R.string.debug_not_found));
+            }
+        }.execute();
+    }
+
+    public void onLoadReviewsButtonClick(View view) {
+        ReviewsActivity.startForNumber(this, getNumber());
+    }
+
+    public void onUpdateDbButtonClick(View view) {
+        setResult("");
+
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
@@ -60,15 +76,18 @@ public class DebugActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                Toast.makeText(DebugActivity.this, "Update finished; DB ver: "
-                        + DatabaseSingleton.getCommunityDatabase().getEffectiveDbVersion(),
-                        Toast.LENGTH_SHORT).show();
+                setResult(DebugActivity.this.getString(R.string.debug_update_result,
+                        DatabaseSingleton.getCommunityDatabase().getEffectiveDbVersion()));
             }
         }.execute();
     }
 
-    public void onTestLoadReviews(MenuItem item) {
-        ReviewsActivity.startForNumber(this, "74995861192");
+    private String getNumber() {
+        return this.<EditText>findViewById(R.id.debugPhoneNumberEditText).getText().toString();
+    }
+
+    private void setResult(String result) {
+        this.<TextView>findViewById(R.id.debugResultsTextView).setText(result);
     }
 
 }
