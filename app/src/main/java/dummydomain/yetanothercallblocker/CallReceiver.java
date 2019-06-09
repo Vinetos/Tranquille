@@ -1,8 +1,10 @@
 package dummydomain.yetanothercallblocker;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.telephony.TelephonyManager;
 
 import org.slf4j.Logger;
@@ -16,6 +18,20 @@ import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem
 public class CallReceiver extends BroadcastReceiver {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallReceiver.class);
+
+    public static boolean isEnabled(Context context) {
+        return context.getPackageManager()
+                .getComponentEnabledSetting(new ComponentName(context, CallReceiver.class))
+                != PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+    }
+
+    public static void setEnabled(Context context, boolean enable) {
+        context.getPackageManager().setComponentEnabledSetting(
+                new ComponentName(context, CallReceiver.class),
+                enable ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                        : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
+    }
 
     // TODO: handle in-call calls
 

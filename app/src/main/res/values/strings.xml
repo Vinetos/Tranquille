@@ -40,6 +40,9 @@
     <string name="sia_category_safe_nonprofit">Safe nonprofit</string>
 
     <string name="title_activity_reviews">Reviews</string>
+
+    <string name="incoming_call_notifications_enabled">Incoming call notifications enabled</string>
+
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>
 
