@@ -9,6 +9,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 import dummydomain.yetanothercallblocker.sia.utils.LittleEndianDataInputStream;
 
@@ -38,21 +39,7 @@ public abstract class AbstractDatabaseDataSlice<T> {
 
     protected int indexOf(long number) {
         if (numberOfItems > 0) {
-            int low = 0;
-            int high = numberOfItems - 1;
-
-            while (low <= high) {
-                int mid = (high + low) / 2;
-                long num = numbers[mid];
-
-                if (num < number) {
-                    low = mid + 1;
-                } else if (num > number) {
-                    high = mid - 1;
-                } else {
-                    return mid;
-                }
-            }
+            return Arrays.binarySearch(numbers, number);
         }
 
         return -1;

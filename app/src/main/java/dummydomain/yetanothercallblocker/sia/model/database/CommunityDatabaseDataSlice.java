@@ -154,12 +154,12 @@ public class CommunityDatabaseDataSlice extends AbstractDatabaseDataSlice<Commun
             if (newSlice != null) {
                 if (this.numberOfItems > 0) {
                     for (long n : newSlice.numbers) {
-                        if (indexOf(n) == -1) {
+                        if (indexOf(n) < 0) {
                             newNumberOfItems++;
                         }
                     }
                     for (long n : newSlice.numbersToDelete) {
-                        if (indexOf(n) == -1) {
+                        if (indexOf(n) < 0) {
                             newNumberOfItems++;
                         }
                     }
