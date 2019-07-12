@@ -157,6 +157,7 @@ public class NotificationHelper {
 
     private static PendingIntent createReviewsIntent(Context context, NumberInfo numberInfo) {
         Intent intent = ReviewsActivity.getNumberIntent(context, numberInfo.number);
+        intent.setAction(Long.toString(System.currentTimeMillis())); // make the intent "unique"
         return PendingIntent.getActivity(context, 0, intent, 0);
     }
 
