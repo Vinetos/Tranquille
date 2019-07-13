@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -82,6 +83,8 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
             loadInfoDataAfterLoadedHook();
 
             return true;
+        } catch (FileNotFoundException e) {
+            LOG.error("loadInfoData() the info-file is not found! HAVE YOU COPIED THE ASSETS? (see `Building` in README)", e);
         } catch (Exception e) {
             LOG.error("loadInfoData() error during info file loading", e);
         }
