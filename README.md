@@ -93,9 +93,15 @@ git clone https://gitlab.com/xynngh/YetAnotherCallBlocker_data
 
 Sym-link the assets:
 
+Linux
 ```
 cd YetAnotherCallBlocker/app/src/main/assets/
 ln -s ../../../../../YetAnotherCallBlocker_data/assets/sia .
+```
+Windows
+```
+cd YetAnotherCallBlocker\app\src\main\assets
+mklink /d sia ..\..\..\..\..\YetAnotherCallBlocker_data\assets\sia
 ```
 
 **or** copy the whole directory `YetAnotherCallBlocker_data/assets/sia` into `YetAnotherCallBlocker/app/src/main/assets/`.

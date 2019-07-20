@@ -44,6 +44,9 @@
     <string name="sia_category_safe_nonprofit">Safe nonprofit</string>
 
     <string name="title_activity_reviews">Reviews</string>
+    <string name="reviews_loading">%s loading…</string>
+
+    <string name="general_settings">General settings</string>
 
     <string name="incoming_call_notifications_enabled">Incoming call notifications enabled</string>
     <string name="block_calls">Block unwanted calls</string>
@@ -54,7 +57,7 @@
     <string name="debug_query_db">Query DB</string>
     <string name="debug_query_featured_db">Query featured DB</string>
     <string name="debug_load_reviews">Load reviews (online)</string>
-    <string name="debug_default_test_number">74995861192</string>
+    <string name="debug_default_test_number" translatable="false">74995861192</string>
     <string name="debug_update_db">Manually update DB</string>
     <string name="debug_not_found">Not found</string>
     <string name="debug_update_result">Update finished; DB ver: %d</string>

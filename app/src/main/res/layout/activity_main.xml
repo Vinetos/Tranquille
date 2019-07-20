@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/text_margin"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/notificationsEnabledSwitch"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/incoming_call_notifications_enabled" />
+        android:layout_gravity="start"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:paddingTop="@dimen/item_padding"
+        android:text="@string/general_settings"
+        android:textAlignment="textStart" />
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/blockCallsSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/block_calls" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="?android:listDivider"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/item_padding"
+        android:paddingRight="@dimen/item_padding"
+        android:showDividers="middle">
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/autoUpdateEnabledSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/auto_update_enabled" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/notificationsEnabledSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:text="@string/incoming_call_notifications_enabled" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/blockCallsSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:text="@string/block_calls" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/autoUpdateEnabledSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:text="@string/auto_update_enabled" />
+    </LinearLayout>
 </LinearLayout>

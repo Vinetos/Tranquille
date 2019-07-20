@@ -5,17 +5,22 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.sia.model.CommunityReview;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
-import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 
 public class ReviewsActivity extends AppCompatActivity {
 
     private static final String PARAM_NUMBER = "param_number";
+
+    private CustomListViewAdapter listViewAdapter;
+    private RecyclerView reviewsList;
 
     public static Intent getNumberIntent(Context context, String number) {
         Intent intent = new Intent(context, ReviewsActivity.class);
@@ -35,7 +40,13 @@ public class ReviewsActivity extends AppCompatActivity {
 
         final String paramNumber = getIntent().getStringExtra(PARAM_NUMBER);
 
-        setText("Loading");
+        setText(getString(R.string.reviews_loading, paramNumber));
+
+        listViewAdapter = new CustomListViewAdapter();
+        reviewsList = findViewById(R.id.reviews_list);
+        reviewsList.setLayoutManager(new LinearLayoutManager(this));
+        reviewsList.setAdapter(listViewAdapter);
+        reviewsList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         new AsyncTask<Void, Void, List<CommunityReview>>() {
             @Override
@@ -45,33 +56,19 @@ public class ReviewsActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(List<CommunityReview> reviews) {
-                setText(reviewsToString(ReviewsActivity.this, reviews));
+                setText(paramNumber);
+                handleReviews(reviews);
             }
         }.execute();
     }
 
-    private void setText(String mainPart) {
-        TextView textView = findViewById(R.id.text_view);
-        textView.setText(getHeader() + "\n\n" + mainPart);
+    private void setText(String text) {
+        this.<TextView>findViewById(R.id.text_view).setText(text);
     }
 
-    private String getHeader() {
-        return "Reviews for " + getIntent().getStringExtra(PARAM_NUMBER);
-    }
-
-    private static String reviewsToString(Context context, List<CommunityReview> reviews) {
-        StringBuilder sb = new StringBuilder();
-
-        for (CommunityReview review : reviews) {
-            sb.append(review.getAuthor()).append('\n');
-            sb.append(review.getRating()).append('\n');
-            sb.append(NumberCategory.getString(context, review.getCategory())).append('\n');
-            sb.append(review.getTitle()).append('\n');
-            sb.append(review.getComment()).append('\n');
-            sb.append('\n');
-        }
-
-        return sb.toString();
+    private void handleReviews(List<CommunityReview> reviews) {
+        listViewAdapter.setItems(reviews);
+        listViewAdapter.notifyDataSetChanged();
     }
 
 }

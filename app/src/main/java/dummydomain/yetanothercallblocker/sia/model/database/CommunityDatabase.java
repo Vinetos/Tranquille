@@ -1,5 +1,7 @@
 package dummydomain.yetanothercallblocker.sia.model.database;
 
+import android.annotation.SuppressLint;
+import android.support.annotation.Nullable;
 import android.util.SparseArray;
 
 import org.slf4j.Logger;
@@ -39,6 +41,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
 
     private SparseArray<CommunityDatabaseDataSlice> secondarySliceCache = new SparseArray<>();
 
+    @SuppressLint("UseSparseArrays") // uses null as a special value
     private SparseArray<Boolean> existingSecondarySliceFiles = new SparseArray<>();
 
     public int getEffectiveDbVersion() {
@@ -153,7 +156,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
         return communityDatabaseDataSlice;
     }
 
-    private String getCachedSecondarySliceFilePath(int id) {
+    @Nullable private String getCachedSecondarySliceFilePath(int id) {
         String path = getSecondarySliceFilePath(id);
         Boolean exists = existingSecondarySliceFiles.get(id, null);
         if (exists == null) {
