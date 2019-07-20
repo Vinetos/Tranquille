@@ -8,19 +8,14 @@ The goal of this project is to provide a free and open source application that c
 
 ## Features
 
-At this point of time the application is at the very early stages of development and has more of a proof-of-concept nature.
+At this point of time the application is at the very early stages of development.
 
-Currently implemented (more or less; with little to no UI for that):
+Currently implemented (more or less):
 
-* Offline phone number database: querying for data.
-* Getting delta updates for the database from third-party servers.
-* "Featured" offline database containing names for some popular (?) phone numbers.
-* Loading text reviews for specific phone numbers from third-party servers.
-
-At the proof-of-concept stage are the following features:
-
-* Showing a notification with some number info (positive/negative, category, number of negative reviews and such) when the phone's ringing.
-* Loading and displaying a list of reviews for a calling number (accessed by pressing the notification).
+* Showing a notification with some number info (positive/negative, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
+* Loading and displaying a list of reviews for a calling number (accessed by pressing the notification). *Requires internet.*
+* Automatic blocking of unwanted calls (may not work on some devices; doesn't work on Android 9+). *Works offline.*
+* Automatic update of the database (for offline use). *Requires internet.*
 
 
 ## Available 3rd-party data
@@ -82,13 +77,13 @@ Any contributions are very welcome.
 Clone the project repo:
 
 ```
-git clone https://gitlab.com/xynngh/YetAnotherCallBlocker
+git clone https://gitlab.com/xynngh/YetAnotherCallBlocker.git
 ```
 
 Clone the assets repo:
 
 ```
-git clone https://gitlab.com/xynngh/YetAnotherCallBlocker_data
+git clone https://gitlab.com/xynngh/YetAnotherCallBlocker_data.git
 ```
 
 Sym-link the assets:
