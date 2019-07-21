@@ -32,7 +32,7 @@
     <string name="debug_update_result">Обновление завершено. Версия: %d</string>
     <string name="incoming_call_notifications_enabled">Отображать уведомление при входящих</string>
     <string name="title_activity_reviews">Отзывы</string>
-    <string name="reviews_loading">%s загрузка…</string>
+    <string name="reviews_loading">Загружаем отзывы…</string>
     <string name="general_settings">Основные настройки</string>
     <string name="sia_category_fax">Факс</string>
     <string name="sia_category_nuisance">Злонамеренный</string>

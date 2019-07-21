@@ -44,7 +44,7 @@
     <string name="sia_category_safe_nonprofit">Safe nonprofit</string>
 
     <string name="title_activity_reviews">Reviews</string>
-    <string name="reviews_loading">%s loading…</string>
+    <string name="reviews_loading">Loading reviews…</string>
 
     <string name="general_settings">General settings</string>
 

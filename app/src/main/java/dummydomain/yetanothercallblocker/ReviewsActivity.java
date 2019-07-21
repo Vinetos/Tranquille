@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.List;
@@ -40,7 +42,9 @@ public class ReviewsActivity extends AppCompatActivity {
 
         final String paramNumber = getIntent().getStringExtra(PARAM_NUMBER);
 
-        setText(getString(R.string.reviews_loading, paramNumber));
+        findViewById(R.id.reviews_summary).setVisibility(View.GONE);
+        setTitle(paramNumber);
+        setText(getString(R.string.reviews_loading));
 
         listViewAdapter = new CustomListViewAdapter();
         reviewsList = findViewById(R.id.reviews_list);
@@ -56,19 +60,49 @@ public class ReviewsActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(List<CommunityReview> reviews) {
-                setText(paramNumber);
+                setText("");
                 handleReviews(reviews);
             }
         }.execute();
     }
 
     private void setText(String text) {
-        this.<TextView>findViewById(R.id.text_view).setText(text);
+        TextView textView = this.findViewById(R.id.text_view);
+        textView.setText(text);
+        textView.setVisibility(TextUtils.isEmpty(text) ? View.GONE : View.VISIBLE);
     }
 
     private void handleReviews(List<CommunityReview> reviews) {
         listViewAdapter.setItems(reviews);
         listViewAdapter.notifyDataSetChanged();
+        displaySummary(reviews);
+    }
+
+    private void displaySummary(List<CommunityReview> reviews) {
+        int[] ratings = {0, 0, 0};
+        int[] resIds = {
+                R.id.summary_text_negative,
+                R.id.summary_text_neutral,
+                R.id.summary_text_positive
+        };
+        for (CommunityReview review : reviews) {
+            switch (review.getRating()) {
+                case NEGATIVE:
+                    ratings[0]++;
+                    break;
+                case NEUTRAL:
+                    ratings[1]++;
+                    break;
+                case POSITIVE:
+                    ratings[2]++;
+                    break;
+            }
+        }
+        View summary = findViewById(R.id.reviews_summary);
+        summary.setVisibility(View.VISIBLE);
+        for (int i = 0; i < resIds.length; i++) {
+            ((TextView) summary.findViewById(resIds[i])).setText(String.valueOf(ratings[i]));
+        }
     }
 
 }

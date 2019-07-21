@@ -47,7 +47,12 @@
             android:id="@+id/debugResultsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="" />
+            tools:text="Some data" />
+
+        <include layout="@layout/reviews_summary"
+            android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

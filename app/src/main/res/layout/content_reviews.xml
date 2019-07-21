@@ -25,6 +25,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/reviews_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/item_padding"
+            android:paddingRight="@dimen/item_padding"/>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

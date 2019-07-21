@@ -9,9 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="6dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
         android:tint="@color/rateNeutral"
         android:src="@drawable/ic_thumbs_up_down_black_24dp"/>
     <LinearLayout
@@ -20,7 +20,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
-        android:layout_marginRight="6dp"
         android:layout_weight="1"
         android:orientation="vertical">
         <TextView
