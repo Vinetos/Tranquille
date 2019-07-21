@@ -74,7 +74,7 @@ public class CommunityDatabaseItem {
                 ", negativeRatingsCount=" + negativeRatingsCount +
                 ", neutralRatingsCount=" + neutralRatingsCount +
                 ", unknownData=" + unknownData +
-                ", category=" + NumberCategory.getById(category) +
+                ", category=" + NumberCategory.getById(category) + " (" + category + ")" +
                 '}';
     }
 
