@@ -1,7 +1,7 @@
 package dummydomain.yetanothercallblocker.sia.model.database;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.SparseArray;
 
 import org.slf4j.Logger;

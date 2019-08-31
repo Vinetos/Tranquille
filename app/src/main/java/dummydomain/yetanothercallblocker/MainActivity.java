@@ -1,9 +1,9 @@
 package dummydomain.yetanothercallblocker;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;

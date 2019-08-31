@@ -1,7 +1,7 @@
 package dummydomain.yetanothercallblocker.sia.model;
 
 import android.content.Context;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import dummydomain.yetanothercallblocker.R;
 
