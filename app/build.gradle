@@ -25,7 +25,7 @@ android {
 }
 
 dependencies {
-    implementation 'org.slf4j:slf4j-api:1.7.26'
+    implementation 'org.slf4j:slf4j-api:1.7.28'
     implementation 'com.github.tony19:logback-android:2.0.0'
     implementation 'com.squareup.okhttp3:okhttp:3.12.3' // 3.12.* is the latest version compatible with Android <5
     implementation 'commons-codec:commons-codec:1.12' // beware: a version included in Android is used instead
