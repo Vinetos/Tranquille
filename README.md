@@ -1,4 +1,4 @@
-**Disclaimer:** This is a free and open source project, but it relies on third-party assets and web-services for some functions to work. This project is not affiliated with any third-party entities in any other sense.
+**Disclaimer:** This is a free and open source project, but it relies on third-party web-services for some functions to work. This project is not affiliated with any third-party entities in any other sense.
 
 
 # Yet Another Call Blocker
@@ -18,7 +18,7 @@ Currently implemented (more or less):
 * Automatic update of the database (for offline use). *Requires internet.*
 
 
-## Available 3rd-party data
+## Available data
 
 The following data is available in the main offline database:
 
@@ -28,6 +28,8 @@ The following data is available in the main offline database:
 * a number of positive reviews,
 * a number of neutral reviews.
 
+The main database may receive delta updates from third-party servers.
+
 The "featured" database provides "names" (company names or short descriptions) for some (presumably) subset of numbers in the main database.
 
 The third-party servers can be queried for a list of detailed user reviews for a specific phone number.
@@ -36,9 +38,6 @@ A detailed review contains:
 * A rating: positive, negative or neutral.
 * A category: each review may have a different one.
 * A title and a comment: the actual description the user left for the number.
-
-The offline databases are extracted from the aforementioned third-party proprietary application.
-The main database may receive delta updates from the third-party servers.
 
 
 ## Privacy
@@ -64,7 +63,6 @@ Also, this project is meant to be non-commercial. So, there's that.
 ## License
 
 [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).  
-Third-party asset files are required for some functionality.
 
 
 ## Contributing
