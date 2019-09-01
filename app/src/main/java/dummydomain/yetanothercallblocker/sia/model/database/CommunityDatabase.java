@@ -168,7 +168,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
 
     private String getSecondarySliceFilePath(int id) {
         File dir = Utils.getContext().getFilesDir();
-        return dir.getAbsolutePath() + "/sia_updates_" + id + ".mtz";
+        return dir.getAbsolutePath() + "/sia_updates_" + id + ".sia";
     }
 
     public void resetSecondaryDatabase() {
@@ -177,7 +177,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
         FileFilter fileFilter = new FileFilter() {
             @Override
             public boolean accept(File pathname) {
-                return pathname.getName().endsWith(".mtz");
+                return pathname.getName().endsWith(".sia");
             }
         };
 
@@ -242,7 +242,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
                 if (contentType != null && "application".equals(contentType.type())) {
                     LOG.trace("updateSecondaryDbInternal() saving response data to file");
 
-                    File tempFile = File.createTempFile("mtz", "database", Utils.getContext().getCacheDir());
+                    File tempFile = File.createTempFile("sia", "database", Utils.getContext().getCacheDir());
 
                     int totalRead = 0;
                     try (InputStream in = body.byteStream();

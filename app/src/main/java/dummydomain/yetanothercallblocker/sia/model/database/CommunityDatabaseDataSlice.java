@@ -93,7 +93,8 @@ public class CommunityDatabaseDataSlice extends AbstractDatabaseDataSlice<Commun
 
     @Override
     protected void loadFromStreamCheckHeader(String header) {
-        if (!"MTZF".equalsIgnoreCase(header) && !"MTZD".equalsIgnoreCase(header)) {
+        if (!"YABF".equalsIgnoreCase(header) && !"MTZF".equalsIgnoreCase(header)
+                && !"MTZD".equalsIgnoreCase(header)) {
             throw new IllegalStateException("Invalid header. Actual value: " + header);
         }
     }
@@ -169,7 +170,7 @@ public class CommunityDatabaseDataSlice extends AbstractDatabaseDataSlice<Commun
             }
 
             LittleEndianDataOutputStream stream = new LittleEndianDataOutputStream(outputStream);
-            stream.writeUtf8StringChars("MTZF");
+            stream.writeUtf8StringChars("YABF");
             stream.writeByte((byte) 1);
             stream.writeInt(newSlice != null ? newSlice.dbVersion : this.dbVersion);
             stream.writeUtf8StringChars("ww");
@@ -232,7 +233,7 @@ public class CommunityDatabaseDataSlice extends AbstractDatabaseDataSlice<Commun
             }
             stream.writeUtf8StringChars("CP");
             stream.writeInt(0);
-            stream.writeUtf8StringChars("MTZEND");
+            stream.writeUtf8StringChars("YABEND");
             return true;
         } catch (IOException e) {
             LOG.error("writeMerged()", e);

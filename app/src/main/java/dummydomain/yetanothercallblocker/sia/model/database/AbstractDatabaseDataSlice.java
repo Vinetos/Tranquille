@@ -126,7 +126,7 @@ public abstract class AbstractDatabaseDataSlice<T> {
 
             LOG.trace("loadFromStream() reading endmark");
             String endmarkString = stream.readUtf8StringChars(6);
-            if (!"MTZEND".equalsIgnoreCase(endmarkString)) {
+            if (!"YABEND".equalsIgnoreCase(endmarkString) && !"MTZEND".equalsIgnoreCase(endmarkString)) {
                 throw new IllegalStateException("Endmark not found. Found instead: " + endmarkString);
             }
 

@@ -8,7 +8,7 @@ class DatabaseDataSliceNode {
         this.sliceTree = new DatabaseDataSliceNode[10];
 
         for (int i = 0; i <= 9; i++) {
-            if (data.charAt(offset) == '+') {
+            if (data.charAt(offset) == '*' || data.charAt(offset) == '+') {
                 offset++;
                 continue;
             }

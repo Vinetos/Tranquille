@@ -15,7 +15,7 @@ public class FeaturedDatabaseDataSlice extends AbstractDatabaseDataSlice<Feature
 
     @Override
     protected void loadFromStreamCheckHeader(String header) {
-        if (!"MTZX".equalsIgnoreCase(header)) {
+        if (!"YABX".equalsIgnoreCase(header) && !"MTZX".equalsIgnoreCase(header)) {
             throw new IllegalStateException("Invalid header. Actual value: " + header);
         }
     }

@@ -61,8 +61,9 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
         try (InputStream is = Utils.getContext().getAssets().open(fileName);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is))) {
 
-            if (!"MDI".equals(bufferedReader.readLine())) {
-                LOG.debug("loadInfoData() incorrect header");
+            String headerString = bufferedReader.readLine();
+            if (!"YACBSIAI".equals(headerString) && !"MDI".equals(headerString)) {
+                LOG.debug("loadInfoData() incorrect header: {}", headerString);
                 return false;
             }
 
