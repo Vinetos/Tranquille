@@ -8,7 +8,7 @@ The goal of this project is to provide a free and open source application that c
 
 ## Features
 
-At this point of time the application is at the very early stages of development.
+At this point of time only very basic features are implemented.
 
 Currently implemented (more or less):
 
