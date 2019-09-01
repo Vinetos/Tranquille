@@ -207,7 +207,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
             if (result == UpdateResult.UPDATED) {
                 updated = true;
                 if (LOG.isTraceEnabled()) {
-                    LOG.trace("updateSecondaryDb DB version after update: ", getEffectiveDbVersion());
+                    LOG.trace("updateSecondaryDb DB version after update: {}", getEffectiveDbVersion());
                 }
             } else {
                 break;
