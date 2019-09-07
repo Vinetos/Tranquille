@@ -6,6 +6,17 @@
 The goal of this project is to provide a free and open source application that can block unwanted calls or warn about probable intentions of the callers using a third-party crowdsourced phone number database (from some other proprietary app).
 
 
+## How to use
+
+* Install and launch the app.
+* Press the "Download database" button on the main screen, wait for it finish.  
+  The DB will be downloaded from [here](https://gitlab.com/xynngh/YetAnotherCallBlocker_data).
+* At this point you should be able to see notifications with some caller info during incoming calls.  
+  You can press such a notification to load detailed online reviews.
+* Check the "Auto-update enabled" switch (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
+* Check the "Block unwanted calls" switch if you want to enable automatic blocking.
+* After these step everything should just work. Enjoy!
+
 ## Features
 
 At this point of time only very basic features are implemented.
@@ -78,7 +89,7 @@ Clone the project repo:
 git clone https://gitlab.com/xynngh/YetAnotherCallBlocker.git
 ```
 
-Clone the assets repo:
+Clone the assets repo (optional step: allows to avoid the initial DB downloading after installation):
 
 ```
 git clone https://gitlab.com/xynngh/YetAnotherCallBlocker_data.git
