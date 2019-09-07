@@ -9,13 +9,13 @@ The goal of this project is to provide a free and open source application that c
 ## How to use
 
 * Install and launch the app.
-* Press the "Download database" button on the main screen, wait for it finish.  
+* Press the "Download database" button on the main screen, wait for it to finish.  
   The DB will be downloaded from [here](https://gitlab.com/xynngh/YetAnotherCallBlocker_data).
 * At this point you should be able to see notifications with some caller info during incoming calls.  
   You can press such a notification to load detailed online reviews.
-* Check the "Auto-update enabled" switch (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
-* Check the "Block unwanted calls" switch if you want to enable automatic blocking.
-* After these step everything should just work. Enjoy!
+* Toggle the "Auto-update enabled" switch (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
+* Toggle the "Block unwanted calls" switch if you want to enable automatic blocking.
+* After these steps everything should just work. Enjoy!
 
 ## Features
 
@@ -23,8 +23,8 @@ At this point of time only very basic features are implemented.
 
 Currently implemented (more or less):
 
-* Showing a notification with some number info (positive/negative, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
-* Loading and displaying a list of reviews for a calling number (accessed by pressing the notification). *Requires internet.*
+* Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
+* Loading and displaying a list of reviews for a number (accessed by pressing the notification). *Requires internet.*
 * Automatic blocking of unwanted calls (may not work on some devices; doesn't work on Android 9+). *Works offline.*
 * Automatic update of the database (for offline use). *Requires internet.*
 
