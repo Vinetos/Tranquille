@@ -31,9 +31,4 @@ public class FeaturedDatabaseDataSlice extends AbstractDatabaseDataSlice<Feature
         names[index] = stream.readUtf8StringChars(nameLength);
     }
 
-    @Override
-    protected String getAssetNamePrefix() {
-        return "featured_slice_";
-    }
-
 }

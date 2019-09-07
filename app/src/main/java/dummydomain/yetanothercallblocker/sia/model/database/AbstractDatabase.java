@@ -5,16 +5,21 @@ import android.util.SparseArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import dummydomain.yetanothercallblocker.sia.utils.Utils;
+import static dummydomain.yetanothercallblocker.sia.utils.FileUtils.openFile;
 
 public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AbstractDatabase.class);
+
+    protected final String pathPrefix;
+
+    protected boolean useAssets;
 
     protected int baseDatabaseVersion;
     protected int numberOfItems;
@@ -26,39 +31,78 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
     protected boolean loaded;
     protected boolean failedToLoad;
 
+    public AbstractDatabase(String pathPrefix) {
+        this.pathPrefix = pathPrefix;
+    }
+
+    public boolean isOperational() {
+        checkLoaded();
+        return loaded;
+    }
+
+    public boolean reload() {
+        return load();
+    }
+
     protected void checkLoaded() {
-        if (loaded) return;
-        if (failedToLoad) throw new IllegalStateException("The DB has failed to load");
+        if (loaded || failedToLoad) return;
 
         LOG.debug("checkLoaded() loading DB");
-        loaded = load();
-        failedToLoad = !loaded;
+        load();
+    }
+
+    protected void reset() {
+        loaded = false;
+        failedToLoad = false;
+
+        baseDatabaseVersion = 0;
+        numberOfItems = 0;
+
+        dbRootNode = null;
+        sliceCache.clear();
     }
 
     protected boolean load() {
         LOG.debug("load() loading DB");
 
-        if (loadInfoData() && loadSliceListData()) {
-            LOG.info("load() loaded DB, baseDatabaseVersion={}, numberOfItems={}",
-                    this.baseDatabaseVersion, this.numberOfItems);
+        reset();
+
+        if (load(true)) {
+            useAssets = true;
+            loaded = true;
+            return true;
+        } else if (load(false)) {
+            useAssets = false;
+            loaded = true;
             return true;
         } else {
             LOG.warn("load() failed to load DB");
+            failedToLoad = true;
             return false;
         }
     }
 
-    protected String getAssetPathPrefix() {
-        return "sia/";
+    protected boolean load(boolean useAssets) {
+        if (loadInfoData(useAssets) && loadSliceListData(useAssets)) {
+            LOG.info("load() loaded DB useAssets={}, baseDatabaseVersion={}, numberOfItems={}",
+                    useAssets, this.baseDatabaseVersion, this.numberOfItems);
+            return true;
+        }
+        return false;
     }
 
-    protected abstract String getAssetNamePrefix();
+    protected String getPathPrefix() {
+        return pathPrefix;
+    }
 
-    protected boolean loadInfoData() {
-        LOG.debug("loadInfoData() started");
+    protected abstract String getNamePrefix();
 
-        String fileName = getAssetPathPrefix() + getAssetNamePrefix() + "info.dat";
-        try (InputStream is = Utils.getContext().getAssets().open(fileName);
+    protected boolean loadInfoData(boolean useAssets) {
+        LOG.debug("loadInfoData() started; useAssets: {}", useAssets);
+
+        String fileName = getPathPrefix() + getNamePrefix() + "info.dat";
+
+        try (InputStream is = openFile(fileName, useAssets);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is))) {
 
             String headerString = bufferedReader.readLine();
@@ -81,11 +125,11 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
             LOG.debug("loadInfoData() loaded MDI, baseDatabaseVersion={}, numberOfItems={}",
                     this.baseDatabaseVersion, this.numberOfItems);
 
-            loadInfoDataAfterLoadedHook();
+            loadInfoDataAfterLoadedHook(useAssets);
 
             return true;
         } catch (FileNotFoundException e) {
-            LOG.error("loadInfoData() the info-file is not found! HAVE YOU COPIED THE ASSETS? (see `Building` in README)", e);
+            LOG.debug("loadInfoData() the info-file wasn't found");
         } catch (Exception e) {
             LOG.error("loadInfoData() error during info file loading", e);
         }
@@ -93,13 +137,13 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
         return false;
     }
 
-    protected void loadInfoDataAfterLoadedHook() {}
+    protected void loadInfoDataAfterLoadedHook(boolean useAssets) {}
 
-    protected boolean loadSliceListData() {
+    protected boolean loadSliceListData(boolean useAssets) {
         LOG.debug("loadSliceListData() started");
 
-        String fileName = getAssetPathPrefix() + getAssetNamePrefix() + "list.dat";
-        try (InputStream is = Utils.getContext().getAssets().open(fileName);
+        String fileName = getPathPrefix() + getNamePrefix() + "list.dat";
+        try (InputStream is = openFile(fileName, useAssets);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is))) {
             String nodes = bufferedReader.readLine();
 
@@ -120,6 +164,11 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
     public V getDbItemByNumber(String numberString) {
         LOG.info("getDbItemByNumber({}) started", numberString);
 
+        if (!isOperational()) {
+            LOG.warn("getDbItemByNumber() request on a non-operational DB; returning null");
+            return null;
+        }
+
         if (numberString == null || numberString.isEmpty()) return null;
 
         if (numberString.startsWith("+")) {
@@ -133,8 +182,6 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
             LOG.warn("getDbItemByNumber() couldn't parse number: " + numberString, e);
             return null;
         }
-
-        checkLoaded();
 
         LOG.debug("getDbItemByNumber() calling internal method for {}", number);
         return getDbItemByNumberInternal(number);
@@ -156,13 +203,33 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
             LOG.trace("getDataSlice() loading slice with sliceId={}", sliceId);
 
             slice = createDbDataSlice();
-            slice.loadFromAsset(Utils.getContext(), sliceId);
+            loadSlice(slice, sliceId);
 
             sliceCache.put(sliceId, slice);
         } else {
             LOG.trace("getDataSlice() found slice in cache");
         }
         return slice;
+    }
+
+    protected void loadSlice(T slice, int sliceId) {
+        LOG.debug("loadSlice() started with sliceId={}", sliceId);
+
+        String fileName = getPathPrefix() + getNamePrefix() + sliceId + ".dat";
+        loadSlice(slice, fileName, useAssets);
+    }
+
+    protected void loadSlice(T slice, String fileName, boolean useAssets) {
+        LOG.debug("loadSlice() started with fileName={}, useAssets={}", fileName, useAssets);
+
+        try (InputStream is = openFile(fileName, useAssets);
+             BufferedInputStream stream = new BufferedInputStream(is)) {
+
+            slice.loadFromStream(stream);
+        } catch (Exception e) {
+            LOG.error("loadSlice()", e);
+        }
+        LOG.trace("loadSlice() finished");
     }
 
 }

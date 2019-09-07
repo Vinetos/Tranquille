@@ -1,14 +1,10 @@
 package dummydomain.yetanothercallblocker.sia.model.database;
 
-import android.content.Context;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
 
 import dummydomain.yetanothercallblocker.sia.utils.LittleEndianDataInputStream;
@@ -137,41 +133,6 @@ public abstract class AbstractDatabaseDataSlice<T> {
             return false;
         }
         return true;
-    }
-
-    protected String getAssetPathPrefix() {
-        return "sia/";
-    }
-
-    protected abstract String getAssetNamePrefix();
-
-    public void loadFromAsset(Context context, int sliceId) {
-        LOG.debug("loadFromAsset() started with sliceId={}", sliceId);
-
-        String assetName = getAssetPathPrefix() + getAssetNamePrefix() + String.valueOf(sliceId) + ".dat";
-        LOG.trace("loadFromAsset() assetName={}", assetName);
-
-        try (InputStream is = context.getAssets().open(assetName);
-             BufferedInputStream stream = new BufferedInputStream(is)) {
-
-            loadFromStream(stream);
-        } catch (Exception e) {
-            LOG.error("loadFromAsset()", e);
-        }
-        LOG.trace("loadFromAsset() finished");
-    }
-
-    public void loadFromFile(String fileName) {
-        LOG.debug("loadFromFile({}) started", fileName);
-
-        try (FileInputStream fis = new FileInputStream(fileName);
-             BufferedInputStream stream = new BufferedInputStream(fis)) {
-
-            loadFromStream(stream);
-        } catch (Exception e) {
-            LOG.error("loadFromFile()", e);
-        }
-        LOG.trace("loadFromFile() finished");
     }
 
     @Override

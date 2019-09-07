@@ -2,8 +2,12 @@ package dummydomain.yetanothercallblocker.sia.model.database;
 
 public class FeaturedDatabase extends AbstractDatabase<FeaturedDatabaseDataSlice, FeaturedDatabaseItem> {
 
+    public FeaturedDatabase(String pathPrefix) {
+        super(pathPrefix);
+    }
+
     @Override
-    protected String getAssetNamePrefix() {
+    protected String getNamePrefix() {
         return "featured_slice_";
     }
 

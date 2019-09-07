@@ -1,12 +1,19 @@
 package dummydomain.yetanothercallblocker;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +39,20 @@ public class MainActivity extends AppCompatActivity {
             else Updater.cancelAutoUpdateWorker();
         });
 
+        @SuppressLint("StaticFieldLeak")
+        AsyncTask<Void, Void, Boolean> noDbTask = new AsyncTask<Void, Void, Boolean>() {
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return DatabaseSingleton.getCommunityDatabase().isOperational();
+            }
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                updateNoDbUi(result ? UpdateUiState.HIDDEN : UpdateUiState.NO_DB);
+            }
+        };
+        noDbTask.execute();
+
         PermissionHelper.checkPermissions(this);
     }
 
@@ -49,8 +70,41 @@ public class MainActivity extends AppCompatActivity {
         // TODO: handle
     }
 
+    public void onDownloadDbClick(View view) {
+        // TODO: use service
+
+        updateNoDbUi(UpdateUiState.DOWNLOADING_DB);
+
+        @SuppressLint("StaticFieldLeak")
+        AsyncTask<Void, Void, Boolean> dlTask = new AsyncTask<Void, Void, Boolean>() {
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                return DbManager.downloadMainDb()
+                        && DatabaseSingleton.getCommunityDatabase().reload()
+                        && DatabaseSingleton.getFeaturedDatabase().reload();
+            }
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                updateNoDbUi(result ? UpdateUiState.HIDDEN : UpdateUiState.ERROR);
+            }
+        };
+        dlTask.execute();
+    }
+
     public void onOpenDebugActivity(MenuItem item) {
         startActivity(new Intent(this, DebugActivity.class));
+    }
+
+    enum UpdateUiState {HIDDEN, NO_DB, DOWNLOADING_DB, ERROR}
+
+    private void updateNoDbUi(UpdateUiState state) {
+        findViewById(R.id.noDbText).setVisibility(state == UpdateUiState.NO_DB ? View.VISIBLE : View.GONE);
+        findViewById(R.id.downloadDbButton).setVisibility(state == UpdateUiState.NO_DB ? View.VISIBLE : View.GONE);
+
+        findViewById(R.id.downloadingDbText).setVisibility(state == UpdateUiState.DOWNLOADING_DB ? View.VISIBLE : View.GONE);
+
+        findViewById(R.id.dbCouldNotBeDownloaded).setVisibility(state == UpdateUiState.ERROR ? View.VISIBLE : View.GONE);
     }
 
 }

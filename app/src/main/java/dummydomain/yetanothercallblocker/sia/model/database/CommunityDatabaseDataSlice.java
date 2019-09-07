@@ -141,11 +141,6 @@ public class CommunityDatabaseDataSlice extends AbstractDatabaseDataSlice<Commun
         }
     }
 
-    @Override
-    protected String getAssetNamePrefix() {
-        return "data_slice_";
-    }
-
     public boolean writeMerged(CommunityDatabaseDataSlice newSlice, BufferedOutputStream outputStream) {
         LOG.debug("writeMerged() started with newSlice={}", newSlice);
 
