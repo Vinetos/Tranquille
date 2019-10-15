@@ -1,0 +1,28 @@
+A simple call blocking application that will help you avoid answering unwanted calls
+using an offline phone number database.
+
+Features:
+
+* Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. ''Works offline.''
+* Loading and displaying a list of reviews for a number. ''Requires internet.''
+* Automatic blocking of unwanted calls (may not work on some devices; doesn't work on Android 9+). ''Works offline.''
+* Automatic update of the database (for offline use). ''Requires internet.''
+
+How to use:
+
+* Install and launch the app.
+* Press the "Download database" button on the main screen, wait for it to finish.
+* At this point you should be able to see notifications with some caller info during incoming calls. You can press such a notification to load detailed online reviews.
+* Toggle the "Auto-update enabled" switch (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
+* Toggle the "Block unwanted calls" switch if you want to enable automatic blocking.
+* After these steps everything should just work. Enjoy!
+
+The main phone number database is downloaded from
+[https://gitlab.com/xynngh/YetAnotherCallBlocker_data a gitlab repository].
+Delta updates and detailed review queries are performed using 3rd-party servers.
+No user-identifiable information is sent (except for the phone number
+the detailed reviews are loaded for).
+
+Yet Another Call Blocker is still under development. Any help is very welcome.
+
+''NonFreeNet:'' the 3rd-party service is not open source.
