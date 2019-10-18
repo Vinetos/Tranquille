@@ -37,8 +37,6 @@ public class NotificationHelper {
     private static final String CHANNEL_ID_BLOCKED_INFO = "blocked_info";
 
     public static void showIncomingCallNotification(Context context, NumberInfo numberInfo) {
-        createNotificationChannels(context);
-
         Notification notification = createIncomingCallNotification(context, numberInfo);
 
         String tag = numberInfo.number != null ? NOTIFICATION_TAG_INCOMING_CALL + numberInfo.number : null;
@@ -51,8 +49,6 @@ public class NotificationHelper {
     }
 
     public static void showBlockedCallNotification(Context context, NumberInfo numberInfo) {
-        createNotificationChannels(context);
-
         Notification notification = createBlockedCallNotification(context, numberInfo);
 
         String tag = numberInfo.number != null ? NOTIFICATION_TAG_BLOCKED_CALL + numberInfo.number : null; // TODO: handle repeating
@@ -161,14 +157,9 @@ public class NotificationHelper {
         return PendingIntent.getActivity(context, 0, intent, 0);
     }
 
-    private static void createNotificationChannels(Context context) {
+    static void createNotificationChannels(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-
-            if (notificationManager.getNotificationChannel(CHANNEL_ID_POSITIVE_KNOWN) != null) {
-                // already created
-                return;
-            }
 
             NotificationChannelGroup channelGroupIncoming = new NotificationChannelGroup(
                     CHANNEL_GROUP_ID_INCOMING_CALLS,

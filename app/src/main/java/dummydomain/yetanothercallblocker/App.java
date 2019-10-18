@@ -11,6 +11,8 @@ public class App extends Application {
         super.onCreate();
 
         instance = this;
+
+        NotificationHelper.createNotificationChannels(this);
     }
 
     public static App getInstance() {
