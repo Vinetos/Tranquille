@@ -25,7 +25,7 @@ Currently implemented (more or less):
 
 * Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
 * Loading and displaying a list of reviews for a number (accessed by pressing the notification). *Requires internet.*
-* Automatic blocking of unwanted calls (may not work on some devices; doesn't work on Android 9+). *Works offline.*
+* Automatic blocking of unwanted calls (may not work on some devices; may work as a system app on Android 9; doesn't work on Android 10+). *Works offline.*
 * Automatic update of the database (for offline use). *Requires internet.*
 
 
