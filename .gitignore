@@ -7,4 +7,6 @@
 /captures
 .externalNativeBuild
 
+/keystore.properties
+
 /app/src/main/assets/sia

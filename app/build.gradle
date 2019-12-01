@@ -9,10 +9,21 @@ android {
         versionCode 310
         versionName "0.3.1"
     }
+    signingConfigs {
+        def keystoreProperties = new Properties()
+        keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
