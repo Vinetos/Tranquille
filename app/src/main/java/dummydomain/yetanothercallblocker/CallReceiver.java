@@ -24,7 +24,7 @@ public class CallReceiver extends BroadcastReceiver {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallReceiver.class);
 
-    private boolean isOnCall; // TODO: check: is this object not destroyed in-between calls?
+    private static boolean isOnCall; // TODO: proper handling
 
     public static boolean isEnabled(Context context) {
         return context.getPackageManager()
@@ -39,8 +39,6 @@ public class CallReceiver extends BroadcastReceiver {
                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }
-
-    // TODO: handle in-call calls
 
     @Override
     public void onReceive(Context context, Intent intent) {
