@@ -21,6 +21,9 @@ public class PermissionHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             requiredPermissions.add(Manifest.permission.READ_CALL_LOG);
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            requiredPermissions.add(Manifest.permission.ANSWER_PHONE_CALLS);
+        }
 
         List<String> missingPermissions = new ArrayList<>();
 

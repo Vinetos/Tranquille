@@ -1,11 +1,15 @@
 package dummydomain.yetanothercallblocker;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
+
+import android.os.Build;
+import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 
 import com.android.internal.telephony.ITelephony;
@@ -108,14 +112,29 @@ public class CallReceiver extends BroadcastReceiver {
         return numberInfo;
     }
 
+    @SuppressLint("MissingPermission")
     private boolean rejectCall(@NonNull Context context) {
-        TelephonyManager tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            TelecomManager telecomManager = (TelecomManager)
+                    context.getSystemService(Context.TELECOM_SERVICE);
+            try {
+                telecomManager.endCall();
+                LOG.info("Rejected call using TelecomManager");
+
+                return true;
+            } catch (Exception e) {
+                LOG.warn("Error while rejecting call on API 26+", e);
+            }
+        }
+
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         try {
             Method m = tm.getClass().getDeclaredMethod("getITelephony");
             m.setAccessible(true);
             ITelephony telephony = (ITelephony)m.invoke(tm);
 
             telephony.endCall();
+            LOG.info("Rejected call using ITelephony");
 
             return true;
         } catch (Exception e) {

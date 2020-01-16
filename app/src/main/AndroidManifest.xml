@@ -7,8 +7,9 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
 
-    <!-- required for call blocking on Android 9, also requires to be installed as a system app -->
+    <!-- may be needed for call blocking on Android 9, also requires to be installed as a system app -->
     <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
 
