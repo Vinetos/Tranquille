@@ -36,11 +36,11 @@ android {
 }
 
 dependencies {
-    implementation 'org.slf4j:slf4j-api:1.7.29'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
     implementation 'com.github.tony19:logback-android:2.0.0'
     //noinspection GradleDependency: 3.12.* is the latest version compatible with Android <5
     implementation 'com.squareup.okhttp3:okhttp:3.12.6'
-    implementation 'commons-codec:commons-codec:1.12' // beware: a version included in Android is used instead
+    implementation 'commons-codec:commons-codec:1.13' // beware: a version included in Android is used instead
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
