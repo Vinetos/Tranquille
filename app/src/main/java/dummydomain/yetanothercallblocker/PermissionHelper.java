@@ -21,14 +21,14 @@ public class PermissionHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             requiredPermissions.add(Manifest.permission.READ_CALL_LOG);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             requiredPermissions.add(Manifest.permission.ANSWER_PHONE_CALLS);
         }
 
         List<String> missingPermissions = new ArrayList<>();
 
         for (String permission : requiredPermissions) {
-            if (ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_DENIED) {
+            if (ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_GRANTED) {
                 missingPermissions.add(permission);
             }
         }
