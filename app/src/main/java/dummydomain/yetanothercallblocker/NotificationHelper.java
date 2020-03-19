@@ -108,7 +108,7 @@ public class NotificationHelper {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setCategory(NotificationCompat.CATEGORY_STATUS)
                 .setShowWhen(false)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC) // TODO: check
                 .setContentIntent(createReviewsIntent(context, numberInfo))
@@ -125,7 +125,7 @@ public class NotificationHelper {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setCategory(NotificationCompat.CATEGORY_STATUS)
                 .setContentIntent(createReviewsIntent(context, numberInfo))
                 .build();
     }
