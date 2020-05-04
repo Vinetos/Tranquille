@@ -6,11 +6,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
-
 import android.os.Build;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
+
+import androidx.annotation.NonNull;
 
 import com.android.internal.telephony.ITelephony;
 
@@ -21,8 +21,6 @@ import java.lang.reflect.Method;
 
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
-import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
-import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
 public class CallReceiver extends BroadcastReceiver {
 
@@ -58,7 +56,7 @@ public class CallReceiver extends BroadcastReceiver {
         } else if (TelephonyManager.EXTRA_STATE_RINGING.equals(telephonyExtraState)) {
             if (incomingNumber == null) return;
 
-            NumberInfo numberInfo = getNumberInfo(incomingNumber);
+            NumberInfo numberInfo = DatabaseSingleton.getNumberInfo(incomingNumber);
 
             boolean blocked = false;
             if (!isOnCall && numberInfo.rating == NumberInfo.Rating.NEGATIVE
@@ -75,41 +73,6 @@ public class CallReceiver extends BroadcastReceiver {
             isOnCall = false;
             NotificationHelper.hideIncomingCallNotification(context, incomingNumber);
         }
-    }
-
-    protected NumberInfo getNumberInfo(String number) {
-        LOG.debug("getNumberInfo({}) started", number);
-        // TODO: check number format
-
-        CommunityDatabaseItem communityItem = DatabaseSingleton.getCommunityDatabase()
-                .getDbItemByNumber(number);
-        LOG.trace("getNumberInfo() communityItem={}", communityItem);
-
-        FeaturedDatabaseItem featuredItem = DatabaseSingleton.getFeaturedDatabase()
-                .getDbItemByNumber(number);
-        LOG.trace("getNumberInfo() featuredItem={}", featuredItem);
-
-        NumberInfo numberInfo = new NumberInfo();
-        numberInfo.number = number;
-        if (featuredItem != null) numberInfo.name = featuredItem.getName();
-
-        if (communityItem != null && communityItem.hasRatings()) {
-            if (communityItem.getNegativeRatingsCount() > communityItem.getPositiveRatingsCount()
-                    + communityItem.getNeutralRatingsCount()) {
-                numberInfo.rating = NumberInfo.Rating.NEGATIVE;
-            } else if (communityItem.getPositiveRatingsCount() > communityItem.getNeutralRatingsCount()
-                    + communityItem.getNegativeRatingsCount()) {
-                numberInfo.rating = NumberInfo.Rating.POSITIVE;
-            } else if (communityItem.getNeutralRatingsCount() > communityItem.getPositiveRatingsCount()
-                    + communityItem.getNegativeRatingsCount()) {
-                numberInfo.rating = NumberInfo.Rating.NEUTRAL;
-            }
-        }
-        numberInfo.communityDatabaseItem = communityItem;
-
-        LOG.trace("getNumberInfo() rating={}", numberInfo.rating);
-
-        return numberInfo;
     }
 
     @SuppressLint("MissingPermission")
