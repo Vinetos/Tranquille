@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +19,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:divider="?android:listDivider"
         android:orientation="vertical"
         android:paddingLeft="@dimen/item_padding"
@@ -97,4 +98,26 @@
             android:layout_marginBottom="@dimen/text_margin"
             android:text="@string/auto_update_enabled" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/callLogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:paddingTop="@dimen/item_padding"
+        android:text="@string/recent_calls"
+        android:textAlignment="textStart" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/callLogList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/item_padding"
+        android:layout_marginTop="@dimen/item_padding"
+        android:layout_marginRight="@dimen/item_padding"
+        android:layout_marginBottom="@dimen/item_padding"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/call_log_item" />
 </LinearLayout>

@@ -1,26 +1,41 @@
 package dummydomain.yetanothercallblocker;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 
 public class MainActivity extends AppCompatActivity {
+
+    private CallLogItemRecyclerViewAdapter callLogAdapter;
+    private List<CallLogItem> callLogItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        callLogAdapter = new CallLogItemRecyclerViewAdapter(callLogItems, this::onCallLogItemClicked);
+        RecyclerView recyclerView = findViewById(R.id.callLogList);
+        recyclerView.setAdapter(callLogAdapter);
 
         SwitchCompat notificationsSwitch = findViewById(R.id.notificationsEnabledSwitch);
         notificationsSwitch.setChecked(CallReceiver.isEnabled(this));
@@ -68,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         // TODO: handle
+
+        loadCallLog();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        loadCallLog();
     }
 
     public void onDownloadDbClick(View view) {
@@ -96,6 +120,33 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, DebugActivity.class));
     }
 
+    private void onCallLogItemClicked(CallLogItem item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle(item.number);
+
+        @SuppressLint("InflateParams")
+        View view = getLayoutInflater().inflate(R.layout.info_dialog, null);
+
+        TextView featuredNameView = view.findViewById(R.id.featuredName);
+        if (item.numberInfo.name != null) {
+            featuredNameView.setText(item.numberInfo.name);
+        } else {
+            featuredNameView.setVisibility(View.GONE);
+        }
+
+        ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
+                item.numberInfo.communityDatabaseItem);
+
+        builder.setView(view);
+
+        builder.setNeutralButton(R.string.online_reviews, (d, w)
+                -> ReviewsActivity.startForNumber(this, item.number));
+
+        builder.setNegativeButton(R.string.back, null);
+
+        builder.show();
+    }
+
     enum UpdateUiState {HIDDEN, NO_DB, DOWNLOADING_DB, ERROR}
 
     private void updateNoDbUi(UpdateUiState state) {
@@ -105,6 +156,43 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.downloadingDbText).setVisibility(state == UpdateUiState.DOWNLOADING_DB ? View.VISIBLE : View.GONE);
 
         findViewById(R.id.dbCouldNotBeDownloaded).setVisibility(state == UpdateUiState.ERROR ? View.VISIBLE : View.GONE);
+    }
+
+    private void loadCallLog() {
+        if (!PermissionHelper.havePermission(this, Manifest.permission.READ_CALL_LOG)) {
+            setCallLogVisibility(false);
+            return;
+        }
+
+        new AsyncTask<Void, Void, List<CallLogItem>>() {
+            @Override
+            protected List<CallLogItem> doInBackground(Void... voids) {
+                List<CallLogItem> items = CallLogHelper.getRecentCalls(MainActivity.this, 10);
+
+                for (CallLogItem item : items) {
+                    item.numberInfo = DatabaseSingleton.getCommunityDatabase().isOperational()
+                            ? DatabaseSingleton.getNumberInfo(item.number)
+                            : new NumberInfo();
+                }
+
+                return items;
+            }
+
+            @Override
+            protected void onPostExecute(List<CallLogItem> items) {
+                callLogItems.clear();
+                callLogItems.addAll(items);
+                callLogAdapter.notifyDataSetChanged();
+
+                setCallLogVisibility(true);
+            }
+        }.execute();
+    }
+
+    private void setCallLogVisibility(boolean visible) {
+        int visibility = visible ? View.VISIBLE : View.GONE;
+        findViewById(R.id.callLogTitle).setVisibility(visibility);
+        findViewById(R.id.callLogList).setVisibility(visibility);
     }
 
 }

@@ -2,13 +2,11 @@ package dummydomain.yetanothercallblocker;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.Map;
+import androidx.appcompat.app.AppCompatActivity;
 
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
@@ -121,17 +119,7 @@ public class DebugActivity extends AppCompatActivity {
     }
 
     private void displaySummary(CommunityDatabaseItem item) {
-        View summary = DebugActivity.this.findViewById(R.id.reviews_summary);
-        summary.setVisibility(View.VISIBLE);
-
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(R.id.summary_text_negative, item.getNegativeRatingsCount());
-        map.put(R.id.summary_text_neutral, item.getNeutralRatingsCount());
-        map.put(R.id.summary_text_positive, item.getPositiveRatingsCount());
-        for (Map.Entry<Integer, Integer> e: map.entrySet()) {
-            ((TextView) summary.findViewById(e.getKey())).setText(
-                    String.valueOf(e.getValue()));
-        }
+        ReviewsSummaryHelper.populateSummary(findViewById(R.id.reviews_summary), item);
     }
 
 }

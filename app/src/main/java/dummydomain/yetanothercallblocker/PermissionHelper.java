@@ -1,11 +1,13 @@
 package dummydomain.yetanothercallblocker;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,11 @@ public class PermissionHelper {
             ActivityCompat.requestPermissions(activity,
                     missingPermissions.toArray(new String[0]), PERMISSION_REQUEST_CODE);
         }
+    }
+
+    public static boolean havePermission(Context context, String permission) {
+        return ContextCompat.checkSelfPermission(context, permission)
+                == PackageManager.PERMISSION_GRANTED;
     }
 
 }

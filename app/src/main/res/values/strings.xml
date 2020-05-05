@@ -51,6 +51,10 @@
     <string name="downloading_db">Downloading DB…</string>
     <string name="db_could_not_be_downloaded">Database couldn\'t be downloaded</string>
 
+    <string name="recent_calls">Recent calls</string>
+    <string name="online_reviews">Online reviews</string>
+    <string name="back">Back</string>
+
     <string name="incoming_call_notifications_enabled">Incoming call notifications enabled</string>
     <string name="block_calls">Block unwanted calls</string>
     <string name="auto_update_enabled">Auto-update enabled</string>
