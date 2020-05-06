@@ -50,7 +50,9 @@
     <string name="title_activity_reviews">Reviews</string>
     <string name="reviews_loading">Loading reviews…</string>
 
-    <string name="denied_permissions_message">Some functionality may not work due to denied permissions</string>
+    <string name="denied_permissions_message_blocking_and_info">Blocking and notification functionality may not work due to denied permissions</string>
+    <string name="denied_permissions_message_info">Notification functionality may not work due to denied permissions</string>
+    <string name="denied_permissions_message_blocking">Blocking functionality may not work due to denied permissions</string>
 
     <string name="general_settings">General settings</string>
 

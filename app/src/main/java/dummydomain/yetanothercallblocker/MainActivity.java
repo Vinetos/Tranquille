@@ -34,6 +34,8 @@ import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final Settings settings = App.getSettings();
+
     private CallLogItemRecyclerViewAdapter callLogAdapter;
     private List<CallLogItem> callLogItems = new ArrayList<>();
 
@@ -49,17 +51,19 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.callLogList);
         recyclerView.setAdapter(callLogAdapter);
 
-        Settings settings = App.getSettings();
-
         SwitchCompat notificationsSwitch = findViewById(R.id.notificationsEnabledSwitch);
         notificationsSwitch.setChecked(settings.getIncomingCallNotifications());
-        notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
-                -> settings.setIncomingCallNotifications(isChecked));
+        notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            settings.setIncomingCallNotifications(isChecked);
+            checkPermissions();
+        });
 
         SwitchCompat blockCallsSwitch = findViewById(R.id.blockCallsSwitch);
         blockCallsSwitch.setChecked(settings.getBlockCalls());
-        blockCallsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
-                -> settings.setBlockCalls(isChecked));
+        blockCallsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            settings.setBlockCalls(isChecked);
+            checkPermissions();
+        });
 
         UpdateScheduler updateScheduler = UpdateScheduler.get(this);
         SwitchCompat autoUpdateSwitch = findViewById(R.id.autoUpdateEnabledSwitch);
@@ -81,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+        PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults,
+                settings.getIncomingCallNotifications(), settings.getBlockCalls());
 
         loadCallLog();
     }
@@ -94,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         startCheckMainDbTask();
 
-        PermissionHelper.checkPermissions(this);
+        checkPermissions();
 
         loadCallLog();
     }
@@ -122,6 +127,11 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onMainDbDownloadFinished(MainDbDownloadFinishedEvent event) {
         loadCallLog();
+    }
+
+    private void checkPermissions() {
+        PermissionHelper.checkPermissions(this,
+                settings.getIncomingCallNotifications(), settings.getBlockCalls());
     }
 
     private void startCheckMainDbTask() {
