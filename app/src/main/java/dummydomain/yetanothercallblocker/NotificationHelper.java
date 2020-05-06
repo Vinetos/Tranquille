@@ -25,6 +25,7 @@ public class NotificationHelper {
 
     private static final String NOTIFICATION_TAG_INCOMING_CALL = "incomingCallNotification";
     private static final String NOTIFICATION_TAG_BLOCKED_CALL = "blockedCallNotification";
+
     private static final int NOTIFICATION_ID_INCOMING_CALL = 1;
     private static final int NOTIFICATION_ID_BLOCKED_CALL = 2;
     public static final int NOTIFICATION_ID_TASKS = 3;
@@ -41,11 +42,19 @@ public class NotificationHelper {
     private static final String CHANNEL_ID_BLOCKED_INFO = "blocked_info";
     public static final String CHANNEL_ID_TASKS = "tasks";
 
+    public static void notify(Context context, int id, Notification notification) {
+        NotificationManagerCompat.from(context).notify(id, notification);
+    }
+
+    public static void notify(Context context, String tag, int id, Notification notification) {
+        NotificationManagerCompat.from(context).notify(tag, id, notification);
+    }
+
     public static void showIncomingCallNotification(Context context, NumberInfo numberInfo) {
         Notification notification = createIncomingCallNotification(context, numberInfo);
 
         String tag = numberInfo.number != null ? NOTIFICATION_TAG_INCOMING_CALL + numberInfo.number : null;
-        NotificationManagerCompat.from(context).notify(tag, NOTIFICATION_ID_INCOMING_CALL, notification);
+        notify(context, tag, NOTIFICATION_ID_INCOMING_CALL, notification);
     }
 
     public static void hideIncomingCallNotification(Context context, String number) {
@@ -57,7 +66,20 @@ public class NotificationHelper {
         Notification notification = createBlockedCallNotification(context, numberInfo);
 
         String tag = numberInfo.number != null ? NOTIFICATION_TAG_BLOCKED_CALL + numberInfo.number : null; // TODO: handle repeating
-        NotificationManagerCompat.from(context).notify(tag, NOTIFICATION_ID_BLOCKED_CALL, notification);
+        notify(context, tag, NOTIFICATION_ID_BLOCKED_CALL, notification);
+    }
+
+    public static Notification createServiceNotification(Context context, String title) {
+        if (title == null) title = context.getString(R.string.notification_background_operation);
+
+        Intent intent = new Intent(context, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(
+                context, 0, intent, 0);
+
+        return new NotificationCompat.Builder(context, CHANNEL_ID_TASKS)
+                .setSmallIcon(R.drawable.ic_file_download_black_24dp)
+                .setContentIntent(contentIntent)
+                .setContentTitle(title).build();
     }
 
     private static Notification createIncomingCallNotification(Context context, NumberInfo numberInfo) {

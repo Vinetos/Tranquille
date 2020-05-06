@@ -8,8 +8,6 @@ import android.os.Process;
 import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import org.slf4j.Logger;
@@ -78,23 +76,12 @@ public class TaskService extends IntentService {
     }
 
     private Notification createNotification(String title) {
-        if (title == null) title = getString(R.string.notification_background_operation);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(
-                getApplicationContext(), NotificationHelper.CHANNEL_ID_TASKS)
-                .setSmallIcon(R.drawable.ic_file_download_black_24dp);
-
-        builder.setContentTitle(title);
-
-        return builder.build();
+        return NotificationHelper.createServiceNotification(getApplicationContext(), title);
     }
 
     private void updateNotification(String title) {
-        NotificationManagerCompat notificationManager = NotificationManagerCompat
-                .from(getApplicationContext());
-
-        notificationManager.notify(NotificationHelper.NOTIFICATION_ID_TASKS,
-                createNotification(title));
+        NotificationHelper.notify(getApplicationContext(),
+                NotificationHelper.NOTIFICATION_ID_TASKS, createNotification(title));
     }
 
     private void downloadMainDb() {
