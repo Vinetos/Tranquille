@@ -77,7 +77,7 @@ public class NotificationHelper {
                 context, 0, intent, 0);
 
         return new NotificationCompat.Builder(context, CHANNEL_ID_TASKS)
-                .setSmallIcon(R.drawable.ic_file_download_black_24dp)
+                .setSmallIcon(R.drawable.ic_file_download_24dp)
                 .setContentIntent(contentIntent)
                 .setContentTitle(title).build();
     }
@@ -92,28 +92,28 @@ public class NotificationHelper {
             case POSITIVE:
                 channelId = numberInfo.known ? CHANNEL_ID_POSITIVE_KNOWN : CHANNEL_ID_POSITIVE;
                 title = context.getString(R.string.notification_incoming_call_positive);
-                icon = R.drawable.ic_thumb_up_black_24dp;
+                icon = R.drawable.ic_thumb_up_24dp;
                 color = 0xff00ff00;
                 break;
 
             case NEUTRAL:
                 channelId = CHANNEL_ID_NEUTRAL;
                 title = context.getString(R.string.notification_incoming_call_neutral);
-                icon = R.drawable.ic_thumbs_up_down_black_24dp;
+                icon = R.drawable.ic_thumbs_up_down_24dp;
                 color = 0xffffff60;
                 break;
 
             case NEGATIVE:
                 channelId = CHANNEL_ID_NEGATIVE;
                 title = context.getString(R.string.notification_incoming_call_negative);
-                icon = R.drawable.ic_thumb_down_black_24dp;
+                icon = R.drawable.ic_thumb_down_24dp;
                 color = 0xffff0000;
                 break;
 
             default:
                 channelId = CHANNEL_ID_UNKNOWN;
                 title = context.getString(R.string.notification_incoming_call_unknown);
-                icon = R.drawable.ic_thumbs_up_down_black_24dp;
+                icon = R.drawable.ic_thumbs_up_down_24dp;
                 color = 0xffffff60;
                 break;
         }
@@ -147,7 +147,7 @@ public class NotificationHelper {
         String text = getDescription(context, numberInfo);
 
         return new NotificationCompat.Builder(context, CHANNEL_ID_BLOCKED_INFO)
-                .setSmallIcon(R.drawable.ic_thumb_down_black_24dp)
+                .setSmallIcon(R.drawable.ic_thumb_down_24dp)
                 .setColor(0xffffff60)
                 .setContentTitle(title)
                 .setContentText(text)

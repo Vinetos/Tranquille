@@ -43,24 +43,24 @@ class IconAndColor {
     static IconAndColor forNumberRating(NumberRating rating) {
         switch (rating) {
             case NEUTRAL:
-                return of(R.drawable.ic_thumbs_up_down_black_24dp, R.color.rateNeutral);
+                return of(R.drawable.ic_thumbs_up_down_24dp, R.color.rateNeutral);
             case POSITIVE:
-                return of(R.drawable.ic_thumb_up_black_24dp, R.color.ratePositive);
+                return of(R.drawable.ic_thumb_up_24dp, R.color.ratePositive);
             case NEGATIVE:
-                return of(R.drawable.ic_thumb_down_black_24dp, R.color.rateNegative);
+                return of(R.drawable.ic_thumb_down_24dp, R.color.rateNegative);
         }
-        return new IconAndColor(R.drawable.ic_thumbs_up_down_black_24dp, R.color.notFound, true);
+        return new IconAndColor(R.drawable.ic_thumbs_up_down_24dp, R.color.notFound, true);
     }
 
     static IconAndColor forNumberRating(NumberInfo.Rating rating) {
         switch (rating) {
             case NEUTRAL:
-                return of(R.drawable.ic_thumbs_up_down_black_24dp, R.color.rateNeutral);
+                return of(R.drawable.ic_thumbs_up_down_24dp, R.color.rateNeutral);
             case POSITIVE:
-                return of(R.drawable.ic_thumb_up_black_24dp, R.color.ratePositive);
+                return of(R.drawable.ic_thumb_up_24dp, R.color.ratePositive);
             case NEGATIVE:
-                return of(R.drawable.ic_thumb_down_black_24dp, R.color.rateNegative);
+                return of(R.drawable.ic_thumb_down_24dp, R.color.rateNegative);
         }
-        return new IconAndColor(R.drawable.ic_thumbs_up_down_black_24dp, R.color.notFound, true);
+        return new IconAndColor(R.drawable.ic_thumbs_up_down_24dp, R.color.notFound, true);
     }
 }
