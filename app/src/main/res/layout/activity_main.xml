@@ -8,48 +8,16 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/callLogPermissionMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="@dimen/text_margin"
         android:layout_marginLeft="@dimen/text_margin"
         android:paddingTop="@dimen/item_padding"
-        android:text="@string/general_settings"
-        android:textAlignment="textStart" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="?android:listDivider"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/item_padding"
-        android:paddingRight="@dimen/item_padding"
-        android:showDividers="middle">
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/notificationsEnabledSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginBottom="@dimen/text_margin"
-            android:text="@string/incoming_call_notifications_enabled" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/blockCallsSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginBottom="@dimen/text_margin"
-            android:text="@string/block_calls" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/autoUpdateEnabledSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginBottom="@dimen/text_margin"
-            android:text="@string/auto_update_enabled" />
-    </LinearLayout>
+        android:text="@string/call_log_permission_message"
+        android:textAlignment="textStart"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/callLogTitle"

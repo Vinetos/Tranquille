@@ -14,7 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -36,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     private final Settings settings = App.getSettings();
 
+    private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
+
     private CallLogItemRecyclerViewAdapter callLogAdapter;
     private List<CallLogItem> callLogItems = new ArrayList<>();
 
@@ -50,34 +51,26 @@ public class MainActivity extends AppCompatActivity {
         callLogAdapter = new CallLogItemRecyclerViewAdapter(callLogItems, this::onCallLogItemClicked);
         RecyclerView recyclerView = findViewById(R.id.callLogList);
         recyclerView.setAdapter(callLogAdapter);
-
-        SwitchCompat notificationsSwitch = findViewById(R.id.notificationsEnabledSwitch);
-        notificationsSwitch.setChecked(settings.getIncomingCallNotifications());
-        notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            settings.setIncomingCallNotifications(isChecked);
-            checkPermissions();
-        });
-
-        SwitchCompat blockCallsSwitch = findViewById(R.id.blockCallsSwitch);
-        blockCallsSwitch.setChecked(settings.getBlockCalls());
-        blockCallsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            settings.setBlockCalls(isChecked);
-            checkPermissions();
-        });
-
-        UpdateScheduler updateScheduler = UpdateScheduler.get(this);
-        SwitchCompat autoUpdateSwitch = findViewById(R.id.autoUpdateEnabledSwitch);
-        autoUpdateSwitch.setChecked(updateScheduler.isAutoUpdateScheduled());
-        autoUpdateSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) updateScheduler.scheduleAutoUpdates();
-            else updateScheduler.cancelAutoUpdateWorker();
-        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_show_notifications).setChecked(
+                settings.getIncomingCallNotifications());
+
+        menu.findItem(R.id.menu_block_calls).setChecked(
+                settings.getBlockCalls());
+
+        menu.findItem(R.id.menu_auto_updates).setChecked(
+                updateScheduler.isAutoUpdateScheduled());
+
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -175,6 +168,21 @@ public class MainActivity extends AppCompatActivity {
         TaskService.start(this, TaskService.TASK_DOWNLOAD_MAIN_DB);
     }
 
+    public void onShowNotificationsChanged(MenuItem item) {
+        settings.setIncomingCallNotifications(!item.isChecked());
+        checkPermissions();
+    }
+
+    public void onBlockCallsChanged(MenuItem item) {
+        settings.setBlockCalls(!item.isChecked());
+        checkPermissions();
+    }
+
+    public void onAutoUpdatesChanged(MenuItem item) {
+        if (!item.isChecked()) updateScheduler.scheduleAutoUpdates();
+        else updateScheduler.cancelAutoUpdateWorker();
+    }
+
     public void onOpenDebugActivity(MenuItem item) {
         startActivity(new Intent(this, DebugActivity.class));
     }
@@ -218,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 = new AsyncTask<Void, Void, List<CallLogItem>>() {
             @Override
             protected List<CallLogItem> doInBackground(Void... voids) {
-                List<CallLogItem> items = CallLogHelper.getRecentCalls(MainActivity.this, 10);
+                List<CallLogItem> items = CallLogHelper.getRecentCalls(MainActivity.this, 20);
 
                 for (CallLogItem item : items) {
                     item.numberInfo = DatabaseSingleton.getCommunityDatabase().isOperational()
@@ -249,6 +257,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setCallLogVisibility(boolean visible) {
+        findViewById(R.id.callLogPermissionMessage)
+                .setVisibility(visible ? View.GONE : View.VISIBLE);
+
         int visibility = visible ? View.VISIBLE : View.GONE;
         findViewById(R.id.callLogTitle).setVisibility(visibility);
         findViewById(R.id.callLogList).setVisibility(visibility);

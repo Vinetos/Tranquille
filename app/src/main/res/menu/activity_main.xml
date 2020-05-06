@@ -2,6 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menu_show_notifications"
+        android:checkable="true"
+        android:onClick="onShowNotificationsChanged"
+        android:title="@string/incoming_call_notifications" />
+
+    <item
+        android:id="@+id/menu_block_calls"
+        android:checkable="true"
+        android:onClick="onBlockCallsChanged"
+        android:title="@string/block_calls" />
+
+    <item
+        android:id="@+id/menu_auto_updates"
+        android:checkable="true"
+        android:onClick="onAutoUpdatesChanged"
+        android:title="@string/auto_updates" />
+
+    <item
         android:onClick="onOpenDebugActivity"
         android:title="@string/open_debug_activity" />
 

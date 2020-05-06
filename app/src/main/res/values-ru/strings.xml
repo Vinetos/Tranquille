@@ -21,7 +21,7 @@
     <string name="sia_category_robocall">Робот/автомат</string>
     <string name="sia_category_nonprofit">Некоммерческая орг-я</string>
     <string name="block_calls">Блокировать нежелательные вызовы</string>
-    <string name="auto_update_enabled">Авто-обновление баз номеров</string>
+    <string name="auto_updates">Авто-обновление баз номеров</string>
     <string name="open_debug_activity">Открыть экран отладки</string>
     <string name="debug_activity_label">Отладка</string>
     <string name="debug_query_db">Искать в общей базе</string>
@@ -30,10 +30,9 @@
     <string name="debug_update_db">Обновить базы</string>
     <string name="debug_not_found">Не найдено</string>
     <string name="debug_update_result">Обновление завершено. Версия: %d</string>
-    <string name="incoming_call_notifications_enabled">Отображать уведомление при входящих</string>
+    <string name="incoming_call_notifications">Отображать уведомление при входящих</string>
     <string name="title_activity_reviews">Отзывы</string>
     <string name="reviews_loading">Загружаем отзывы…</string>
-    <string name="general_settings">Основные настройки</string>
     <string name="sia_category_fax">Факс</string>
     <string name="sia_category_nuisance">Злонамеренный</string>
     <string name="sia_category_unsolicited">Нежелательный</string>

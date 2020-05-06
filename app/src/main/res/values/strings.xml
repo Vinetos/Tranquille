@@ -54,7 +54,7 @@
     <string name="denied_permissions_message_info">Notification functionality may not work due to denied permissions</string>
     <string name="denied_permissions_message_blocking">Blocking functionality may not work due to denied permissions</string>
 
-    <string name="general_settings">General settings</string>
+    <string name="call_log_permission_message">Grant \"Phone\" permission to see recent calls</string>
 
     <string name="no_main_db_title">Download main database</string>
     <string name="no_main_db_text">Database is not present! For the app to perform most of its functions you need to download DB. It will take around 25 MB of traffic.</string>
@@ -68,9 +68,9 @@
     <string name="back">Back</string>
     <string name="no">No</string>
 
-    <string name="incoming_call_notifications_enabled">Incoming call notifications enabled</string>
+    <string name="incoming_call_notifications">Incoming call notifications</string>
     <string name="block_calls">Block unwanted calls</string>
-    <string name="auto_update_enabled">Auto-update enabled</string>
+    <string name="auto_updates">Auto-update database</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>
