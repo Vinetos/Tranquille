@@ -8,11 +8,15 @@ public class App extends Application {
 
     private static App instance;
 
+    private static Settings settings;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         instance = this;
+
+        settings = new Settings(this);
 
         EventBus.builder()
                 .throwSubscriberException(BuildConfig.DEBUG)
@@ -27,6 +31,10 @@ public class App extends Application {
 
     public static App getInstance() {
         return instance;
+    }
+
+    public static Settings getSettings() {
+        return settings;
     }
 
 }

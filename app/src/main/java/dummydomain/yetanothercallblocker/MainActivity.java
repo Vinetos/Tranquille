@@ -47,15 +47,17 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.callLogList);
         recyclerView.setAdapter(callLogAdapter);
 
+        Settings settings = App.getSettings();
+
         SwitchCompat notificationsSwitch = findViewById(R.id.notificationsEnabledSwitch);
-        notificationsSwitch.setChecked(CallReceiver.isEnabled(this));
+        notificationsSwitch.setChecked(settings.getIncomingCallNotifications());
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
-                -> CallReceiver.setEnabled(MainActivity.this, isChecked));
+                -> settings.setIncomingCallNotifications(isChecked));
 
         SwitchCompat blockCallsSwitch = findViewById(R.id.blockCallsSwitch);
-        blockCallsSwitch.setChecked(new Settings(this).getBlockCalls());
+        blockCallsSwitch.setChecked(settings.getBlockCalls());
         blockCallsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
-                -> new Settings(this).setBlockCalls(isChecked));
+                -> settings.setBlockCalls(isChecked));
 
         UpdateScheduler updateScheduler = UpdateScheduler.get(this);
         SwitchCompat autoUpdateSwitch = findViewById(R.id.autoUpdateEnabledSwitch);
