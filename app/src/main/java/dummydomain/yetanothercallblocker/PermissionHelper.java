@@ -4,7 +4,9 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -38,6 +40,27 @@ public class PermissionHelper {
         if (!missingPermissions.isEmpty()) {
             ActivityCompat.requestPermissions(activity,
                     missingPermissions.toArray(new String[0]), PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    public static void onRequestPermissionsResult(@NonNull Context context, int requestCode,
+                                                  @NonNull String[] permissions,
+                                                  @NonNull int[] grantResults) {
+        boolean denied = false;
+
+        if (permissions.length == 0) {
+            denied = true;
+        } else {
+            for (int grantResult : grantResults) {
+                if (grantResult != PackageManager.PERMISSION_GRANTED) {
+                    denied = true;
+                    break;
+                }
+            }
+        }
+
+        if (denied) {
+            Toast.makeText(context, R.string.denied_permissions_message, Toast.LENGTH_SHORT).show();
         }
     }
 

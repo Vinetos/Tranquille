@@ -50,6 +50,8 @@
     <string name="title_activity_reviews">Reviews</string>
     <string name="reviews_loading">Loading reviews…</string>
 
+    <string name="denied_permissions_message">Some functionality may not work due to denied permissions</string>
+
     <string name="general_settings">General settings</string>
 
     <string name="no_main_db_title">Download main database</string>

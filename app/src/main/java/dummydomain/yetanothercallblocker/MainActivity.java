@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        // TODO: handle
+        PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
 
         loadCallLog();
     }
