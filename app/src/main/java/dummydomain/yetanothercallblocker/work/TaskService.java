@@ -12,7 +12,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
-import org.greenrobot.eventbus.EventBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +23,10 @@ import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdatingEvent;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
+
+import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
+import static dummydomain.yetanothercallblocker.EventUtils.postStickyEvent;
+import static dummydomain.yetanothercallblocker.EventUtils.removeStickyEvent;
 
 public class TaskService extends IntentService {
 
@@ -95,45 +98,29 @@ public class TaskService extends IntentService {
     private void downloadMainDb() {
         MainDbDownloadingEvent sticky = new MainDbDownloadingEvent();
 
-        postSticky(sticky);
+        postStickyEvent(sticky);
         try {
             DbManager.downloadMainDb();
             DatabaseSingleton.getCommunityDatabase().reload();
             DatabaseSingleton.getFeaturedDatabase().reload();
         } finally {
-            removeSticky(sticky);
+            removeStickyEvent(sticky);
         }
 
-        post(new MainDbDownloadFinishedEvent());
+        postEvent(new MainDbDownloadFinishedEvent());
     }
 
     private void updateSecondaryDb() {
         SecondaryDbUpdatingEvent sticky = new SecondaryDbUpdatingEvent();
 
-        postSticky(sticky);
+        postStickyEvent(sticky);
         try {
             DatabaseSingleton.getCommunityDatabase().updateSecondaryDb();
         } finally {
-            removeSticky(sticky);
+            removeStickyEvent(sticky);
         }
 
-        post(new SecondaryDbUpdateFinished());
-    }
-
-    private void post(Object event) {
-        bus().post(event);
-    }
-
-    private void postSticky(Object event) {
-        bus().postSticky(event);
-    }
-
-    private void removeSticky(Object event) {
-        bus().removeStickyEvent(event);
-    }
-
-    private EventBus bus() {
-        return EventBus.getDefault();
+        postEvent(new SecondaryDbUpdateFinished());
     }
 
 }

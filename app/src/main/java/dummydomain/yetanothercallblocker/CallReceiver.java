@@ -17,8 +17,13 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 
+import dummydomain.yetanothercallblocker.event.CallEndedEvent;
+import dummydomain.yetanothercallblocker.event.CallOngoingEvent;
+import dummydomain.yetanothercallblocker.event.CallStartedEvent;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
+
+import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
 
 public class CallReceiver extends BroadcastReceiver {
 
@@ -37,8 +42,11 @@ public class CallReceiver extends BroadcastReceiver {
 
         if (TelephonyManager.EXTRA_STATE_OFFHOOK.equals(telephonyExtraState)) {
             isOnCall = true;
+            postEvent(new CallOngoingEvent());
         } else if (TelephonyManager.EXTRA_STATE_RINGING.equals(telephonyExtraState)) {
             if (incomingNumber == null) return;
+
+            postEvent(new CallStartedEvent());
 
             Settings settings = App.getSettings();
 
@@ -55,6 +63,7 @@ public class CallReceiver extends BroadcastReceiver {
 
                     if (blocked) {
                         NotificationHelper.showBlockedCallNotification(context, numberInfo);
+                        postEvent(new CallEndedEvent());
                     }
                 }
 
@@ -65,6 +74,7 @@ public class CallReceiver extends BroadcastReceiver {
         } else if(TelephonyManager.EXTRA_STATE_IDLE.equals(telephonyExtraState)) {
             isOnCall = false;
             NotificationHelper.hideIncomingCallNotification(context, incomingNumber);
+            postEvent(new CallEndedEvent());
         }
     }
 

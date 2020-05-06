@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
@@ -110,6 +112,11 @@ public class MainActivity extends AppCompatActivity {
         cancelLoadingCallLogTask();
 
         super.onDestroy();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
+    public void onCallEvent(CallEndedEvent event) {
+        new Handler(getMainLooper()).postDelayed(this::loadCallLog, 1000);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
