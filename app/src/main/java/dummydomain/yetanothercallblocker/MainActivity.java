@@ -16,17 +16,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
+import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
-import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
+import dummydomain.yetanothercallblocker.work.TaskService;
 
 public class MainActivity extends AppCompatActivity {
 
     private CallLogItemRecyclerViewAdapter callLogAdapter;
     private List<CallLogItem> callLogItems = new ArrayList<>();
+
+    private AsyncTask<Void, Void, Boolean> checkMainDbTask;
+    private AsyncTask<Void, Void, List<CallLogItem>> loadCallLogTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,22 +62,6 @@ public class MainActivity extends AppCompatActivity {
             if (isChecked) Updater.scheduleAutoUpdateWorker();
             else Updater.cancelAutoUpdateWorker();
         });
-
-        @SuppressLint("StaticFieldLeak")
-        AsyncTask<Void, Void, Boolean> noDbTask = new AsyncTask<Void, Void, Boolean>() {
-            @Override
-            protected Boolean doInBackground(Void... voids) {
-                return DatabaseSingleton.getCommunityDatabase().isOperational();
-            }
-
-            @Override
-            protected void onPostExecute(Boolean result) {
-                updateNoDbUi(result ? UpdateUiState.HIDDEN : UpdateUiState.NO_DB);
-            }
-        };
-        noDbTask.execute();
-
-        PermissionHelper.checkPermissions(this);
     }
 
     @Override
@@ -91,29 +84,74 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        EventBus.getDefault().register(this);
+
+        startCheckMainDbTask();
+
+        PermissionHelper.checkPermissions(this);
+
         loadCallLog();
     }
 
-    public void onDownloadDbClick(View view) {
-        // TODO: use service
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
 
-        updateNoDbUi(UpdateUiState.DOWNLOADING_DB);
+        super.onStop();
+    }
 
+    @Override
+    protected void onDestroy() {
+        cancelCheckMainDbTask();
+        cancelLoadingCallLogTask();
+
+        super.onDestroy();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
+    public void onMainDbDownloadFinished(MainDbDownloadFinishedEvent event) {
+        loadCallLog();
+    }
+
+    private void startCheckMainDbTask() {
+        cancelCheckMainDbTask();
         @SuppressLint("StaticFieldLeak")
-        AsyncTask<Void, Void, Boolean> dlTask = new AsyncTask<Void, Void, Boolean>() {
+        AsyncTask<Void, Void, Boolean> checkMainDbTask = this.checkMainDbTask
+                = new AsyncTask<Void, Void, Boolean>() {
             @Override
             protected Boolean doInBackground(Void... voids) {
-                return DbManager.downloadMainDb()
-                        && DatabaseSingleton.getCommunityDatabase().reload()
-                        && DatabaseSingleton.getFeaturedDatabase().reload();
+                return DatabaseSingleton.getCommunityDatabase().isOperational();
             }
 
             @Override
             protected void onPostExecute(Boolean result) {
-                updateNoDbUi(result ? UpdateUiState.HIDDEN : UpdateUiState.ERROR);
+                if (!result && EventBus.getDefault().getStickyEvent(MainDbDownloadingEvent.class) == null) {
+                    showNoMainDbDialog();
+                }
             }
         };
-        dlTask.execute();
+        checkMainDbTask.execute();
+    }
+
+    private void cancelCheckMainDbTask() {
+        if (checkMainDbTask != null) {
+            checkMainDbTask.cancel(true);
+            checkMainDbTask = null;
+        }
+    }
+
+    private void showNoMainDbDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.no_main_db_title)
+                .setMessage(R.string.no_main_db_text)
+                .setPositiveButton(R.string.download_main_db,
+                        (d, w) -> downloadMainDb())
+                .setNegativeButton(R.string.no, null)
+                .show();
+    }
+
+    public void downloadMainDb() {
+        TaskService.start(this, TaskService.TASK_DOWNLOAD_MAIN_DB);
     }
 
     public void onOpenDebugActivity(MenuItem item) {
@@ -147,24 +185,16 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    enum UpdateUiState {HIDDEN, NO_DB, DOWNLOADING_DB, ERROR}
-
-    private void updateNoDbUi(UpdateUiState state) {
-        findViewById(R.id.noDbText).setVisibility(state == UpdateUiState.NO_DB ? View.VISIBLE : View.GONE);
-        findViewById(R.id.downloadDbButton).setVisibility(state == UpdateUiState.NO_DB ? View.VISIBLE : View.GONE);
-
-        findViewById(R.id.downloadingDbText).setVisibility(state == UpdateUiState.DOWNLOADING_DB ? View.VISIBLE : View.GONE);
-
-        findViewById(R.id.dbCouldNotBeDownloaded).setVisibility(state == UpdateUiState.ERROR ? View.VISIBLE : View.GONE);
-    }
-
     private void loadCallLog() {
         if (!PermissionHelper.havePermission(this, Manifest.permission.READ_CALL_LOG)) {
             setCallLogVisibility(false);
             return;
         }
 
-        new AsyncTask<Void, Void, List<CallLogItem>>() {
+        cancelLoadingCallLogTask();
+        @SuppressLint("StaticFieldLeak")
+        AsyncTask<Void, Void, List<CallLogItem>> loadCallLogTask = this.loadCallLogTask
+                = new AsyncTask<Void, Void, List<CallLogItem>>() {
             @Override
             protected List<CallLogItem> doInBackground(Void... voids) {
                 List<CallLogItem> items = CallLogHelper.getRecentCalls(MainActivity.this, 10);
@@ -186,7 +216,15 @@ public class MainActivity extends AppCompatActivity {
 
                 setCallLogVisibility(true);
             }
-        }.execute();
+        };
+        loadCallLogTask.execute();
+    }
+
+    private void cancelLoadingCallLogTask() {
+        if (loadCallLogTask != null) {
+            loadCallLogTask.cancel(true);
+            loadCallLogTask = null;
+        }
     }
 
     private void setCallLogVisibility(boolean visible) {

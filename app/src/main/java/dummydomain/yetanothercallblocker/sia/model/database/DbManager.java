@@ -33,9 +33,20 @@ public class DbManager {
 
         if (DbDownloader.download(url, FileUtils.getDataDirPath() + tmpUpdateDir)) {
             LOG.debug("downloadMainDb() downloaded and unpacked");
-            new File(dataDir, siaDir).renameTo(new File(dataDir, oldDir));
-            new File(dataDir, tmpUpdateDir).renameTo(new File(dataDir, siaDir));
+
+            File old = new File(dataDir, siaDir);
+            if (old.exists() && !old.renameTo(new File(dataDir, oldDir))) {
+                LOG.warn("downloadMainDb() couldn't rename sia to old");
+                return false;
+            }
+
+            if (!new File(dataDir, tmpUpdateDir).renameTo(new File(dataDir, siaDir))) {
+                LOG.warn("downloadMainDb() couldn't rename tmp to sia");
+                return false;
+            }
+
             FileUtils.delete(dataDir, oldDir);
+
             LOG.debug("downloadMainDb() folders moved");
             return true;
         } else {

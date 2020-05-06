@@ -1,16 +1,18 @@
 package dummydomain.yetanothercallblocker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -22,7 +24,8 @@ public class ReviewsActivity extends AppCompatActivity {
     private static final String PARAM_NUMBER = "param_number";
 
     private CustomListViewAdapter listViewAdapter;
-    private RecyclerView reviewsList;
+
+    private AsyncTask<Void, Void, List<CommunityReview>> loadReviewsTask;
 
     public static Intent getNumberIntent(Context context, String number) {
         Intent intent = new Intent(context, ReviewsActivity.class);
@@ -47,12 +50,14 @@ public class ReviewsActivity extends AppCompatActivity {
         setText(getString(R.string.reviews_loading));
 
         listViewAdapter = new CustomListViewAdapter();
-        reviewsList = findViewById(R.id.reviews_list);
+        RecyclerView reviewsList = findViewById(R.id.reviews_list);
         reviewsList.setLayoutManager(new LinearLayoutManager(this));
         reviewsList.setAdapter(listViewAdapter);
         reviewsList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        new AsyncTask<Void, Void, List<CommunityReview>>() {
+        @SuppressLint("StaticFieldLeak")
+        AsyncTask<Void, Void, List<CommunityReview>> asyncTask = loadReviewsTask
+                = new AsyncTask<Void, Void, List<CommunityReview>>() {
             @Override
             protected List<CommunityReview> doInBackground(Void... voids) {
                 return CommunityReviewsLoader.loadReviews(paramNumber);
@@ -63,7 +68,22 @@ public class ReviewsActivity extends AppCompatActivity {
                 setText("");
                 handleReviews(reviews);
             }
-        }.execute();
+        };
+        asyncTask.execute();
+    }
+
+    @Override
+    protected void onDestroy() {
+        cancelReviewsLoadingTask();
+
+        super.onDestroy();
+    }
+
+    private void cancelReviewsLoadingTask() {
+        if (loadReviewsTask != null) {
+            loadReviewsTask.cancel(true);
+            loadReviewsTask = null;
+        }
     }
 
     private void setText(String text) {

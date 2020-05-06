@@ -8,10 +8,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
+import dummydomain.yetanothercallblocker.work.TaskService;
 
 public class DebugActivity extends AppCompatActivity {
 
@@ -20,6 +26,26 @@ public class DebugActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug);
         hideSummary();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+
+        super.onStop();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
+    public void onSecondaryDbUpdateFinished(SecondaryDbUpdateFinished event) {
+        setResult(getString(R.string.debug_update_result,
+                DatabaseSingleton.getCommunityDatabase().getEffectiveDbVersion()));
     }
 
     public void onQueryDbButtonClick(View view) {
@@ -90,20 +116,7 @@ public class DebugActivity extends AppCompatActivity {
         setResult("");
         hideSummary();
 
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... voids) {
-                DatabaseSingleton.getCommunityDatabase().updateSecondaryDb();
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                setResult(DebugActivity.this.getString(R.string.debug_update_result,
-                        DatabaseSingleton.getCommunityDatabase().getEffectiveDbVersion()));
-            }
-        }.execute();
+        TaskService.start(this, TaskService.TASK_UPDATE_SECONDARY_DB);
     }
 
     private String getNumber() {

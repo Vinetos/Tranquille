@@ -26,54 +26,6 @@
         android:paddingRight="@dimen/item_padding"
         android:showDividers="middle">
 
-        <TextView
-            android:id="@+id/noDbText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="@dimen/text_margin"
-            android:layout_marginLeft="@dimen/text_margin"
-            android:paddingTop="@dimen/item_padding"
-            android:text="@string/no_main_db"
-            android:textAlignment="textStart"
-            android:textColor="@color/rateNegative"
-            android:visibility="gone" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/downloadDbButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginBottom="@dimen/text_margin"
-            android:onClick="onDownloadDbClick"
-            android:text="@string/download_main_db"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/downloadingDbText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="@dimen/text_margin"
-            android:layout_marginLeft="@dimen/text_margin"
-            android:paddingTop="@dimen/item_padding"
-            android:text="@string/downloading_db"
-            android:textAlignment="textStart"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/dbCouldNotBeDownloaded"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="@dimen/text_margin"
-            android:layout_marginLeft="@dimen/text_margin"
-            android:paddingTop="@dimen/item_padding"
-            android:text="@string/db_could_not_be_downloaded"
-            android:textAlignment="textStart"
-            android:textColor="@color/rateNegative"
-            android:visibility="gone" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/notificationsEnabledSwitch"
             android:layout_width="match_parent"

@@ -1,13 +1,17 @@
 package dummydomain.yetanothercallblocker;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 
+import androidx.annotation.NonNull;
+import androidx.work.Worker;
+import androidx.work.WorkerParameters;
+
+import org.greenrobot.eventbus.EventBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import androidx.work.Worker;
-import androidx.work.WorkerParameters;
+import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
+import dummydomain.yetanothercallblocker.event.SecondaryDbUpdatingEvent;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 
 public class UpdateWorker extends Worker {
@@ -23,7 +27,18 @@ public class UpdateWorker extends Worker {
     public Result doWork() {
         LOG.info("doWork() started");
 
-        DatabaseSingleton.getCommunityDatabase().updateSecondaryDb();
+        EventBus bus = EventBus.getDefault();
+
+        SecondaryDbUpdatingEvent sticky = new SecondaryDbUpdatingEvent();
+
+        bus.postSticky(sticky);
+        try {
+            DatabaseSingleton.getCommunityDatabase().updateSecondaryDb();
+        } finally {
+            bus.removeStickyEvent(sticky);
+        }
+
+        bus.post(new SecondaryDbUpdateFinished());
 
         LOG.info("doWork() finished");
         return Result.success();

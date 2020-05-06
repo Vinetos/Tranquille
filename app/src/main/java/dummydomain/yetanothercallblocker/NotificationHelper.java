@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.core.app.NotificationCompat;
@@ -26,15 +27,19 @@ public class NotificationHelper {
     private static final String NOTIFICATION_TAG_BLOCKED_CALL = "blockedCallNotification";
     private static final int NOTIFICATION_ID_INCOMING_CALL = 1;
     private static final int NOTIFICATION_ID_BLOCKED_CALL = 2;
+    public static final int NOTIFICATION_ID_TASKS = 3;
 
     private static final String CHANNEL_GROUP_ID_INCOMING_CALLS = "incoming_calls";
     private static final String CHANNEL_GROUP_ID_BLOCKED_CALLS = "blocked_calls";
+    private static final String CHANNEL_GROUP_ID_TASKS = "tasks";
+
     private static final String CHANNEL_ID_POSITIVE_KNOWN = "positive_known_calls";
     private static final String CHANNEL_ID_POSITIVE = "positive_calls";
     private static final String CHANNEL_ID_NEUTRAL = "neutral_calls";
     private static final String CHANNEL_ID_UNKNOWN = "unknown_calls";
     private static final String CHANNEL_ID_NEGATIVE = "negative_calls";
     private static final String CHANNEL_ID_BLOCKED_INFO = "blocked_info";
+    public static final String CHANNEL_ID_TASKS = "tasks";
 
     public static void showIncomingCallNotification(Context context, NumberInfo numberInfo) {
         Notification notification = createIncomingCallNotification(context, numberInfo);
@@ -171,6 +176,11 @@ public class NotificationHelper {
                     context.getString(R.string.notification_channel_group_name_blocked_calls));
             notificationManager.createNotificationChannelGroup(channelGroupBlocked);
 
+            NotificationChannelGroup channelGroupTasks = new NotificationChannelGroup(
+                    CHANNEL_GROUP_ID_TASKS,
+                    context.getString(R.string.notification_channel_group_name_tasks));
+            notificationManager.createNotificationChannelGroup(channelGroupTasks);
+
             List<NotificationChannel> channels = new ArrayList<>();
 
             NotificationChannel channel;
@@ -215,6 +225,13 @@ public class NotificationHelper {
                     NotificationManager.IMPORTANCE_LOW
             );
             channel.setGroup(channelGroupBlocked.getId());
+            channels.add(channel);
+
+            channel = new NotificationChannel(
+                    CHANNEL_ID_TASKS, context.getString(R.string.notification_channel_name_tasks),
+                    NotificationManager.IMPORTANCE_LOW
+            );
+            channel.setGroup(channelGroupTasks.getId());
             channels.add(channel);
 
             notificationManager.createNotificationChannels(channels);

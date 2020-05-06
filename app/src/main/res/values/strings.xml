@@ -3,6 +3,7 @@
 
     <string name="notification_channel_group_name_incoming_calls">Incoming calls</string>
     <string name="notification_channel_group_name_blocked_calls">Blocked calls</string>
+    <string name="notification_channel_group_name_tasks">Tasks</string>
 
     <string name="notification_channel_name_positive_known">Known positive calls</string>
     <string name="notification_channel_name_positive">Positive calls</string>
@@ -10,6 +11,7 @@
     <string name="notification_channel_name_unknown">Unknown calls</string>
     <string name="notification_channel_name_negative">Negative calls</string>
     <string name="notification_channel_name_blocked_info">Blocked info</string>
+    <string name="notification_channel_name_tasks">Tasks</string>
 
     <string name="notification_incoming_call_positive">Positive call</string>
     <string name="notification_incoming_call_neutral">Neutral call</string>
@@ -19,6 +21,8 @@
     <string name="notification_blocked_call">Blocked call</string>
 
     <string name="notification_incoming_call_text_description">Negative: %d, positive: %d, neutral: %d</string>
+
+    <string name="notification_background_operation">Performing background operation…</string>
 
     <string name="sia_category_none">None</string>
     <string name="sia_category_telemarketer">Telemarketer</string>
@@ -47,18 +51,22 @@
     <string name="reviews_loading">Loading reviews…</string>
 
     <string name="general_settings">General settings</string>
-    <string name="no_main_db">Database is not present! For the app to function offline you need to download DB. Press the button below to do it.</string>
-    <string name="downloading_db">Downloading DB…</string>
-    <string name="db_could_not_be_downloaded">Database couldn\'t be downloaded</string>
+
+    <string name="no_main_db_title">Download main database</string>
+    <string name="no_main_db_text">Database is not present! For the app to perform most of its functions you need to download DB. It will take around 25 MB of traffic.</string>
+    <string name="download_main_db">Download database</string>
+    <string name="main_db_downloading">Downloading DB…</string>
+
+    <string name="secondary_db_updating">Updating DB…</string>
 
     <string name="recent_calls">Recent calls</string>
     <string name="online_reviews">Online reviews</string>
     <string name="back">Back</string>
+    <string name="no">No</string>
 
     <string name="incoming_call_notifications_enabled">Incoming call notifications enabled</string>
     <string name="block_calls">Block unwanted calls</string>
     <string name="auto_update_enabled">Auto-update enabled</string>
-    <string name="download_main_db">Download database</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>
