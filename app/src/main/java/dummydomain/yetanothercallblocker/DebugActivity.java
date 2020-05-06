@@ -7,15 +7,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.Date;
+
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
+import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
+import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 import dummydomain.yetanothercallblocker.work.TaskService;
 
@@ -26,6 +31,8 @@ public class DebugActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug);
         hideSummary();
+
+        onDbInfoButtonClick(null);
     }
 
     @Override
@@ -52,17 +59,23 @@ public class DebugActivity extends AppCompatActivity {
         setResult("");
         hideSummary();
 
-        new AsyncTask<Void, Void, CommunityDatabaseItem>() {
+        new AsyncTask<Void, Void, Pair<CommunityDatabaseItem, FeaturedDatabaseItem>>() {
             @Override
-            protected CommunityDatabaseItem doInBackground(Void... voids) {
+            protected Pair<CommunityDatabaseItem, FeaturedDatabaseItem> doInBackground(Void... voids) {
                 CommunityDatabaseItem item = DatabaseSingleton.getCommunityDatabase()
                         .getDbItemByNumber(getNumber());
 
-                return item;
+                FeaturedDatabaseItem featuredItem = DatabaseSingleton.getFeaturedDatabase()
+                        .getDbItemByNumber(getNumber());
+
+                return new Pair(item, featuredItem);
             }
 
             @Override
-            protected void onPostExecute(CommunityDatabaseItem item) {
+            protected void onPostExecute(Pair<CommunityDatabaseItem, FeaturedDatabaseItem> result) {
+                CommunityDatabaseItem item = result.first;
+                FeaturedDatabaseItem featuredItem = result.second;
+
                 String string;
                 if (item != null) {
                     string = item.getNumber() + "\n";
@@ -82,34 +95,53 @@ public class DebugActivity extends AppCompatActivity {
                 } else {
                     string = DebugActivity.this.getString(R.string.debug_not_found);
                 }
+
+                if (featuredItem != null) {
+                    string += "\n" + "Featured name: " + featuredItem.getName();
+                }
+
                 setResult(string);
-            }
-        }.execute();
-    }
-
-    public void onQueryFeaturedDbButtonClick(View view) {
-        setResult("");
-        hideSummary();
-
-        new AsyncTask<Void, Void, FeaturedDatabaseItem>() {
-            @Override
-            protected FeaturedDatabaseItem doInBackground(Void... voids) {
-                FeaturedDatabaseItem item = DatabaseSingleton.getFeaturedDatabase()
-                        .getDbItemByNumber(getNumber());
-
-                return item;
-            }
-
-            @Override
-            protected void onPostExecute(FeaturedDatabaseItem item) {
-                setResult(item != null ? item.toString()
-                        : DebugActivity.this.getString(R.string.debug_not_found));
             }
         }.execute();
     }
 
     public void onLoadReviewsButtonClick(View view) {
         ReviewsActivity.startForNumber(this, getNumber());
+    }
+
+    public void onDbInfoButtonClick(View view) {
+        setResult("");
+        hideSummary();
+
+        new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... voids) {
+                StringBuilder sb = new StringBuilder();
+
+                CommunityDatabase communityDatabase = DatabaseSingleton.getCommunityDatabase();
+
+                sb.append("DB info:\n");
+                sb.append("Operational: ").append(communityDatabase.isOperational()).append('\n');
+                sb.append("Base version: ").append(communityDatabase.getBaseDbVersion());
+                sb.append(" (SIA: ").append(communityDatabase.getSiaAppVersion()).append(")\n");
+                sb.append("Effective version: ").append(communityDatabase.getEffectiveDbVersion()).append('\n');
+                sb.append("Last update time: ").append(new Date(App.getSettings().getLastUpdateTime())).append('\n');
+                sb.append("Last update check time: ").append(new Date(App.getSettings().getLastUpdateCheckTime())).append('\n');
+
+                FeaturedDatabase featuredDatabase = DatabaseSingleton.getFeaturedDatabase();
+
+                sb.append("Featured DB info:\n");
+                sb.append("Operational: ").append(featuredDatabase.isOperational()).append('\n');
+                sb.append("Effective version: ").append(featuredDatabase.getBaseDbVersion()).append('\n');
+
+                return sb.toString();
+            }
+
+            @Override
+            protected void onPostExecute(String info) {
+                setResult(info);
+            }
+        }.execute();
     }
 
     public void onUpdateDbButtonClick(View view) {

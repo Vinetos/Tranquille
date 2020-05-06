@@ -28,14 +28,14 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onQueryFeaturedDbButtonClick"
-            android:text="@string/debug_query_featured_db" />
+            android:onClick="onLoadReviewsButtonClick"
+            android:text="@string/debug_load_reviews" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onLoadReviewsButtonClick"
-            android:text="@string/debug_load_reviews" />
+            android:onClick="onDbInfoButtonClick"
+            android:text="@string/debug_db_info" />
 
         <Button
             android:layout_width="match_parent"

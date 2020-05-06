@@ -219,12 +219,12 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
         FileUtils.createDirectory(getDataDir(), getSecondaryDbPathPrefix());
     }
 
-    public void updateSecondaryDb() {
+    public boolean updateSecondaryDb() {
         LOG.info("updateSecondaryDb() started");
 
         if (!isOperational()) {
             LOG.warn("updateSecondaryDb() DB is not operational, update aborted");
-            return;
+            return false;
         }
 
         long startTimestamp = System.currentTimeMillis();
@@ -249,6 +249,8 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
         }
 
         LOG.info("updateSecondaryDb() finished in {} ms", System.currentTimeMillis() - startTimestamp);
+
+        return updated;
     }
 
     private UpdateResult updateSecondaryDbInternal() {

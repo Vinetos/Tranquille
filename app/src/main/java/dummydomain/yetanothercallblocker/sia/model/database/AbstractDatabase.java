@@ -40,6 +40,11 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
         return loaded;
     }
 
+    public int getBaseDbVersion() {
+        checkLoaded();
+        return baseDatabaseVersion;
+    }
+
     public boolean reload() {
         return load();
     }

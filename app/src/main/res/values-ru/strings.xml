@@ -25,7 +25,6 @@
     <string name="open_debug_activity">Открыть экран отладки</string>
     <string name="debug_activity_label">Отладка</string>
     <string name="debug_query_db">Искать в общей базе</string>
-    <string name="debug_query_featured_db">Искать в базе организаций</string>
     <string name="debug_load_reviews">Показать online-отзывы</string>
     <string name="debug_update_db">Обновить базы</string>
     <string name="debug_not_found">Не найдено</string>

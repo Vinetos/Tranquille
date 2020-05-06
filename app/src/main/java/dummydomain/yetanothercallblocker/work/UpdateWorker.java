@@ -6,13 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-import org.greenrobot.eventbus.EventBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dummydomain.yetanothercallblocker.App;
+import dummydomain.yetanothercallblocker.Settings;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdatingEvent;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
+
+import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
+import static dummydomain.yetanothercallblocker.EventUtils.postStickyEvent;
+import static dummydomain.yetanothercallblocker.EventUtils.removeStickyEvent;
 
 public class UpdateWorker extends Worker {
 
@@ -27,18 +32,21 @@ public class UpdateWorker extends Worker {
     public Result doWork() {
         LOG.info("doWork() started");
 
-        EventBus bus = EventBus.getDefault();
+        Settings settings = App.getSettings();
 
         SecondaryDbUpdatingEvent sticky = new SecondaryDbUpdatingEvent();
 
-        bus.postSticky(sticky);
+        postStickyEvent(sticky);
         try {
-            DatabaseSingleton.getCommunityDatabase().updateSecondaryDb();
+            if (DatabaseSingleton.getCommunityDatabase().updateSecondaryDb()) {
+                settings.setLastUpdateTime(System.currentTimeMillis());
+            }
+            settings.setLastUpdateCheckTime(System.currentTimeMillis());
         } finally {
-            bus.removeStickyEvent(sticky);
+            removeStickyEvent(sticky);
         }
 
-        bus.post(new SecondaryDbUpdateFinished());
+        postEvent(new SecondaryDbUpdateFinished());
 
         LOG.info("doWork() finished");
         return Result.success();

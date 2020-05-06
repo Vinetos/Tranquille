@@ -15,8 +15,10 @@ import androidx.core.content.ContextCompat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dummydomain.yetanothercallblocker.App;
 import dummydomain.yetanothercallblocker.NotificationHelper;
 import dummydomain.yetanothercallblocker.R;
+import dummydomain.yetanothercallblocker.Settings;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
@@ -111,11 +113,16 @@ public class TaskService extends IntentService {
     }
 
     private void updateSecondaryDb() {
+        Settings settings = App.getSettings();
+
         SecondaryDbUpdatingEvent sticky = new SecondaryDbUpdatingEvent();
 
         postStickyEvent(sticky);
         try {
-            DatabaseSingleton.getCommunityDatabase().updateSecondaryDb();
+            if (DatabaseSingleton.getCommunityDatabase().updateSecondaryDb()) {
+                settings.setLastUpdateTime(System.currentTimeMillis());
+            }
+            settings.setLastUpdateCheckTime(System.currentTimeMillis());
         } finally {
             removeStickyEvent(sticky);
         }
