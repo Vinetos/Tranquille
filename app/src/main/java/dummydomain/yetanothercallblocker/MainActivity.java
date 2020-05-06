@@ -28,6 +28,7 @@ import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
 import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
 import dummydomain.yetanothercallblocker.work.TaskService;
+import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,11 +57,12 @@ public class MainActivity extends AppCompatActivity {
         blockCallsSwitch.setOnCheckedChangeListener((buttonView, isChecked)
                 -> new Settings(this).setBlockCalls(isChecked));
 
+        UpdateScheduler updateScheduler = UpdateScheduler.get(this);
         SwitchCompat autoUpdateSwitch = findViewById(R.id.autoUpdateEnabledSwitch);
-        autoUpdateSwitch.setChecked(Updater.isAutoUpdateScheduled());
+        autoUpdateSwitch.setChecked(updateScheduler.isAutoUpdateScheduled());
         autoUpdateSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) Updater.scheduleAutoUpdateWorker();
-            else Updater.cancelAutoUpdateWorker();
+            if (isChecked) updateScheduler.scheduleAutoUpdates();
+            else updateScheduler.cancelAutoUpdateWorker();
         });
     }
 

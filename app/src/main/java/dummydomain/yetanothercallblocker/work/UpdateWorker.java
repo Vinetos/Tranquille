@@ -1,4 +1,4 @@
-package dummydomain.yetanothercallblocker;
+package dummydomain.yetanothercallblocker.work;
 
 import android.content.Context;
 
