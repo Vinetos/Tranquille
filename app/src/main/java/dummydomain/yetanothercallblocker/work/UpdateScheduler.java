@@ -36,11 +36,27 @@ public class UpdateScheduler {
 
         Constraints constraints = new Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
+                .setRequiresBatteryNotLow(true)
                 .build();
 
         PeriodicWorkRequest updateRequest =
                 new PeriodicWorkRequest.Builder(UpdateWorker.class, 1, TimeUnit.DAYS)
                         .addTag(AUTO_UPDATE_WORK_TAG)
+                        .setConstraints(constraints)
+                        .build();
+
+        getWorkManager().enqueue(updateRequest);
+
+        constraints = new Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.UNMETERED)
+                .setRequiresBatteryNotLow(true)
+                .setRequiresDeviceIdle(true)
+                .build();
+
+        updateRequest =
+                new PeriodicWorkRequest.Builder(UpdateWorker.class, 6, TimeUnit.HOURS)
+                        .addTag(AUTO_UPDATE_WORK_TAG)
+                        .setInitialDelay(6, TimeUnit.HOURS)
                         .setConstraints(constraints)
                         .build();
 
