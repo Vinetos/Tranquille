@@ -20,6 +20,8 @@ import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
+import static dummydomain.yetanothercallblocker.PendingIntentHelper.forActivity;
+
 public class NotificationHelper {
 
     private static final String NOTIFICATION_TAG_INCOMING_CALL = "incomingCallNotification";
@@ -129,7 +131,7 @@ public class NotificationHelper {
         IconAndColor iconAndColor = IconAndColor.forNumberRating(
                 numberInfo.rating, numberInfo.contactItem != null);
 
-        return new NotificationCompat.Builder(context, channelId)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(iconAndColor.iconResId)
                 .setColor(iconAndColor.getColorInt(context))
                 .setContentTitle(title)
@@ -137,24 +139,29 @@ public class NotificationHelper {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_STATUS)
                 .setShowWhen(false)
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC) // TODO: check
-                .setContentIntent(createReviewsIntent(context, numberInfo))
-                .build();
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC); // TODO: check
+
+        addCallNotificationIntents(context, builder, numberInfo);
+
+        return builder.build();
     }
 
     private static Notification createBlockedCallNotification(Context context, NumberInfo numberInfo) {
         String title = context.getString(R.string.notification_blocked_call);
         String text = getDescription(context, numberInfo);
 
-        return new NotificationCompat.Builder(context, CHANNEL_ID_BLOCKED_INFO)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                context, CHANNEL_ID_BLOCKED_INFO)
                 .setSmallIcon(R.drawable.ic_thumb_down_24dp)
                 .setColor(0xffffff60)
                 .setContentTitle(title)
                 .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setCategory(NotificationCompat.CATEGORY_STATUS)
-                .setContentIntent(createReviewsIntent(context, numberInfo))
-                .build();
+                .setCategory(NotificationCompat.CATEGORY_STATUS);
+
+        addCallNotificationIntents(context, builder, numberInfo);
+
+        return builder.build();
     }
 
     private static String getDescription(Context context, NumberInfo numberInfo) {
@@ -178,10 +185,20 @@ public class NotificationHelper {
         return text;
     }
 
+    private static void addCallNotificationIntents(Context context,
+                                                   NotificationCompat.Builder builder,
+                                                   NumberInfo numberInfo) {
+        builder.setContentIntent(createInfoIntent(context, numberInfo))
+                .addAction(0, context.getString(R.string.online_reviews),
+                        createReviewsIntent(context, numberInfo));
+    }
+
+    private static PendingIntent createInfoIntent(Context context, NumberInfo numberInfo) {
+        return forActivity(context, InfoDialogActivity.getIntent(context, numberInfo.number));
+    }
+
     private static PendingIntent createReviewsIntent(Context context, NumberInfo numberInfo) {
-        Intent intent = ReviewsActivity.getNumberIntent(context, numberInfo.number);
-        intent.setAction(Long.toString(System.currentTimeMillis())); // make the intent "unique"
-        return PendingIntent.getActivity(context, 0, intent, 0);
+        return forActivity(context, ReviewsActivity.getNumberIntent(context, numberInfo.number));
     }
 
     static void createNotificationChannels(Context context) {

@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -201,50 +199,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onCallLogItemClicked(CallLogItem item) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle(item.number);
-
-        @SuppressLint("InflateParams")
-        View view = getLayoutInflater().inflate(R.layout.info_dialog, null);
-
-        String name = "";
-
-        String contactName = item.numberInfo.contactItem != null
-                ? item.numberInfo.contactItem.displayName : null;
-
-        if (!TextUtils.isEmpty(contactName)) {
-            name += contactName;
-        }
-
-        String featuredName = item.numberInfo.featuredDatabaseItem != null
-                ? item.numberInfo.featuredDatabaseItem.getName() : null;
-
-        if (!TextUtils.isEmpty(featuredName)) {
-            if (name.isEmpty()) {
-                name = featuredName;
-            } else {
-                name += "\n(" + featuredName + ")";
-            }
-        }
-
-        TextView nameView = view.findViewById(R.id.name);
-        if (!TextUtils.isEmpty(name)) {
-            nameView.setText(name);
-        } else {
-            nameView.setVisibility(View.GONE);
-        }
-
-        ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
-                item.numberInfo.communityDatabaseItem);
-
-        builder.setView(view);
-
-        builder.setNeutralButton(R.string.online_reviews, (d, w)
-                -> ReviewsActivity.startForNumber(this, item.number));
-
-        builder.setNegativeButton(R.string.back, null);
-
-        builder.show();
+        InfoDialogHelper.showDialog(this, item.numberInfo, null);
     }
 
     private void loadCallLog() {

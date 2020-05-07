@@ -38,6 +38,13 @@
             android:label="@string/title_activity_reviews"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".InfoDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@style/DialogBackgroundTheme" />
+
         <receiver
             android:name=".CallReceiver"
             android:enabled="true"
