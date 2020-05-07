@@ -70,6 +70,9 @@
     <string name="back">Back</string>
     <string name="no">No</string>
 
+    <string name="load_reviews_confirmation_title">Are you sure?</string>
+    <string name="load_reviews_confirmation_message">Loading online reviews will leak the number to a 3rd party service. Are you sure you want to do it with a number present in your Contacts?</string>
+
     <string name="incoming_call_notifications">Incoming call notifications</string>
     <string name="block_calls">Block unwanted calls</string>
     <string name="auto_updates">Auto-update database</string>
