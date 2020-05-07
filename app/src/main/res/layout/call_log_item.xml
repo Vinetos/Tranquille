@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/text_margin"
+    android:layout_marginLeft="@dimen/text_margin"
+    android:layout_marginEnd="@dimen/text_margin"
+    android:layout_marginRight="@dimen/text_margin"
     android:background="?attr/selectableItemBackground"
     android:gravity="center_vertical|start"
     android:orientation="horizontal">
@@ -11,9 +15,9 @@
         android:id="@+id/callTypeIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_call_missed_24dp" />
 
@@ -51,8 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="@dimen/text_margin"
         android:layout_marginBottom="8dp"
         android:textAppearance="?attr/textAppearanceListItemSecondary"
         android:textSize="12sp"

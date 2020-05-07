@@ -26,6 +26,7 @@
         android:layout_gravity="start"
         android:layout_marginStart="@dimen/text_margin"
         android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginBottom="@dimen/text_margin"
         android:paddingTop="@dimen/item_padding"
         android:text="@string/recent_calls"
         android:textAlignment="textStart" />
@@ -34,10 +35,6 @@
         android:id="@+id/callLogList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/item_padding"
-        android:layout_marginTop="@dimen/item_padding"
-        android:layout_marginRight="@dimen/item_padding"
-        android:layout_marginBottom="@dimen/item_padding"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/call_log_item" />
 </LinearLayout>
