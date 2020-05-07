@@ -15,8 +15,8 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Date;
 
+import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
-import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;

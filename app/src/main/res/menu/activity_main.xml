@@ -20,6 +20,12 @@
         android:title="@string/auto_updates" />
 
     <item
+        android:id="@+id/menu_use_contacts"
+        android:checkable="true"
+        android:onClick="onUseContactsChanged"
+        android:title="@string/use_contacts" />
+
+    <item
         android:onClick="onOpenDebugActivity"
         android:title="@string/open_debug_activity" />
 

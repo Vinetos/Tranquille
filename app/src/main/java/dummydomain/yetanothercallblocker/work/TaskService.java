@@ -17,11 +17,11 @@ import dummydomain.yetanothercallblocker.App;
 import dummydomain.yetanothercallblocker.NotificationHelper;
 import dummydomain.yetanothercallblocker.R;
 import dummydomain.yetanothercallblocker.Settings;
+import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdatingEvent;
-import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;

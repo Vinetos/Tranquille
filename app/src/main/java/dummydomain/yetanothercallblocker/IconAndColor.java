@@ -1,14 +1,18 @@
 package dummydomain.yetanothercallblocker;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.widget.ImageViewCompat;
 
-import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
-import dummydomain.yetanothercallblocker.sia.model.NumberRating;
+import dummydomain.yetanothercallblocker.data.NumberInfo;
+import dummydomain.yetanothercallblocker.sia.model.CommunityReview;
 
 class IconAndColor {
 
@@ -28,19 +32,22 @@ class IconAndColor {
         this.noInfo = noInfo;
     }
 
+    @ColorInt
+    int getColorInt(@NonNull Context context) {
+        return ResourcesCompat.getColor(context.getResources(), colorResId, context.getTheme());
+    }
+
     void setOnImageView(AppCompatImageView imageView) {
         imageView.setImageResource(iconResId);
         ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(
-                imageView.getContext().getResources().getColor(colorResId)));
+                getColorInt(imageView.getContext())));
     }
 
     static IconAndColor of(@DrawableRes int icon, @ColorRes int color) {
         return new IconAndColor(icon, color);
     }
 
-    // TODO: fix duplication
-
-    static IconAndColor forNumberRating(NumberRating rating) {
+    static IconAndColor forReviewRating(CommunityReview.Rating rating) {
         switch (rating) {
             case NEUTRAL:
                 return of(R.drawable.ic_thumbs_up_down_24dp, R.color.rateNeutral);
@@ -52,15 +59,39 @@ class IconAndColor {
         return new IconAndColor(R.drawable.ic_thumbs_up_down_24dp, R.color.notFound, true);
     }
 
-    static IconAndColor forNumberRating(NumberInfo.Rating rating) {
+    static IconAndColor forNumberRating(NumberInfo.Rating rating, boolean contact) {
+        boolean noInfo = false;
+        @DrawableRes int icon;
+        @ColorInt int color;
+
         switch (rating) {
             case NEUTRAL:
-                return of(R.drawable.ic_thumbs_up_down_24dp, R.color.rateNeutral);
+                icon = R.drawable.ic_thumbs_up_down_24dp;
+                color = R.color.rateNeutral;
+                break;
+
             case POSITIVE:
-                return of(R.drawable.ic_thumb_up_24dp, R.color.ratePositive);
+                icon = R.drawable.ic_thumb_up_24dp;
+                color = R.color.ratePositive;
+                break;
+
             case NEGATIVE:
-                return of(R.drawable.ic_thumb_down_24dp, R.color.rateNegative);
+                icon = R.drawable.ic_thumb_down_24dp;
+                color = R.color.rateNegative;
+                break;
+
+            default:
+                noInfo = true;
+                icon = R.drawable.ic_thumbs_up_down_24dp;
+                color = R.color.notFound;
+                break;
         }
-        return new IconAndColor(R.drawable.ic_thumbs_up_down_24dp, R.color.notFound, true);
+
+        if (contact) {
+            noInfo = false;
+            icon = R.drawable.ic_person_24dp;
+        }
+
+        return new IconAndColor(icon, color, noInfo);
     }
 }

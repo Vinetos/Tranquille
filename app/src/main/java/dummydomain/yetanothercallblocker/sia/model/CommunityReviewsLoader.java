@@ -50,7 +50,7 @@ public class CommunityReviewsLoader {
 
                 CommunityReview review = new CommunityReview();
                 review.setId(item.getInt("id"));
-                review.setRating(NumberRating.getById(item.getInt("rating")));
+                review.setRating(CommunityReview.Rating.getById(item.getInt("rating")));
                 review.setCategory(NumberCategory.getById(item.getInt("category_id")));
                 review.setAuthor(item.getString("nick"));
                 review.setTitle(item.getString("title"));

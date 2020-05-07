@@ -8,17 +8,16 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.text.TextUtils;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
-import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
 public class NotificationHelper {
@@ -34,7 +33,7 @@ public class NotificationHelper {
     private static final String CHANNEL_GROUP_ID_BLOCKED_CALLS = "blocked_calls";
     private static final String CHANNEL_GROUP_ID_TASKS = "tasks";
 
-    private static final String CHANNEL_ID_POSITIVE_KNOWN = "positive_known_calls";
+    private static final String CHANNEL_ID_KNOWN = "known_calls";
     private static final String CHANNEL_ID_POSITIVE = "positive_calls";
     private static final String CHANNEL_ID_NEUTRAL = "neutral_calls";
     private static final String CHANNEL_ID_UNKNOWN = "unknown_calls";
@@ -83,39 +82,37 @@ public class NotificationHelper {
     }
 
     private static Notification createIncomingCallNotification(Context context, NumberInfo numberInfo) {
+        boolean unknown = false;
         String channelId;
         String title;
         String text = "";
-        @DrawableRes int icon;
-        @ColorInt int color;
         switch (numberInfo.rating) {
             case POSITIVE:
-                channelId = numberInfo.known ? CHANNEL_ID_POSITIVE_KNOWN : CHANNEL_ID_POSITIVE;
+                channelId = CHANNEL_ID_POSITIVE;
                 title = context.getString(R.string.notification_incoming_call_positive);
-                icon = R.drawable.ic_thumb_up_24dp;
-                color = 0xff00ff00;
                 break;
 
             case NEUTRAL:
                 channelId = CHANNEL_ID_NEUTRAL;
                 title = context.getString(R.string.notification_incoming_call_neutral);
-                icon = R.drawable.ic_thumbs_up_down_24dp;
-                color = 0xffffff60;
                 break;
 
             case NEGATIVE:
                 channelId = CHANNEL_ID_NEGATIVE;
                 title = context.getString(R.string.notification_incoming_call_negative);
-                icon = R.drawable.ic_thumb_down_24dp;
-                color = 0xffff0000;
                 break;
 
             default:
+                unknown = true;
                 channelId = CHANNEL_ID_UNKNOWN;
                 title = context.getString(R.string.notification_incoming_call_unknown);
-                icon = R.drawable.ic_thumbs_up_down_24dp;
-                color = 0xffffff60;
                 break;
+        }
+
+        // up for debate
+        if (numberInfo.contactItem != null && unknown) {
+            channelId = CHANNEL_ID_KNOWN;
+            title = context.getString(R.string.notification_incoming_call_contact);
         }
 
         if (numberInfo.communityDatabaseItem != null) {
@@ -129,9 +126,12 @@ public class NotificationHelper {
 
         text += getDescription(context, numberInfo);
 
+        IconAndColor iconAndColor = IconAndColor.forNumberRating(
+                numberInfo.rating, numberInfo.contactItem != null);
+
         return new NotificationCompat.Builder(context, channelId)
-                .setSmallIcon(icon)
-                .setColor(color)
+                .setSmallIcon(iconAndColor.iconResId)
+                .setColor(iconAndColor.getColorInt(context))
                 .setContentTitle(title)
                 .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -163,7 +163,7 @@ public class NotificationHelper {
         if (numberInfo.communityDatabaseItem != null) {
             CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
 
-            if (numberInfo.name != null) {
+            if (!TextUtils.isEmpty(numberInfo.name)) {
                 text += numberInfo.name;
             }
 
@@ -208,7 +208,7 @@ public class NotificationHelper {
             NotificationChannel channel;
 
             channel = new NotificationChannel(
-                    CHANNEL_ID_POSITIVE_KNOWN, context.getString(R.string.notification_channel_name_positive_known),
+                    CHANNEL_ID_KNOWN, context.getString(R.string.notification_channel_name_known),
                     NotificationManager.IMPORTANCE_MIN
             );
             channel.setGroup(channelGroupIncoming.getId());

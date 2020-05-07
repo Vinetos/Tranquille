@@ -71,7 +71,7 @@ class CustomListViewAdapter extends RecyclerView.Adapter<CustomListViewAdapter.C
                 tvDescription.setVisibility(View.VISIBLE);
             }
 
-            IconAndColor.forNumberRating(item.getRating()).setOnImageView(ivRating);
+            IconAndColor.forReviewRating(item.getRating()).setOnImageView(ivRating);
         }
     }
 }

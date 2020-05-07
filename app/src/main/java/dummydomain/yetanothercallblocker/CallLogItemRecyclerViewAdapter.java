@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.data.CallLogItem;
+
 public class CallLogItemRecyclerViewAdapter
         extends RecyclerView.Adapter<CallLogItemRecyclerViewAdapter.ViewHolder> {
 
@@ -57,7 +59,7 @@ public class CallLogItemRecyclerViewAdapter
         final View view;
 
         final AppCompatImageView callTypeIcon;
-        final TextView number;
+        final TextView label;
         final AppCompatImageView numberInfoIcon;
         final TextView time;
 
@@ -67,7 +69,7 @@ public class CallLogItemRecyclerViewAdapter
             this.view = view;
 
             callTypeIcon = view.findViewById(R.id.callTypeIcon);
-            number = view.findViewById(R.id.item_number);
+            label = view.findViewById(R.id.item_label);
             numberInfoIcon = view.findViewById(R.id.numberInfoIcon);
             time = view.findViewById(R.id.time);
 
@@ -100,9 +102,11 @@ public class CallLogItemRecyclerViewAdapter
                 callTypeIcon.setImageDrawable(null);
             }
 
-            number.setText(item.number);
+            label.setText(item.numberInfo.name != null ? item.numberInfo.name : item.number);
 
-            IconAndColor iconAndColor = IconAndColor.forNumberRating(item.numberInfo.rating);
+            IconAndColor iconAndColor = IconAndColor.forNumberRating(
+                    item.numberInfo.rating, item.numberInfo.contactItem != null);
+
             if (!iconAndColor.noInfo) {
                 iconAndColor.setOnImageView(numberInfoIcon);
             } else {
@@ -114,7 +118,7 @@ public class CallLogItemRecyclerViewAdapter
 
         @Override
         public String toString() {
-            return super.toString() + " '" + number.getText() + "'";
+            return super.toString() + " '" + label.getText() + "'";
         }
     }
 }

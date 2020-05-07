@@ -18,13 +18,16 @@
         android:src="@drawable/ic_call_missed_24dp" />
 
     <TextView
-        android:id="@+id/item_number"
+        android:id="@+id/item_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLength="25"
+        android:maxLines="1"
         android:textAppearance="?attr/textAppearanceListItem"
         tools:text="+12345678901" />
 

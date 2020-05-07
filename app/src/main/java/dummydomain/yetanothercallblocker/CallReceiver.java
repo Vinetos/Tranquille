@@ -17,11 +17,11 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 
+import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.CallOngoingEvent;
 import dummydomain.yetanothercallblocker.event.CallStartedEvent;
-import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
-import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
 

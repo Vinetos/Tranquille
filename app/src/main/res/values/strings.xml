@@ -5,7 +5,7 @@
     <string name="notification_channel_group_name_blocked_calls">Blocked calls</string>
     <string name="notification_channel_group_name_tasks">Tasks</string>
 
-    <string name="notification_channel_name_positive_known">Known positive calls</string>
+    <string name="notification_channel_name_known">Known calls</string>
     <string name="notification_channel_name_positive">Positive calls</string>
     <string name="notification_channel_name_neutral">Neutral calls</string>
     <string name="notification_channel_name_unknown">Unknown calls</string>
@@ -13,6 +13,7 @@
     <string name="notification_channel_name_blocked_info">Blocked info</string>
     <string name="notification_channel_name_tasks">Tasks</string>
 
+    <string name="notification_incoming_call_contact">Contact</string>
     <string name="notification_incoming_call_positive">Positive call</string>
     <string name="notification_incoming_call_neutral">Neutral call</string>
     <string name="notification_incoming_call_unknown">Unknown call</string>
@@ -50,9 +51,10 @@
     <string name="title_activity_reviews">Reviews</string>
     <string name="reviews_loading">Loading reviews…</string>
 
-    <string name="denied_permissions_message_blocking_and_info">Blocking and notification functionality may not work due to denied permissions</string>
-    <string name="denied_permissions_message_info">Notification functionality may not work due to denied permissions</string>
-    <string name="denied_permissions_message_blocking">Blocking functionality may not work due to denied permissions</string>
+    <string name="denied_permissions_message">Due to denied permissions following features may not work:</string>
+    <string name="feature_info">notifications</string>
+    <string name="feature_call_blocking">call blocking</string>
+    <string name="feature_contacts">using contacts</string>
 
     <string name="call_log_permission_message">Grant \"Phone\" permission to see recent calls</string>
 
@@ -71,6 +73,7 @@
     <string name="incoming_call_notifications">Incoming call notifications</string>
     <string name="block_calls">Block unwanted calls</string>
     <string name="auto_updates">Auto-update database</string>
+    <string name="use_contacts">Use contacts</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>

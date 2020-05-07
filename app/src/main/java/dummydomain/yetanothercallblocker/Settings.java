@@ -7,6 +7,7 @@ public class Settings {
 
     private static final String PREF_INCOMING_CALL_NOTIFICATIONS = "incomingCallNotifications";
     private static final String PREF_BLOCK_CALLS = "blockCalls";
+    private static final String PREF_USE_CONTACTS = "useContacts";
     private static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     private static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
 
@@ -30,6 +31,14 @@ public class Settings {
 
     public void setBlockCalls(boolean block) {
         setBoolean(PREF_BLOCK_CALLS, block);
+    }
+
+    public boolean getUseContacts() {
+        return getBoolean(PREF_USE_CONTACTS);
+    }
+
+    public void setUseContacts(boolean use) {
+        setBoolean(PREF_USE_CONTACTS, use);
     }
 
     public long getLastUpdateTime() {

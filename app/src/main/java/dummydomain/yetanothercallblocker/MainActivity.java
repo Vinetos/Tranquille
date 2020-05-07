@@ -1,11 +1,11 @@
 package dummydomain.yetanothercallblocker;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,11 +23,13 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.data.CallLogHelper;
+import dummydomain.yetanothercallblocker.data.CallLogItem;
+import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
-import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
-import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
 import dummydomain.yetanothercallblocker.work.TaskService;
 import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
@@ -70,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         menu.findItem(R.id.menu_auto_updates).setChecked(
                 updateScheduler.isAutoUpdateScheduled());
 
+        menu.findItem(R.id.menu_use_contacts).setChecked(
+                settings.getUseContacts());
+
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -79,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults,
-                settings.getIncomingCallNotifications(), settings.getBlockCalls());
+                settings.getIncomingCallNotifications(), settings.getBlockCalls(),
+                settings.getUseContacts());
 
         loadCallLog();
     }
@@ -124,7 +130,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkPermissions() {
         PermissionHelper.checkPermissions(this,
-                settings.getIncomingCallNotifications(), settings.getBlockCalls());
+                settings.getIncomingCallNotifications(), settings.getBlockCalls(),
+                settings.getUseContacts());
     }
 
     private void startCheckMainDbTask() {
@@ -183,6 +190,12 @@ public class MainActivity extends AppCompatActivity {
         else updateScheduler.cancelAutoUpdateWorker();
     }
 
+    public void onUseContactsChanged(MenuItem item) {
+        settings.setUseContacts(!item.isChecked());
+        checkPermissions();
+        loadCallLog();
+    }
+
     public void onOpenDebugActivity(MenuItem item) {
         startActivity(new Intent(this, DebugActivity.class));
     }
@@ -194,11 +207,31 @@ public class MainActivity extends AppCompatActivity {
         @SuppressLint("InflateParams")
         View view = getLayoutInflater().inflate(R.layout.info_dialog, null);
 
-        TextView featuredNameView = view.findViewById(R.id.featuredName);
-        if (item.numberInfo.name != null) {
-            featuredNameView.setText(item.numberInfo.name);
+        String name = "";
+
+        String contactName = item.numberInfo.contactItem != null
+                ? item.numberInfo.contactItem.displayName : null;
+
+        if (!TextUtils.isEmpty(contactName)) {
+            name += contactName;
+        }
+
+        String featuredName = item.numberInfo.featuredDatabaseItem != null
+                ? item.numberInfo.featuredDatabaseItem.getName() : null;
+
+        if (!TextUtils.isEmpty(featuredName)) {
+            if (name.isEmpty()) {
+                name = featuredName;
+            } else {
+                name += "\n(" + featuredName + ")";
+            }
+        }
+
+        TextView nameView = view.findViewById(R.id.name);
+        if (!TextUtils.isEmpty(name)) {
+            nameView.setText(name);
         } else {
-            featuredNameView.setVisibility(View.GONE);
+            nameView.setVisibility(View.GONE);
         }
 
         ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
@@ -215,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadCallLog() {
-        if (!PermissionHelper.havePermission(this, Manifest.permission.READ_CALL_LOG)) {
+        if (!PermissionHelper.hasCallLogPermission(this)) {
             setCallLogVisibility(false);
             return;
         }

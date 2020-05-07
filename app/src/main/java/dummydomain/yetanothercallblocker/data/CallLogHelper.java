@@ -1,4 +1,4 @@
-package dummydomain.yetanothercallblocker;
+package dummydomain.yetanothercallblocker.data;
 
 import android.content.Context;
 import android.database.Cursor;

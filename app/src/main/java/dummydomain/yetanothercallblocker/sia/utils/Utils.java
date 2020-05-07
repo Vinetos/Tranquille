@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 
 import dummydomain.yetanothercallblocker.App;
-import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.SiaSettings;
 
 public class Utils {

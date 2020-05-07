@@ -11,9 +11,9 @@ import org.slf4j.LoggerFactory;
 
 import dummydomain.yetanothercallblocker.App;
 import dummydomain.yetanothercallblocker.Settings;
+import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdatingEvent;
-import dummydomain.yetanothercallblocker.sia.DatabaseSingleton;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
 import static dummydomain.yetanothercallblocker.EventUtils.postStickyEvent;

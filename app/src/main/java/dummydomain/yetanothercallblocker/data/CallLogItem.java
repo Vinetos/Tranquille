@@ -1,10 +1,8 @@
-package dummydomain.yetanothercallblocker;
+package dummydomain.yetanothercallblocker.data;
 
 import android.provider.CallLog;
 
 import java.util.Objects;
-
-import dummydomain.yetanothercallblocker.sia.model.NumberInfo;
 
 public class CallLogItem {
 

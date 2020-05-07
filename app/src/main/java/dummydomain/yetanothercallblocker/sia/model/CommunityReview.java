@@ -2,9 +2,35 @@ package dummydomain.yetanothercallblocker.sia.model;
 
 public class CommunityReview {
 
+    public enum Rating {
+
+        UNKNOWN(0),
+        POSITIVE(1),
+        NEGATIVE(2),
+        NEUTRAL(3);
+
+        private int id;
+
+        Rating(int id) {
+            this.id = id;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public static Rating getById(int id) {
+            for (Rating rating : Rating.values()) {
+                if (rating.getId() == id) return rating;
+            }
+            return null;
+        }
+
+    }
+
     private int id;
 
-    private NumberRating rating;
+    private Rating rating;
     private NumberCategory category;
     private String author;
     private String title;
@@ -18,11 +44,11 @@ public class CommunityReview {
         this.id = id;
     }
 
-    public NumberRating getRating() {
+    public Rating getRating() {
         return rating;
     }
 
-    public void setRating(NumberRating rating) {
+    public void setRating(Rating rating) {
         this.rating = rating;
     }
 

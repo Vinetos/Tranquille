@@ -43,6 +43,6 @@
     <string name="notification_blocked_call">Блокировано</string>
     <string name="notification_channel_name_positive">С хорошей оценкой</string>
     <string name="notification_channel_name_blocked_info">Показать причину блокировки</string>
-    <string name="notification_channel_name_positive_known">Из моего списка контактов</string>
+    <string name="notification_channel_name_known">Из моего списка контактов</string>
     <string name="notification_incoming_call_positive">Одобрено</string>
 </resources>
