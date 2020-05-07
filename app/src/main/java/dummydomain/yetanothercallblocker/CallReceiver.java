@@ -57,8 +57,8 @@ public class CallReceiver extends BroadcastReceiver {
                 NumberInfo numberInfo = DatabaseSingleton.getNumberInfo(incomingNumber);
 
                 boolean blocked = false;
-                if (!isOnCall && numberInfo.rating == NumberInfo.Rating.NEGATIVE
-                        && blockCalls) {
+                if (blockCalls && !isOnCall && numberInfo.rating == NumberInfo.Rating.NEGATIVE
+                        && numberInfo.contactItem == null) {
                     blocked = rejectCall(context);
 
                     if (blocked) {
