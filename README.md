@@ -9,24 +9,43 @@ The goal of this project is to provide a free and open source application that c
 ## How to use
 
 * Install and launch the app.
-* Press the "Download database" button on the main screen, wait for it to finish.  
-  The DB will be downloaded from [here](https://gitlab.com/xynngh/YetAnotherCallBlocker_data).
-* At this point you should be able to see notifications with some caller info during incoming calls.  
-  You can press such a notification to load detailed online reviews.
-* Toggle the "Auto-update enabled" switch (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
-* Toggle the "Block unwanted calls" switch if you want to enable automatic blocking.
+* At first start, the app will suggest to download main database. Simply confirm the download and wait for a few seconds.  
+  The DB will be downloaded from [another gitlab repo](https://gitlab.com/xynngh/YetAnotherCallBlocker_data).
+* The option to show notifications for incoming calls is enabled by default, so the app will ask for a phone-related permission.  
+  Grant the permission if you want to be able to use most of the app's features.
+* After that you should be able to see recent calls with some additional info on the main screen of the app.  
+  The app will also display notifications with some caller info during incoming calls.  
+  You can press such a notification to see more info or to load detailed online reviews.
+* Check the "Auto-update database" checkbox in menu (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
+* Check the "Block unwanted calls" checkbox if you want to enable automatic call blocking.
+* You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work. Enjoy!
+
 
 ## Features
 
-At this point of time only very basic features are implemented.
-
-Currently implemented (more or less):
+At this point most of the essential features (one would expect from a call blocking app) are implemented. Here's an overview:
 
 * Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
-* Loading and displaying a list of reviews for a number (accessed by pressing the notification). *Requires internet.*
+* Loading and displaying a list of reviews for a number (accessed from the notification or the info view). *Requires internet.*
 * Automatic blocking of unwanted calls (may not work on some devices; tested to work on modern Android versions (including Android 10)). *Works offline.*
 * Automatic update of the database (for offline use). *Requires internet.*
+* Displaying a list of recent calls with caller rating and the ability to show more info or load online reviews for the number. The list *works offline*, but loading reviews *requires internet.*
+* If "use contacts" option is enabled, the numbers present in the phone book are never blocked and the contact name is displayed next to/instead of a number throughout the app.
+
+
+## Privacy
+
+Protecting the user's privacy is the first concern during development. No personal data is sent to or otherwise shared with anyone.
+The only known possible data leaks are the following:
+
+* Database update procedure leaks user's IP address to the update servers.  
+  The request also includes current database version (base or updated).
+* Online review requests leak user's IP address coupled with the phone number in question.  
+  Shouldn't be a big deal unless you call it for a bunch of numbers in your phone book.  
+  If the "use contacts" feature is enabled, a confirmation dialog is shown if online reviews are requested for a number present in your phone book.
+
+No other identifiable information is sent with the requests.
 
 
 ## Available data
@@ -49,19 +68,6 @@ A detailed review contains:
 * A rating: positive, negative or neutral.
 * A category: each review may have a different one.
 * A title and a comment: the actual description the user left for the number.
-
-
-## Privacy
-
-Protecting the user's privacy is the first concern during development. No personal data is sent to or otherwise shared with anyone.
-The only known possible data leaks are the following:
-
-* Database update procedure leaks user's IP address to the update servers.  
-  The request also includes current database version (base or updated).
-* User review requests leak user's IP address coupled with the phone number in question.  
-  Shouldn't be a big deal unless you call it for a bunch of numbers in your phone book.
-
-No other identifiable information is sent with the requests.
 
 
 ## Rationale

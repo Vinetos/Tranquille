@@ -11,10 +11,12 @@ Features:
 How to use:
 
 * Install and launch the app.
-* Press the "Download database" button on the main screen, wait for it to finish.
-* At this point you should be able to see notifications with some caller info during incoming calls. You can press such a notification to load detailed online reviews.
-* Toggle the "Auto-update enabled" switch (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
-* Toggle the "Block unwanted calls" switch if you want to enable automatic blocking.
+* At first start, the app will suggest to download main database. Simply confirm the download and wait for a few seconds.
+* The option to show notifications for incoming calls is enabled by default, so the app will ask for a phone-related permission. Grant the permission if you want to be able to use most of the app's features.
+* After that you should be able to see recent calls with some additional info on the main screen of the app. The app will also display notifications with some caller info during incoming calls. You can press such a notification to see more info or to load detailed online reviews.
+* Check the "Auto-update database" checkbox in menu (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
+* Check the "Block unwanted calls" checkbox if you want to enable automatic call blocking.
+* You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work. Enjoy!
 
 The main phone number database is downloaded from
