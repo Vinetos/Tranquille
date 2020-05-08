@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         callLogAdapter = new CallLogItemRecyclerViewAdapter(callLogItems, this::onCallLogItemClicked);
         RecyclerView recyclerView = findViewById(R.id.callLogList);
         recyclerView.setAdapter(callLogAdapter);
+        recyclerView.addItemDecoration(new CustomVerticalDivider(this));
     }
 
     @Override

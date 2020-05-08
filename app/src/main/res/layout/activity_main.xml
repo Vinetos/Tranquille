@@ -7,29 +7,29 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/callLogPermissionMessage"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="@dimen/text_margin"
-        android:layout_marginLeft="@dimen/text_margin"
-        android:paddingTop="@dimen/item_padding"
-        android:text="@string/call_log_permission_message"
-        android:textAlignment="textStart"
-        android:visibility="gone" />
+        android:orientation="vertical"
+        android:padding="@dimen/item_padding">
 
-    <TextView
-        android:id="@+id/callLogTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="@dimen/text_margin"
-        android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginBottom="@dimen/text_margin"
-        android:paddingTop="@dimen/item_padding"
-        android:text="@string/recent_calls"
-        android:textAlignment="textStart" />
+        <TextView
+            android:id="@+id/callLogPermissionMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/call_log_permission_message"
+            android:textAlignment="textStart"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/callLogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/recent_calls"
+            android:textAlignment="textStart" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/callLogList"
