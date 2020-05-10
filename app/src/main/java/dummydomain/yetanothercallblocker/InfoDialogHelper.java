@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import dummydomain.yetanothercallblocker.data.NumberInfo;
+import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 
 public class InfoDialogHelper {
 
@@ -24,10 +25,19 @@ public class InfoDialogHelper {
 
         String name = "";
 
+        NumberCategory category = numberInfo.communityDatabaseItem != null
+                ? NumberCategory.getById(numberInfo.communityDatabaseItem.getCategory())
+                : null;
+
+        if (category != null && category != NumberCategory.NONE) {
+            name += NumberCategory.getString(context, category);
+        }
+
         String contactName = numberInfo.contactItem != null
                 ? numberInfo.contactItem.displayName : null;
 
         if (!TextUtils.isEmpty(contactName)) {
+            if (!TextUtils.isEmpty(name)) name += "\n";
             name += contactName;
         }
 
