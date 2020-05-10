@@ -3,26 +3,31 @@
 
 # Yet Another Call Blocker
 
-The goal of this project is to provide a free and open source application that can block unwanted calls or warn about probable intentions of the callers using a third-party crowdsourced phone number database (from some other proprietary app).
+A free and open source application that can block unwanted calls or warn about probable intentions of callers using a third-party crowdsourced phone number database (from some other proprietary app).
+
+
+## Key features
+
+* Uses offline database.
+* Blocks unwanted calls automatically (option).
+* Displays a notification with phone number summary (rating, reviews count, category) during incoming calls (option).
+* Performs incremental/delta database updates (option).
+* You can view online reviews for caller's number (provided by 3rd party service).
 
 
 ## How to use
 
 * Install and launch the app.
-* At first start, the app will suggest to download main database. Simply confirm the download and wait for a few seconds.  
-  The DB will be downloaded from [another gitlab repo](https://gitlab.com/xynngh/YetAnotherCallBlocker_data).
-* The option to show notifications for incoming calls is enabled by default, so the app will ask for a phone-related permission.  
-  Grant the permission if you want to be able to use most of the app's features.
-* After that you should be able to see recent calls with some additional info on the main screen of the app.  
-  The app will also display notifications with some caller info during incoming calls.  
-  You can press such a notification to see more info or to load detailed online reviews.
-* Check the "Auto-update database" checkbox in menu (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
-* Check the "Block unwanted calls" checkbox if you want to enable automatic call blocking.
+* The option to show caller info notifications is enabled by default, so the app will ask for phone-related permissions.
+* At first start, the app will suggest to download main database which is required for most of the functions. Simply confirm the download.  
+  (The DB is downloaded from [another gitlab repo](https://gitlab.com/xynngh/YetAnotherCallBlocker_data), so no privacy-related implications.)
+* Check the "Auto-update database" checkbox in the menu (recommended) to automatically receive daily DB updates (these are incremental/delta updates, so they consume very little traffic).
+* Check the "Block unwanted calls" checkbox to block calls with negative rating automatically.
 * You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work. Enjoy!
 
 
-## Features
+## More on features
 
 At this point most of the essential features (one would expect from a call blocking app) are implemented. Here's an overview:
 
@@ -42,7 +47,7 @@ The only known possible data leaks are the following:
 * Database update procedure leaks user's IP address to the update servers.  
   The request also includes current database version (base or updated).
 * Online review requests leak user's IP address coupled with the phone number in question.  
-  Shouldn't be a big deal unless you call it for a bunch of numbers in your phone book.  
+  Shouldn't be a big deal unless you request it for numbers in your phone book.  
   If the "use contacts" feature is enabled, a confirmation dialog is shown if online reviews are requested for a number present in your phone book.
 
 No other identifiable information is sent with the requests.

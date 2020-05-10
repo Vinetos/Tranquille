@@ -3,24 +3,23 @@ using an offline phone number database.
 
 Features:
 
-* Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. ''Works offline.''
-* Loading and displaying a list of reviews for a number. ''Requires internet.''
-* Automatic blocking of unwanted calls (may not work on some devices; tested to work on modern Android versions (including Android 10)). ''Works offline.''
-* Automatic update of the database (for offline use). ''Requires internet.''
+* Uses offline database.
+* Blocks unwanted calls automatically (option).
+* Displays a notification with phone number summary (rating, reviews count, category) during incoming calls (option).
+* Performs incremental/delta database updates (option).
+* You can view online reviews for caller's number (provided by 3rd party service).
 
 How to use:
 
 * Install and launch the app.
-* At first start, the app will suggest to download main database. Simply confirm the download and wait for a few seconds.
-* The option to show notifications for incoming calls is enabled by default, so the app will ask for a phone-related permission. Grant the permission if you want to be able to use most of the app's features.
-* After that you should be able to see recent calls with some additional info on the main screen of the app. The app will also display notifications with some caller info during incoming calls. You can press such a notification to see more info or to load detailed online reviews.
-* Check the "Auto-update database" checkbox in menu (recommended) to automatically receive daily DB updates (these are delta updates, so they consume very little traffic).
-* Check the "Block unwanted calls" checkbox if you want to enable automatic call blocking.
+* The option to show caller info notifications is enabled by default, so the app will ask for phone-related permissions.
+* At first start, the app will suggest to download main database which is required for most of the functions. Simply confirm the download.
+* Check the "Auto-update database" checkbox in the menu (recommended) to automatically receive daily DB updates (these are incremental/delta updates, so they consume very little traffic).
+* Check the "Block unwanted calls" checkbox to block calls with negative rating automatically.
 * You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work. Enjoy!
 
-The main phone number database is downloaded from
-[https://gitlab.com/xynngh/YetAnotherCallBlocker_data a gitlab repository].
+The main phone number database is downloaded from a gitlab repository.
 Delta updates and detailed review queries are performed using 3rd-party servers.
 No user-identifiable information is sent (except for the phone number
 the detailed reviews are loaded for).
