@@ -23,7 +23,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
-            <include layout="@layout/reviews_summary"/>
+            <include layout="@layout/reviews_summary" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

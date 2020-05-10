@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
-    app:layout_collapseMode="parallax"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    app:layout_collapseMode="parallax">
 
     <LinearLayout
         android:layout_width="wrap_content"
