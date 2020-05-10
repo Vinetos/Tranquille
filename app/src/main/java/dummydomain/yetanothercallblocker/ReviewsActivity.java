@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,7 +52,7 @@ public class ReviewsActivity extends AppCompatActivity {
         RecyclerView reviewsList = findViewById(R.id.reviews_list);
         reviewsList.setLayoutManager(new LinearLayoutManager(this));
         reviewsList.setAdapter(listViewAdapter);
-        reviewsList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        reviewsList.addItemDecoration(new CustomVerticalDivider(this));
 
         @SuppressLint("StaticFieldLeak")
         AsyncTask<Void, Void, List<CommunityReview>> asyncTask = loadReviewsTask
