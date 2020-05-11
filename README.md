@@ -11,7 +11,7 @@ A free and open source application that can block unwanted calls or warn about p
 * Uses offline database.
 * Blocks unwanted calls automatically (option).
 * Displays a notification with phone number summary (rating, reviews count, category) during incoming calls (option).
-* Performs incremental/delta database updates (option).
+* Automatic incremental/delta database updates (option).
 * You can view online reviews for caller's number (provided by 3rd party service).
 
 
