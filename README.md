@@ -5,6 +5,10 @@
 
 A free and open source application that can block unwanted calls or warn about probable intentions of callers using a third-party crowdsourced phone number database (from some other proprietary app).
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+      alt="Get it on F-Droid"
+      height="80">](https://f-droid.org/app/dummydomain.yetanothercallblocker)
+
 
 ## Key features
 
@@ -17,7 +21,7 @@ A free and open source application that can block unwanted calls or warn about p
 
 ## How to use
 
-* Install and launch the app.
+* [Install](https://f-droid.org/app/dummydomain.yetanothercallblocker) and launch the app.
 * The option to show caller info notifications is enabled by default, so the app will ask for phone-related permissions.
 * At first start, the app will suggest to download main database which is required for most of the functions. Simply confirm the download.  
   (The DB is downloaded from [another gitlab repo](https://gitlab.com/xynngh/YetAnotherCallBlocker_data), so no privacy-related implications.)
@@ -25,6 +29,13 @@ A free and open source application that can block unwanted calls or warn about p
 * Check the "Block unwanted calls" checkbox to block calls with negative rating automatically.
 * You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work. Enjoy!
+
+
+## [Screenshots](fastlane/metadata/android/en-US/images/phoneScreenshots/)
+
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="The info screen" width="280"/>
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" alt="Online reviews" width="280"/>
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" alt="Incoming call notification" width="280"/>
 
 
 ## More on features
