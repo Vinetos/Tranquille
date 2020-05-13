@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,13 +13,13 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.CallLogHelper;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
 
     private CallLogItemRecyclerViewAdapter callLogAdapter;
-    private List<CallLogItem> callLogItems = new ArrayList<>();
+    private RecyclerView recyclerView;
 
     private AsyncTask<Void, Void, Boolean> checkMainDbTask;
     private AsyncTask<Void, Void, List<CallLogItem>> loadCallLogTask;
@@ -48,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        callLogAdapter = new CallLogItemRecyclerViewAdapter(callLogItems, this::onCallLogItemClicked);
-        RecyclerView recyclerView = findViewById(R.id.callLogList);
+        callLogAdapter = new CallLogItemRecyclerViewAdapter(this::onCallLogItemClicked);
+        recyclerView = findViewById(R.id.callLogList);
         recyclerView.setAdapter(callLogAdapter);
-        recyclerView.addItemDecoration(new CustomVerticalDivider(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 
     @Override
@@ -228,9 +229,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(List<CallLogItem> items) {
-                callLogItems.clear();
-                callLogItems.addAll(items);
-                callLogAdapter.notifyDataSetChanged();
+                // workaround for auto-scrolling to first item
+                // https://stackoverflow.com/a/44053550
+                @SuppressWarnings("ConstantConditions")
+                Parcelable recyclerViewState = recyclerView.getLayoutManager().onSaveInstanceState();
+                callLogAdapter.setItems(items);
+                recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
 
                 setCallLogVisibility(true);
             }

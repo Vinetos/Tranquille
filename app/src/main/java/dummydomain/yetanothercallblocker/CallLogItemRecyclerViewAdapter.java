@@ -1,5 +1,6 @@
 package dummydomain.yetanothercallblocker;
 
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.CallLogItem;
@@ -22,12 +25,47 @@ public class CallLogItemRecyclerViewAdapter
         void onListFragmentInteraction(CallLogItem item);
     }
 
-    private final List<CallLogItem> items;
+    private static class DiffUtilCallback extends DiffUtil.Callback {
+        private List<CallLogItem> oldList;
+        private List<CallLogItem> newList;
+
+        DiffUtilCallback(List<CallLogItem> oldList, List<CallLogItem> newList) {
+            this.oldList = oldList;
+            this.newList = newList;
+        }
+
+        @Override
+        public int getOldListSize() {
+            return oldList.size();
+        }
+
+        @Override
+        public int getNewListSize() {
+            return newList.size();
+        }
+
+        @Override
+        public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+            CallLogItem oldItem = oldList.get(oldItemPosition);
+            CallLogItem newItem = newList.get(newItemPosition);
+
+            return newItem.type == oldItem.type
+                    && TextUtils.equals(newItem.number, oldItem.number)
+                    && newItem.timestamp == oldItem.timestamp
+                    && newItem.duration == oldItem.duration;
+        }
+
+        @Override
+        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+            return false; // time always updates
+        }
+    }
+
     private final @Nullable OnListInteractionListener listener;
 
-    public CallLogItemRecyclerViewAdapter(List<CallLogItem> items,
-                                          @Nullable OnListInteractionListener listener) {
-        this.items = items;
+    private List<CallLogItem> items = Collections.emptyList();
+
+    public CallLogItemRecyclerViewAdapter(@Nullable OnListInteractionListener listener) {
         this.listener = listener;
     }
 
@@ -47,6 +85,15 @@ public class CallLogItemRecyclerViewAdapter
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    public void setItems(List<CallLogItem> items) {
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(
+                new DiffUtilCallback(this.items, items));
+
+        this.items = items;
+
+        diffResult.dispatchUpdatesTo(this);
     }
 
     private void onClick(int index) {
