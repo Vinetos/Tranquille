@@ -8,15 +8,37 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        tools:text="Category" />
+
+    <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:gravity="center_horizontal"
-        android:maxLines="3"
+        android:maxLines="2"
         android:textAlignment="center"
         android:textSize="20sp"
-        tools:text="Featured company or contact name" />
+        tools:text="Contact name" />
+
+    <TextView
+        android:id="@+id/featured_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        tools:text="Featured company name" />
 
     <include
         layout="@layout/reviews_summary"

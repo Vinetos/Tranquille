@@ -23,40 +23,38 @@ public class InfoDialogHelper {
         @SuppressLint("InflateParams")
         View view = LayoutInflater.from(context).inflate(R.layout.info_dialog, null);
 
-        String name = "";
+        TextView categoryView = view.findViewById(R.id.category);
 
         NumberCategory category = numberInfo.communityDatabaseItem != null
                 ? NumberCategory.getById(numberInfo.communityDatabaseItem.getCategory())
                 : null;
 
         if (category != null && category != NumberCategory.NONE) {
-            name += NumberCategory.getString(context, category);
+            categoryView.setText(NumberCategory.getString(context, category));
+        } else {
+            categoryView.setVisibility(View.GONE);
         }
+
+        TextView nameView = view.findViewById(R.id.name);
 
         String contactName = numberInfo.contactItem != null
                 ? numberInfo.contactItem.displayName : null;
 
         if (!TextUtils.isEmpty(contactName)) {
-            if (!TextUtils.isEmpty(name)) name += "\n";
-            name += contactName;
+            nameView.setText(contactName);
+        } else {
+            nameView.setVisibility(View.GONE);
         }
+
+        TextView featuredNameView = view.findViewById(R.id.featured_name);
 
         String featuredName = numberInfo.featuredDatabaseItem != null
                 ? numberInfo.featuredDatabaseItem.getName() : null;
 
         if (!TextUtils.isEmpty(featuredName)) {
-            if (name.isEmpty()) {
-                name = featuredName;
-            } else {
-                name += "\n(" + featuredName + ")";
-            }
-        }
-
-        TextView nameView = view.findViewById(R.id.name);
-        if (!TextUtils.isEmpty(name)) {
-            nameView.setText(name);
+            featuredNameView.setText(featuredName);
         } else {
-            nameView.setVisibility(View.GONE);
+            featuredNameView.setVisibility(View.GONE);
         }
 
         ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
