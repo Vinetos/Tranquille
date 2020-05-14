@@ -35,14 +35,14 @@ public class CommunityDatabaseDataSlice extends AbstractDatabaseDataSlice<Commun
         for (int i = 0; i < numbers.length; i++) {
             String numberString = String.valueOf(numbers[i]);
             if (numberString.length() > 1) {
-                int sliceId = Integer.valueOf(numberString.substring(0, 2));
+                int sliceId = Integer.parseInt(numberString.substring(0, 2));
                 shortSliceIdToIndexMap.get(sliceId).add(i);
             }
         }
         for (int i = 0; i < numbersToDelete.length; i++) {
             String numberString = String.valueOf(numbersToDelete[i]);
             if (numberString.length() > 1) {
-                int sliceId = Integer.valueOf(numberString.substring(0, 2));
+                int sliceId = Integer.parseInt(numberString.substring(0, 2));
                 shortSliceIdToIndexToDeleteMap.get(sliceId).add(i);
             }
         }

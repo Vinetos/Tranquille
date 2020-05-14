@@ -156,7 +156,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
         String numberString = String.valueOf(number);
         if (numberString.length() < 2) return null;
 
-        int sliceId = Integer.valueOf(numberString.substring(0, 2));
+        int sliceId = Integer.parseInt(numberString.substring(0, 2));
         LOG.trace("getSecondaryDataSlice() sliceId={}", sliceId);
 
         CommunityDatabaseDataSlice communityDatabaseDataSlice = secondarySliceCache.get(sliceId);
@@ -308,7 +308,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
                     LOG.trace("updateSecondaryDbInternal() finished processing slice");
 
                     if (!tempFile.delete()) {
-                        LOG.warn("updateSecondaryDbInternal() failed to delete tempFile ", tempFile);
+                        LOG.warn("updateSecondaryDbInternal() failed to delete tempFile {}", tempFile);
                     }
 
                     LOG.debug("updateSecondaryDbInternal() updated performed successfully in {} ms",
@@ -321,18 +321,21 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
                             responseString, System.currentTimeMillis() - startTimestamp);
 
                     responseString = responseString.replaceAll("\n", "");
-                    if ("OAP".equals(responseString)) {
-                        LOG.trace("updateSecondaryDbInternal() server reported outdated app");
-                        // outdated app
-                        return UpdateResult.OUTDATED_APP;
-                    } else if ("NC".equals(responseString)) {
-                        LOG.trace("updateSecondaryDbInternal() server reported no updates");
-                        // "No checkAndUpdate available" - probably "up to date"
-                        return UpdateResult.NO_UPDATES;
-                    } else if ("OOD".equals(responseString)) {
-                        LOG.trace("updateSecondaryDbInternal() server suggests to reset secondary DB");
-                        // remove secondary DB and retry
-                        return UpdateResult.BAD_SECONDARY;
+                    switch (responseString) {
+                        case "OAP":
+                            LOG.trace("updateSecondaryDbInternal() server reported outdated app");
+                            // outdated app
+                            return UpdateResult.OUTDATED_APP;
+
+                        case "NC":
+                            LOG.trace("updateSecondaryDbInternal() server reported no updates");
+                            // "No checkAndUpdate available" - probably "up to date"
+                            return UpdateResult.NO_UPDATES;
+
+                        case "OOD":
+                            LOG.trace("updateSecondaryDbInternal() server suggests to reset secondary DB");
+                            // remove secondary DB and retry
+                            return UpdateResult.BAD_SECONDARY;
                     }
                 }
             } else {
