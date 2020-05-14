@@ -4,8 +4,7 @@ import android.app.Application;
 
 import org.greenrobot.eventbus.EventBus;
 
-import dummydomain.yetanothercallblocker.data.ContactsHelper;
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.Config;
 
 public class App extends Application {
 
@@ -31,8 +30,7 @@ public class App extends Application {
 
         NotificationHelper.createNotificationChannels(this);
 
-        DatabaseSingleton.setContactsProvider(
-                ContactsHelper.getContactsProvider(this, settings));
+        Config.init(this, settings);
     }
 
     public static App getInstance() {

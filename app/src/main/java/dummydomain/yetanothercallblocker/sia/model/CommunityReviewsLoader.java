@@ -17,7 +17,15 @@ public class CommunityReviewsLoader {
 
     private static final Logger LOG = LoggerFactory.getLogger(CommunityReviewsLoader.class);
 
-    public static List<CommunityReview> loadReviews(String number) {
+    private final WebService webService;
+    private final String country;
+
+    public CommunityReviewsLoader(WebService webService, String country) {
+        this.webService = webService;
+        this.country = country;
+    }
+
+    public List<CommunityReview> loadReviews(String number) {
         LOG.debug("loadReviews({}) started", number);
 
         if (number.startsWith("+")) {
@@ -26,9 +34,9 @@ public class CommunityReviewsLoader {
 
         Map<String, String> params = new HashMap<>();
         params.put("number", number);
-        params.put("country", "RU"); // TODO: fix: hardcode
+        params.put("country", country);
 
-        WebService.WSResponse response = WebService.callForJson(WebService.getGetReviewsUrlPart(), params);
+        WebService.WSResponse response = webService.callForJson(webService.getGetReviewsUrlPart(), params);
 
         List<CommunityReview> reviews = new ArrayList<>();
 

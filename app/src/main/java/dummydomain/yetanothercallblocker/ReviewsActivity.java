@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReview;
-import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
 
 public class ReviewsActivity extends AppCompatActivity {
 
@@ -59,7 +59,7 @@ public class ReviewsActivity extends AppCompatActivity {
                 = new AsyncTask<Void, Void, List<CommunityReview>>() {
             @Override
             protected List<CommunityReview> doInBackground(Void... voids) {
-                return CommunityReviewsLoader.loadReviews(paramNumber);
+                return DatabaseSingleton.getCommunityReviewsLoader().loadReviews(paramNumber);
             }
 
             @Override

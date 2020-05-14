@@ -1,9 +1,8 @@
 package dummydomain.yetanothercallblocker;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
-public class Settings {
+public class Settings extends GenericSettings {
 
     private static final String PREF_INCOMING_CALL_NOTIFICATIONS = "incomingCallNotifications";
     private static final String PREF_BLOCK_CALLS = "blockCalls";
@@ -11,10 +10,8 @@ public class Settings {
     private static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     private static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
 
-    private final SharedPreferences pref;
-
     Settings(Context context) {
-        pref = context.getSharedPreferences("yacb_preferences", Context.MODE_PRIVATE);
+        super(context, "yacb_preferences");
     }
 
     public boolean getIncomingCallNotifications() {
@@ -55,26 +52,6 @@ public class Settings {
 
     public void setLastUpdateCheckTime(long timestamp) {
         setLong(PREF_LAST_UPDATE_CHECK_TIME, timestamp);
-    }
-
-    public boolean getBoolean(String key) {
-        return getBoolean(key, false);
-    }
-
-    public boolean getBoolean(String key, boolean defValue) {
-        return pref.getBoolean(key, defValue);
-    }
-
-    public void setBoolean(String key, boolean value) {
-        pref.edit().putBoolean(key, value).apply();
-    }
-
-    public long getLong(String key, long defValue) {
-        return pref.getLong(key, defValue);
-    }
-
-    public void setLong(String key, long value) {
-        pref.edit().putLong(key, value).apply();
     }
 
 }

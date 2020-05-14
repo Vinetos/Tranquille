@@ -5,33 +5,61 @@ import android.text.TextUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
+import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
-import static dummydomain.yetanothercallblocker.sia.SiaConstants.SIA_PATH_PREFIX;
-import static dummydomain.yetanothercallblocker.sia.SiaConstants.SIA_SECONDARY_PATH_PREFIX;
-
-public class DatabaseSingleton { // TODO: rewrite
-
-    private static final CommunityDatabase COMMUNITY_DATABASE = new CommunityDatabase(SIA_PATH_PREFIX, SIA_SECONDARY_PATH_PREFIX);
-    private static final FeaturedDatabase FEATURED_DATABASE = new FeaturedDatabase(SIA_PATH_PREFIX);
+public class DatabaseSingleton {
 
     private static final Logger LOG = LoggerFactory.getLogger(DatabaseSingleton.class);
 
+    private static DbManager dbManager;
+
+    private static CommunityDatabase communityDatabase;
+
+    private static FeaturedDatabase featuredDatabase;
+
+    private static CommunityReviewsLoader communityReviewsLoader;
+
     private static ContactsProvider contactsProvider;
 
+    static void setDbManager(DbManager dbManager) {
+        DatabaseSingleton.dbManager = dbManager;
+    }
+
+    static void setCommunityDatabase(CommunityDatabase communityDatabase) {
+        DatabaseSingleton.communityDatabase = communityDatabase;
+    }
+
+    static void setFeaturedDatabase(FeaturedDatabase featuredDatabase) {
+        DatabaseSingleton.featuredDatabase = featuredDatabase;
+    }
+
+    static void setCommunityReviewsLoader(CommunityReviewsLoader communityReviewsLoader) {
+        DatabaseSingleton.communityReviewsLoader = communityReviewsLoader;
+    }
+
+    static void setContactsProvider(ContactsProvider contactsProvider) {
+        DatabaseSingleton.contactsProvider = contactsProvider;
+    }
+
+    public static DbManager getDbManager() {
+        return dbManager;
+    }
+
     public static CommunityDatabase getCommunityDatabase() {
-        return COMMUNITY_DATABASE;
+        return communityDatabase;
     }
 
     public static FeaturedDatabase getFeaturedDatabase() {
-        return FEATURED_DATABASE;
+        return featuredDatabase;
     }
 
-    public static void setContactsProvider(ContactsProvider contactsProvider) {
-        DatabaseSingleton.contactsProvider = contactsProvider;
+    public static CommunityReviewsLoader getCommunityReviewsLoader() {
+        return communityReviewsLoader;
     }
 
     public static NumberInfo getNumberInfo(String number) {
@@ -46,7 +74,7 @@ public class DatabaseSingleton { // TODO: rewrite
                 .getDbItemByNumber(number);
         LOG.trace("getNumberInfo() featuredItem={}", featuredItem);
 
-        ContactItem contactItem = contactsProvider != null ? contactsProvider.get(number) : null;
+        ContactItem contactItem = DatabaseSingleton.contactsProvider.get(number);
         LOG.trace("getNumberInfo() contactItem={}", contactItem);
 
         NumberInfo numberInfo = new NumberInfo();

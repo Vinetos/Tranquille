@@ -4,32 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class FileUtils {
 
     private static final Logger LOG = LoggerFactory.getLogger(FileUtils.class);
 
-    public static File getDataDir() {
-        return Utils.getContext().getFilesDir();
-    }
-
-    public static String getDataDirPath() {
-        return getDataDir().getAbsolutePath() + "/";
-    }
-
-    public static InputStream openFile(String fileName, boolean asset) throws IOException {
-        if (asset) {
-            return Utils.getContext().getAssets().open(fileName);
-        } else {
-            return new FileInputStream(getDataDirPath() + fileName);
-        }
-    }
-
     public static File createDirectory(String path) {
         return createDirectory(new File(path));
+    }
+
+    public static File createDirectory(String base, String dir) {
+        return createDirectory(new File(base, dir));
     }
 
     public static File createDirectory(File base, String dir) {

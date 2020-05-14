@@ -1,9 +1,11 @@
 package dummydomain.yetanothercallblocker.sia.model.database;
 
+import dummydomain.yetanothercallblocker.sia.Storage;
+
 public class FeaturedDatabase extends AbstractDatabase<FeaturedDatabaseDataSlice, FeaturedDatabaseItem> {
 
-    public FeaturedDatabase(String pathPrefix) {
-        super(pathPrefix);
+    public FeaturedDatabase(Storage storage, Source source, String pathPrefix) {
+        super(storage, source, pathPrefix);
     }
 
     @Override

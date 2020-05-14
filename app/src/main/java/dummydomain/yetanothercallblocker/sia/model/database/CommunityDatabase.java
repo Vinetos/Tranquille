@@ -1,8 +1,9 @@
 package dummydomain.yetanothercallblocker.sia.model.database;
 
 import android.annotation.SuppressLint;
-import androidx.annotation.Nullable;
 import android.util.SparseArray;
+
+import androidx.annotation.Nullable;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,16 +23,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 
+import dummydomain.yetanothercallblocker.sia.Settings;
+import dummydomain.yetanothercallblocker.sia.Storage;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
 import dummydomain.yetanothercallblocker.sia.utils.FileUtils;
-import dummydomain.yetanothercallblocker.sia.utils.Utils;
 import okhttp3.MediaType;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-
-import static dummydomain.yetanothercallblocker.sia.utils.FileUtils.getDataDir;
-import static dummydomain.yetanothercallblocker.sia.utils.FileUtils.getDataDirPath;
-import static dummydomain.yetanothercallblocker.sia.utils.FileUtils.openFile;
 
 public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSlice, CommunityDatabaseItem> {
 
@@ -45,22 +43,28 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
 
     private int siaAppVersion = FALLBACK_APP_VERSION;
 
-    protected final String secondaryPathPrefix;
+    private final String secondaryPathPrefix;
+    private final Settings settings;
+    private final WebService webService;
 
     private SparseArray<CommunityDatabaseDataSlice> secondarySliceCache = new SparseArray<>();
 
     @SuppressLint("UseSparseArrays") // uses null as a special value
     private SparseArray<Boolean> existingSecondarySliceFiles = new SparseArray<>();
 
-    public CommunityDatabase(String pathPrefix, String secondaryPathPrefix) {
-        super(pathPrefix);
+    public CommunityDatabase(Storage storage, Source source,
+                             String pathPrefix, String secondaryPathPrefix,
+                             Settings settings, WebService webService) {
+        super(storage, source, pathPrefix);
         this.secondaryPathPrefix = secondaryPathPrefix;
+        this.settings = settings;
+        this.webService = webService;
     }
 
     public int getEffectiveDbVersion() {
         checkLoaded();
 
-        int secondaryDbVersion = Utils.getSettings().getSecondaryDbVersion();
+        int secondaryDbVersion = settings.getSecondaryDbVersion();
         return secondaryDbVersion > 0 ? secondaryDbVersion : baseDatabaseVersion;
     }
 
@@ -83,13 +87,13 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
     }
 
     @Override
-    protected boolean load(boolean useAssets) {
-        if (!super.load(useAssets)) return false;
+    protected boolean load(boolean useInternal) {
+        if (!super.load(useInternal)) return false;
 
-        LOG.debug("load() started; useAssets={}", useAssets);
+        LOG.debug("load() started; useInternal={}", useInternal);
 
         String fileName = getPathPrefix() + "sia_info.dat";
-        try (InputStream is = openFile(fileName, useAssets);
+        try (InputStream is = storage.openFile(fileName, useInternal);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is))) {
 
             if (!"SIA".equals(bufferedReader.readLine())) {
@@ -109,13 +113,13 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
     }
 
     @Override
-    protected void loadInfoDataAfterLoadedHook(boolean useAssets) {
-        int oldDbVersion = Utils.getSettings().getBaseDbVersion();
+    protected void loadInfoDataAfterLoadedHook(boolean useInternal) {
+        int oldDbVersion = settings.getBaseDbVersion();
         if (baseDatabaseVersion != oldDbVersion) {
             LOG.info("loadInfoDataAfterLoadedHook() base version changed; resetting secondary DB;" +
                     " oldDbVersion={}, baseDatabaseVersion={}", oldDbVersion, baseDatabaseVersion);
             resetSecondaryDatabase();
-            Utils.getSettings().setBaseDbVersion(baseDatabaseVersion);
+            settings.setBaseDbVersion(baseDatabaseVersion);
         }
     }
 
@@ -182,7 +186,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
         String path = getSecondarySliceFilePath(id);
         Boolean exists = existingSecondarySliceFiles.get(id, null);
         if (exists == null) {
-            exists = new File(getDataDirPath() + path).exists();
+            exists = new File(storage.getDataDirPath() + path).exists();
             existingSecondarySliceFiles.put(id, exists);
         }
         return exists ? path : null;
@@ -195,7 +199,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
     public void resetSecondaryDatabase() {
         LOG.debug("resetSecondaryDatabase() started");
 
-        File dir = new File(getDataDir(), getSecondaryDbPathPrefix());
+        File dir = new File(storage.getDataDirPath(), getSecondaryDbPathPrefix());
         if (dir.exists()) {
             for (File file : dir.listFiles()) {
                 if (!file.delete()) {
@@ -206,17 +210,17 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
 
         secondarySliceCache.clear();
         existingSecondarySliceFiles.clear();
-        Utils.getSettings().setSecondaryDbVersion(0);
+        settings.setSecondaryDbVersion(0);
 
         LOG.info("resetSecondaryDatabase() secondary DB was reset");
     }
 
-    protected String getSecondaryDbPathPrefix() {
+    private String getSecondaryDbPathPrefix() {
         return secondaryPathPrefix;
     }
 
-    protected void createSecondaryDbDirectory() {
-        FileUtils.createDirectory(getDataDir(), getSecondaryDbPathPrefix());
+    private void createSecondaryDbDirectory() {
+        FileUtils.createDirectory(storage.getDataDirPath(), getSecondaryDbPathPrefix());
     }
 
     public boolean updateSecondaryDb() {
@@ -262,10 +266,10 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
         LOG.debug("updateSecondaryDbInternal() effectiveDbVersion={}", effectiveDbVersion);
 
         String dbVersionParam = "_dbVer=" + effectiveDbVersion;
-        String urlPath = WebService.getGetDatabaseUrlPart() + "/cached?" + dbVersionParam;
+        String urlPath = webService.getGetDatabaseUrlPart() + "/cached?" + dbVersionParam;
 
         try {
-            Response response = WebService.call(urlPath, new HashMap<>());
+            Response response = webService.call(urlPath, new HashMap<>());
             if (response != null) {
                 ResponseBody body = response.body();
                 MediaType contentType = body.contentType();
@@ -274,7 +278,8 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
                 if (contentType != null && "application".equals(contentType.type())) {
                     LOG.trace("updateSecondaryDbInternal() saving response data to file");
 
-                    File tempFile = File.createTempFile("sia", "database", Utils.getContext().getCacheDir());
+                    File tempFile = File.createTempFile("sia", "database",
+                            new File(storage.getCacheDirPath()));
 
                     int totalRead = 0;
                     try (InputStream in = body.byteStream();
@@ -371,7 +376,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
                     }
 
                     try (BufferedOutputStream stream = new BufferedOutputStream(
-                            new FileOutputStream(getDataDirPath() + filePath + ".update", false))) {
+                            new FileOutputStream(storage.getDataDirPath() + filePath + ".update", false))) {
                         sliceFromExistingFile.writeMerged(newSlice, stream);
                     }
 
@@ -384,7 +389,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
             LOG.debug("updateSecondaryWithSlice() update files created, renaming files");
 
             for (int sliceId : updatedIndexes) {
-                String filePath = getDataDirPath() + getSecondarySliceFilePath(sliceId);
+                String filePath = storage.getDataDirPath() + getSecondarySliceFilePath(sliceId);
 
                 File updatedFile = new File(filePath + ".update");
                 File oldFile = new File(filePath);
@@ -396,7 +401,7 @@ public class CommunityDatabase extends AbstractDatabase<CommunityDatabaseDataSli
                 }
             }
 
-            Utils.getSettings().setSecondaryDbVersion(dataSlice.getDbVersion());
+            settings.setSecondaryDbVersion(dataSlice.getDbVersion());
             secondarySliceCache.clear();
             existingSecondarySliceFiles.clear();
 

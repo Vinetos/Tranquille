@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
-import dummydomain.yetanothercallblocker.sia.SiaConstants;
+import dummydomain.yetanothercallblocker.sia.Storage;
 import dummydomain.yetanothercallblocker.sia.network.DbDownloader;
 import dummydomain.yetanothercallblocker.sia.utils.FileUtils;
 
@@ -13,17 +13,26 @@ public class DbManager {
 
     private static final Logger LOG = LoggerFactory.getLogger(DbManager.class);
 
-    public static boolean downloadMainDb() {
-        String url = "https://gitlab.com/xynngh/YetAnotherCallBlocker_data/raw/zip_v1/archives/sia.zip";
-        return downloadMainDb(url);
+    private static final String DEFAULT_URL = "https://gitlab.com/xynngh/YetAnotherCallBlocker_data/raw/zip_v1/archives/sia.zip";
+
+    private final Storage storage;
+    private final String pathPrefix;
+
+    public DbManager(Storage storage, String pathPrefix) {
+        this.storage = storage;
+        this.pathPrefix = pathPrefix;
     }
 
-    public static boolean downloadMainDb(String url) {
+    public boolean downloadMainDb() {
+        return downloadMainDb(DEFAULT_URL);
+    }
+
+    public boolean downloadMainDb(String url) {
         LOG.debug("downloadMainDb() started");
 
-        File dataDir = FileUtils.getDataDir();
+        File dataDir = new File(storage.getDataDirPath());
 
-        String siaDir = SiaConstants.SIA_PATH_PREFIX;
+        String siaDir = pathPrefix;
         String tmpUpdateDir = siaDir.substring(0, siaDir.indexOf('/')) + "-tmp/";
         String oldDir = siaDir.substring(0, siaDir.indexOf('/')) + "-old/";
 
@@ -31,7 +40,7 @@ public class DbManager {
         FileUtils.createDirectory(dataDir, tmpUpdateDir);
         LOG.debug("downloadMainDb() prepared dirs");
 
-        if (DbDownloader.download(url, FileUtils.getDataDirPath() + tmpUpdateDir)) {
+        if (DbDownloader.download(url, storage.getDataDirPath() + tmpUpdateDir)) {
             LOG.debug("downloadMainDb() downloaded and unpacked");
 
             File old = new File(dataDir, siaDir);

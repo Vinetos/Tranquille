@@ -1,7 +1,5 @@
 package dummydomain.yetanothercallblocker.sia.network;
 
-import android.os.Build;
-
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +17,52 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 public class WebService {
+
+    public interface WSParameterProvider {
+        String getAppId();
+
+        String getDevice();
+        String getModel();
+        String getManufacturer();
+        int getAndroidApi();
+
+        String getAppFamily();
+        int getAppVersion();
+        int getDbVersion();
+        String getCountry();
+    }
+
+    public static abstract class DefaultWSParameterProvider implements WSParameterProvider {
+        @Override
+        public String getDevice() {
+            return "dreamlte";
+        }
+
+        @Override
+        public String getModel() {
+            return "SM-G950F";
+        }
+
+        @Override
+        public String getManufacturer() {
+            return "Samsung";
+        }
+
+        @Override
+        public int getAndroidApi() {
+            return 26;
+        }
+
+        @Override
+        public String getAppFamily() {
+            return "SIA-NEXT";
+        }
+
+        @Override
+        public String getCountry() {
+            return "US";
+        }
+    }
 
     public static class WSResponse {
         private boolean successful;
@@ -60,15 +104,21 @@ public class WebService {
     private static final String GET_DATABASE_URL_PART = "/get-database";
     private static final String GET_REVIEWS_URL_PART = "/get-reviews";
 
-    public static String getGetDatabaseUrlPart() {
+    private final WSParameterProvider parameterProvider;
+
+    public WebService(WSParameterProvider parameterProvider) {
+        this.parameterProvider = parameterProvider;
+    }
+
+    public String getGetDatabaseUrlPart() {
         return GET_DATABASE_URL_PART;
     }
 
-    public static String getGetReviewsUrlPart() {
+    public String getGetReviewsUrlPart() {
         return GET_REVIEWS_URL_PART;
     }
 
-    public static Response call(String path, Map<String, String> params) {
+    public Response call(String path, Map<String, String> params) {
         LOG.debug("call() started; path={}", path);
 
         // TODO: retries
@@ -82,7 +132,7 @@ public class WebService {
         return null;
     }
 
-    public static WSResponse callForJson(String path, Map<String, String> params) {
+    public WSResponse callForJson(String path, Map<String, String> params) {
         LOG.debug("callForJson() started; path={}", path);
 
         try {
@@ -118,24 +168,24 @@ public class WebService {
         return null;
     }
 
-    private static String addHostname(String path) {
+    private String addHostname(String path) {
         return "https://aapi.shouldianswer.net/srvapp" + path;
     }
 
-    private static RequestBody createRequestBody(Map<String, String> params) {
+    private RequestBody createRequestBody(Map<String, String> params) {
         if (params == null) params = new HashMap<>();
 
-        params.put("_appId", Utils.getAppId());
+        params.put("_appId", parameterProvider.getAppId());
 
-        params.put("_device", "dreamlte");
-        params.put("_model", "SM-G950F");
-        params.put("_manufacturer", "Samsung");
-        params.put("_api", String.valueOf(Build.VERSION_CODES.O));
+        params.put("_device", parameterProvider.getDevice());
+        params.put("_model", parameterProvider.getModel());
+        params.put("_manufacturer", parameterProvider.getManufacturer());
+        params.put("_api", String.valueOf(parameterProvider.getAndroidApi()));
 
-        params.put("_appFamily", "SIA-NEXT");
-        params.put("_appVer", String.valueOf(Utils.getAppVersion()));
-        params.put("_dbVer", String.valueOf(Utils.getEffectiveDbVersion()));
-        params.put("_country", "US"); // TODO: remove hardcode
+        params.put("_appFamily", parameterProvider.getAppFamily());
+        params.put("_appVer", String.valueOf(parameterProvider.getAppVersion()));
+        params.put("_dbVer", String.valueOf(parameterProvider.getDbVersion()));
+        params.put("_country", parameterProvider.getCountry());
 
         MultipartBody.Builder bodyBuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
 

@@ -11,15 +11,21 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import static dummydomain.yetanothercallblocker.sia.utils.FileUtils.openFile;
+import dummydomain.yetanothercallblocker.sia.Storage;
 
 public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V> {
 
+    public enum Source {
+        INTERNAL, EXTERNAL, ANY
+    }
+
     private static final Logger LOG = LoggerFactory.getLogger(AbstractDatabase.class);
 
+    protected final Storage storage;
+    protected final Source source;
     protected final String pathPrefix;
 
-    protected boolean useAssets;
+    protected boolean useInternal;
 
     protected int baseDatabaseVersion;
     protected int numberOfItems;
@@ -31,7 +37,9 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
     protected boolean loaded;
     protected boolean failedToLoad;
 
-    public AbstractDatabase(String pathPrefix) {
+    public AbstractDatabase(Storage storage, Source source, String pathPrefix) {
+        this.storage = storage;
+        this.source = source;
         this.pathPrefix = pathPrefix;
     }
 
@@ -72,12 +80,12 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
 
         reset();
 
-        if (load(true)) {
-            useAssets = true;
+        if ((source == Source.ANY || source == Source.INTERNAL) && load(true)) {
+            useInternal = true;
             loaded = true;
             return true;
-        } else if (load(false)) {
-            useAssets = false;
+        } else if ((source == Source.ANY || source == Source.EXTERNAL) && load(false)) {
+            useInternal = false;
             loaded = true;
             return true;
         } else {
@@ -87,10 +95,10 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
         }
     }
 
-    protected boolean load(boolean useAssets) {
-        if (loadInfoData(useAssets) && loadSliceListData(useAssets)) {
-            LOG.info("load() loaded DB useAssets={}, baseDatabaseVersion={}, numberOfItems={}",
-                    useAssets, this.baseDatabaseVersion, this.numberOfItems);
+    protected boolean load(boolean useInternal) {
+        if (loadInfoData(useInternal) && loadSliceListData(useInternal)) {
+            LOG.info("load() loaded DB useInternal={}, baseDatabaseVersion={}, numberOfItems={}",
+                    useInternal, this.baseDatabaseVersion, this.numberOfItems);
             return true;
         }
         return false;
@@ -102,12 +110,12 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
 
     protected abstract String getNamePrefix();
 
-    protected boolean loadInfoData(boolean useAssets) {
-        LOG.debug("loadInfoData() started; useAssets: {}", useAssets);
+    protected boolean loadInfoData(boolean useInternal) {
+        LOG.debug("loadInfoData() started; useInternal: {}", useInternal);
 
         String fileName = getPathPrefix() + getNamePrefix() + "info.dat";
 
-        try (InputStream is = openFile(fileName, useAssets);
+        try (InputStream is = storage.openFile(fileName, useInternal);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is))) {
 
             String headerString = bufferedReader.readLine();
@@ -130,7 +138,7 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
             LOG.debug("loadInfoData() loaded MDI, baseDatabaseVersion={}, numberOfItems={}",
                     this.baseDatabaseVersion, this.numberOfItems);
 
-            loadInfoDataAfterLoadedHook(useAssets);
+            loadInfoDataAfterLoadedHook(useInternal);
 
             return true;
         } catch (FileNotFoundException e) {
@@ -142,13 +150,13 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
         return false;
     }
 
-    protected void loadInfoDataAfterLoadedHook(boolean useAssets) {}
+    protected void loadInfoDataAfterLoadedHook(boolean useInternal) {}
 
-    protected boolean loadSliceListData(boolean useAssets) {
+    protected boolean loadSliceListData(boolean useInternal) {
         LOG.debug("loadSliceListData() started");
 
         String fileName = getPathPrefix() + getNamePrefix() + "list.dat";
-        try (InputStream is = openFile(fileName, useAssets);
+        try (InputStream is = storage.openFile(fileName, useInternal);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is))) {
             String nodes = bufferedReader.readLine();
 
@@ -221,13 +229,13 @@ public abstract class AbstractDatabase<T extends AbstractDatabaseDataSlice<V>, V
         LOG.debug("loadSlice() started with sliceId={}", sliceId);
 
         String fileName = getPathPrefix() + getNamePrefix() + sliceId + ".dat";
-        loadSlice(slice, fileName, useAssets);
+        loadSlice(slice, fileName, useInternal);
     }
 
-    protected void loadSlice(T slice, String fileName, boolean useAssets) {
-        LOG.debug("loadSlice() started with fileName={}, useAssets={}", fileName, useAssets);
+    protected void loadSlice(T slice, String fileName, boolean useInternal) {
+        LOG.debug("loadSlice() started with fileName={}, useInternal={}", fileName, useInternal);
 
-        try (InputStream is = openFile(fileName, useAssets);
+        try (InputStream is = storage.openFile(fileName, useInternal);
              BufferedInputStream stream = new BufferedInputStream(is)) {
 
             slice.loadFromStream(stream);
