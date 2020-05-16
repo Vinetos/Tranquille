@@ -73,7 +73,7 @@ public class CallReceiver extends BroadcastReceiver {
             }
         } else if(TelephonyManager.EXTRA_STATE_IDLE.equals(telephonyExtraState)) {
             isOnCall = false;
-            NotificationHelper.hideIncomingCallNotification(context, incomingNumber);
+            NotificationHelper.hideIncomingCallNotification(context);
             postEvent(new CallEndedEvent());
         }
     }

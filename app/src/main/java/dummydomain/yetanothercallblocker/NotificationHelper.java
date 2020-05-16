@@ -54,13 +54,12 @@ public class NotificationHelper {
     public static void showIncomingCallNotification(Context context, NumberInfo numberInfo) {
         Notification notification = createIncomingCallNotification(context, numberInfo);
 
-        String tag = numberInfo.number != null ? NOTIFICATION_TAG_INCOMING_CALL + numberInfo.number : null;
-        notify(context, tag, NOTIFICATION_ID_INCOMING_CALL, notification);
+        notify(context, NOTIFICATION_TAG_INCOMING_CALL, NOTIFICATION_ID_INCOMING_CALL, notification);
     }
 
-    public static void hideIncomingCallNotification(Context context, String number) {
-        String tag = number != null ? NOTIFICATION_TAG_INCOMING_CALL + number : null;
-        NotificationManagerCompat.from(context).cancel(tag, NOTIFICATION_ID_INCOMING_CALL);
+    public static void hideIncomingCallNotification(Context context) {
+        NotificationManagerCompat.from(context)
+                .cancel(NOTIFICATION_TAG_INCOMING_CALL, NOTIFICATION_ID_INCOMING_CALL);
     }
 
     public static void showBlockedCallNotification(Context context, NumberInfo numberInfo) {
