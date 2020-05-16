@@ -1,5 +1,6 @@
 package dummydomain.yetanothercallblocker;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
@@ -35,6 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
     public static class SettingsFragment extends PreferenceFragmentCompat {
 
         private static final String PREF_AUTO_UPDATE_ENABLED = "autoUpdateEnabled";
+        private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
 
         private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
 
@@ -80,6 +82,11 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 return true;
             });
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Preference category = requireNonNull(findPreference(PREF_CATEGORY_NOTIFICATIONS));
+                category.setVisible(false);
+            }
 
             PreferenceScreen preferenceScreen = getPreferenceScreen();
             int count = preferenceScreen.getPreferenceCount();

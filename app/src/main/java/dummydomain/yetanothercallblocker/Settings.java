@@ -9,6 +9,8 @@ public class Settings extends GenericSettings {
     public static final String PREF_INCOMING_CALL_NOTIFICATIONS = "incomingCallNotifications";
     public static final String PREF_BLOCK_CALLS = "blockCalls";
     public static final String PREF_USE_CONTACTS = "useContacts";
+    public static final String PREF_NOTIFICATIONS_KNOWN = "showNotificationsForKnownCallers";
+    public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
     public static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
 
@@ -72,6 +74,22 @@ public class Settings extends GenericSettings {
 
     public void setUseContacts(boolean use) {
         setBoolean(PREF_USE_CONTACTS, use);
+    }
+
+    public boolean getNotificationsForKnownCallers() {
+        return getBoolean(PREF_NOTIFICATIONS_KNOWN);
+    }
+
+    public void setNotificationsForKnownCallers(boolean show) {
+        setBoolean(PREF_NOTIFICATIONS_KNOWN, show);
+    }
+
+    public boolean getNotificationsForUnknownCallers() {
+        return getBoolean(PREF_NOTIFICATIONS_UNKNOWN);
+    }
+
+    public void setNotificationsForUnknownCallers(boolean show) {
+        setBoolean(PREF_NOTIFICATIONS_UNKNOWN, show);
     }
 
     public long getLastUpdateTime() {

@@ -22,4 +22,17 @@
             app:title="@string/use_contacts" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:key="categoryNotifications"
+        app:title="@string/settings_category_notifications_incoming_calls">
+        <SwitchPreferenceCompat
+            app:key="showNotificationsForKnownCallers"
+            app:summary="@string/show_notifications_for_known_callers_summary"
+            app:title="@string/show_notifications_for_known_callers" />
+        <SwitchPreferenceCompat
+            app:key="showNotificationsForUnknownCallers"
+            app:summary="@string/show_notifications_for_unknown_callers_summary"
+            app:title="@string/show_notifications_for_unknown_callers" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

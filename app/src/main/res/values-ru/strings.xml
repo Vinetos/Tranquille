@@ -72,4 +72,9 @@
     <string name="open_settings_activity">Настройки</string>
     <string name="title_settings_activity">Настройки</string>
     <string name="settings_category_main">Основные</string>
+    <string name="settings_category_notifications_incoming_calls">Уведомления на входящие</string>
+    <string name="show_notifications_for_known_callers">Уведомления для известных звонящих</string>
+    <string name="show_notifications_for_known_callers_summary">Показывать уведомления для известных звонящих (номеров из телефонной книги)</string>
+    <string name="show_notifications_for_unknown_callers">Уведомления для неизвестных звонящих</string>
+    <string name="show_notifications_for_unknown_callers_summary">Показывать уведомления для неизвестных звонящих (отсутствующих в телефонной книге и в базе номеров)</string>
 </resources>

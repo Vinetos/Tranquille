@@ -41,7 +41,7 @@ public class NotificationHelper {
     private static final String CHANNEL_ID_UNKNOWN = "unknown_calls";
     private static final String CHANNEL_ID_NEGATIVE = "negative_calls";
     private static final String CHANNEL_ID_BLOCKED_INFO = "blocked_info";
-    public static final String CHANNEL_ID_TASKS = "tasks";
+    private static final String CHANNEL_ID_TASKS = "tasks";
 
     public static void notify(Context context, int id, Notification notification) {
         NotificationManagerCompat.from(context).notify(id, notification);
@@ -52,9 +52,22 @@ public class NotificationHelper {
     }
 
     public static void showIncomingCallNotification(Context context, NumberInfo numberInfo) {
-        Notification notification = createIncomingCallNotification(context, numberInfo);
+        NotificationWithInfo notificationWithInfo = createIncomingCallNotification(context, numberInfo);
 
-        notify(context, NOTIFICATION_TAG_INCOMING_CALL, NOTIFICATION_ID_INCOMING_CALL, notification);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            if (CHANNEL_ID_KNOWN.equals(notificationWithInfo.channelId)) {
+                if (!App.getSettings().getNotificationsForKnownCallers()) {
+                    return;
+                }
+            } else if (CHANNEL_ID_UNKNOWN.equals(notificationWithInfo.channelId)) {
+                if (!App.getSettings().getNotificationsForUnknownCallers()) {
+                    return;
+                }
+            }
+        }
+
+        notify(context, NOTIFICATION_TAG_INCOMING_CALL, NOTIFICATION_ID_INCOMING_CALL,
+                notificationWithInfo.notification);
     }
 
     public static void hideIncomingCallNotification(Context context) {
@@ -82,7 +95,8 @@ public class NotificationHelper {
                 .setContentTitle(title).build();
     }
 
-    private static Notification createIncomingCallNotification(Context context, NumberInfo numberInfo) {
+    private static NotificationWithInfo createIncomingCallNotification(
+            Context context, NumberInfo numberInfo) {
         boolean unknown = false;
         String channelId;
         String title;
@@ -142,7 +156,7 @@ public class NotificationHelper {
 
         addCallNotificationIntents(context, builder, numberInfo);
 
-        return builder.build();
+        return new NotificationWithInfo(builder.build(), channelId);
     }
 
     private static Notification createBlockedCallNotification(Context context, NumberInfo numberInfo) {
@@ -273,6 +287,16 @@ public class NotificationHelper {
             channels.add(channel);
 
             notificationManager.createNotificationChannels(channels);
+        }
+    }
+
+    private static class NotificationWithInfo {
+        private Notification notification;
+        private String channelId;
+
+        NotificationWithInfo(Notification notification, String channelId) {
+            this.notification = notification;
+            this.channelId = channelId;
         }
     }
 
