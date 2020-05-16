@@ -125,8 +125,8 @@ public class DebugActivity extends AppCompatActivity {
                 sb.append("Base version: ").append(communityDatabase.getBaseDbVersion());
                 sb.append(" (SIA: ").append(communityDatabase.getSiaAppVersion()).append(")\n");
                 sb.append("Effective version: ").append(communityDatabase.getEffectiveDbVersion()).append('\n');
-                sb.append("Last update time: ").append(new Date(App.getSettings().getLastUpdateTime())).append('\n');
-                sb.append("Last update check time: ").append(new Date(App.getSettings().getLastUpdateCheckTime())).append('\n');
+                sb.append("Last update time: ").append(dateOrNever(App.getSettings().getLastUpdateTime())).append('\n');
+                sb.append("Last update check time: ").append(dateOrNever(App.getSettings().getLastUpdateCheckTime())).append('\n');
 
                 FeaturedDatabase featuredDatabase = DatabaseSingleton.getFeaturedDatabase();
 
@@ -135,6 +135,11 @@ public class DebugActivity extends AppCompatActivity {
                 sb.append("Effective version: ").append(featuredDatabase.getBaseDbVersion()).append('\n');
 
                 return sb.toString();
+            }
+
+            private String dateOrNever(long time) {
+                if (time > 0) return new Date(time).toString();
+                return "never";
             }
 
             @Override
