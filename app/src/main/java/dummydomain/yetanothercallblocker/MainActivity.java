@@ -13,7 +13,6 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         callLogAdapter = new CallLogItemRecyclerViewAdapter(this::onCallLogItemClicked);
         recyclerView = findViewById(R.id.callLogList);
         recyclerView.setAdapter(callLogAdapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new CustomVerticalDivider(this));
     }
 
     @Override
