@@ -73,10 +73,18 @@
     <string name="load_reviews_confirmation_title">Are you sure?</string>
     <string name="load_reviews_confirmation_message">Loading online reviews will leak the number to a 3rd party service. Are you sure you want to do it with a number present in your Contacts?</string>
 
+    <string name="open_settings_activity">Settings</string>
+    <string name="title_settings_activity">Settings</string>
+    <string name="settings_category_main">Main</string>
+
     <string name="incoming_call_notifications">Incoming call notifications</string>
+    <string name="incoming_call_notifications_summary">Displays a notification with phone number summary (rating, reviews count, category) during incoming calls</string>
     <string name="block_calls">Block unwanted calls</string>
+    <string name="block_calls_summary">Automatically blocks calls with negative rating</string>
     <string name="auto_updates">Auto-update database</string>
+    <string name="auto_updates_summary">Automatically receive daily DB updates (these are incremental/delta updates, so they consume very little traffic)</string>
     <string name="use_contacts">Use contacts</string>
+    <string name="use_contacts_summary">Numbers present in the phone book are never blocked and the contact name is displayed next to/instead of a number throughout the app</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>

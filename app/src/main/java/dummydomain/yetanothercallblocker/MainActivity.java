@@ -196,6 +196,10 @@ public class MainActivity extends AppCompatActivity {
         loadCallLog();
     }
 
+    public void onOpenSettings(MenuItem item) {
+        startActivity(new Intent(this, SettingsActivity.class));
+    }
+
     public void onOpenDebugActivity(MenuItem item) {
         startActivity(new Intent(this, DebugActivity.class));
     }

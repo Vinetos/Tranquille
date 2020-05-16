@@ -21,7 +21,9 @@
     <string name="sia_category_robocall">Робот/автомат</string>
     <string name="sia_category_nonprofit">Некоммерческая орг-я</string>
     <string name="block_calls">Блокир-ть нежелат. вызовы</string>
+    <string name="block_calls_summary">Автоматически сбрасывать звонки c номеров с отрицательным рейтингом</string>
     <string name="auto_updates">Авто-обновл. базы номеров</string>
+    <string name="auto_updates_summary">Получать ежедневные обновления базы (загружаются только изменения, поэтому расход трафика небольшой)</string>
     <string name="open_debug_activity">Работа с базой номеров</string>
     <string name="debug_activity_label">Работа с базой номеров</string>
     <string name="debug_query_db">Искать в установленной базе</string>
@@ -30,6 +32,7 @@
     <string name="debug_not_found">Не найдено</string>
     <string name="debug_update_result">Обновление завершено. Версия: %d</string>
     <string name="incoming_call_notifications">Отображ. уведомл. при входящих</string>
+    <string name="incoming_call_notifications_summary">Отображает уведомление с краткой информацией о номере (рейтинги, кол-во отзывов, категория) при входящих вызовах</string>
     <string name="title_activity_reviews">Отзывы</string>
     <string name="reviews_loading">Загружаем отзывы…</string>
     <string name="sia_category_fax">Факс</string>
@@ -64,5 +67,9 @@
     <string name="call_log_permission_message">Разрешите доступ к журналу вызовов, чтобы здесь отображались недавние вызовы</string>
     <string name="notification_background_operation">Выполняется процесс в фоне…</string>
     <string name="use_contacts">Отображать имена контактов</string>
+    <string name="use_contacts_summary">Номера из телефонной книги никогда не блокируются, и имя контакта отображается рядом/вместо номера</string>
     <string name="notification_incoming_call_contact">Контакт</string>
+    <string name="open_settings_activity">Настройки</string>
+    <string name="title_settings_activity">Настройки</string>
+    <string name="settings_category_main">Основные</string>
 </resources>

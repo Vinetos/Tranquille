@@ -1,5 +1,6 @@
 package dummydomain.yetanothercallblocker;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 
 import org.greenrobot.eventbus.EventBus;
@@ -10,6 +11,7 @@ public class App extends Application {
 
     private static App instance;
 
+    @SuppressLint("StaticFieldLeak")
     private static Settings settings;
 
     @Override
@@ -19,6 +21,7 @@ public class App extends Application {
         instance = this;
 
         settings = new Settings(this);
+        settings.init();
 
         EventBus.builder()
                 .throwSubscriberException(BuildConfig.DEBUG)

@@ -5,13 +5,15 @@ import android.content.SharedPreferences;
 
 public class GenericSettings {
 
+    protected final Context context;
     protected final SharedPreferences pref;
 
     public GenericSettings(Context context, String name) {
-        this(context.getSharedPreferences(name, Context.MODE_PRIVATE));
+        this(context, context.getSharedPreferences(name, Context.MODE_PRIVATE));
     }
 
-    public GenericSettings(SharedPreferences pref) {
+    public GenericSettings(Context context, SharedPreferences pref) {
+        this.context = context;
         this.pref = pref;
     }
 
@@ -41,6 +43,10 @@ public class GenericSettings {
 
     public void setLong(String key, long value) {
         pref.edit().putLong(key, value).apply();
+    }
+
+    public boolean isSet(String key) {
+        return pref.contains(key);
     }
 
 }
