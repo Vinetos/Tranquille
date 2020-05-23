@@ -35,7 +35,7 @@
     <string name="sia_category_fax">Факс</string>
     <string name="sia_category_nuisance">Злонамеренный</string>
     <string name="sia_category_unsolicited">Нежелательный</string>
-    <string name="notification_incoming_call_text_description">Отриц. %d, положит. %d, нейтр. %d</string>
+    <string name="notification_incoming_call_text_description">Отриц. %1$d, положит. %2$d, нейтр. %3$d</string>
     <string name="sia_category_none">Без категории</string>
     <string name="notification_incoming_call_unknown">Отзывов нет</string>
     <string name="notification_incoming_call_neutral">Нейтрально</string>

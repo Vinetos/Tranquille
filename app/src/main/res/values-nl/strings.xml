@@ -21,7 +21,7 @@
 
     <string name="notification_blocked_call">Geblokkeerde oproep</string>
 
-    <string name="notification_incoming_call_text_description">Ongewenst: %d - Gewenst: %d - Neutraal: %d</string>
+    <string name="notification_incoming_call_text_description">Ongewenst: %1$d - Gewenst: %2$d - Neutraal: %3$d</string>
 
     <string name="notification_background_operation">Bezig met uitvoeren van achtergrondhandeling…</string>
 
@@ -40,7 +40,7 @@
     <string name="sia_category_sms">SMS</string>
     <string name="sia_category_survey">Enquête</string>
     <string name="sia_category_other">Overig</string>
-    <string name="sia_category_financial_service">Financiële dienstverl.</string>
+    <string name="sia_category_financial_service">Financiële dienstverl</string>
     <string name="sia_category_company">Bedrijf</string>
     <string name="sia_category_service">Dienstverlening</string>
     <string name="sia_category_robocall">Robocall</string>
@@ -82,7 +82,6 @@
     <string name="debug_activity_label">Foutopsporing</string>
     <string name="debug_query_db">Databank raadplegen</string>
     <string name="debug_load_reviews">Online-recensies tonen</string>
-    <string name="debug_default_test_number" translatable="false">74995861192</string>
     <string name="debug_db_info">Databankinformatie</string>
     <string name="debug_update_db">Databank bijwerken</string>
     <string name="debug_not_found">Niet gevonden</string>
