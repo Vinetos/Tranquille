@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">Oproepblokkering</string>
+
+    <string name="notification_channel_group_name_incoming_calls">Inkomende oproepen</string>
+    <string name="notification_channel_group_name_blocked_calls">Geblokkeerde oproepen</string>
+    <string name="notification_channel_group_name_tasks">Taken</string>
+
+    <string name="notification_channel_name_known">Bekende oproepen</string>
+    <string name="notification_channel_name_positive">Gewenste oproepen</string>
+    <string name="notification_channel_name_neutral">Neutrale oproepen</string>
+    <string name="notification_channel_name_unknown">Onbekende oproepen</string>
+    <string name="notification_channel_name_negative">Ongewenste oproepen</string>
+    <string name="notification_channel_name_blocked_info">Blokkeringsinformatie</string>
+    <string name="notification_channel_name_tasks">Taken</string>
+
+    <string name="notification_incoming_call_contact">Contactpersoon</string>
+    <string name="notification_incoming_call_positive">Gewenste oproep</string>
+    <string name="notification_incoming_call_neutral">Neutrale oproep</string>
+    <string name="notification_incoming_call_unknown">Onbekende oproep</string>
+    <string name="notification_incoming_call_negative">Ongewenste oproep</string>
+
+    <string name="notification_blocked_call">Geblokkeerde oproep</string>
+
+    <string name="notification_incoming_call_text_description">Ongewenst: %d - Gewenst: %d - Neutraal: %d</string>
+
+    <string name="notification_background_operation">Bezig met uitvoeren van achtergrondhandeling…</string>
+
+    <string name="sia_category_none">Geen</string>
+    <string name="sia_category_telemarketer">Telemarketeer</string>
+    <string name="sia_category_dept_collector">Schuldeiser</string>
+    <string name="sia_category_silent">Stil</string>
+    <string name="sia_category_nuisance">Irritant</string>
+    <string name="sia_category_unsolicited">Ongevraagd</string>
+    <string name="sia_category_call_center">Callcenter</string>
+    <string name="sia_category_fax">Fax</string>
+    <string name="sia_category_nonprofit">Vrijwilligersorg.</string>
+    <string name="sia_category_political">Politieke werving</string>
+    <string name="sia_category_scam">Scam</string>
+    <string name="sia_category_prank">Lolbroek</string>
+    <string name="sia_category_sms">SMS</string>
+    <string name="sia_category_survey">Enquête</string>
+    <string name="sia_category_other">Overig</string>
+    <string name="sia_category_financial_service">Financiële dienstverl.</string>
+    <string name="sia_category_company">Bedrijf</string>
+    <string name="sia_category_service">Dienstverlening</string>
+    <string name="sia_category_robocall">Robocall</string>
+    <string name="sia_category_safe_personal">Vertrouwd persoon</string>
+    <string name="sia_category_safe_company">Vertrouwd bedrijf</string>
+    <string name="sia_category_safe_nonprofit">Vertrouwde vrijwilligersorg.</string>
+
+    <string name="title_activity_reviews">Recensies</string>
+    <string name="reviews_loading">Bezig met laden van recensies…</string>
+
+    <string name="denied_permissions_message">Wegens geweigerde machtigingen werken de volgende functies niet:</string>
+    <string name="feature_info">meldingen</string>
+    <string name="feature_call_blocking">oproepblokkering</string>
+    <string name="feature_contacts">uitlezen van contactpersonen</string>
+
+    <string name="call_log_permission_message">Verleen de machtiging \'Telefoon\' om recente oproepen te tonen</string>
+
+    <string name="no_main_db_title">Databank downloaden</string>
+    <string name="no_main_db_text">Er is nog geen databank aanwezig. Om de app te laten werken moet je een databank downloaden. Dit kost 25 MB aan data.</string>
+    <string name="download_main_db">Databank downloaden</string>
+    <string name="main_db_downloading">Bezig met downloaden…</string>
+
+    <string name="secondary_db_updating">Bezig met bijwerken…</string>
+
+    <string name="recent_calls">Recente oproepen</string>
+    <string name="online_reviews">Online-recensies</string>
+    <string name="back">Terug</string>
+    <string name="no">Nee</string>
+
+    <string name="load_reviews_confirmation_title">Weet je het zeker?</string>
+    <string name="load_reviews_confirmation_message">Door online-recensies te laden, lekt het nummer uit naar een externe dienst. Weet je zeker dat je dit wilt doen met een nummer uit je contactpersonenlijst?</string>
+
+    <string name="incoming_call_notifications">Inkomende oproep-meldingen</string>
+    <string name="block_calls">Ongewenste oproepen blokkeren</string>
+    <string name="auto_updates">Databank automatisch bijwerken</string>
+    <string name="use_contacts">Contactpersonen uitlezen</string>
+
+    <string name="open_debug_activity">Foutopsporingsinformatie tonen</string>
+    <string name="debug_activity_label">Foutopsporing</string>
+    <string name="debug_query_db">Databank raadplegen</string>
+    <string name="debug_load_reviews">Online-recensies tonen</string>
+    <string name="debug_default_test_number" translatable="false">74995861192</string>
+    <string name="debug_db_info">Databankinformatie</string>
+    <string name="debug_update_db">Databank bijwerken</string>
+    <string name="debug_not_found">Niet gevonden</string>
+    <string name="debug_update_result">Bijwerken voltooid. Databankversie: %d</string>
+
+</resources>
