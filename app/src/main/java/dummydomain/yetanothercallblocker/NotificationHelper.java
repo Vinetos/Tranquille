@@ -200,9 +200,12 @@ public class NotificationHelper {
     private static void addCallNotificationIntents(Context context,
                                                    NotificationCompat.Builder builder,
                                                    NumberInfo numberInfo) {
-        builder.setContentIntent(createInfoIntent(context, numberInfo))
-                .addAction(0, context.getString(R.string.online_reviews),
-                        createReviewsIntent(context, numberInfo));
+        builder.setContentIntent(createInfoIntent(context, numberInfo));
+
+        if (numberInfo.contactItem == null) {
+            builder.addAction(0, context.getString(R.string.online_reviews),
+                    createReviewsIntent(context, numberInfo));
+        }
     }
 
     private static PendingIntent createInfoIntent(Context context, NumberInfo numberInfo) {
