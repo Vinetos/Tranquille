@@ -17,6 +17,7 @@ public class InfoDialogActivity extends AppCompatActivity {
     public static Intent getIntent(Context context, String number) {
         Intent intent = new Intent(context, InfoDialogActivity.class);
         intent.putExtra(PARAM_NUMBER, number);
+        intent.setData(IntentHelper.getUriForPhoneNumber(number));
         return intent;
     }
 

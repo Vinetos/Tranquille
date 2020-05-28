@@ -20,7 +20,7 @@ import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
-import static dummydomain.yetanothercallblocker.PendingIntentHelper.forActivity;
+import static dummydomain.yetanothercallblocker.IntentHelper.pendingActivity;
 
 public class NotificationHelper {
 
@@ -85,9 +85,8 @@ public class NotificationHelper {
     public static Notification createServiceNotification(Context context, String title) {
         if (title == null) title = context.getString(R.string.notification_background_operation);
 
-        Intent intent = new Intent(context, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(
-                context, 0, intent, 0);
+        PendingIntent contentIntent = pendingActivity(context,
+                new Intent(context, MainActivity.class));
 
         return new NotificationCompat.Builder(context, CHANNEL_ID_TASKS)
                 .setSmallIcon(R.drawable.ic_file_download_24dp)
@@ -207,11 +206,11 @@ public class NotificationHelper {
     }
 
     private static PendingIntent createInfoIntent(Context context, NumberInfo numberInfo) {
-        return forActivity(context, InfoDialogActivity.getIntent(context, numberInfo.number));
+        return pendingActivity(context, InfoDialogActivity.getIntent(context, numberInfo.number));
     }
 
     private static PendingIntent createReviewsIntent(Context context, NumberInfo numberInfo) {
-        return forActivity(context, ReviewsActivity.getNumberIntent(context, numberInfo.number));
+        return pendingActivity(context, ReviewsActivity.getNumberIntent(context, numberInfo.number));
     }
 
     static void createNotificationChannels(Context context) {

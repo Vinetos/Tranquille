@@ -29,6 +29,7 @@ public class ReviewsActivity extends AppCompatActivity {
     public static Intent getNumberIntent(Context context, String number) {
         Intent intent = new Intent(context, ReviewsActivity.class);
         intent.putExtra(PARAM_NUMBER, number);
+        intent.setData(IntentHelper.getUriForPhoneNumber(number));
         return intent;
     }
 
