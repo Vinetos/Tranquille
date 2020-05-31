@@ -1,0 +1,28 @@
+Una simple aplicación de bloqueo de llamadas que le ayudará a evitar responder a llamadas no deseadas
+usando una base de datos de números de teléfono fuera de línea.
+
+Características:
+
+* Utiliza una base de datos de números de teléfono sin conexión.
+* Bloquea automáticamente las llamadas no deseadas (opcional).
+* Muestra una notificación con el resumen del número de teléfono (clasificación, recuento de revisiones, categoría) durante las llamadas entrantes (opcional).
+* Actualizaciones automáticas de la base de datos incremental/delta (opcional).
+* Puede ver revisiones en línea del número de la persona que llama (proporcionado por un servicio de terceros).
+
+Cómo utilizarlo:
+
+* Instale e inicie la aplicación.
+* La opción de mostrar notificaciones de información de la persona que llama está activada de forma predeterminada, por lo que la aplicación solicitará permisos relacionados con el teléfono.
+* En el primer inicio, la aplicación sugerirá que se descargue la base de datos principal que se requiere para la mayoría de las funciones. Simplemente confirme la descarga.
+* Marque la casilla "Auto-actualización de la base de datos" en el menú (recomendado) para recibir automáticamente las actualizaciones diarias de la base de datos (estas son actualizaciones incrementales/delta, por lo que consumen muy poco tráfico).
+* Marque la casilla "Bloquear llamadas no deseadas" para bloquear automáticamente las llamadas con calificación negativa.
+* También puede marcar la casilla de verificación "Usar contactos" si desea que sus contactos no sean tratados como llamadas desconocidas.
+* Después de estos pasos todo debería funcionar. ¡Disfrútalo!
+
+La base de datos de números telefónicos principales se descarga de un repositorio de Gitlab.
+Las actualizaciones delta y las consultas de revisión detallada se realizan utilizando servidores de terceros.
+No se envía ninguna información identificable por el usuario (excepto el número de teléfono que será cargada para las reseñas).
+
+Otro bloqueador de llamadas está aún en desarrollo. Cualquier ayuda es muy bienvenida.
+
+''NonFreeNet:'' el servicio de terceros no es de código abierto.
