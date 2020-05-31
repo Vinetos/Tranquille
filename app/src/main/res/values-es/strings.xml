@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">Yet Another Call Blocker</string>
+
+    <string name="notification_channel_group_name_incoming_calls">Llamadas entrantes</string>
+    <string name="notification_channel_group_name_blocked_calls">Llamadas bloqueadas</string>
+    <string name="notification_channel_group_name_tasks">Tareas</string>
+
+    <string name="notification_channel_name_known">Llamadas conocidas</string>
+    <string name="notification_channel_name_positive">Llamadas positivas</string>
+    <string name="notification_channel_name_neutral">Llamadas neutrales</string>
+    <string name="notification_channel_name_unknown">Llamadas desconocidas</string>
+    <string name="notification_channel_name_negative">Llamadas negativas</string>
+    <string name="notification_channel_name_blocked_info">Información bloqueada</string>
+    <string name="notification_channel_name_tasks">Tareas</string>
+
+    <string name="notification_incoming_call_contact">Contacto</string>
+    <string name="notification_incoming_call_positive">Llamada positiva</string>
+    <string name="notification_incoming_call_neutral">Llamada neutral</string>
+    <string name="notification_incoming_call_unknown">Llamada desconocida</string>
+    <string name="notification_incoming_call_negative">Llamada negativa</string>
+
+    <string name="notification_blocked_call">Llamada bloqueada</string>
+
+    <string name="notification_incoming_call_text_description">Negativo: %1$d, positivo: %2$d, neutral: %3$d</string>
+
+    <string name="notification_background_operation">Realizando una operación de fondo...</string>
+
+    <string name="sia_category_none">Ninguno</string>
+    <string name="sia_category_telemarketer">Telemercadeo</string>
+    <string name="sia_category_dept_collector">Colector de deudas</string>
+    <string name="sia_category_silent">Silencio</string>
+    <string name="sia_category_nuisance">Mantenimiento</string>
+    <string name="sia_category_unsolicited">No solicitado</string>
+    <string name="sia_category_call_center">Centro de llamadas</string>
+    <string name="sia_category_fax">FAX</string>
+    <string name="sia_category_nonprofit">Organización sin fines de lucro</string>
+    <string name="sia_category_political">Político</string>
+    <string name="sia_category_scam">Scam</string>
+    <string name="sia_category_prank">Broma</string>
+    <string name="sia_category_sms">SMS</string>
+    <string name="sia_category_survey">Encuesta</string>
+    <string name="sia_category_other">Otro</string>
+    <string name="sia_category_financial_service">Servicio financiero</string>
+    <string name="sia_category_company">Compañía</string>
+    <string name="sia_category_service">Servicio</string>
+    <string name="sia_category_robocall">Robocall</string>
+    <string name="sia_category_safe_personal">Seguro personal</string>
+    <string name="sia_category_safe_company">Compañía segura</string>
+    <string name="sia_category_safe_nonprofit">Seguro sin fines de lucro</string>
+
+    <string name="title_activity_reviews">Revisiones</string>
+    <string name="reviews_loading">Cargando críticas...</string>
+
+    <string name="denied_permissions_message">Debido a la denegación de los permisos, las siguientes características pueden no funcionar:</string>
+    <string name="feature_info">notificaciones</string>
+    <string name="feature_call_blocking">bloqueo de llamadas</string>
+    <string name="feature_contacts">uso de contactos</string>
+
+    <string name="call_log_permission_message">Concede el permiso  \"Teléfono\"  para ver las llamadas recientes</string>
+
+    <string name="no_main_db_title">Descargar base de datos principal</string>
+    <string name="no_main_db_text">La base de datos no está presente. Para que la aplicación realice la mayor parte de sus funciones necesitas descargar la base de datos. Tomará alrededor de 25 MB de tráfico.</string>
+    <string name="download_main_db">Descargar base de datos</string>
+    <string name="main_db_downloading">Descargando DB...</string>
+
+    <string name="secondary_db_updating">Actualizando DB...</string>
+
+    <string name="recent_calls">Llamadas recientes</string>
+    <string name="online_reviews">Revisiones en línea</string>
+    <string name="back">Atrás</string>
+    <string name="no">No</string>
+
+    <string name="load_reviews_confirmation_title">¿Estás seguro?</string>
+    <string name="load_reviews_confirmation_message">Cargar las revisiones online filtrará el número a un servicio de terceros. ¿Estás seguro de que quieres hacerlo con un número presente en tus contactos?</string>
+
+    <string name="open_settings_activity">Ajustes</string>
+    <string name="title_settings_activity">Ajustes</string>
+    <string name="settings_category_main">Inicio</string>
+    <string name="settings_category_notifications_incoming_calls">Notificaciones de llamadas entrantes</string>
+    <string name="show_notifications_for_known_callers">Notificaciones de llamadas conocidas</string>
+    <string name="show_notifications_for_known_callers_summary">Mostrar notificaciones de llamadas conocidas (números en Contactos)</string>
+    <string name="show_notifications_for_unknown_callers">Notificaciones de llamadas desconocidas</string>
+    <string name="show_notifications_for_unknown_callers_summary">Notificaciones de llamadas desconocidas (ni en Contactos ni en la base de datos de números)</string>
+
+    <string name="incoming_call_notifications">Notificaciones de llamadas entrantes</string>
+    <string name="incoming_call_notifications_summary">Muestra una notificación con el resumen del número de teléfono (clasificación, recuento de revisiones, categoría) durante las llamadas entrantes</string>
+    <string name="block_calls">Bloqueo de llamadas no deseadas</string>
+    <string name="block_calls_summary">Automáticamente bloquea las llamadas con calificación negativa</string>
+    <string name="auto_updates">Base de datos de actualización automática</string>
+    <string name="auto_updates_summary">Automáticamente recibe actualizaciones diarias de la BD (estas son actualizaciones incrementales/delta, por lo que consumen muy poco tráfico)</string>
+    <string name="use_contacts">Usar contactos</string>
+    <string name="use_contacts_summary">Los números presentes en la guía telefónica nunca se bloquean y el nombre del contacto aparece junto a/en lugar de un número en toda la aplicación</string>
+
+    <string name="open_debug_activity">Abrir pantalla de depuración</string>
+    <string name="debug_activity_label">Depurar</string>
+    <string name="debug_query_db">Consulta DB</string>
+    <string name="debug_load_reviews">Cargar reseñas (online)</string>
+    <string name="debug_db_info">Información de DB</string>
+    <string name="debug_update_db">Actualizar DB</string>
+    <string name="debug_not_found">No encontrado</string>
+    <string name="debug_update_result">Actualización terminada; DB ver: %d</string>
+</resources>
