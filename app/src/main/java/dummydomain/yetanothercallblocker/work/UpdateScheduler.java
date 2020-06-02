@@ -1,6 +1,7 @@
 package dummydomain.yetanothercallblocker.work;
 
 import android.content.Context;
+import android.os.Build;
 
 import androidx.work.Constraints;
 import androidx.work.NetworkType;
@@ -47,20 +48,22 @@ public class UpdateScheduler {
 
         getWorkManager().enqueue(updateRequest);
 
-        constraints = new Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.UNMETERED)
-                .setRequiresBatteryNotLow(true)
-                .setRequiresDeviceIdle(true)
-                .build();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            constraints = new Constraints.Builder()
+                    .setRequiredNetworkType(NetworkType.UNMETERED)
+                    .setRequiresBatteryNotLow(true)
+                    .setRequiresDeviceIdle(true)
+                    .build();
 
-        updateRequest =
-                new PeriodicWorkRequest.Builder(UpdateWorker.class, 6, TimeUnit.HOURS)
-                        .addTag(AUTO_UPDATE_WORK_TAG)
-                        .setInitialDelay(6, TimeUnit.HOURS)
-                        .setConstraints(constraints)
-                        .build();
+            updateRequest =
+                    new PeriodicWorkRequest.Builder(UpdateWorker.class, 6, TimeUnit.HOURS)
+                            .addTag(AUTO_UPDATE_WORK_TAG)
+                            .setInitialDelay(6, TimeUnit.HOURS)
+                            .setConstraints(constraints)
+                            .build();
 
-        getWorkManager().enqueue(updateRequest);
+            getWorkManager().enqueue(updateRequest);
+        }
     }
 
     public void cancelAutoUpdateWorker() {
