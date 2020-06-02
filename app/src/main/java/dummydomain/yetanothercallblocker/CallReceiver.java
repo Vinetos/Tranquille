@@ -95,6 +95,7 @@ public class CallReceiver extends BroadcastReceiver {
 
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         try {
+            @SuppressLint("DiscouragedPrivateApi") // no choice
             Method m = tm.getClass().getDeclaredMethod("getITelephony");
             m.setAccessible(true);
             ITelephony telephony = (ITelephony)m.invoke(tm);

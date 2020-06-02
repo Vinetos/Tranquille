@@ -165,7 +165,7 @@ public class NotificationHelper {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 context, CHANNEL_ID_BLOCKED_INFO)
                 .setSmallIcon(R.drawable.ic_brick_24dp)
-                .setColor(context.getResources().getColor(R.color.rateNegative))
+                .setColor(UiUtils.getColorInt(context, R.color.rateNegative))
                 .setContentTitle(title)
                 .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)

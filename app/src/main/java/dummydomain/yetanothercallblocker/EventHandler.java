@@ -1,5 +1,6 @@
 package dummydomain.yetanothercallblocker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import org.greenrobot.eventbus.EventBus;
@@ -12,6 +13,7 @@ public class EventHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventHandler.class);
 
+    @SuppressLint("StaticFieldLeak") // same lifecycle
     private static EventHandler instance;
 
     private Context context;

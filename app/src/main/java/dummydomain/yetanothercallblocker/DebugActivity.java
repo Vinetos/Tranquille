@@ -68,7 +68,7 @@ public class DebugActivity extends AppCompatActivity {
                 FeaturedDatabaseItem featuredItem = DatabaseSingleton.getFeaturedDatabase()
                         .getDbItemByNumber(getNumber());
 
-                return new Pair(item, featuredItem);
+                return new Pair<>(item, featuredItem);
             }
 
             @Override

@@ -8,7 +8,6 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import dummydomain.yetanothercallblocker.data.NumberInfo;
@@ -34,7 +33,7 @@ class IconAndColor {
 
     @ColorInt
     int getColorInt(@NonNull Context context) {
-        return ResourcesCompat.getColor(context.getResources(), colorResId, context.getTheme());
+        return UiUtils.getColorInt(context, colorResId);
     }
 
     void setOnImageView(AppCompatImageView imageView) {
