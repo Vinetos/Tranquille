@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Utils {
 
     public static String md5String(String str) {
-        return new String(Hex.encodeHex(DigestUtils.md5(str)));
+        return new String(Hex.encodeHex(DigestUtils.md5(str.getBytes())));
     }
 
     public static String generateAppId() {
