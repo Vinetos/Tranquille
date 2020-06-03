@@ -10,7 +10,7 @@
     <string name="notification_channel_name_neutral">Llamadas neutrales</string>
     <string name="notification_channel_name_unknown">Llamadas desconocidas</string>
     <string name="notification_channel_name_negative">Llamadas negativas</string>
-    <string name="notification_channel_name_blocked_info">Información bloqueada</string>
+    <string name="notification_channel_name_blocked_info">Información del bloqueo</string>
     <string name="notification_channel_name_tasks">Tareas</string>
 
     <string name="notification_incoming_call_contact">Contacto</string>
