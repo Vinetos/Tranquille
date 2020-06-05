@@ -135,8 +135,11 @@ public class CallLogItemRecyclerViewAdapter
                     break;
 
                 case MISSED:
-                case REJECTED:
                     icon = R.drawable.ic_call_missed_24dp;
+                    break;
+
+                case REJECTED:
+                    icon = R.drawable.ic_call_rejected_24dp;
                     break;
 
                 default:
