@@ -93,6 +93,11 @@ public class ReviewsActivity extends AppCompatActivity {
     }
 
     private void handleReviews(List<CommunityReview> reviews) {
+        if (reviews == null) {
+            setText(getString(R.string.reviews_loading_error));
+            return;
+        }
+
         listViewAdapter.setItems(reviews);
         listViewAdapter.notifyDataSetChanged();
         displaySummary(reviews);

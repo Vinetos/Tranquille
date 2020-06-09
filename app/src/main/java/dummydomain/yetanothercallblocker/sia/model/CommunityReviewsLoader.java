@@ -38,14 +38,14 @@ public class CommunityReviewsLoader {
 
         WebService.WSResponse response = webService.callForJson(webService.getGetReviewsUrlPart(), params);
 
-        List<CommunityReview> reviews = new ArrayList<>();
-
         if (response == null || !response.getSuccessful()) {
             LOG.warn("loadReviews() response is not successful");
-            return reviews;
+            return null;
         }
 
         try {
+            List<CommunityReview> reviews = new ArrayList<>();
+
             // response.getJsonObject():
             // "success": boolean
             // "nn": String number starting with "+"
@@ -68,10 +68,12 @@ public class CommunityReviewsLoader {
             }
 
             LOG.trace("loadReviews() loaded {} reviews", reviews.size());
+
+            return reviews;
         } catch (JSONException e) {
             LOG.error("loadReviews()", e);
         }
-        return reviews;
+        return null;
     }
 
 }

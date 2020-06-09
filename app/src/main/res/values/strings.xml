@@ -50,6 +50,7 @@
 
     <string name="title_activity_reviews">Reviews</string>
     <string name="reviews_loading">Loading reviews…</string>
+    <string name="reviews_loading_error">Reviews loading error</string>
 
     <string name="denied_permissions_message">Due to denied permissions following features may not work:</string>
     <string name="feature_info">notifications</string>

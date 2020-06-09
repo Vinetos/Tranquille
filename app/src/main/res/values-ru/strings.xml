@@ -35,6 +35,7 @@
     <string name="incoming_call_notifications_summary">Отображает уведомление с краткой информацией о номере (рейтинги, кол-во отзывов, категория) при входящих вызовах</string>
     <string name="title_activity_reviews">Отзывы</string>
     <string name="reviews_loading">Загружаем отзывы…</string>
+    <string name="reviews_loading_error">Ошибка загрузки отзывов</string>
     <string name="sia_category_fax">Факс</string>
     <string name="sia_category_nuisance">Злонамеренный</string>
     <string name="sia_category_unsolicited">Нежелательный</string>
