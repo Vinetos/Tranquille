@@ -222,9 +222,12 @@ public class MainActivity extends AppCompatActivity {
                 List<CallLogItem> items = CallLogHelper.getRecentCalls(MainActivity.this, 20);
 
                 for (CallLogItem item : items) {
-                    item.numberInfo = DatabaseSingleton.getCommunityDatabase().isOperational()
-                            ? DatabaseSingleton.getNumberInfo(item.number)
-                            : new NumberInfo();
+                    if (DatabaseSingleton.getCommunityDatabase().isOperational()) {
+                        item.numberInfo = DatabaseSingleton.getNumberInfo(item.number);
+                    } else {
+                        item.numberInfo = new NumberInfo();
+                        item.numberInfo.number = item.number;
+                    }
                 }
 
                 return items;
