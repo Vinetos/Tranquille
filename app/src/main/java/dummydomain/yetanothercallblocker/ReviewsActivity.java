@@ -9,9 +9,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.List;
 
@@ -22,9 +25,10 @@ public class ReviewsActivity extends AppCompatActivity {
 
     private static final String PARAM_NUMBER = "param_number";
 
+    private CollapsingToolbarLayout collapsingToolbarLayout;
     private CustomListViewAdapter listViewAdapter;
 
-    private AsyncTask<Void, Void, List<CommunityReview>> loadReviewsTask;
+    private AsyncTask<String, Void, List<CommunityReview>> loadReviewsTask;
 
     public static Intent getNumberIntent(Context context, String number) {
         Intent intent = new Intent(context, ReviewsActivity.class);
@@ -43,11 +47,12 @@ public class ReviewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reviews);
         setSupportActionBar(findViewById(R.id.toolbar));
 
-        final String paramNumber = getIntent().getStringExtra(PARAM_NUMBER);
+        collapsingToolbarLayout = findViewById(R.id.toolbar_layout);
 
-        findViewById(R.id.reviews_summary).setVisibility(View.GONE);
-        setTitle(paramNumber);
-        setText(getString(R.string.reviews_loading));
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         listViewAdapter = new CustomListViewAdapter();
         RecyclerView reviewsList = findViewById(R.id.reviews_list);
@@ -55,12 +60,44 @@ public class ReviewsActivity extends AppCompatActivity {
         reviewsList.setAdapter(listViewAdapter);
         reviewsList.addItemDecoration(new CustomVerticalDivider(this));
 
+        handleIntent(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        handleIntent(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        cancelReviewsLoadingTask();
+
+        super.onDestroy();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    protected void handleIntent(Intent intent) {
+        String paramNumber = intent.getStringExtra(PARAM_NUMBER);
+
+        findViewById(R.id.reviews_summary).setVisibility(View.GONE);
+        collapsingToolbarLayout.setTitle(paramNumber);
+        setText(getString(R.string.reviews_loading));
+
+        cancelReviewsLoadingTask();
+
         @SuppressLint("StaticFieldLeak")
-        AsyncTask<Void, Void, List<CommunityReview>> asyncTask = loadReviewsTask
-                = new AsyncTask<Void, Void, List<CommunityReview>>() {
+        AsyncTask<String, Void, List<CommunityReview>> asyncTask = loadReviewsTask
+                = new AsyncTask<String, Void, List<CommunityReview>>() {
             @Override
-            protected List<CommunityReview> doInBackground(Void... voids) {
-                return DatabaseSingleton.getCommunityReviewsLoader().loadReviews(paramNumber);
+            protected List<CommunityReview> doInBackground(String... params) {
+                return DatabaseSingleton.getCommunityReviewsLoader().loadReviews(params[0]);
             }
 
             @Override
@@ -69,14 +106,7 @@ public class ReviewsActivity extends AppCompatActivity {
                 handleReviews(reviews);
             }
         };
-        asyncTask.execute();
-    }
-
-    @Override
-    protected void onDestroy() {
-        cancelReviewsLoadingTask();
-
-        super.onDestroy();
+        asyncTask.execute(paramNumber);
     }
 
     private void cancelReviewsLoadingTask() {

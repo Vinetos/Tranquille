@@ -13,6 +13,8 @@ import androidx.appcompat.app.AlertDialog;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 
+import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
+
 public class InfoDialogHelper {
 
     public static void showDialog(Context context, NumberInfo numberInfo,
@@ -71,7 +73,9 @@ public class InfoDialogHelper {
         // avoid dismissing the original dialog on button press
 
         Runnable action = () -> {
-            ReviewsActivity.startForNumber(context, numberInfo.number);
+            context.startActivity(clearTop(
+                    ReviewsActivity.getNumberIntent(context, numberInfo.number)));
+
             dialog.dismiss();
         };
 

@@ -20,6 +20,7 @@ import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
+import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
 import static dummydomain.yetanothercallblocker.IntentHelper.pendingActivity;
 
 public class NotificationHelper {
@@ -213,7 +214,8 @@ public class NotificationHelper {
     }
 
     private static PendingIntent createReviewsIntent(Context context, NumberInfo numberInfo) {
-        return pendingActivity(context, ReviewsActivity.getNumberIntent(context, numberInfo.number));
+        return pendingActivity(context, clearTop(
+                ReviewsActivity.getNumberIntent(context, numberInfo.number)));
     }
 
     static void createNotificationChannels(Context context) {

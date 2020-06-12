@@ -22,7 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,10 +40,15 @@
         </activity>
         <activity
             android:name=".DebugActivity"
-            android:label="@string/debug_activity_label" />
+            android:label="@string/debug_activity_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".ReviewsActivity"
             android:label="@string/title_activity_reviews"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
