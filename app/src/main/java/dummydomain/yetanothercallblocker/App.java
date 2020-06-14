@@ -3,7 +3,10 @@ package dummydomain.yetanothercallblocker;
 import android.annotation.SuppressLint;
 import android.app.Application;
 
+import org.conscrypt.Conscrypt;
 import org.greenrobot.eventbus.EventBus;
+
+import java.security.Security;
 
 import dummydomain.yetanothercallblocker.data.Config;
 
@@ -19,6 +22,8 @@ public class App extends Application {
         super.onCreate();
 
         instance = this;
+
+        Security.insertProviderAt(Conscrypt.newProvider(), 1);
 
         settings = new Settings(this);
         settings.init();

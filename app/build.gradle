@@ -36,6 +36,7 @@ dependencies {
 
     implementation 'org.slf4j:slf4j-api:1.7.30'
     runtimeOnly 'com.github.tony19:logback-android:2.0.0'
+    implementation 'org.conscrypt:conscrypt-android:2.4.0'
     //noinspection GradleDependency: 3.12.* is the latest version compatible with Android <5
     implementation 'com.squareup.okhttp3:okhttp:3.12.12'
     implementation 'commons-codec:commons-codec:1.14' // beware: a version included in Android is used instead
