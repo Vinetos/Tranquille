@@ -16,6 +16,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.Date;
 
 import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
@@ -86,7 +87,7 @@ public class DebugActivity extends AppCompatActivity {
 
                     NumberCategory category = NumberCategory.getById(item.getCategory());
                     if (category != null) {
-                        string += DebugActivity.this.getString(category.getStringId());
+                        string += SiaNumberCategoryUtils.getName(DebugActivity.this, category);
                     } else {
                         string += "category=" + item.getCategory() + "\n";
                     }

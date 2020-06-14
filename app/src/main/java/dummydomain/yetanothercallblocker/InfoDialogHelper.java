@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import dummydomain.yetanothercallblocker.data.NumberInfo;
+import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 
 import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
@@ -32,7 +33,7 @@ public class InfoDialogHelper {
                 : null;
 
         if (category != null && category != NumberCategory.NONE) {
-            categoryView.setText(NumberCategory.getString(context, category));
+            categoryView.setText(SiaNumberCategoryUtils.getName(context, category));
         } else {
             categoryView.setVisibility(View.GONE);
         }

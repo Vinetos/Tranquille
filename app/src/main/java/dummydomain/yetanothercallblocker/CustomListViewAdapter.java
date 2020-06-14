@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReview;
 
 class CustomListViewAdapter extends RecyclerView.Adapter<CustomListViewAdapter.CommunityReviewViewHolder> {
@@ -55,7 +56,7 @@ class CustomListViewAdapter extends RecyclerView.Adapter<CustomListViewAdapter.C
         }
 
         public void bind(CommunityReview item) {
-            tvNumberCategory.setText(item.getCategory().getStringId());
+            tvNumberCategory.setText(SiaNumberCategoryUtils.getNameResId(item.getCategory()));
             String title = item.getTitle();
             if (TextUtils.isEmpty(title)) {
                 tvTitle.setVisibility(View.GONE);

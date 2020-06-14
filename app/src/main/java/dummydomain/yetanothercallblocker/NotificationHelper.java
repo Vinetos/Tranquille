@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.NumberInfo;
+import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
@@ -135,7 +136,7 @@ public class NotificationHelper {
 
             NumberCategory category = NumberCategory.getById(communityItem.getCategory());
             if (category != null && category != NumberCategory.NONE) {
-                title += " - " + NumberCategory.getString(context, category);
+                title += " - " + SiaNumberCategoryUtils.getName(context, category);
             }
         }
 
