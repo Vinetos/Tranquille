@@ -22,6 +22,9 @@
     <string name="sia_category_nonprofit">Некоммерческая орг-я</string>
     <string name="block_calls">Блокир-ть нежелат. вызовы</string>
     <string name="block_calls_summary">Автоматически сбрасывать звонки c номеров с отрицательным рейтингом</string>
+    <string name="use_call_screening_service">Продвинутый режим блокирования вызовов</string>
+    <string name="use_call_screening_service_summary">Позволяет блокировать вызовы до того, как телефон зазвонит. Это требует назначить приложение \"приложением для звонков\" (на Android 7–9) или \"приложением для АОН и защиты от спама\" (на Android 10+)</string>
+    <string name="use_call_screening_service_disable_message">Выберите другое приложение для звонков или защиты от спама в меню Настройки - Приложения - Приложения по умолчанию</string>
     <string name="auto_updates">Авто-обновл. базы номеров</string>
     <string name="auto_updates_summary">Получать ежедневные обновления базы (загружаются только изменения, поэтому расход трафика небольшой)</string>
     <string name="open_debug_activity">Работа с базой номеров</string>
@@ -53,6 +56,8 @@
     <string name="feature_info">уведомления</string>
     <string name="feature_call_blocking">блокир-е вызовов</string>
     <string name="feature_contacts">имена контактов</string>
+    <string name="denied_default_dialer_message">Продвинутый режим блокирования не сможет работать, т.к. приложение не назначено \"приложением для звонков\"</string>
+    <string name="denied_call_screening_role_message">Продвинутый режим блокирования не сможет работать, т.к. приложение не назначено \"приложением для АОН и защиты от спама\"</string>
     <string name="no_main_db_title">Загрузить базу номеров</string>
     <string name="no_main_db_text">База номеров отсутствует. Для полноценной работы приложения требуется загрузка базы номеров (около 25 МБ трафика).</string>
     <string name="download_main_db">Загрузить базу номеров</string>
@@ -73,6 +78,7 @@
     <string name="open_settings_activity">Настройки</string>
     <string name="title_settings_activity">Настройки</string>
     <string name="settings_category_main">Основные</string>
+    <string name="settings_category_call_blocking">Блокирование вызовов</string>
     <string name="settings_category_notifications_incoming_calls">Уведомления на входящие</string>
     <string name="show_notifications_for_known_callers">Уведомления для известных звонящих</string>
     <string name="show_notifications_for_known_callers_summary">Показывать уведомления для известных звонящих (номеров из телефонной книги)</string>

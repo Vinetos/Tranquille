@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults,
+        PermissionHelper.handlePermissionsResult(this, requestCode, permissions, grantResults,
                 settings.getIncomingCallNotifications(), settings.getBlockCalls(),
                 settings.getUseContacts());
 

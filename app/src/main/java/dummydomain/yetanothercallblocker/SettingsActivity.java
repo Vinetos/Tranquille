@@ -1,10 +1,15 @@
 package dummydomain.yetanothercallblocker;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
@@ -33,8 +38,34 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        Settings settings = App.getSettings();
+
+        PermissionHelper.handlePermissionsResult(this, requestCode, permissions, grantResults,
+                settings.getIncomingCallNotifications(), settings.getBlockCalls(),
+                settings.getUseContacts());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (PermissionHelper.handleCallScreeningResult(this, requestCode, resultCode)) {
+            for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+                if (fragment instanceof SettingsFragment) {
+                    ((SettingsFragment) fragment).updateCallScreeningPreference();
+                }
+            }
+        }
+    }
+
     public static class SettingsFragment extends PreferenceFragmentCompat {
 
+        private static final String PREF_USE_CALL_SCREENING_SERVICE = "useCallScreeningService";
         private static final String PREF_AUTO_UPDATE_ENABLED = "autoUpdateEnabled";
         private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
 
@@ -61,6 +92,24 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 return true;
             });
+
+            SwitchPreferenceCompat callScreeningPref =
+                    requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));
+            callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(getActivity()));
+            callScreeningPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                if (Boolean.TRUE.equals(newValue)) {
+                    PermissionHelper.requestCallScreening(getActivity());
+                } else {
+                    Toast.makeText(getActivity(),
+                            R.string.use_call_screening_service_disable_message,
+                            Toast.LENGTH_LONG).show();
+                    return false;
+                }
+                return true;
+            });
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                callScreeningPref.setVisible(false);
+            }
 
             SwitchPreferenceCompat nonPersistentAutoUpdatePref =
                     requireNonNull(findPreference(PREF_AUTO_UPDATE_ENABLED));
@@ -102,6 +151,12 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 }
             }
+        }
+
+        public void updateCallScreeningPreference() {
+            SwitchPreferenceCompat callScreeningPref =
+                    requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));
+            callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(getActivity()));
         }
     }
 }

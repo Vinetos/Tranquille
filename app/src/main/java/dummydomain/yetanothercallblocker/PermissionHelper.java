@@ -1,9 +1,12 @@
 package dummydomain.yetanothercallblocker;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.telecom.TelecomManager;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -20,9 +23,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static java.util.Objects.requireNonNull;
+
 public class PermissionHelper {
 
-    private static final int PERMISSION_REQUEST_CODE = 1;
+    private static final int REQUEST_CODE_PERMISSIONS = 128;
+    private static final int REQUEST_CODE_DEFAULT_DIALER = 129;
 
     private static final Logger LOG = LoggerFactory.getLogger(PermissionHelper.class);
 
@@ -65,16 +71,16 @@ public class PermissionHelper {
 
         if (!missingPermissions.isEmpty()) {
             ActivityCompat.requestPermissions(activity,
-                    missingPermissions.toArray(new String[0]), PERMISSION_REQUEST_CODE);
+                    missingPermissions.toArray(new String[0]), REQUEST_CODE_PERMISSIONS);
         }
     }
 
-    public static void onRequestPermissionsResult(@NonNull Context context, int requestCode,
-                                                  @NonNull String[] permissions,
-                                                  @NonNull int[] grantResults,
-                                                  boolean infoExpected, boolean blockingExpected,
-                                                  boolean contactsExpected) {
-        if (requestCode != PERMISSION_REQUEST_CODE) return;
+    public static void handlePermissionsResult(@NonNull Context context, int requestCode,
+                                               @NonNull String[] permissions,
+                                               @NonNull int[] grantResults,
+                                               boolean infoExpected, boolean blockingExpected,
+                                               boolean contactsExpected) {
+        if (requestCode != REQUEST_CODE_PERMISSIONS) return;
 
         boolean infoDenied = false;
         boolean blockingDenied = false;
@@ -137,6 +143,65 @@ public class PermissionHelper {
     public static boolean hasPermission(Context context, String permission) {
         return ContextCompat.checkSelfPermission(context, permission)
                 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static void requestCallScreening(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            RoleManagerHelper.requestCallScreeningRole(activity);
+        } else {
+            setAsDefaultDialer(activity);
+        }
+    }
+
+    public static boolean isCallScreeningHeld(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (RoleManagerHelper.hasCallScreeningRole(context)) return true;
+        }
+
+        return isDefaultDialer(context);
+    }
+
+    public static boolean handleCallScreeningResult(Context context,
+                                                    int requestCode, int resultCode) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (RoleManagerHelper.handleCallScreeningResult(context, requestCode, resultCode)) {
+                return true;
+            }
+        }
+
+        return handleDefaultDialerResult(context, requestCode, resultCode);
+    }
+
+    public static boolean isDefaultDialer(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return false;
+
+        TelecomManager telecomManager = requireNonNull(
+                (TelecomManager) context.getSystemService(Context.TELECOM_SERVICE));
+
+        return BuildConfig.APPLICATION_ID.equals(telecomManager.getDefaultDialerPackage());
+    }
+
+    public static void setAsDefaultDialer(Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return;
+        if (isDefaultDialer(activity)) return;
+
+        Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER);
+        intent.putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME,
+                BuildConfig.APPLICATION_ID);
+
+        activity.startActivityForResult(intent, REQUEST_CODE_DEFAULT_DIALER);
+    }
+
+    public static boolean handleDefaultDialerResult(Context context,
+                                                    int requestCode, int resultCode) {
+        if (requestCode != REQUEST_CODE_DEFAULT_DIALER) return false;
+
+        if (resultCode != Activity.RESULT_OK) {
+            Toast.makeText(context, R.string.denied_default_dialer_message, Toast.LENGTH_LONG)
+                    .show();
+        }
+
+        return true;
     }
 
 }

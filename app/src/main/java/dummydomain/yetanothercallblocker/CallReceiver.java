@@ -24,6 +24,7 @@ import dummydomain.yetanothercallblocker.event.CallOngoingEvent;
 import dummydomain.yetanothercallblocker.event.CallStartedEvent;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
+import static java.util.Objects.requireNonNull;
 
 public class CallReceiver extends BroadcastReceiver {
 
@@ -81,9 +82,11 @@ public class CallReceiver extends BroadcastReceiver {
     @SuppressLint("MissingPermission")
     private boolean rejectCall(@NonNull Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            TelecomManager telecomManager = (TelecomManager)
-                    context.getSystemService(Context.TELECOM_SERVICE);
             try {
+                TelecomManager telecomManager = requireNonNull(
+                        (TelecomManager) context.getSystemService(Context.TELECOM_SERVICE));
+
+                //noinspection deprecation
                 telecomManager.endCall();
                 LOG.info("Rejected call using TelecomManager");
 
@@ -93,12 +96,14 @@ public class CallReceiver extends BroadcastReceiver {
             }
         }
 
-        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         try {
+            TelephonyManager tm = requireNonNull(
+                    (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE));
+
             @SuppressLint("DiscouragedPrivateApi") // no choice
             Method m = tm.getClass().getDeclaredMethod("getITelephony");
             m.setAccessible(true);
-            ITelephony telephony = (ITelephony)m.invoke(tm);
+            ITelephony telephony = requireNonNull((ITelephony) m.invoke(tm));
 
             telephony.endCall();
             LOG.info("Rejected call using ITelephony");
