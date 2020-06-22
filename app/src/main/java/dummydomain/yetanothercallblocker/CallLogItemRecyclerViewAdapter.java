@@ -152,7 +152,8 @@ public class CallLogItemRecyclerViewAdapter
                 callTypeIcon.setImageDrawable(null);
             }
 
-            label.setText(item.numberInfo.name != null ? item.numberInfo.name : item.number);
+            label.setText(ellipsize(
+                    item.numberInfo.name != null ? item.numberInfo.name : item.number, 15));
 
             IconAndColor iconAndColor = IconAndColor.forNumberRating(
                     item.numberInfo.rating, item.numberInfo.contactItem != null);
@@ -164,6 +165,12 @@ public class CallLogItemRecyclerViewAdapter
             }
 
             time.setText(DateUtils.getRelativeTimeSpanString(item.timestamp));
+        }
+
+        String ellipsize(String s, int maxLength) {
+            return s == null || s.length() <= maxLength
+                    ? s
+                    : (s.substring(0, maxLength - 1) + '…');
         }
 
         @Override
