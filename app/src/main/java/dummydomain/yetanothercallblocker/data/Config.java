@@ -8,6 +8,7 @@ import dummydomain.yetanothercallblocker.sia.Settings;
 import dummydomain.yetanothercallblocker.sia.SettingsImpl;
 import dummydomain.yetanothercallblocker.sia.Storage;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
+import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
 import dummydomain.yetanothercallblocker.sia.model.database.AbstractDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
@@ -21,7 +22,12 @@ import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_SECONDARY_
 public class Config {
 
     private static class WSParameterProvider extends WebService.DefaultWSParameterProvider {
+        SiaMetadata siaMetadata;
         CommunityDatabase communityDatabase;
+
+        void setSiaMetadata(SiaMetadata siaMetadata) {
+            this.siaMetadata = siaMetadata;
+        }
 
         void setCommunityDatabase(CommunityDatabase communityDatabase) {
             this.communityDatabase = communityDatabase;
@@ -34,7 +40,12 @@ public class Config {
 
         @Override
         public int getAppVersion() {
-            return communityDatabase.getSiaAppVersion();
+            return siaMetadata.getSiaAppVersion();
+        }
+
+        @Override
+        public String getOkHttpVersion() {
+            return siaMetadata.getSiaOkHttpVersion();
         }
 
         @Override
@@ -59,6 +70,12 @@ public class Config {
 
         wsParameterProvider.setCommunityDatabase(communityDatabase);
         DatabaseSingleton.setCommunityDatabase(communityDatabase);
+
+        SiaMetadata siaMetadata = new SiaMetadata(storage, SIA_PATH_PREFIX,
+                communityDatabase::isUsingInternal);
+
+        wsParameterProvider.setSiaMetadata(siaMetadata);
+        DatabaseSingleton.setSiaMetadata(siaMetadata);
 
         DatabaseSingleton.setFeaturedDatabase(new FeaturedDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX));

@@ -19,6 +19,7 @@ import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
+import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
@@ -119,12 +120,13 @@ public class DebugActivity extends AppCompatActivity {
             protected String doInBackground(Void... voids) {
                 StringBuilder sb = new StringBuilder();
 
+                SiaMetadata siaMetadata = DatabaseSingleton.getSiaMetadata();
                 CommunityDatabase communityDatabase = DatabaseSingleton.getCommunityDatabase();
 
                 sb.append("DB info:\n");
                 sb.append("Operational: ").append(communityDatabase.isOperational()).append('\n');
                 sb.append("Base version: ").append(communityDatabase.getBaseDbVersion());
-                sb.append(" (SIA: ").append(communityDatabase.getSiaAppVersion()).append(")\n");
+                sb.append(" (SIA: ").append(siaMetadata.getSiaAppVersion()).append(")\n");
                 sb.append("Effective version: ").append(communityDatabase.getEffectiveDbVersion()).append('\n');
                 sb.append("Last update time: ").append(dateOrNever(App.getSettings().getLastUpdateTime())).append('\n');
                 sb.append("Last update check time: ").append(dateOrNever(App.getSettings().getLastUpdateCheckTime())).append('\n');

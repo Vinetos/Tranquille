@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
+import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
@@ -18,6 +19,8 @@ public class DatabaseSingleton {
 
     private static DbManager dbManager;
 
+    private static SiaMetadata siaMetadata;
+
     private static CommunityDatabase communityDatabase;
 
     private static FeaturedDatabase featuredDatabase;
@@ -28,6 +31,10 @@ public class DatabaseSingleton {
 
     static void setDbManager(DbManager dbManager) {
         DatabaseSingleton.dbManager = dbManager;
+    }
+
+    static void setSiaMetadata(SiaMetadata siaMetadata) {
+        DatabaseSingleton.siaMetadata = siaMetadata;
     }
 
     static void setCommunityDatabase(CommunityDatabase communityDatabase) {
@@ -48,6 +55,10 @@ public class DatabaseSingleton {
 
     public static DbManager getDbManager() {
         return dbManager;
+    }
+
+    public static SiaMetadata getSiaMetadata() {
+        return siaMetadata;
     }
 
     public static CommunityDatabase getCommunityDatabase() {

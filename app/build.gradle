@@ -39,7 +39,7 @@ dependencies {
     implementation 'org.conscrypt:conscrypt-android:2.4.0'
     //noinspection GradleDependency: 3.12.* is the latest version compatible with Android <5
     implementation 'com.squareup.okhttp3:okhttp:3.12.12'
-    implementation 'com.gitlab.xynngh:LibPhoneNumberInfo:2827d231b7'
+    implementation 'com.gitlab.xynngh:LibPhoneNumberInfo:551b0a2f6b'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'

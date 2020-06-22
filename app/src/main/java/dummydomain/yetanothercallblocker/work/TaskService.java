@@ -91,6 +91,7 @@ public class TaskService extends IntentService {
             DatabaseSingleton.getDbManager().downloadMainDb();
             DatabaseSingleton.getCommunityDatabase().reload();
             DatabaseSingleton.getFeaturedDatabase().reload();
+            DatabaseSingleton.getSiaMetadata().reload();
         } finally {
             removeStickyEvent(sticky);
         }
