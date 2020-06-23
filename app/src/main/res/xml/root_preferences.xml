@@ -42,4 +42,28 @@
             app:title="@string/show_notifications_for_unknown_callers" />
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/settings_screen_advanced">
+        <PreferenceScreen
+            app:key="screenAdvanced"
+            app:title="@string/settings_screen_advanced">
+            <PreferenceCategory
+                app:key="categoryCountryCodes"
+                app:title="@string/settings_category_country_codes">
+                <Preference
+                    app:key="countryCodesInfo"
+                    app:persistent="false"
+                    app:summary="@string/country_codes_info_summary"
+                    app:title="@string/country_codes_info" />
+                <EditTextPreference
+                    app:key="countryCodeOverride"
+                    app:summary="@string/country_code_override_summary"
+                    app:title="@string/country_code_override" />
+                <EditTextPreference
+                    app:key="countryCodeForReviewsOverride"
+                    app:summary="@string/country_code_for_reviews_override_summary"
+                    app:title="@string/country_code_for_reviews_override" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+    </PreferenceCategory>
+
 </PreferenceScreen>

@@ -97,7 +97,8 @@ public class ReviewsActivity extends AppCompatActivity {
                 = new AsyncTask<String, Void, List<CommunityReview>>() {
             @Override
             protected List<CommunityReview> doInBackground(String... params) {
-                return DatabaseSingleton.getCommunityReviewsLoader().loadReviews(params[0]);
+                return DatabaseSingleton.getCommunityReviewsLoader()
+                        .loadReviews(params[0], App.getSettings().getCountryCodeForReviews());
             }
 
             @Override

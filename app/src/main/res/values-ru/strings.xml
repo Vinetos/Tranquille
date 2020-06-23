@@ -84,4 +84,14 @@
     <string name="show_notifications_for_known_callers_summary">Показывать уведомления для известных звонящих (номеров из телефонной книги)</string>
     <string name="show_notifications_for_unknown_callers">Уведомления для неизвестных звонящих</string>
     <string name="show_notifications_for_unknown_callers_summary">Показывать уведомления для неизвестных звонящих (отсутствующих в телефонной книге и в базе номеров)</string>
+    <string name="settings_screen_advanced">Продвинутые настройки</string>
+    <string name="settings_category_country_codes">Коды страны</string>
+    <string name="country_codes_info">Объяснение</string>
+    <string name="country_codes_info_summary">Коды страны используются в запросах к сторонним серверам. Эти коды отправляются, для того чтобы имитировать поведение официального приложения. Если коды соответствуют вашей настоящей стране (которая может быть определена по вашему IP-адресу), то запросы будут выглядеть наиболее неприметными. По умолчанию используется автоопределение (по информации мобильной сети или выбранной локали), которое должно устраивать большинство пользователей, но вы можете задать эти коды вручную. Ожидаются двухбуквенные ISO 3166 коды (такие как RU)</string>
+    <string name="country_codes_info_summary_addition">Автоопределено: %s</string>
+    <string name="country_code_override">Код страны</string>
+    <string name="country_code_override_summary">Код страны, используемый во всех запросах. Оставьте пустым для автоопределения</string>
+    <string name="country_code_for_reviews_override">Код страны для отзывов</string>
+    <string name="country_code_for_reviews_override_summary">Код страны, используемый для запроса онлайн-отзывов. Предназначен для представления страны звонящего. Оставьте пустым для автоопределения</string>
+    <string name="country_code_incorrect_format">Некорректный формат кода страны. Значение не обновлено</string>
 </resources>

@@ -56,8 +56,10 @@ Protecting the user's privacy is the first concern during development. No person
 The only known possible data leaks are the following:
 
 * Database update procedure leaks user's IP address to the update servers.  
-  The request also includes current database version (base or updated).
+  The request also includes current database version (base or updated)  
+  and a country code (either auto-detected or set manually).
 * Online review requests leak user's IP address coupled with the phone number in question.  
+  The request also includes country codes (either auto-detected or set manually).  
   Shouldn't be a big deal unless you request it for numbers in your phone book.  
   If the "use contacts" feature is enabled, a confirmation dialog is shown if online reviews are requested for a number present in your phone book.
 

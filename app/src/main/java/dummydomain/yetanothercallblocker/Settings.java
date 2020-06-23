@@ -1,8 +1,11 @@
 package dummydomain.yetanothercallblocker;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
+
+import dummydomain.yetanothercallblocker.data.CountryHelper;
 
 public class Settings extends GenericSettings {
 
@@ -13,10 +16,14 @@ public class Settings extends GenericSettings {
     public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
     public static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
+    public static final String PREF_COUNTRY_CODE_OVERRIDE = "countryCodeOverride";
+    public static final String PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE = "countryCodeForReviewsOverride";
 
     private static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
 
     private static final int PREFERENCES_VERSION = 1;
+
+    private volatile String cachedAutoDetectedCountryCode;
 
     Settings(Context context) {
         super(context, PreferenceManager.getDefaultSharedPreferences(context));
@@ -106,6 +113,48 @@ public class Settings extends GenericSettings {
 
     public void setLastUpdateCheckTime(long timestamp) {
         setLong(PREF_LAST_UPDATE_CHECK_TIME, timestamp);
+    }
+
+    public String getCountryCodeOverride() {
+        return getString(PREF_COUNTRY_CODE_OVERRIDE);
+    }
+
+    public void setCountryCodeOverride(String code) {
+        setString(PREF_COUNTRY_CODE_OVERRIDE, code);
+    }
+
+    public String getCountryCodeForReviewsOverride() {
+        return getString(PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE);
+    }
+
+    public void setCountryCodeForReviewsOverride(String code) {
+        setString(PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE, code);
+    }
+
+    public String getCountryCode() {
+        String override = getCountryCodeOverride();
+        if (!TextUtils.isEmpty(override)) return override.toUpperCase();
+
+        return getCachedAutoDetectedCountryCode();
+    }
+
+    public String getCountryCodeForReviews() {
+        String override = getCountryCodeForReviewsOverride();
+        if (!TextUtils.isEmpty(override)) return override.toUpperCase();
+
+        String code = getCachedAutoDetectedCountryCode();
+        return !TextUtils.isEmpty(code) ? code : "US";
+    }
+
+    public String getCachedAutoDetectedCountryCode() {
+        String code = cachedAutoDetectedCountryCode;
+        if (code == null) {
+            code = CountryHelper.detectCountry(context);
+            if (TextUtils.isEmpty(code)) code = "";
+
+            cachedAutoDetectedCountryCode = code;
+        }
+        return code;
     }
 
 }

@@ -3,6 +3,8 @@ package dummydomain.yetanothercallblocker.data;
 import android.content.Context;
 import android.text.TextUtils;
 
+import java.util.concurrent.TimeUnit;
+
 import dummydomain.yetanothercallblocker.PermissionHelper;
 import dummydomain.yetanothercallblocker.sia.Settings;
 import dummydomain.yetanothercallblocker.sia.SettingsImpl;
@@ -14,6 +16,7 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
+import dummydomain.yetanothercallblocker.sia.utils.Utils;
 
 import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_PATH_PREFIX;
 import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_PROPERTIES;
@@ -22,8 +25,16 @@ import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_SECONDARY_
 public class Config {
 
     private static class WSParameterProvider extends WebService.DefaultWSParameterProvider {
+        dummydomain.yetanothercallblocker.Settings settings;
         SiaMetadata siaMetadata;
         CommunityDatabase communityDatabase;
+
+        volatile String appId;
+        volatile long appIdTimestamp;
+
+        void setSettings(dummydomain.yetanothercallblocker.Settings settings) {
+            this.settings = settings;
+        }
 
         void setSiaMetadata(SiaMetadata siaMetadata) {
             this.siaMetadata = siaMetadata;
@@ -35,7 +46,18 @@ public class Config {
 
         @Override
         public String getAppId() {
-            return "qQq0O9nCRNy_aVdPgU9WOA";
+            String appId = this.appId;
+            if (appId != null && System.nanoTime() >
+                    appIdTimestamp + TimeUnit.MINUTES.toNanos(5)) {
+                appId = null;
+            }
+
+            if (appId == null) {
+                this.appId = appId = Utils.generateAppId();
+                appIdTimestamp = System.nanoTime();
+            }
+
+            return appId;
         }
 
         @Override
@@ -52,6 +74,11 @@ public class Config {
         public int getDbVersion() {
             return communityDatabase.getEffectiveDbVersion();
         }
+
+        @Override
+        public String getCountry() {
+            return siaMetadata.getCountry(settings.getCountryCode()).code;
+        }
     }
 
     public static void init(Context context, dummydomain.yetanothercallblocker.Settings settings) {
@@ -60,6 +87,8 @@ public class Config {
                 = new SettingsImpl(new AndroidProperties(context, SIA_PROPERTIES));
 
         WSParameterProvider wsParameterProvider = new WSParameterProvider();
+        wsParameterProvider.setSettings(settings);
+
         WebService webService = new WebService(wsParameterProvider);
 
         DatabaseSingleton.setDbManager(new DbManager(storage, SIA_PATH_PREFIX));
@@ -80,8 +109,7 @@ public class Config {
         DatabaseSingleton.setFeaturedDatabase(new FeaturedDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX));
 
-        DatabaseSingleton.setCommunityReviewsLoader(
-                new CommunityReviewsLoader(webService, "US"));
+        DatabaseSingleton.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
 
         DatabaseSingleton.setContactsProvider(number -> {
             if (settings.getUseContacts() && PermissionHelper.hasContactsPermission(context)) {

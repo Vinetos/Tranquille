@@ -98,6 +98,17 @@
     <string name="use_contacts">Use contacts</string>
     <string name="use_contacts_summary">Numbers present in the phone book are never blocked and the contact name is displayed next to/instead of a number throughout the app</string>
 
+    <string name="settings_screen_advanced">Advanced settings</string>
+    <string name="settings_category_country_codes">Country codes</string>
+    <string name="country_codes_info">Explanation</string>
+    <string name="country_codes_info_summary">Country codes are used in requests to 3rd party servers. These codes are set to mimic the behavior of the official 3rd party app. If the codes match your real country (may be detected by your IP address) then your requests will look the most inconspicuous. Auto-detection is used by default (based on mobile network information or system locale), which should be fine for most users, but you can set the codes manually. ISO 3166 2-letter codes (like US) are expected</string>
+    <string name="country_codes_info_summary_addition">Auto-detected: %s</string>
+    <string name="country_code_override">Country code</string>
+    <string name="country_code_override_summary">Country code used in all requests. Leave empty for auto-detection</string>
+    <string name="country_code_for_reviews_override">Country code for reviews</string>
+    <string name="country_code_for_reviews_override_summary">Country code used in requests for online reviews. Meant to represent the country of the caller. Leave empty for auto-detection</string>
+    <string name="country_code_incorrect_format">Incorrect country code format. Value is not updated</string>
+
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>
     <string name="debug_query_db">Query DB</string>

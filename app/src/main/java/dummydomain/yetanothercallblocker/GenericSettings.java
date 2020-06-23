@@ -45,6 +45,18 @@ public class GenericSettings {
         pref.edit().putLong(key, value).apply();
     }
 
+    public String getString(String key) {
+        return getString(key, null);
+    }
+
+    public String getString(String key, String defValue) {
+        return pref.getString(key, defValue);
+    }
+
+    public void setString(String key, String value) {
+        pref.edit().putString(key, value).apply();
+    }
+
     public boolean isSet(String key) {
         return pref.contains(key);
     }
