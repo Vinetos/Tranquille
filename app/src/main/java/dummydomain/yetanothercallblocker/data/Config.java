@@ -76,8 +76,8 @@ public class Config {
         }
 
         @Override
-        public String getCountry() {
-            return siaMetadata.getCountry(settings.getCountryCode()).code;
+        public SiaMetadata.Country getCountry() {
+            return siaMetadata.getCountry(settings.getCountryCode());
         }
     }
 
@@ -90,6 +90,7 @@ public class Config {
         wsParameterProvider.setSettings(settings);
 
         WebService webService = new WebService(wsParameterProvider);
+        DatabaseSingleton.setWebService(webService);
 
         DatabaseSingleton.setDbManager(new DbManager(storage, SIA_PATH_PREFIX));
 

@@ -12,10 +12,13 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseIte
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
+import dummydomain.yetanothercallblocker.sia.network.WebService;
 
 public class DatabaseSingleton {
 
     private static final Logger LOG = LoggerFactory.getLogger(DatabaseSingleton.class);
+
+    private static WebService webService;
 
     private static DbManager dbManager;
 
@@ -28,6 +31,10 @@ public class DatabaseSingleton {
     private static CommunityReviewsLoader communityReviewsLoader;
 
     private static ContactsProvider contactsProvider;
+
+    static void setWebService(WebService webService) {
+        DatabaseSingleton.webService = webService;
+    }
 
     static void setDbManager(DbManager dbManager) {
         DatabaseSingleton.dbManager = dbManager;
@@ -51,6 +58,10 @@ public class DatabaseSingleton {
 
     static void setContactsProvider(ContactsProvider contactsProvider) {
         DatabaseSingleton.contactsProvider = contactsProvider;
+    }
+
+    public static WebService getWebService() {
+        return webService;
     }
 
     public static DbManager getDbManager() {

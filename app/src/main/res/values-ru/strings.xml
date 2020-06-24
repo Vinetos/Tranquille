@@ -65,6 +65,7 @@
     <string name="secondary_db_updating">Обновение базы номеров…</string>
     <string name="recent_calls">Недавние вызовы</string>
     <string name="online_reviews">Online-отзывы</string>
+    <string name="add_web_review">Добавить отзыв (веб)</string>
     <string name="back">Назад</string>
     <string name="no">Нет</string>
     <string name="load_reviews_confirmation_title">Вы уверены?</string>
