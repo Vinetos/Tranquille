@@ -15,6 +15,11 @@
             app:key="useContacts"
             app:summary="@string/use_contacts_summary"
             app:title="@string/use_contacts" />
+        <dummydomain.yetanothercallblocker.preference.IntEditTextPreference
+            app:defaultValue="20"
+            app:key="numberOfRecentCalls"
+            app:summary="@string/number_of_recent_calls_summary"
+            app:title="@string/number_of_recent_calls" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/settings_category_call_blocking">

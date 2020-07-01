@@ -219,7 +219,8 @@ public class MainActivity extends AppCompatActivity {
                 = new AsyncTask<Void, Void, List<CallLogItem>>() {
             @Override
             protected List<CallLogItem> doInBackground(Void... voids) {
-                List<CallLogItem> items = CallLogHelper.getRecentCalls(MainActivity.this, 20);
+                List<CallLogItem> items = CallLogHelper.getRecentCalls(
+                        MainActivity.this, settings.getNumberOfRecentCalls());
 
                 for (CallLogItem item : items) {
                     if (DatabaseSingleton.getCommunityDatabase().isOperational()) {
