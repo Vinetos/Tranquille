@@ -20,7 +20,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_COUNTRY_CODE_OVERRIDE = "countryCodeOverride";
     public static final String PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE = "countryCodeForReviewsOverride";
 
-    private static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
+    static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
 
     private static final int PREFERENCES_VERSION = 1;
 

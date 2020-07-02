@@ -2,6 +2,8 @@ package dummydomain.yetanothercallblocker;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
+import android.content.Context;
+import android.os.Build;
 
 import org.conscrypt.Conscrypt;
 import org.greenrobot.eventbus.EventBus;
@@ -17,6 +19,14 @@ public class App extends Application {
     @SuppressLint("StaticFieldLeak")
     private static Settings settings;
 
+    public static App getInstance() {
+        return instance;
+    }
+
+    public static Settings getSettings() {
+        return settings;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -25,7 +35,9 @@ public class App extends Application {
 
         Security.insertProviderAt(Conscrypt.newProvider(), 1);
 
-        settings = new Settings(this);
+        new DeviceProtectedStorageMigrator().migrate(this);
+
+        settings = new Settings(getDeviceProtectedStorageContext());
         settings.init();
 
         EventBus.builder()
@@ -38,15 +50,15 @@ public class App extends Application {
 
         NotificationHelper.createNotificationChannels(this);
 
-        Config.init(this, settings);
+        Config.init(getDeviceProtectedStorageContext(), settings);
     }
 
-    public static App getInstance() {
-        return instance;
-    }
-
-    public static Settings getSettings() {
-        return settings;
+    private Context getDeviceProtectedStorageContext() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return createDeviceProtectedStorageContext();
+        } else {
+            return this;
+        }
     }
 
 }

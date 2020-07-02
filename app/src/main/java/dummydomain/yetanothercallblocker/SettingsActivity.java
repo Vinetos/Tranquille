@@ -99,6 +99,8 @@ public class SettingsActivity extends AppCompatActivity
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            getPreferenceManager().setStorageDeviceProtected();
+
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
             initRootScreen(rootKey);
