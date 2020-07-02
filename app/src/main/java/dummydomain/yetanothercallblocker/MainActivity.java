@@ -24,7 +24,6 @@ import java.util.List;
 import dummydomain.yetanothercallblocker.data.CallLogHelper;
 import dummydomain.yetanothercallblocker.data.CallLogItem;
 import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
-import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
@@ -223,12 +222,7 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this, settings.getNumberOfRecentCalls());
 
                 for (CallLogItem item : items) {
-                    if (DatabaseSingleton.getCommunityDatabase().isOperational()) {
-                        item.numberInfo = DatabaseSingleton.getNumberInfo(item.number);
-                    } else {
-                        item.numberInfo = new NumberInfo();
-                        item.numberInfo.number = item.number;
-                    }
+                    item.numberInfo = DatabaseSingleton.getNumberInfo(item.number);
                 }
 
                 return items;
