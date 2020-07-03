@@ -15,8 +15,12 @@ import dummydomain.yetanothercallblocker.sia.model.database.AbstractDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
+import dummydomain.yetanothercallblocker.sia.network.DbDownloader;
+import dummydomain.yetanothercallblocker.sia.network.OkHttpClientFactory;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
 import dummydomain.yetanothercallblocker.sia.utils.Utils;
+import dummydomain.yetanothercallblocker.utils.DeferredInit;
+import okhttp3.OkHttpClient;
 
 import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_PATH_PREFIX;
 import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_PROPERTIES;
@@ -86,13 +90,19 @@ public class Config {
         Settings siaSettings
                 = new SettingsImpl(new AndroidProperties(context, SIA_PROPERTIES));
 
+        OkHttpClientFactory okHttpClientFactory = () -> {
+            DeferredInit.initNetwork();
+            return new OkHttpClient();
+        };
+
         WSParameterProvider wsParameterProvider = new WSParameterProvider();
         wsParameterProvider.setSettings(settings);
 
-        WebService webService = new WebService(wsParameterProvider);
+        WebService webService = new WebService(wsParameterProvider, okHttpClientFactory);
         DatabaseSingleton.setWebService(webService);
 
-        DatabaseSingleton.setDbManager(new DbManager(storage, SIA_PATH_PREFIX));
+        DatabaseSingleton.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
+                new DbDownloader(okHttpClientFactory)));
 
         CommunityDatabase communityDatabase = new CommunityDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX,

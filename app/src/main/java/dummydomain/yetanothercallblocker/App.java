@@ -5,10 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 
-import org.conscrypt.Conscrypt;
 import org.greenrobot.eventbus.EventBus;
-
-import java.security.Security;
 
 import dummydomain.yetanothercallblocker.data.Config;
 
@@ -32,8 +29,6 @@ public class App extends Application {
         super.onCreate();
 
         instance = this;
-
-        Security.insertProviderAt(Conscrypt.newProvider(), 1);
 
         new DeviceProtectedStorageMigrator().migrate(this);
 
