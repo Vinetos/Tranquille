@@ -43,8 +43,6 @@ public class App extends Application {
 
         EventHandler.create(this);
 
-        NotificationHelper.createNotificationChannels(this);
-
         Config.init(getDeviceProtectedStorageContext(), settings);
     }
 

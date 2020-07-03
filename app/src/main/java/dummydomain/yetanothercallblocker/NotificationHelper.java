@@ -45,11 +45,17 @@ public class NotificationHelper {
     private static final String CHANNEL_ID_BLOCKED_INFO = "blocked_info";
     private static final String CHANNEL_ID_TASKS = "tasks";
 
+    private static boolean notificationChannelsInitialized;
+
     public static void notify(Context context, int id, Notification notification) {
+        initNotificationChannels(context);
+
         NotificationManagerCompat.from(context).notify(id, notification);
     }
 
     public static void notify(Context context, String tag, int id, Notification notification) {
+        initNotificationChannels(context);
+
         NotificationManagerCompat.from(context).notify(tag, id, notification);
     }
 
@@ -219,7 +225,18 @@ public class NotificationHelper {
                 ReviewsActivity.getNumberIntent(context, numberInfo.number)));
     }
 
-    static void createNotificationChannels(Context context) {
+    private static void initNotificationChannels(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return;
+
+        if (notificationChannelsInitialized) return;
+        synchronized (NotificationHelper.class) {
+            if (notificationChannelsInitialized) return;
+            createNotificationChannels(context);
+            notificationChannelsInitialized = true;
+        }
+    }
+
+    private static void createNotificationChannels(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
 
