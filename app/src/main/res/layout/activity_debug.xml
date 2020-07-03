@@ -43,6 +43,27 @@
             android:onClick="onUpdateDbButtonClick"
             android:text="@string/debug_update_db" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onResetDbClick"
+                android:text="@string/debug_reset_base" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onResetSecondaryDbClick"
+                android:text="@string/debug_reset_secondary" />
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/debugResultsTextView"
             android:layout_width="match_parent"

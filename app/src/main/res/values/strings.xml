@@ -118,6 +118,8 @@
     <string name="debug_load_reviews">Load reviews (online)</string>
     <string name="debug_default_test_number" translatable="false">74995861192</string>
     <string name="debug_db_info">DB info</string>
+    <string name="debug_reset_base">Reset DB</string>
+    <string name="debug_reset_secondary">Reset updates</string>
     <string name="debug_update_db">Update DB</string>
     <string name="debug_not_found">Not found</string>
     <string name="debug_update_result">Update finished; DB ver: %d</string>

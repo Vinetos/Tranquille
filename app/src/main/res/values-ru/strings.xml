@@ -31,6 +31,9 @@
     <string name="debug_activity_label">Работа с базой номеров</string>
     <string name="debug_query_db">Искать в установленной базе</string>
     <string name="debug_load_reviews">Показать online-отзывы</string>
+    <string name="debug_db_info">Инфо об установленной базе</string>
+    <string name="debug_reset_base">Сбросить базу</string>
+    <string name="debug_reset_secondary">Сбросить обновления</string>
     <string name="debug_update_db">Обновить базу вручную</string>
     <string name="debug_not_found">Не найдено</string>
     <string name="debug_update_result">Обновление завершено. Версия: %d</string>
@@ -70,7 +73,6 @@
     <string name="no">Нет</string>
     <string name="load_reviews_confirmation_title">Вы уверены?</string>
     <string name="load_reviews_confirmation_message">Это номер из адресной книги! Для получения отзывов номер передается в сторонний сервис и может попасть к третьим лицам. Вы точно хотите посмотреть отзывы на этот номер?</string>
-    <string name="debug_db_info">Инфо об установленной базе</string>
     <string name="call_log_permission_message">Разрешите доступ к журналу вызовов, чтобы здесь отображались недавние вызовы</string>
     <string name="notification_background_operation">Выполняется процесс в фоне…</string>
     <string name="use_contacts">Отображать имена контактов</string>

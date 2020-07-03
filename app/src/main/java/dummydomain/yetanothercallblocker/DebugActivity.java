@@ -58,8 +58,7 @@ public class DebugActivity extends AppCompatActivity {
     }
 
     public void onQueryDbButtonClick(View view) {
-        setResult("");
-        hideSummary();
+        clearMessage();
 
         new AsyncTask<Void, Void, Pair<CommunityDatabaseItem, FeaturedDatabaseItem>>() {
             @Override
@@ -111,9 +110,29 @@ public class DebugActivity extends AppCompatActivity {
         ReviewsActivity.startForNumber(this, getNumber());
     }
 
+    public void onResetDbClick(View view) {
+        clearMessage();
+
+        DatabaseSingleton.getCommunityDatabase().resetSecondaryDatabase();
+
+        DatabaseSingleton.getDbManager().removeMainDb();
+        DatabaseSingleton.getCommunityDatabase().reload();
+        DatabaseSingleton.getFeaturedDatabase().reload();
+        DatabaseSingleton.getSiaMetadata().reload();
+
+        setResult("Database removed");
+    }
+
+    public void onResetSecondaryDbClick(View view) {
+        clearMessage();
+
+        DatabaseSingleton.getCommunityDatabase().resetSecondaryDatabase();
+
+        setResult("Secondary database removed");
+    }
+
     public void onDbInfoButtonClick(View view) {
-        setResult("");
-        hideSummary();
+        clearMessage();
 
         new AsyncTask<Void, Void, String>() {
             @Override
@@ -133,7 +152,7 @@ public class DebugActivity extends AppCompatActivity {
 
                 FeaturedDatabase featuredDatabase = DatabaseSingleton.getFeaturedDatabase();
 
-                sb.append("Featured DB info:\n");
+                sb.append("\nFeatured DB info:\n");
                 sb.append("Operational: ").append(featuredDatabase.isOperational()).append('\n');
                 sb.append("Effective version: ").append(featuredDatabase.getBaseDbVersion()).append('\n');
 
@@ -153,14 +172,18 @@ public class DebugActivity extends AppCompatActivity {
     }
 
     public void onUpdateDbButtonClick(View view) {
-        setResult("");
-        hideSummary();
+        clearMessage();
 
         TaskService.start(this, TaskService.TASK_UPDATE_SECONDARY_DB);
     }
 
     private String getNumber() {
         return this.<EditText>findViewById(R.id.debugPhoneNumberEditText).getText().toString();
+    }
+
+    private void clearMessage() {
+        setResult("");
+        hideSummary();
     }
 
     private void setResult(String result) {
