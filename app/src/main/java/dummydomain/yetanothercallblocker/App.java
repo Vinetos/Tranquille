@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 
 import dummydomain.yetanothercallblocker.data.Config;
+import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
 
 public class App extends Application {
 
@@ -27,6 +28,8 @@ public class App extends Application {
         super.onCreate();
 
         instance = this;
+
+        DebuggingUtils.setUpCrashHandler();
 
         new DeviceProtectedStorageMigrator().migrate(this);
 

@@ -68,6 +68,23 @@
                     app:summary="@string/country_code_for_reviews_override_summary"
                     app:title="@string/country_code_for_reviews_override" />
             </PreferenceCategory>
+            <PreferenceCategory
+                app:key="categoryDebugging"
+                app:title="@string/settings_category_debugging">
+                <SwitchPreferenceCompat
+                    app:key="saveCrashesToExternalStorage"
+                    app:summary="@string/save_crashes_to_external_storage_summary"
+                    app:title="@string/save_crashes_to_external_storage" />
+                <SwitchPreferenceCompat
+                    app:key="saveLogcatOnCrash"
+                    app:summary="@string/save_logcat_on_crash_summary"
+                    app:title="@string/save_logcat_on_crash" />
+                <Preference
+                    app:key="saveLogcatToFile"
+                    app:persistent="false"
+                    app:summary="@string/save_logcat_to_file_summary"
+                    app:title="@string/save_logcat_to_file" />
+            </PreferenceCategory>
         </PreferenceScreen>
     </PreferenceCategory>
 

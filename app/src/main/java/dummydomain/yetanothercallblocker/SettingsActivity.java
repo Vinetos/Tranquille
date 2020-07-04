@@ -20,8 +20,13 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 import java.util.regex.Pattern;
 
+import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
 import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
 import static java.util.Objects.requireNonNull;
@@ -94,6 +99,9 @@ public class SettingsActivity extends AppCompatActivity
         private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
         private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
         private static final String PREF_COUNTRY_CODES_INFO = "countryCodesInfo";
+        private static final String PREF_SAVE_LOGCAT_TO_FILE = "saveLogcatToFile";
+
+        private static final Logger LOG = LoggerFactory.getLogger(SettingsFragment.class);
 
         private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
 
@@ -226,12 +234,33 @@ public class SettingsActivity extends AppCompatActivity
             EditTextPreference countryCodeForReviewsPreference
                     = requireNonNull(findPreference(Settings.PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE));
             countryCodeForReviewsPreference.setOnPreferenceChangeListener(countryCodeChangeListener);
+
+            requireNonNull((Preference) findPreference(PREF_SAVE_LOGCAT_TO_FILE))
+                    .setOnPreferenceClickListener(preference -> {
+                        saveLogcatToFile();
+                        return true;
+                    });
         }
 
         public void updateCallScreeningPreference() {
             SwitchPreferenceCompat callScreeningPref =
                     requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));
             callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(getActivity()));
+        }
+
+        private void saveLogcatToFile() {
+            boolean success = false;
+            try {
+                DebuggingUtils.saveLogcatToFile(getActivity(), true);
+                success = true;
+            } catch (IOException e) {
+                LOG.warn("saveLogcatToFile()", e);
+            }
+
+            Toast.makeText(getActivity(), success
+                            ? R.string.save_logcat_to_file_done
+                            : R.string.save_logcat_to_file_error,
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }

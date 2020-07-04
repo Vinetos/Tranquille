@@ -111,6 +111,15 @@
     <string name="country_code_for_reviews_override">Country code for reviews</string>
     <string name="country_code_for_reviews_override_summary">Country code used in requests for online reviews. Meant to represent the country of the caller. Leave empty for auto-detection</string>
     <string name="country_code_incorrect_format">Incorrect country code format. Value is not updated</string>
+    <string name="settings_category_debugging">Debugging</string>
+    <string name="save_crashes_to_external_storage">Save reports to public storage</string>
+    <string name="save_crashes_to_external_storage_summary">Save crash reports and logs to public storage, otherwise crash reports are saved to a private app folder. The reports may contain sensitive data (phone numbers, contact names). Other apps with storage permission may have access to this data in public storage</string>
+    <string name="save_logcat_on_crash">Save logcat on crash</string>
+    <string name="save_logcat_on_crash_summary">Save logcat output on crash (in addition to a basic stacktrace)</string>
+    <string name="save_logcat_to_file">Save logcat</string>
+    <string name="save_logcat_to_file_summary">Save logcat output to a file in public storage (/sdcard/Android/data/dummydomain.yetanothercallblocker/files/). The reports may contain sensitive data (phone numbers, contact names). Other apps with storage permission may have access to this data in public storage</string>
+    <string name="save_logcat_to_file_done">Done</string>
+    <string name="save_logcat_to_file_error">Error</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>

@@ -19,6 +19,8 @@ public class Settings extends GenericSettings {
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
     public static final String PREF_COUNTRY_CODE_OVERRIDE = "countryCodeOverride";
     public static final String PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE = "countryCodeForReviewsOverride";
+    public static final String PREF_SAVE_CRASHES_TO_EXTERNAL_STORAGE = "saveCrashesToExternalStorage";
+    public static final String PREF_SAVE_LOGCAT_ON_CRASH = "saveLogcatOnCrash";
 
     static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
 
@@ -164,6 +166,22 @@ public class Settings extends GenericSettings {
             cachedAutoDetectedCountryCode = code;
         }
         return code;
+    }
+
+    public boolean getSaveCrashesToExternalStorage() {
+        return getBoolean(PREF_SAVE_CRASHES_TO_EXTERNAL_STORAGE);
+    }
+
+    public void setSaveCrashesToExternalStorage(boolean flag) {
+        setBoolean(PREF_SAVE_CRASHES_TO_EXTERNAL_STORAGE, flag);
+    }
+
+    public boolean getSaveLogcatOnCrash() {
+        return getBoolean(PREF_SAVE_LOGCAT_ON_CRASH);
+    }
+
+    public void setSaveLogcatOnCrash(boolean flag) {
+        setBoolean(PREF_SAVE_LOGCAT_ON_CRASH, flag);
     }
 
 }

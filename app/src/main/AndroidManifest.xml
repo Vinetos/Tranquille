@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_LOG" android:maxSdkVersion="15" />
 
     <!-- may be needed for call blocking on Android 9, also requires to be installed as a system app -->
     <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"
