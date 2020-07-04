@@ -5,8 +5,6 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 
-import org.greenrobot.eventbus.EventBus;
-
 import dummydomain.yetanothercallblocker.data.Config;
 
 public class App extends Application {
@@ -34,14 +32,6 @@ public class App extends Application {
 
         settings = new Settings(getDeviceProtectedStorageContext());
         settings.init();
-
-        EventBus.builder()
-                .throwSubscriberException(BuildConfig.DEBUG)
-                .sendNoSubscriberEvent(false)
-                .addIndex(new EventBusIndex())
-                .installDefaultEventBus();
-
-        EventHandler.create(this);
 
         Config.init(getDeviceProtectedStorageContext(), settings);
     }

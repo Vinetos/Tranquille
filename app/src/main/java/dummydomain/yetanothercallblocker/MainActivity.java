@@ -15,7 +15,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        EventBus.getDefault().register(this);
+        EventUtils.register(this);
 
         startCheckMainDbTask();
 
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        EventBus.getDefault().unregister(this);
+        EventUtils.unregister(this);
 
         super.onStop();
     }
@@ -144,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Boolean result) {
-                if (!result && EventBus.getDefault().getStickyEvent(MainDbDownloadingEvent.class) == null) {
+                if (!result && EventUtils.bus().getStickyEvent(MainDbDownloadingEvent.class) == null) {
                     showNoMainDbDialog();
                 }
             }

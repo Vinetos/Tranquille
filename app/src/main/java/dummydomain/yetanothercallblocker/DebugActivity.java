@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -41,12 +40,12 @@ public class DebugActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        EventBus.getDefault().register(this);
+        EventUtils.register(this);
     }
 
     @Override
     protected void onStop() {
-        EventBus.getDefault().unregister(this);
+        EventUtils.unregister(this);
 
         super.onStop();
     }
