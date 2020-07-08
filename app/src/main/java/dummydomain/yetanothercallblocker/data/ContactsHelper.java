@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 
 public class ContactsHelper {
 
@@ -13,6 +14,8 @@ public class ContactsHelper {
     };
 
     public static String getContactName(Context context, String number) {
+        if (TextUtils.isEmpty(number)) return null;
+
         Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
                 Uri.encode(number));
 
