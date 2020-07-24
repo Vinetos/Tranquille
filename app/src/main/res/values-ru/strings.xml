@@ -77,6 +77,10 @@
     <string name="notification_background_operation">Выполняется процесс в фоне…</string>
     <string name="use_contacts">Отображать имена контактов</string>
     <string name="use_contacts_summary">Номера из телефонной книги никогда не блокируются, и имя контакта отображается рядом/вместо номера</string>
+    <string name="ui_mode">Тема приложения</string>
+    <string name="ui_mode_day">Светлая</string>
+    <string name="ui_mode_night">Тёмная</string>
+    <string name="ui_mode_auto">Определяется системой</string>
     <string name="number_of_recent_calls">Кол-во недавних вызовов</string>
     <string name="number_of_recent_calls_summary">Количество недавних вызовов на основном экране</string>
     <string name="notification_incoming_call_contact">Контакт</string>

@@ -5,6 +5,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import dummydomain.yetanothercallblocker.data.Config;
 import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
 
@@ -23,6 +25,10 @@ public class App extends Application {
         return settings;
     }
 
+    public static void setUiMode(int uiMode) {
+        AppCompatDelegate.setDefaultNightMode(uiMode);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -37,6 +43,8 @@ public class App extends Application {
         settings.init();
 
         Config.init(getDeviceProtectedStorageContext(), settings);
+
+        setUiMode(settings.getUiMode());
     }
 
     private Context getDeviceProtectedStorageContext() {

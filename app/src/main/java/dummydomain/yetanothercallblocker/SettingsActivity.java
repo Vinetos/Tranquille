@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
+import dummydomain.yetanothercallblocker.preference.IntListPreference;
 import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
 import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
@@ -187,6 +188,12 @@ public class SettingsActivity extends AppCompatActivity
                 if (Boolean.TRUE.equals(newValue)) {
                     PermissionHelper.checkPermissions((AppCompatActivity) getActivity(), false, false, true);
                 }
+                return true;
+            });
+
+            IntListPreference uiModePref = requireNonNull(findPreference(Settings.PREF_UI_MODE));
+            uiModePref.setOnPreferenceChangeListener((preference, newValue) -> {
+                App.setUiMode(Integer.parseInt((String) newValue));
                 return true;
             });
 

@@ -3,6 +3,7 @@ package dummydomain.yetanothercallblocker;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 
 import dummydomain.yetanothercallblocker.data.CountryHelper;
@@ -12,6 +13,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_INCOMING_CALL_NOTIFICATIONS = "incomingCallNotifications";
     public static final String PREF_BLOCK_CALLS = "blockCalls";
     public static final String PREF_USE_CONTACTS = "useContacts";
+    public static final String PREF_UI_MODE = "uiMode";
     public static final String PREF_NUMBER_OF_RECENT_CALLS = "numberOfRecentCalls";
     public static final String PREF_NOTIFICATIONS_KNOWN = "showNotificationsForKnownCallers";
     public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
@@ -84,6 +86,14 @@ public class Settings extends GenericSettings {
 
     public void setUseContacts(boolean use) {
         setBoolean(PREF_USE_CONTACTS, use);
+    }
+
+    public int getUiMode() {
+        return getInt(PREF_UI_MODE, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+    }
+
+    public void setUiMode(int mode) {
+        setInt(PREF_UI_MODE, mode);
     }
 
     public int getNumberOfRecentCalls() {

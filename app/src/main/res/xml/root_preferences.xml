@@ -15,6 +15,13 @@
             app:key="useContacts"
             app:summary="@string/use_contacts_summary"
             app:title="@string/use_contacts" />
+        <dummydomain.yetanothercallblocker.preference.IntListPreference
+            app:defaultValue="-1"
+            app:entries="@array/ui_mode_entries"
+            app:entryValues="@array/ui_mode_entry_values"
+            app:key="uiMode"
+            app:title="@string/ui_mode"
+            app:useSimpleSummaryProvider="true" />
         <dummydomain.yetanothercallblocker.preference.IntEditTextPreference
             app:defaultValue="20"
             app:key="numberOfRecentCalls"
