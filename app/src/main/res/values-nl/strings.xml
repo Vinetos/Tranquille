@@ -74,7 +74,6 @@
     <string name="load_reviews_confirmation_message">Door online-recensies te laden, lekt het nummer uit naar een externe dienst. Weet je zeker dat je dit wilt doen met een nummer uit je contactpersonenlijst?</string>
 
     <string name="incoming_call_notifications">Inkomende oproep-meldingen</string>
-    <string name="block_calls">Ongewenste oproepen blokkeren</string>
     <string name="auto_updates">Databank automatisch bijwerken</string>
     <string name="use_contacts">Contactpersonen uitlezen</string>
 

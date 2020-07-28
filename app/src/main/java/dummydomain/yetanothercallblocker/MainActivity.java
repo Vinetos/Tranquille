@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 settings.getIncomingCallNotifications());
 
         menu.findItem(R.id.menu_block_calls).setChecked(
-                settings.getBlockCalls());
+                settings.getBlockNegativeSiaNumbers());
 
         menu.findItem(R.id.menu_auto_updates).setChecked(
                 updateScheduler.isAutoUpdateScheduled());
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         PermissionHelper.handlePermissionsResult(this, requestCode, permissions, grantResults,
-                settings.getIncomingCallNotifications(), settings.getBlockCalls(),
+                settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
                 settings.getUseContacts());
 
         loadCallLog();
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkPermissions() {
         PermissionHelper.checkPermissions(this,
-                settings.getIncomingCallNotifications(), settings.getBlockCalls(),
+                settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
                 settings.getUseContacts());
     }
 
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBlockCallsChanged(MenuItem item) {
-        settings.setBlockCalls(!item.isChecked());
+        settings.setBlockNegativeSiaNumbers(!item.isChecked());
         checkPermissions();
     }
 

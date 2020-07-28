@@ -61,4 +61,8 @@ public class GenericSettings {
         return pref.contains(key);
     }
 
+    public void unset(String key) {
+        pref.edit().remove(key).apply();
+    }
+
 }

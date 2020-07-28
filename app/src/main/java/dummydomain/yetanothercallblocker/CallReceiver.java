@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 
@@ -21,7 +22,6 @@ import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.CallOngoingEvent;
-import dummydomain.yetanothercallblocker.event.CallStartedEvent;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
 import static java.util.Objects.requireNonNull;
@@ -38,28 +38,38 @@ public class CallReceiver extends BroadcastReceiver {
 
         String telephonyExtraState = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
         String incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
-        LOG.info("Received intent: action={}, extraState={}, incomingNumber={}",
-                intent.getAction(), telephonyExtraState, incomingNumber);
+        boolean hasNumberExtra = intent.hasExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
+        LOG.info("Received intent: extraState={}, incomingNumber={}, hasNumberExtra={}",
+                telephonyExtraState, incomingNumber, hasNumberExtra);
+
+        extraLogging(intent); // TODO: make optional or remove
 
         if (TelephonyManager.EXTRA_STATE_OFFHOOK.equals(telephonyExtraState)) {
             isOnCall = true;
             postEvent(new CallOngoingEvent());
         } else if (TelephonyManager.EXTRA_STATE_RINGING.equals(telephonyExtraState)) {
-            if (incomingNumber == null) return;
-
-            postEvent(new CallStartedEvent());
+            if (incomingNumber == null) {
+                if (hasNumberExtra) {
+                    incomingNumber = "";
+                } else {
+                    if (!PermissionHelper.hasNumberInfoPermissions(context)) {
+                        LOG.warn("No info permissions");
+                        return;
+                    }
+                    return; // TODO: check
+                }
+            }
 
             Settings settings = App.getSettings();
 
-            boolean blockCalls = settings.getBlockCalls();
+            boolean blockingEnabled = settings.getCallBlockingEnabled();
             boolean showNotifications = settings.getIncomingCallNotifications();
 
-            if (blockCalls || showNotifications) {
+            if (blockingEnabled || showNotifications) {
                 NumberInfo numberInfo = DatabaseSingleton.getNumberInfo(incomingNumber);
 
                 boolean blocked = false;
-                if (blockCalls && !isOnCall && numberInfo.rating == NumberInfo.Rating.NEGATIVE
-                        && numberInfo.contactItem == null) {
+                if (blockingEnabled && !isOnCall && DatabaseSingleton.shouldBlock(numberInfo)) {
                     blocked = rejectCall(context);
 
                     if (blocked) {
@@ -76,6 +86,26 @@ public class CallReceiver extends BroadcastReceiver {
             isOnCall = false;
             NotificationHelper.hideIncomingCallNotification(context);
             postEvent(new CallEndedEvent());
+        }
+    }
+
+    private void extraLogging(Intent intent) {
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            LOG.trace("extraLogging() extras:");
+            for (String k : extras.keySet()) {
+                LOG.trace("extraLogging() key={}, value={}", k, extras.get(k));
+            }
+
+            Object subscription = extras.get("subscription"); // PhoneConstants.SUBSCRIPTION_KEY
+            if (subscription != null) {
+                LOG.trace("extraLogging() subscription.class={}", subscription.getClass());
+                if (subscription instanceof Number) {
+                    long subId = ((Number) subscription).longValue();
+                    LOG.trace("extraLogging() subId={}, check={}",
+                            subId, subId < Integer.MAX_VALUE);
+                }
+            }
         }
     }
 

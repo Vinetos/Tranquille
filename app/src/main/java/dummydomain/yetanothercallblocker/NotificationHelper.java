@@ -86,7 +86,8 @@ public class NotificationHelper {
     public static void showBlockedCallNotification(Context context, NumberInfo numberInfo) {
         Notification notification = createBlockedCallNotification(context, numberInfo);
 
-        String tag = numberInfo.number != null ? NOTIFICATION_TAG_BLOCKED_CALL + numberInfo.number : null; // TODO: handle repeating
+        String tag = NOTIFICATION_TAG_BLOCKED_CALL
+                + (!numberInfo.noNumber ? numberInfo.number : System.nanoTime()); // TODO: handle repeating
         notify(context, tag, NOTIFICATION_ID_BLOCKED_CALL, notification);
     }
 
@@ -210,7 +211,7 @@ public class NotificationHelper {
                                                    NumberInfo numberInfo) {
         builder.setContentIntent(createInfoIntent(context, numberInfo));
 
-        if (numberInfo.contactItem == null) {
+        if (!numberInfo.noNumber && numberInfo.contactItem == null) {
             builder.addAction(0, context.getString(R.string.online_reviews),
                     createReviewsIntent(context, numberInfo));
         }

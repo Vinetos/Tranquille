@@ -31,9 +31,13 @@
 
     <PreferenceCategory app:title="@string/settings_category_call_blocking">
         <SwitchPreferenceCompat
-            app:key="blockCalls"
-            app:summary="@string/block_calls_summary"
-            app:title="@string/block_calls" />
+            app:key="blockNegativeSiaNumbers"
+            app:summary="@string/block_negative_sia_numbers_summary"
+            app:title="@string/block_negative_sia" />
+        <SwitchPreferenceCompat
+            app:key="blockHiddenNumbers"
+            app:summary="@string/block_hidden_number_summary"
+            app:title="@string/block_hidden_number" />
         <SwitchPreferenceCompat
             app:key="useCallScreeningService"
             app:persistent="false"

@@ -2,9 +2,14 @@ package dummydomain.yetanothercallblocker;
 
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.telecom.Call;
 import android.telecom.CallScreeningService;
+import android.telecom.Connection;
+import android.telecom.GatewayInfo;
 import android.telecom.PhoneAccount;
+import android.telecom.TelecomManager;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -38,23 +43,61 @@ public class CallScreeningServiceImpl extends CallScreeningService {
                 }
             }
 
-            if (!ignore && !App.getSettings().getBlockCalls()) {
+            if (!ignore && !App.getSettings().getCallBlockingEnabled()) {
                 ignore = true;
             }
 
+            extraLogging(callDetails); // TODO: make optional or remove
+
+            String number = null;
+
             if (!ignore) {
                 Uri handle = callDetails.getHandle();
-                if (PhoneAccount.SCHEME_TEL.equals(handle.getScheme())) {
-                    String number = handle.getSchemeSpecificPart();
-                    LOG.debug("onScreenCall() number={}", number);
+                LOG.trace("onScreenCall() handle: {}", handle);
 
-                    numberInfo = DatabaseSingleton.getNumberInfo(number);
+                if (handle != null && PhoneAccount.SCHEME_TEL.equals(handle.getScheme())) {
+                    number = handle.getSchemeSpecificPart();
+                    LOG.debug("onScreenCall() number from handle: {}", number);
+                }
 
-                    if (numberInfo.rating == NumberInfo.Rating.NEGATIVE
-                            && numberInfo.contactItem == null) {
-                        shouldBlock = true;
+                if (number == null) {
+                    Bundle intentExtras = callDetails.getIntentExtras();
+                    if (intentExtras != null) {
+                        Object o = intentExtras.get(TelecomManager.EXTRA_INCOMING_CALL_ADDRESS);
+                        LOG.trace("onScreenCall() EXTRA_INCOMING_CALL_ADDRESS={}", o);
+
+                        if (o instanceof Uri) {
+                            Uri uri = (Uri) o;
+                            if (PhoneAccount.SCHEME_TEL.equals(uri.getScheme())) {
+                                number = uri.getSchemeSpecificPart();
+                            }
+                        }
+
+                        if (number == null && intentExtras.containsKey(
+                                "com.google.android.apps.hangouts.telephony.hangout_info_bundle")) {
+                            // NB: SIA doesn't block (based on number) hangouts if there's no number in intentExtras
+                            number = "YACB_hangouts_stub";
+                        }
+                    }
+
+                    if (number == null && callDetails.getExtras() != null) {
+                        // NB: this part is broken in SIA
+                        number = callDetails.getExtras().getString(Connection.EXTRA_CHILD_ADDRESS);
+                        LOG.trace("onScreenCall() EXTRA_CHILD_ADDRESS={}", number);
                     }
                 }
+
+                if (TextUtils.isEmpty(number)
+                        && !PermissionHelper.hasNumberInfoPermissions(this)) {
+                    ignore = true;
+                    LOG.warn("onScreenCall() no info permissions");
+                }
+            }
+
+            if (!ignore) {
+                numberInfo = DatabaseSingleton.getNumberInfo(number);
+
+                shouldBlock = DatabaseSingleton.shouldBlock(numberInfo);
             }
         } finally {
             LOG.debug("onScreenCall() blocking call: {}", shouldBlock);
@@ -82,6 +125,40 @@ public class CallScreeningServiceImpl extends CallScreeningService {
                 NotificationHelper.showBlockedCallNotification(this, numberInfo);
 
                 postEvent(new CallEndedEvent());
+            }
+        }
+    }
+
+    private void extraLogging(Call.Details callDetails) {
+        LOG.trace("extraLogging() handle={}", callDetails.getHandle());
+
+        if (callDetails.getStatusHints() != null) {
+            LOG.trace("extraLogging() statusHints.label={}",
+                    callDetails.getStatusHints().getLabel());
+        }
+
+        GatewayInfo gatewayInfo = callDetails.getGatewayInfo();
+        if (gatewayInfo != null) {
+            LOG.trace("extraLogging() gatewayInfo provider={}," +
+                            "gatewayAddress={}, originalAddress={}",
+                    gatewayInfo.getGatewayProviderPackageName(),
+                    gatewayInfo.getGatewayAddress(),
+                    gatewayInfo.getOriginalAddress());
+        }
+
+        Bundle intentExtras = callDetails.getIntentExtras();
+        if (intentExtras != null) {
+            LOG.trace("extraLogging() intentExtras:");
+            for (String k : intentExtras.keySet()) {
+                LOG.trace("extraLogging() key={}, value={}", k, intentExtras.get(k));
+            }
+        }
+
+        Bundle extras = callDetails.getExtras();
+        if (intentExtras != null) {
+            LOG.trace("extraLogging() intentExtras:");
+            for (String k : extras.keySet()) {
+                LOG.trace("extraLogging() key={}, value={}", k, extras.get(k));
             }
         }
     }

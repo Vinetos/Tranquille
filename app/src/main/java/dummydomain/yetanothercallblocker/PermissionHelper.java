@@ -128,6 +128,13 @@ public class PermissionHelper {
         }
     }
 
+    public static boolean hasNumberInfoPermissions(Context context) {
+        for (String permission : INFO_PERMISSIONS) {
+            if (!hasPermission(context, permission)) return false;
+        }
+        return true;
+    }
+
     public static boolean hasCallLogPermission(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             return hasPermission(context, Manifest.permission.READ_CALL_LOG);

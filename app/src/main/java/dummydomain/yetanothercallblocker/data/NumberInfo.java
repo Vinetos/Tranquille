@@ -13,6 +13,7 @@ public class NumberInfo {
     public String number;
 
     // info from various sources
+    public boolean isHiddenNumber;
     public CommunityDatabaseItem communityDatabaseItem;
     public FeaturedDatabaseItem featuredDatabaseItem;
     public ContactItem contactItem;
@@ -20,7 +21,8 @@ public class NumberInfo {
     // computed rating
     public Rating rating = Rating.UNKNOWN;
 
-    // name (for convenience)
+    // precomputed for convenience
+    public boolean noNumber;
     public String name;
 
 }

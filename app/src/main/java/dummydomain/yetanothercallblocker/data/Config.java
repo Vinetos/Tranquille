@@ -104,6 +104,8 @@ public class Config {
         DatabaseSingleton.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
                 new DbDownloader(okHttpClientFactory)));
 
+        DatabaseSingleton.setHiddenNumberDetector(NumberUtils::isHiddenNumber);
+
         CommunityDatabase communityDatabase = new CommunityDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX,
                 SIA_SECONDARY_PATH_PREFIX, siaSettings, webService);
@@ -129,6 +131,8 @@ public class Config {
             }
             return null;
         });
+
+        DatabaseSingleton.setBlockingDecisionMaker(new BlockingDecisionMaker(settings));
     }
 
 }

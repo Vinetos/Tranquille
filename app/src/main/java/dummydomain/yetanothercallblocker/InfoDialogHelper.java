@@ -24,10 +24,12 @@ public class InfoDialogHelper {
     public static void showDialog(Context context, NumberInfo numberInfo,
                                   DialogInterface.OnDismissListener onDismissListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
-                .setTitle(numberInfo.number);
+                .setTitle(!numberInfo.noNumber
+                        ? numberInfo.number : context.getString(R.string.no_number));
 
         @SuppressLint("InflateParams")
         View view = LayoutInflater.from(context).inflate(R.layout.info_dialog, null);
+        builder.setView(view);
 
         TextView categoryView = view.findViewById(R.id.category);
 
@@ -66,6 +68,13 @@ public class InfoDialogHelper {
         ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
                 numberInfo.communityDatabaseItem);
 
+        if (onDismissListener != null) builder.setOnDismissListener(onDismissListener);
+
+        if (numberInfo.noNumber) {
+            builder.show();
+            return;
+        }
+
         Runnable reviewsAction = () -> {
             context.startActivity(clearTop(
                     ReviewsActivity.getNumberIntent(context, numberInfo.number)));
@@ -77,11 +86,8 @@ public class InfoDialogHelper {
             IntentHelper.startActivity(context, new Intent(Intent.ACTION_VIEW, uri));
         };
 
-        builder.setView(view)
-                .setPositiveButton(R.string.add_web_review, null)
+        builder.setPositiveButton(R.string.add_web_review, null)
                 .setNeutralButton(R.string.online_reviews, null);
-
-        if (onDismissListener != null) builder.setOnDismissListener(onDismissListener);
 
         AlertDialog dialog = builder.create();
 

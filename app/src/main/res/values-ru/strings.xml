@@ -20,8 +20,11 @@
     <string name="sia_category_service">Сервис/услуги</string>
     <string name="sia_category_robocall">Робот/автомат</string>
     <string name="sia_category_nonprofit">Некоммерческая орг-я</string>
-    <string name="block_calls">Блокир-ть нежелат. вызовы</string>
-    <string name="block_calls_summary">Автоматически сбрасывать звонки c номеров с отрицательным рейтингом</string>
+    <string name="block_negative_sia_short">Блокир. по отзывам</string>
+    <string name="block_negative_sia">Блокировать по отзывам</string>
+    <string name="block_negative_sia_numbers_summary">Блокировать звонки c номеров с отрицательным рейтингом</string>
+    <string name="block_hidden_number">Блокировать скрытые номера</string>
+    <string name="block_hidden_number_summary">Блокировать звонки со скрытых номеров. Экспериментальная функция. Вероятно, работает лучше в "продвинутом режиме блокирования". Пожалуйста, сообщите о своём опыте использования в репозиторий на gitlab</string>
     <string name="use_call_screening_service">Продвинутый режим блокирования вызовов</string>
     <string name="use_call_screening_service_summary">Позволяет блокировать вызовы до того, как телефон зазвонит. Это требует назначить приложение \"приложением для звонков\" (на Android 7–9) или \"приложением для АОН и защиты от спама\" (на Android 10+)</string>
     <string name="use_call_screening_service_disable_message">Выберите другое приложение для звонков или защиты от спама в меню Настройки - Приложения - Приложения по умолчанию</string>
@@ -112,4 +115,5 @@
     <string name="save_logcat_to_file_summary">Сохранить содержимое logcat в файл в общем хранилище (/sdcard/Android/data/dummydomain.yetanothercallblocker/files/). Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Другие приложения с разрешением на доступ к хранилищу могут иметь доступ к этим данным в общем хранилище</string>
     <string name="save_logcat_to_file_done">Выполнено</string>
     <string name="save_logcat_to_file_error">Ошибка</string>
+    <string name="no_number"><![CDATA[<нет номера>]]></string>
 </resources>

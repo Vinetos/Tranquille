@@ -11,7 +11,7 @@
         android:id="@+id/menu_block_calls"
         android:checkable="true"
         android:onClick="onBlockCallsChanged"
-        android:title="@string/block_calls" />
+        android:title="@string/block_negative_sia_short" />
 
     <item
         android:id="@+id/menu_auto_updates"

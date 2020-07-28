@@ -76,7 +76,7 @@ public class SettingsActivity extends AppCompatActivity
         Settings settings = App.getSettings();
 
         PermissionHelper.handlePermissionsResult(this, requestCode, permissions, grantResults,
-                settings.getIncomingCallNotifications(), settings.getBlockCalls(),
+                settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
                 settings.getUseContacts());
     }
 
@@ -143,14 +143,16 @@ public class SettingsActivity extends AppCompatActivity
                 return true;
             });
 
-            SwitchPreferenceCompat blockCallsPref =
-                    requireNonNull(findPreference(Settings.PREF_BLOCK_CALLS));
-            blockCallsPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            Preference.OnPreferenceChangeListener callBlockingListener = (preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
                     PermissionHelper.checkPermissions((AppCompatActivity) getActivity(), false, true, false);
                 }
                 return true;
-            });
+            };
+            requireNonNull((SwitchPreferenceCompat) findPreference(Settings.PREF_BLOCK_NEGATIVE_SIA_NUMBERS))
+                    .setOnPreferenceChangeListener(callBlockingListener);
+            requireNonNull((SwitchPreferenceCompat) findPreference(Settings.PREF_BLOCK_HIDDEN_NUMBERS))
+                    .setOnPreferenceChangeListener(callBlockingListener);
 
             SwitchPreferenceCompat callScreeningPref =
                     requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));

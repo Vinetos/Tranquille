@@ -84,8 +84,6 @@
 
     <string name="incoming_call_notifications">Notificaciones de llamadas entrantes</string>
     <string name="incoming_call_notifications_summary">Muestra una notificación con el resumen del número de teléfono (clasificación, recuento de revisiones, categoría) durante las llamadas entrantes</string>
-    <string name="block_calls">Bloqueo de llamadas no deseadas</string>
-    <string name="block_calls_summary">Automáticamente bloquea las llamadas con calificación negativa</string>
     <string name="auto_updates">Base de datos de actualización automática</string>
     <string name="auto_updates_summary">Automáticamente recibe actualizaciones diarias de la BD (estas son actualizaciones incrementales/delta, por lo que consumen muy poco tráfico)</string>
     <string name="use_contacts">Usar contactos</string>

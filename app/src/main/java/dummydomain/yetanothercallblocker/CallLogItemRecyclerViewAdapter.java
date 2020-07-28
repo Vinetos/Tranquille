@@ -153,7 +153,9 @@ public class CallLogItemRecyclerViewAdapter
             }
 
             label.setText(ellipsize(
-                    item.numberInfo.name != null ? item.numberInfo.name : item.number, 15));
+                    item.numberInfo.noNumber ? label.getContext().getString(R.string.no_number) :
+                            item.numberInfo.name != null ? item.numberInfo.name : item.number,
+                    15));
 
             IconAndColor iconAndColor = IconAndColor.forNumberRating(
                     item.numberInfo.rating, item.numberInfo.contactItem != null);

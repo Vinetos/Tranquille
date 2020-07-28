@@ -6,12 +6,16 @@ import android.text.TextUtils;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import dummydomain.yetanothercallblocker.data.CountryHelper;
 
 public class Settings extends GenericSettings {
 
     public static final String PREF_INCOMING_CALL_NOTIFICATIONS = "incomingCallNotifications";
-    public static final String PREF_BLOCK_CALLS = "blockCalls";
+    public static final String PREF_BLOCK_NEGATIVE_SIA_NUMBERS = "blockNegativeSiaNumbers";
+    public static final String PREF_BLOCK_HIDDEN_NUMBERS = "blockHiddenNumbers";
     public static final String PREF_USE_CONTACTS = "useContacts";
     public static final String PREF_UI_MODE = "uiMode";
     public static final String PREF_NUMBER_OF_RECENT_CALLS = "numberOfRecentCalls";
@@ -26,7 +30,9 @@ public class Settings extends GenericSettings {
 
     static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
 
-    private static final int PREFERENCES_VERSION = 1;
+    private static final Logger LOG = LoggerFactory.getLogger(Settings.class);
+
+    private static final int PREFERENCES_VERSION = 2;
 
     private volatile String cachedAutoDetectedCountryCode;
 
@@ -43,7 +49,13 @@ public class Settings extends GenericSettings {
 
         if (preferencesVersion == PREFERENCES_VERSION) return;
 
+        LOG.info("init() preferencesVersion={}", preferencesVersion);
+
+        String prefBlockCalls = "blockCalls";
+
         if (preferencesVersion < 1) {
+            LOG.debug("init() upgrading to 1");
+
             PreferenceManager.setDefaultValues(context, R.xml.root_preferences, false);
 
             Settings oldSettings = new Settings(context, "yacb_preferences");
@@ -51,8 +63,8 @@ public class Settings extends GenericSettings {
             if (oldSettings.isSet(PREF_INCOMING_CALL_NOTIFICATIONS)) {
                 setIncomingCallNotifications(oldSettings.getIncomingCallNotifications());
             }
-            if (oldSettings.isSet(PREF_BLOCK_CALLS)) {
-                setBlockCalls(oldSettings.getBlockCalls());
+            if (oldSettings.isSet(prefBlockCalls)) {
+                setBoolean(prefBlockCalls, oldSettings.getBoolean(prefBlockCalls));
             }
             if (oldSettings.isSet(PREF_USE_CONTACTS)) {
                 setUseContacts(oldSettings.getUseContacts());
@@ -60,8 +72,17 @@ public class Settings extends GenericSettings {
             setLastUpdateTime(oldSettings.getLastUpdateTime());
             setLastUpdateCheckTime(oldSettings.getLastUpdateCheckTime());
         }
+        if (preferencesVersion < 2) {
+            LOG.debug("init() upgrading to 2");
+
+            if (isSet(prefBlockCalls)) {
+                setBlockNegativeSiaNumbers(getBoolean(prefBlockCalls));
+                unset(prefBlockCalls);
+            }
+        }
 
         setInt(SYS_PREFERENCES_VERSION, PREFERENCES_VERSION);
+        LOG.debug("init() finished upgrade");
     }
 
     public boolean getIncomingCallNotifications() {
@@ -72,12 +93,24 @@ public class Settings extends GenericSettings {
         setBoolean(PREF_INCOMING_CALL_NOTIFICATIONS, show);
     }
 
-    public boolean getBlockCalls() {
-        return getBoolean(PREF_BLOCK_CALLS);
+    public boolean getCallBlockingEnabled() {
+        return getBlockNegativeSiaNumbers() || getBlockHiddenNumbers();
     }
 
-    public void setBlockCalls(boolean block) {
-        setBoolean(PREF_BLOCK_CALLS, block);
+    public boolean getBlockNegativeSiaNumbers() {
+        return getBoolean(PREF_BLOCK_NEGATIVE_SIA_NUMBERS);
+    }
+
+    public void setBlockNegativeSiaNumbers(boolean block) {
+        setBoolean(PREF_BLOCK_NEGATIVE_SIA_NUMBERS, block);
+    }
+
+    public boolean getBlockHiddenNumbers() {
+        return getBoolean(PREF_BLOCK_HIDDEN_NUMBERS);
+    }
+
+    public void setBlockHiddenNumbers(boolean block) {
+        setBoolean(PREF_BLOCK_HIDDEN_NUMBERS, block);
     }
 
     public boolean getUseContacts() {
