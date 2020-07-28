@@ -1,5 +1,8 @@
 <configuration>
     <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+        <tagEncoder>
+            <pattern>%logger{23}</pattern>
+        </tagEncoder>
         <encoder>
             <pattern>%msg</pattern>
         </encoder>
