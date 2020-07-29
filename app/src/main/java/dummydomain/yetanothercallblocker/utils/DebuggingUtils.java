@@ -72,7 +72,11 @@ public class DebuggingUtils {
     }
 
     public static void saveLogcatToFile(Context context, boolean external) throws IOException {
-        saveLogcatToFile(context, external, getDateString());
+        saveLogcatToFile(getFilesDir(context, external).getAbsolutePath(), getDateString());
+    }
+
+    public static String saveLogcatInCache(Context context) throws IOException {
+        return saveLogcatToFile(context.getCacheDir().getAbsolutePath(), getDateString());
     }
 
     private static void saveCrashToFile(Context context, Throwable th,
@@ -86,13 +90,13 @@ public class DebuggingUtils {
         }
     }
 
-    private static void saveLogcatToFile(Context context, boolean external, String name)
-            throws IOException {
-        String path = getFilesDir(context, external).getAbsolutePath()
-                + "/logcat_" + name + ".txt";
+    private static String saveLogcatToFile(String path, String name) throws IOException {
+        path += "/logcat_" + name + ".txt";
 
         Log.d(TAG, "Saving logcat to " + path);
         Runtime.getRuntime().exec("logcat -d -f " + path);
+
+        return path;
     }
 
     private static String getDateString() {

@@ -111,9 +111,7 @@
     <string name="save_crashes_to_external_storage_summary">Сохранять отчёты об ошибках и логи в общее хранилище. В противном случае отчёты сохраняются в личную папку приложения. Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Другие приложения с разрешением на доступ к хранилищу могут иметь доступ к этим данным в общем хранилище</string>
     <string name="save_logcat_on_crash">Сохранять logcat при ошибках</string>
     <string name="save_logcat_on_crash_summary">Сохранять содержимое logcat при ошибках (в дополнение к обычныму stacktrace)</string>
-    <string name="save_logcat_to_file">Сохранить logcat</string>
-    <string name="save_logcat_to_file_summary">Сохранить содержимое logcat в файл в общем хранилище (/sdcard/Android/data/dummydomain.yetanothercallblocker/files/). Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Другие приложения с разрешением на доступ к хранилищу могут иметь доступ к этим данным в общем хранилище</string>
-    <string name="save_logcat_to_file_done">Выполнено</string>
-    <string name="save_logcat_to_file_error">Ошибка</string>
+    <string name="export_logcat">Экспортировать logcat</string>
+    <string name="export_logcat_summary">Экспортировать и поделиться содержимым logcat с приложением по вашему выбору (например, с email-клиентом). Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Только выбранное приложение получит доступ к этим данным</string>
     <string name="no_number"><![CDATA[<нет номера>]]></string>
 </resources>

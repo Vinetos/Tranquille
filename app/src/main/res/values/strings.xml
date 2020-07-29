@@ -123,10 +123,8 @@
     <string name="save_crashes_to_external_storage_summary">Save crash reports and logs to public storage, otherwise crash reports are saved to a private app folder. The reports may contain sensitive data (phone numbers, contact names). Other apps with storage permission may have access to this data in public storage</string>
     <string name="save_logcat_on_crash">Save logcat on crash</string>
     <string name="save_logcat_on_crash_summary">Save logcat output on crash (in addition to a basic stacktrace)</string>
-    <string name="save_logcat_to_file">Save logcat</string>
-    <string name="save_logcat_to_file_summary">Save logcat output to a file in public storage (/sdcard/Android/data/dummydomain.yetanothercallblocker/files/). The reports may contain sensitive data (phone numbers, contact names). Other apps with storage permission may have access to this data in public storage</string>
-    <string name="save_logcat_to_file_done">Done</string>
-    <string name="save_logcat_to_file_error">Error</string>
+    <string name="export_logcat">Export logcat</string>
+    <string name="export_logcat_summary">Export and share logcat contents with an app of your choosing (for example with an email client). The reports may contain sensitive data (phone numbers, contact names). Only the chosen app will have access to this data</string>
     <string name="no_number"><![CDATA[<no number>]]></string>
 
     <string name="open_debug_activity">Open debug screen</string>

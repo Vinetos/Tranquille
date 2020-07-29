@@ -123,10 +123,6 @@
     <string name="save_crashes_to_external_storage_summary">Sauvegarder les rapports et les journaux d\'incidents sur le stockage public, sinon les rapports d\'incidents sont sauvegardés dans un dossier privé de l\'application. Les rapports peuvent contenir des données sensibles (numéros de téléphone, noms de contact). D\'autres applications ayant une autorisation de stockage peuvent avoir accès à ces données dans le stockage public</string>
     <string name="save_logcat_on_crash">Sauvegarder les journaux de log en cas de crash</string>
     <string name="save_logcat_on_crash_summary">Sauvegarder la copie du journal de log en cas de crash (en plus d\'un stacktrace de base)</string>
-    <string name="save_logcat_to_file">Sauvegarder le journal de log</string>
-    <string name="save_logcat_to_file_summary">Sauvegarder la copie du journal de log dans un fichier sur le stockage public (/sdcard/Android/data/dummydomain.yetanothercallblocker/files/). Les rapports peuvent contenir des données sensibles (numéros de téléphone, noms de contact). D\'autres applications ayant une autorisation de stockage peuvent avoir accès à ces données sur le stockage public</string>
-    <string name="save_logcat_to_file_done">Terminé</string>
-    <string name="save_logcat_to_file_error">Erreur</string>
     <string name="no_number"><![CDATA[<aucun numéro>]]></string>
 
     <string name="open_debug_activity">Ouvrir l\'écran de débogage</string>

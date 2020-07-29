@@ -1,5 +1,6 @@
 package dummydomain.yetanothercallblocker;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,11 +24,13 @@ import androidx.preference.SwitchPreferenceCompat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
 import dummydomain.yetanothercallblocker.preference.IntListPreference;
 import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
+import dummydomain.yetanothercallblocker.utils.FileUtils;
 import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
 import static java.util.Objects.requireNonNull;
@@ -100,7 +103,7 @@ public class SettingsActivity extends AppCompatActivity
         private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
         private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
         private static final String PREF_COUNTRY_CODES_INFO = "countryCodesInfo";
-        private static final String PREF_SAVE_LOGCAT_TO_FILE = "saveLogcatToFile";
+        private static final String PREF_EXPORT_LOGCAT = "exportLogcat";
 
         private static final Logger LOG = LoggerFactory.getLogger(SettingsFragment.class);
 
@@ -244,9 +247,9 @@ public class SettingsActivity extends AppCompatActivity
                     = requireNonNull(findPreference(Settings.PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE));
             countryCodeForReviewsPreference.setOnPreferenceChangeListener(countryCodeChangeListener);
 
-            requireNonNull((Preference) findPreference(PREF_SAVE_LOGCAT_TO_FILE))
+            requireNonNull((Preference) findPreference(PREF_EXPORT_LOGCAT))
                     .setOnPreferenceClickListener(preference -> {
-                        saveLogcatToFile();
+                        exportLogcat();
                         return true;
                     });
         }
@@ -257,19 +260,19 @@ public class SettingsActivity extends AppCompatActivity
             callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(getActivity()));
         }
 
-        private void saveLogcatToFile() {
-            boolean success = false;
+        private void exportLogcat() {
+            Activity activity = getActivity();
+
+            String path = null;
             try {
-                DebuggingUtils.saveLogcatToFile(getActivity(), true);
-                success = true;
+                path = DebuggingUtils.saveLogcatInCache(activity);
             } catch (IOException e) {
-                LOG.warn("saveLogcatToFile()", e);
+                LOG.warn("exportLogcat()", e);
             }
 
-            Toast.makeText(getActivity(), success
-                            ? R.string.save_logcat_to_file_done
-                            : R.string.save_logcat_to_file_error,
-                    Toast.LENGTH_SHORT).show();
+            if (path != null) {
+                FileUtils.shareFile(activity, new File(path));
+            }
         }
     }
 }
