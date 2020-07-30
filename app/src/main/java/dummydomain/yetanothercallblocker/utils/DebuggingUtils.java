@@ -122,7 +122,7 @@ public class DebuggingUtils {
         }
 */
 
-        return context.getFilesDir();
+        return context.getCacheDir();
     }
 
 }
