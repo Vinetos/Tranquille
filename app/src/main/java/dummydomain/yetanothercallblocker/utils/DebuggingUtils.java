@@ -1,10 +1,12 @@
 package dummydomain.yetanothercallblocker.utils;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -59,8 +61,9 @@ public class DebuggingUtils {
 
         if (saveLogcat) {
             try {
-                saveLogcatToFile(App.getInstance(), logToExternal);
-            } catch (IOException ex) {
+                String path = saveLogcatToFile(App.getInstance(), logToExternal);
+                appendDeviceInfo(path);
+            } catch (IOException | InterruptedException ex) {
                 ex.printStackTrace();
             }
         }
@@ -71,11 +74,13 @@ public class DebuggingUtils {
         saveCrashToFile(context, th, external, getDateString());
     }
 
-    public static void saveLogcatToFile(Context context, boolean external) throws IOException {
-        saveLogcatToFile(getFilesDir(context, external).getAbsolutePath(), getDateString());
+    public static String saveLogcatToFile(Context context, boolean external)
+            throws IOException, InterruptedException {
+        return saveLogcatToFile(getFilesDir(context, external).getAbsolutePath(), getDateString());
     }
 
-    public static String saveLogcatInCache(Context context) throws IOException {
+    public static String saveLogcatInCache(Context context)
+            throws IOException, InterruptedException {
         return saveLogcatToFile(context.getCacheDir().getAbsolutePath(), getDateString());
     }
 
@@ -90,13 +95,28 @@ public class DebuggingUtils {
         }
     }
 
-    private static String saveLogcatToFile(String path, String name) throws IOException {
+    private static String saveLogcatToFile(String path, String name)
+            throws IOException, InterruptedException {
         path += "/logcat_" + name + ".txt";
 
         Log.d(TAG, "Saving logcat to " + path);
-        Runtime.getRuntime().exec("logcat -d -f " + path);
+        Process process = Runtime.getRuntime().exec("logcat -d -f " + path);
+        process.waitFor();
 
         return path;
+    }
+
+    public static void appendDeviceInfo(String file) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.newLine();
+            writer.append("API level: ").append(android.os.Build.VERSION.SDK).append('\n');
+            writer.append("Brand: ").append(Build.BRAND).append('\n');
+            writer.append("Manufacturer: ").append(Build.MANUFACTURER).append('\n');
+            writer.append("Model: ").append(android.os.Build.MODEL).append('\n');
+            writer.append("Product: ").append(android.os.Build.PRODUCT).append('\n');
+            writer.append("Device: ").append(android.os.Build.DEVICE).append('\n');
+            writer.append("Board: ").append(Build.BOARD).append('\n');
+        }
     }
 
     private static String getDateString() {

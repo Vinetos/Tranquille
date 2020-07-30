@@ -266,7 +266,8 @@ public class SettingsActivity extends AppCompatActivity
             String path = null;
             try {
                 path = DebuggingUtils.saveLogcatInCache(activity);
-            } catch (IOException e) {
+                DebuggingUtils.appendDeviceInfo(path);
+            } catch (IOException | InterruptedException e) {
                 LOG.warn("exportLogcat()", e);
             }
 
