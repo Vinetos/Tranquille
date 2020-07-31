@@ -1,0 +1,143 @@
+<resources>
+    <string name="app_name">Yet Another Call Blocker</string>
+
+    <string name="notification_channel_group_name_incoming_calls">Appels entrants</string>
+    <string name="notification_channel_group_name_blocked_calls">Appels bloqués</string>
+    <string name="notification_channel_group_name_tasks">Tâches</string>
+
+    <string name="notification_channel_name_known">Appels identifiés</string>
+    <string name="notification_channel_name_positive">Appels positifs</string>
+    <string name="notification_channel_name_neutral">Appels neutres</string>
+    <string name="notification_channel_name_unknown">Appels inconnus</string>
+    <string name="notification_channel_name_negative">Appels négatifs</string>
+    <string name="notification_channel_name_blocked_info">Informations bloquées</string>
+    <string name="notification_channel_name_tasks">Tâches</string>
+
+    <string name="notification_incoming_call_contact">Contact</string>
+    <string name="notification_incoming_call_positive">Appel positif</string>
+    <string name="notification_incoming_call_neutral">Appel neutre</string>
+    <string name="notification_incoming_call_unknown">Appel inconnu</string>
+    <string name="notification_incoming_call_negative">Appel négatif</string>
+
+    <string name="notification_blocked_call">Appel bloqué</string>
+
+    <string name="notification_incoming_call_text_description">Negatif: %1$d, positif: %2$d, neutral: %3$d</string>
+
+    <string name="notification_background_operation">Opération en arrière-plan en cours…</string>
+
+    <string name="sia_category_none">Aucune</string>
+    <string name="sia_category_telemarketer">Télémarketing</string>
+    <string name="sia_category_dept_collector">Recouvrement de créances</string>
+    <string name="sia_category_silent">Silencieux</string>
+    <string name="sia_category_nuisance">Nuisance</string>
+    <string name="sia_category_unsolicited">Non sollicité</string>
+    <string name="sia_category_call_center">Centre d\'appels</string>
+    <string name="sia_category_fax">FAX</string>
+    <string name="sia_category_nonprofit">Org. à but non lucratif</string>
+    <string name="sia_category_political">Politique</string>
+    <string name="sia_category_scam">Escroquerie</string>
+    <string name="sia_category_prank">Canular</string>
+    <string name="sia_category_sms">SMS</string>
+    <string name="sia_category_survey">Sondage</string>
+    <string name="sia_category_other">Autre</string>
+    <string name="sia_category_financial_service">Service financier</string>
+    <string name="sia_category_company">Entreprise</string>
+    <string name="sia_category_service">Service</string>
+    <string name="sia_category_robocall">Appel automatisé</string>
+    <string name="sia_category_safe_personal">Numéro fiable</string>
+    <string name="sia_category_safe_company">Entreprise fiable</string>
+    <string name="sia_category_safe_nonprofit">Org. à but non lucratif fiable</string>
+
+    <string name="title_activity_reviews">Évaluations</string>
+    <string name="reviews_loading">Chargement des évaluations…</string>
+    <string name="reviews_loading_error">Erreur de chargement</string>
+
+    <string name="denied_permissions_message">Du fait des restrictions d\'autorisations, les fonctionnalités suivantes peuvent ne pas fonctionner:</string>
+    <string name="feature_info">notifications</string>
+    <string name="feature_call_blocking">blocage d\'appel</string>
+    <string name="feature_contacts">utilisation des contacts</string>
+    <string name="denied_default_dialer_message">Comme l\'application n\'est pas définie comme appli \"téléphone\", le blocage d\'appel avancé ne fonctionnera pas.</string>
+    <string name="denied_call_screening_role_message">Comme l\'application n\'est pas définie comme appli de \"reconnaissance d\'appel entrant\", le blocage d\'appel avancé ne fonctionnera pas.</string>
+
+    <string name="call_log_permission_message">Accorder l\'autorisation \"Téléphone\" pour voir les appels récents</string>
+
+    <string name="no_main_db_title">Télécharger la base de données principale</string>
+    <string name="no_main_db_text">La base de données n\'est pas disponible. Pour que l\'application puisse remplir la plupart de ses fonctions, vous devez la télécharger. Cela nécessitera environ 25 Mo de données.</string>
+    <string name="download_main_db">Télécharger la base de données</string>
+    <string name="main_db_downloading">Téléchargement de la BD…</string>
+
+    <string name="secondary_db_updating">Mise à jour de la BD…</string>
+
+    <string name="recent_calls">Appels récents</string>
+    <string name="online_reviews">Évaluations en ligne</string>
+    <string name="add_web_review">Ajouter une évaluation (web)</string>
+    <string name="back">Retour</string>
+    <string name="no">Non</string>
+
+    <string name="load_reviews_confirmation_title">Êtes-vous sûr ?</string>
+    <string name="load_reviews_confirmation_message">La transmission d\'évaluations en ligne divulguera le numéro à un service tiers. Êtes-vous sûr de vouloir le faire avec un numéro présent dans vos contacts ?</string>
+
+    <string name="open_settings_activity">Paramètres</string>
+    <string name="title_settings_activity">Paramètres</string>
+    <string name="settings_category_main">Principaux</string>
+    <string name="settings_category_call_blocking">Blocage d\'appel</string>
+    <string name="settings_category_notifications_incoming_calls">Notifications d\'appels entrants</string>
+    <string name="show_notifications_for_known_callers">Notifications pour les appelants identifiés</string>
+    <string name="show_notifications_for_known_callers_summary">Afficher les notifications pour les appelants identifiés (numéros dans les contacts))</string>
+    <string name="show_notifications_for_unknown_callers">Notifications pour les appelants inconnus</string>
+    <string name="show_notifications_for_unknown_callers_summary">Afficher les notifications pour les appelants inconnus (ni dans les contacts ni dans la base de données des numéros)</string>
+
+    <string name="incoming_call_notifications">Notifications d\'appel entrant</string>
+    <string name="incoming_call_notifications_summary">Affiche une notification avec un aperçu du numéro de téléphone (notation, nombre d\'avis, catégorie) lors des appels entrants</string>
+    <string name="block_negative_sia_short">Bloquer selon la notation</string>
+    <string name="block_negative_sia">Blocage en fonction de la notation</string>
+    <string name="block_negative_sia_numbers_summary">Bloquer les appels provenant de numéros ayant une note négative (sur la base d\'une base de données communautaire))</string>
+    <string name="block_hidden_number">Bloquer les numéros masqués</string>
+    <string name="block_hidden_number_summary">Bloquer les appels provenant de numéros masqués. Expérimental. Fonctionne probablement mieux en mode "blocage d\'appel avancé". Merci de signaler votre retour d\'expérience sur gitlab.</string>
+    <string name="use_call_screening_service">Mode de blocage d\'appel avancé</string>
+    <string name="use_call_screening_service_summary">Permet de bloquer les appels avant que le téléphone ne commence à sonner. Nécessite que l\'application soit définie comme appli "téléphone" (Android 7–9) ou comme appli \"reconnaissance d\'appel entrant\" (Android 10+)</string>
+    <string name="use_call_screening_service_disable_message">Sélectionner une autre \"application téléphonique\" ou \"application d\'identification de l\'appelant\" dans Paramètres - Apps - Apps par défaut</string>
+    <string name="auto_updates">Mettre à jour automatiquement la base de données</string>
+    <string name="auto_updates_summary">Recevoir automatiquement les mises à jour quotidiennes de la BD (il s\'agit de mises à jour incrémentielles/delta, donc elles consomment très peu de données)</string>
+    <string name="use_contacts">Utiliser les contacts</string>
+    <string name="use_contacts_summary">Les numéros présents dans le répertoire ne sont jamais bloqués et le nom du contact est affiché à côté/à la place du numéro dans toute l\'application.</string>
+    <string name="ui_mode">Thème de l\'interface</string>
+    <string name="ui_mode_day">Clair</string>
+    <string name="ui_mode_night">Sombre</string>
+    <string name="ui_mode_auto">Automatique</string>
+    <string name="number_of_recent_calls">Nombre d\'appels récents</string>
+    <string name="number_of_recent_calls_summary">Le nombre d\'appels récents à afficher sur l\'écran principal</string>
+
+    <string name="settings_screen_advanced">Paramètres avancés</string>
+    <string name="settings_category_country_codes">Codes pays</string>
+    <string name="country_codes_info">Explication</string>
+    <string name="country_codes_info_summary">Les codes de pays sont utilisés dans les requêtes adressées à des serveurs tiers. Ces codes sont définis pour imiter le comportement de l\'application officielle de la tierce partie. Si les codes correspondent à votre pays réel (ils peuvent être détectés par votre adresse IP), vos requêtes seront les plus discrètes. L\'auto-détection est utilisée par défaut (en fonction des informations du réseau mobile ou de la localisation du système), ce qui devrait convenir à la plupart des utilisateurs, mais vous pouvez définir les codes manuellement. Les codes ISO 3166 à 2 lettres (comme ceux des États-Unis) sont attendus</string>
+    <string name="country_codes_info_summary_addition">Auto-détection: %s</string>
+    <string name="country_code_override">Code pays</string>
+    <string name="country_code_override_summary">Code du pays utilisé dans toutes les demandes. Laisser vide pour l\'auto-détection</string>
+    <string name="country_code_for_reviews_override">Code pays pour les évaluations</string>
+    <string name="country_code_for_reviews_override_summary">Code du pays utilisé dans les demandes d\'évaluation en ligne. Il représente le pays de l\'appelant. Laissez vide pour l\'auto-détection</string>
+    <string name="country_code_incorrect_format">Format de code pays incorrect. La valeur n\'est pas mise à jour</string>
+    <string name="settings_category_debugging">Débogage</string>
+    <string name="save_crashes_to_external_storage">Sauvegarder les rapports sur l\'espace de stockage public</string>
+    <string name="save_crashes_to_external_storage_summary">Sauvegarder les rapports et les journaux d\'incidents sur le stockage public, sinon les rapports d\'incidents sont sauvegardés dans un dossier privé de l\'application. Les rapports peuvent contenir des données sensibles (numéros de téléphone, noms de contact). D\'autres applications ayant une autorisation de stockage peuvent avoir accès à ces données dans le stockage public</string>
+    <string name="save_logcat_on_crash">Sauvegarder les journaux de log en cas de crash</string>
+    <string name="save_logcat_on_crash_summary">Sauvegarder la copie du journal de log en cas de crash (en plus d\'un stacktrace de base)</string>
+    <string name="save_logcat_to_file">Sauvegarder le journal de log</string>
+    <string name="save_logcat_to_file_summary">Sauvegarder la copie du journal de log dans un fichier sur le stockage public (/sdcard/Android/data/dummydomain.yetanothercallblocker/files/). Les rapports peuvent contenir des données sensibles (numéros de téléphone, noms de contact). D\'autres applications ayant une autorisation de stockage peuvent avoir accès à ces données sur le stockage public</string>
+    <string name="save_logcat_to_file_done">Terminé</string>
+    <string name="save_logcat_to_file_error">Erreur</string>
+    <string name="no_number"><![CDATA[<aucun numéro>]]></string>
+
+    <string name="open_debug_activity">Ouvrir l\'écran de débogage</string>
+    <string name="debug_activity_label">Déboggage</string>
+    <string name="debug_query_db">Interroger la DB</string>
+    <string name="debug_load_reviews">Charger les évaluations (en ligne)</string>
+    <string name="debug_db_info">Infos de la BD</string>
+    <string name="debug_reset_base">Réinitialiser la BD</string>
+    <string name="debug_reset_secondary">Réinitialiser les mises à jour</string>
+    <string name="debug_update_db">Mise à jour de la BD</string>
+    <string name="debug_not_found">Non trouvé</string>
+    <string name="debug_update_result">Mise à jour terminée; BD ver: %d</string>
+
+</resources>
