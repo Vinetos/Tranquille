@@ -97,13 +97,13 @@ public class InfoDialogHelper {
             dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(v -> {
                 if (numberInfo.contactItem != null) {
                     new AlertDialog.Builder(context)
-                            .setTitle(R.string.load_reviews_confirmation_title)
+                            .setTitle(R.string.are_you_sure)
                             .setMessage(R.string.load_reviews_confirmation_message)
-                            .setPositiveButton(android.R.string.yes, (d1, w) -> {
+                            .setPositiveButton(R.string.yes, (d1, w) -> {
                                 reviewsAction.run();
                                 dialog.dismiss();
                             })
-                            .setNegativeButton(android.R.string.no, null)
+                            .setNegativeButton(R.string.no, null)
                             .show();
                 } else {
                     reviewsAction.run();
@@ -114,13 +114,13 @@ public class InfoDialogHelper {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
                 if (numberInfo.contactItem != null) {
                     new AlertDialog.Builder(context)
-                            .setTitle(R.string.load_reviews_confirmation_title)
+                            .setTitle(R.string.are_you_sure)
                             .setMessage(R.string.load_reviews_confirmation_message)
-                            .setPositiveButton(android.R.string.yes, (d1, w) -> {
+                            .setPositiveButton(R.string.yes, (d1, w) -> {
                                 webReviewAction.run();
                                 dialog.dismiss();
                             })
-                            .setNegativeButton(android.R.string.no, null)
+                            .setNegativeButton(R.string.no, null)
                             .show();
                 } else {
                     webReviewAction.run();

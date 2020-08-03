@@ -26,6 +26,10 @@
         android:title="@string/use_contacts" />
 
     <item
+        android:onClick="onOpenBlacklist"
+        android:title="@string/open_blacklist_activity" />
+
+    <item
         android:onClick="onOpenSettings"
         android:title="@string/open_settings_activity" />
 

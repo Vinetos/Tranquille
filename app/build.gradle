@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 29
@@ -31,6 +32,10 @@ android {
     }
 }
 
+greendao {
+    schemaVersion 1
+}
+
 dependencies {
     def eventbus_version = '3.2.0'
 
@@ -43,9 +48,11 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'androidx.work:work-runtime:2.4.0'
+    implementation 'org.greenrobot:greendao:3.3.0'
     implementation "org.greenrobot:eventbus:$eventbus_version"
     annotationProcessor "org.greenrobot:eventbus-annotation-processor:$eventbus_version"
 }

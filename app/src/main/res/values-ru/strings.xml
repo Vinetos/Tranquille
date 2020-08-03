@@ -25,6 +25,9 @@
     <string name="block_negative_sia_numbers_summary">Блокировать звонки c номеров с отрицательным рейтингом</string>
     <string name="block_hidden_number">Блокировать скрытые номера</string>
     <string name="block_hidden_number_summary">Блокировать звонки со скрытых номеров. Экспериментальная функция. Вероятно, работает лучше в "продвинутом режиме блокирования". Пожалуйста, сообщите о своём опыте использования в репозиторий на gitlab</string>
+    <string name="block_blacklisted_short">Блокировать из ЧС</string>
+    <string name="block_blacklisted">Блокировать из чёрного списка</string>
+    <string name="block_blacklisted_summary">Блокировать звонки с номеров добавленных в чёрный список</string>
     <string name="use_call_screening_service">Продвинутый режим блокирования вызовов</string>
     <string name="use_call_screening_service_summary">Позволяет блокировать вызовы до того, как телефон зазвонит. Это требует назначить приложение \"приложением для звонков\" (на Android 7–9) или \"приложением для АОН и защиты от спама\" (на Android 10+)</string>
     <string name="use_call_screening_service_disable_message">Выберите другое приложение для звонков или защиты от спама в меню Настройки - Приложения - Приложения по умолчанию</string>
@@ -73,8 +76,9 @@
     <string name="online_reviews">Online-отзывы</string>
     <string name="add_web_review">Добавить отзыв (веб)</string>
     <string name="back">Назад</string>
+    <string name="yes">Да</string>
     <string name="no">Нет</string>
-    <string name="load_reviews_confirmation_title">Вы уверены?</string>
+    <string name="are_you_sure">Вы уверены?</string>
     <string name="load_reviews_confirmation_message">Это номер из адресной книги! Для получения отзывов номер передается в сторонний сервис и может попасть к третьим лицам. Вы точно хотите посмотреть отзывы на этот номер?</string>
     <string name="call_log_permission_message">Разрешите доступ к журналу вызовов, чтобы здесь отображались недавние вызовы</string>
     <string name="notification_background_operation">Выполняется процесс в фоне…</string>
@@ -114,4 +118,25 @@
     <string name="export_logcat">Экспортировать logcat</string>
     <string name="export_logcat_summary">Экспортировать и поделиться содержимым logcat с приложением по вашему выбору (например, с email-клиентом). Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Только выбранное приложение получит доступ к этим данным</string>
     <string name="no_number"><![CDATA[<нет номера>]]></string>
+    <string name="save">Сохранить</string>
+    <string name="selected_count">Выбрано: %1$d</string>
+
+    <string name="open_blacklist_activity">Чёрный список</string>
+    <string name="title_blacklist_activity">Чёрный список</string>
+    <plurals name="blacklist_item_stats">
+        <item quantity="one">Звонил %2$s</item>
+        <item quantity="few">%1$d звонка, последний: %2$s</item>
+        <item quantity="many">%1$d звонков, последний: %2$s</item>
+    </plurals>
+    <string name="blacklist_item_date_no_info">нет информации</string>
+    <string name="blacklist_add">Добавить</string>
+    <string name="blacklist_delete">Удалить</string>
+    <string name="blacklist_delete_confirmation">Удалить выбранные элементы?</string>
+    <string name="title_add_blacklist_item_activity">Добавить</string>
+    <string name="title_edit_blacklist_item_activity">Редактировать</string>
+    <string name="edit_blacklist_item_name">Имя</string>
+    <string name="edit_blacklist_item_number_pattern">Шаблон номера</string>
+    <string name="number_pattern_incorrect">Некорректный шаблон</string>
+    <string name="number_pattern_empty">Пустой шаблон</string>
+    <string name="number_pattern_hint">Введите номер в формате +СТРАНА-НОМЕР (как Android показал бы в списке вызовов). Используйте \"*\" как подстановку для нуля и более цифр и \"#\" для одной цифры.</string>
 </resources>

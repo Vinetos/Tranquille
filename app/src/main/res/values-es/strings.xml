@@ -70,7 +70,7 @@
     <string name="back">Atrás</string>
     <string name="no">No</string>
 
-    <string name="load_reviews_confirmation_title">¿Estás seguro?</string>
+    <string name="are_you_sure">¿Estás seguro?</string>
     <string name="load_reviews_confirmation_message">Cargar las revisiones online filtrará el número a un servicio de terceros. ¿Estás seguro de que quieres hacerlo con un número presente en tus contactos?</string>
 
     <string name="open_settings_activity">Ajustes</string>

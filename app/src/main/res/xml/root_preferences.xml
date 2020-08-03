@@ -39,6 +39,11 @@
             app:summary="@string/block_hidden_number_summary"
             app:title="@string/block_hidden_number" />
         <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:key="blockBlacklisted"
+            app:summary="@string/block_blacklisted_summary"
+            app:title="@string/block_blacklisted" />
+        <SwitchPreferenceCompat
             app:key="useCallScreeningService"
             app:persistent="false"
             app:summary="@string/use_call_screening_service_summary"

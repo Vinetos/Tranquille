@@ -16,6 +16,8 @@ public class Settings extends GenericSettings {
     public static final String PREF_INCOMING_CALL_NOTIFICATIONS = "incomingCallNotifications";
     public static final String PREF_BLOCK_NEGATIVE_SIA_NUMBERS = "blockNegativeSiaNumbers";
     public static final String PREF_BLOCK_HIDDEN_NUMBERS = "blockHiddenNumbers";
+    public static final String PREF_BLOCK_BLACKLISTED = "blockBlacklisted";
+    public static final String PREF_BLACKLIST_IS_NOT_EMPTY = "blacklistIsNotEmpty";
     public static final String PREF_USE_CONTACTS = "useContacts";
     public static final String PREF_UI_MODE = "uiMode";
     public static final String PREF_NUMBER_OF_RECENT_CALLS = "numberOfRecentCalls";
@@ -94,7 +96,7 @@ public class Settings extends GenericSettings {
     }
 
     public boolean getCallBlockingEnabled() {
-        return getBlockNegativeSiaNumbers() || getBlockHiddenNumbers();
+        return getBlockNegativeSiaNumbers() || getBlockHiddenNumbers() || getBlacklistEnabled();
     }
 
     public boolean getBlockNegativeSiaNumbers() {
@@ -111,6 +113,26 @@ public class Settings extends GenericSettings {
 
     public void setBlockHiddenNumbers(boolean block) {
         setBoolean(PREF_BLOCK_HIDDEN_NUMBERS, block);
+    }
+
+    public boolean getBlacklistEnabled() {
+        return getBlockBlacklisted() && getBlacklistIsNotEmpty();
+    }
+
+    public boolean getBlockBlacklisted() {
+        return getBoolean(PREF_BLOCK_BLACKLISTED, true);
+    }
+
+    public void setBlockBlacklisted(boolean block) {
+        setBoolean(PREF_BLOCK_BLACKLISTED, block);
+    }
+
+    public boolean getBlacklistIsNotEmpty() {
+        return getBoolean(PREF_BLACKLIST_IS_NOT_EMPTY);
+    }
+
+    public void setBlacklistIsNotEmpty(boolean flag) {
+        setBoolean(PREF_BLACKLIST_IS_NOT_EMPTY, flag);
     }
 
     public boolean getUseContacts() {

@@ -72,9 +72,10 @@
     <string name="online_reviews">Online reviews</string>
     <string name="add_web_review">Add review (web)</string>
     <string name="back">Back</string>
+    <string name="yes">Yes</string>
     <string name="no">No</string>
 
-    <string name="load_reviews_confirmation_title">Are you sure?</string>
+    <string name="are_you_sure">Are you sure?</string>
     <string name="load_reviews_confirmation_message">Loading online reviews will leak the number to a 3rd party service. Are you sure you want to do it with a number present in your Contacts?</string>
 
     <string name="open_settings_activity">Settings</string>
@@ -94,6 +95,9 @@
     <string name="block_negative_sia_numbers_summary">Block calls from numbers with negative rating (based on a community database)</string>
     <string name="block_hidden_number">Block hidden numbers</string>
     <string name="block_hidden_number_summary">Block calls from hidden numbers. Experimental. Probably works better in \"advanced call blocking mode\". Please report your experience in the repo issues on gitlab</string>
+    <string name="block_blacklisted_short">Block blacklisted</string>
+    <string name="block_blacklisted">Block blacklisted numbers</string>
+    <string name="block_blacklisted_summary">Block calls from numbers added to the blacklist</string>
     <string name="use_call_screening_service">Advanced call blocking mode</string>
     <string name="use_call_screening_service_summary">Allows to block calls before the phone starts to ring. Requires the app to be set as the \"Phone app\" (Android 7–9) or as the \"Caller ID app\" (Android 10+)</string>
     <string name="use_call_screening_service_disable_message">Select different \"Phone app\" or \"Caller ID app\" in Settings - Apps - Default apps</string>
@@ -126,6 +130,26 @@
     <string name="export_logcat">Export logcat</string>
     <string name="export_logcat_summary">Export and share logcat contents with an app of your choosing (for example with an email client). The reports may contain sensitive data (phone numbers, contact names). Only the chosen app will have access to this data</string>
     <string name="no_number"><![CDATA[<no number>]]></string>
+    <string name="save">Save</string>
+    <string name="selected_count">%1$d selected</string>
+
+    <string name="open_blacklist_activity">Blacklist</string>
+    <string name="title_blacklist_activity">Blacklist</string>
+    <plurals name="blacklist_item_stats">
+        <item quantity="one">Called at %2$s</item>
+        <item quantity="other">%1$d calls, last: %2$s</item>
+    </plurals>
+    <string name="blacklist_item_date_no_info">no info</string>
+    <string name="blacklist_add">Add</string>
+    <string name="blacklist_delete">Delete</string>
+    <string name="blacklist_delete_confirmation">Delete the selected items?</string>
+    <string name="title_add_blacklist_item_activity">Add number</string>
+    <string name="title_edit_blacklist_item_activity">Edit number</string>
+    <string name="edit_blacklist_item_name">Name</string>
+    <string name="edit_blacklist_item_number_pattern">Number pattern</string>
+    <string name="number_pattern_incorrect">Incorrect pattern</string>
+    <string name="number_pattern_empty">Empty pattern</string>
+    <string name="number_pattern_hint">Enter the number in +COUNTRY-NUMBER format (as Android would show in your dialer). Use \"*\" as a wildcard for zero or more digits, and \"#\" for exactly one digit.</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>

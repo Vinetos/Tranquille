@@ -20,6 +20,7 @@ import java.lang.reflect.Method;
 
 import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
+import dummydomain.yetanothercallblocker.data.NumberInfoService;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.CallOngoingEvent;
 
@@ -66,14 +67,18 @@ public class CallReceiver extends BroadcastReceiver {
             boolean showNotifications = settings.getIncomingCallNotifications();
 
             if (blockingEnabled || showNotifications) {
-                NumberInfo numberInfo = DatabaseSingleton.getNumberInfo(incomingNumber);
+                NumberInfoService numberInfoService = DatabaseSingleton.getNumberInfoService();
+                NumberInfo numberInfo = numberInfoService.getNumberInfo(incomingNumber, false);
 
                 boolean blocked = false;
-                if (blockingEnabled && !isOnCall && DatabaseSingleton.shouldBlock(numberInfo)) {
+                if (blockingEnabled && !isOnCall && numberInfoService.shouldBlock(numberInfo)) {
                     blocked = rejectCall(context);
 
                     if (blocked) {
                         NotificationHelper.showBlockedCallNotification(context, numberInfo);
+
+                        numberInfoService.blockedCall(numberInfo);
+
                         postEvent(new CallEndedEvent());
                     }
                 }

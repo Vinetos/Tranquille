@@ -156,6 +156,8 @@ public class SettingsActivity extends AppCompatActivity
                     .setOnPreferenceChangeListener(callBlockingListener);
             requireNonNull((SwitchPreferenceCompat) findPreference(Settings.PREF_BLOCK_HIDDEN_NUMBERS))
                     .setOnPreferenceChangeListener(callBlockingListener);
+            requireNonNull((SwitchPreferenceCompat) findPreference(Settings.PREF_BLOCK_BLACKLISTED))
+                    .setOnPreferenceChangeListener(callBlockingListener);
 
             SwitchPreferenceCompat callScreeningPref =
                     requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));

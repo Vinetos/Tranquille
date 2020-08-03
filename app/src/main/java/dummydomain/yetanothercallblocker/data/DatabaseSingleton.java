@@ -1,40 +1,26 @@
 package dummydomain.yetanothercallblocker.data;
 
-import android.text.TextUtils;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
 import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
-import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
-import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
 
 public class DatabaseSingleton {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DatabaseSingleton.class);
-
     private static WebService webService;
-
     private static DbManager dbManager;
-
     private static SiaMetadata siaMetadata;
-
-    private static HiddenNumberDetector hiddenNumberDetector;
-
     private static CommunityDatabase communityDatabase;
-
     private static FeaturedDatabase featuredDatabase;
-
     private static CommunityReviewsLoader communityReviewsLoader;
 
-    private static ContactsProvider contactsProvider;
+    private static BlacklistDao blacklistDao;
+    private static BlacklistService blacklistService;
 
-    private static BlockingDecisionMaker blockingDecisionMaker;
+    private static NumberInfoService numberInfoService;
 
     static void setWebService(WebService webService) {
         DatabaseSingleton.webService = webService;
@@ -46,10 +32,6 @@ public class DatabaseSingleton {
 
     static void setSiaMetadata(SiaMetadata siaMetadata) {
         DatabaseSingleton.siaMetadata = siaMetadata;
-    }
-
-    static void setHiddenNumberDetector(HiddenNumberDetector hiddenNumberDetector) {
-        DatabaseSingleton.hiddenNumberDetector = hiddenNumberDetector;
     }
 
     static void setCommunityDatabase(CommunityDatabase communityDatabase) {
@@ -64,12 +46,16 @@ public class DatabaseSingleton {
         DatabaseSingleton.communityReviewsLoader = communityReviewsLoader;
     }
 
-    static void setContactsProvider(ContactsProvider contactsProvider) {
-        DatabaseSingleton.contactsProvider = contactsProvider;
+    static void setBlacklistDao(BlacklistDao blacklistDao) {
+        DatabaseSingleton.blacklistDao = blacklistDao;
     }
 
-    static void setBlockingDecisionMaker(BlockingDecisionMaker blockingDecisionMaker) {
-        DatabaseSingleton.blockingDecisionMaker = blockingDecisionMaker;
+    static void setBlacklistService(BlacklistService blacklistService) {
+        DatabaseSingleton.blacklistService = blacklistService;
+    }
+
+    static void setNumberInfoService(NumberInfoService numberInfoService) {
+        DatabaseSingleton.numberInfoService = numberInfoService;
     }
 
     public static WebService getWebService() {
@@ -96,80 +82,20 @@ public class DatabaseSingleton {
         return communityReviewsLoader;
     }
 
+    public static BlacklistDao getBlacklistDao() {
+        return blacklistDao;
+    }
+
+    public static BlacklistService getBlacklistService() {
+        return blacklistService;
+    }
+
+    public static NumberInfoService getNumberInfoService() {
+        return numberInfoService;
+    }
+
     public static NumberInfo getNumberInfo(String number) {
-        LOG.debug("getNumberInfo({}) started", number);
-        // TODO: check number format
-
-        NumberInfo numberInfo = new NumberInfo();
-        numberInfo.number = number;
-
-        if (hiddenNumberDetector != null) {
-            numberInfo.isHiddenNumber = hiddenNumberDetector.isHiddenNumber(number);
-        }
-        LOG.trace("getNumberInfo() isHiddenNumber={}", numberInfo.isHiddenNumber);
-
-        if (numberInfo.isHiddenNumber || TextUtils.isEmpty(numberInfo.number)) {
-            numberInfo.noNumber = true;
-        }
-        LOG.trace("getNumberInfo() noNumber={}", numberInfo.noNumber);
-
-        if (numberInfo.noNumber) {
-            LOG.debug("getNumberInfo() finished");
-            return numberInfo;
-        }
-
-        numberInfo.communityDatabaseItem = DatabaseSingleton.getCommunityDatabase()
-                .getDbItemByNumber(number);
-        LOG.trace("getNumberInfo() communityItem={}", numberInfo.communityDatabaseItem);
-
-        numberInfo.featuredDatabaseItem = DatabaseSingleton.getFeaturedDatabase()
-                .getDbItemByNumber(number);
-        LOG.trace("getNumberInfo() featuredItem={}", numberInfo.featuredDatabaseItem);
-
-        numberInfo.contactItem = DatabaseSingleton.contactsProvider.get(number);
-        LOG.trace("getNumberInfo() contactItem={}", numberInfo.contactItem);
-
-        ContactItem contactItem = numberInfo.contactItem;
-        FeaturedDatabaseItem featuredItem = numberInfo.featuredDatabaseItem;
-        if (contactItem != null && !TextUtils.isEmpty(contactItem.displayName)) {
-            numberInfo.name = contactItem.displayName;
-        } else if (featuredItem != null && !TextUtils.isEmpty(featuredItem.getName())) {
-            numberInfo.name = featuredItem.getName();
-        }
-        LOG.trace("getNumberInfo() name={}", numberInfo.name);
-
-        CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
-        if (communityItem != null && communityItem.hasRatings()) {
-            if (communityItem.getNegativeRatingsCount() > communityItem.getPositiveRatingsCount()
-                    + communityItem.getNeutralRatingsCount()) {
-                numberInfo.rating = NumberInfo.Rating.NEGATIVE;
-            } else if (communityItem.getPositiveRatingsCount() > communityItem.getNeutralRatingsCount()
-                    + communityItem.getNegativeRatingsCount()) {
-                numberInfo.rating = NumberInfo.Rating.POSITIVE;
-            } else if (communityItem.getNeutralRatingsCount() > communityItem.getPositiveRatingsCount()
-                    + communityItem.getNegativeRatingsCount()) {
-                numberInfo.rating = NumberInfo.Rating.NEUTRAL;
-            }
-        }
-        LOG.trace("getNumberInfo() rating={}", numberInfo.rating);
-
-        LOG.debug("getNumberInfo() finished");
-        return numberInfo;
-    }
-
-    public static boolean shouldBlock(NumberInfo numberInfo) {
-        if (blockingDecisionMaker != null) {
-            return blockingDecisionMaker.shouldBlock(numberInfo);
-        }
-        return false;
-    }
-
-    public interface HiddenNumberDetector {
-        boolean isHiddenNumber(String number);
-    }
-
-    public interface BlockingDecisionMaker {
-        boolean shouldBlock(NumberInfo numberInfo);
+        return numberInfoService.getNumberInfo(number, true);
     }
 
 }

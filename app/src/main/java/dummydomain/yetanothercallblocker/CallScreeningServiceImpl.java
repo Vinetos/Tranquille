@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
+import dummydomain.yetanothercallblocker.data.NumberInfoService;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
@@ -27,6 +28,8 @@ import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
 public class CallScreeningServiceImpl extends CallScreeningService {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallScreeningServiceImpl.class);
+
+    private NumberInfoService numberInfoService = DatabaseSingleton.getNumberInfoService();
 
     @Override
     public void onScreenCall(@NonNull Call.Details callDetails) {
@@ -95,9 +98,9 @@ public class CallScreeningServiceImpl extends CallScreeningService {
             }
 
             if (!ignore) {
-                numberInfo = DatabaseSingleton.getNumberInfo(number);
+                numberInfo = numberInfoService.getNumberInfo(number, false);
 
-                shouldBlock = DatabaseSingleton.shouldBlock(numberInfo);
+                shouldBlock = numberInfoService.shouldBlock(numberInfo);
             }
         } finally {
             LOG.debug("onScreenCall() blocking call: {}", shouldBlock);
@@ -124,9 +127,13 @@ public class CallScreeningServiceImpl extends CallScreeningService {
 
                 NotificationHelper.showBlockedCallNotification(this, numberInfo);
 
+                numberInfoService.blockedCall(numberInfo);
+
                 postEvent(new CallEndedEvent());
             }
         }
+
+        LOG.debug("onScreenCall() finished");
     }
 
     private void extraLogging(Call.Details callDetails) {

@@ -74,7 +74,7 @@
     <string name="back">Retour</string>
     <string name="no">Non</string>
 
-    <string name="load_reviews_confirmation_title">Êtes-vous sûr ?</string>
+    <string name="are_you_sure">Êtes-vous sûr ?</string>
     <string name="load_reviews_confirmation_message">La transmission d\'évaluations en ligne divulguera le numéro à un service tiers. Êtes-vous sûr de vouloir le faire avec un numéro présent dans vos contacts ?</string>
 
     <string name="open_settings_activity">Paramètres</string>

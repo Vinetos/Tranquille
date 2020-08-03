@@ -70,7 +70,7 @@
     <string name="back">Terug</string>
     <string name="no">Nee</string>
 
-    <string name="load_reviews_confirmation_title">Weet je het zeker?</string>
+    <string name="are_you_sure">Weet je het zeker?</string>
     <string name="load_reviews_confirmation_message">Door online-recensies te laden, lekt het nummer uit naar een externe dienst. Weet je zeker dat je dit wilt doen met een nummer uit je contactpersonenlijst?</string>
 
     <string name="incoming_call_notifications">Inkomende oproep-meldingen</string>

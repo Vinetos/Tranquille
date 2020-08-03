@@ -34,15 +34,33 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".BlacklistActivity"
+            android:label="@string/title_blacklist_activity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditBlacklistItemActivity"
+            android:label="@string/title_add_blacklist_item_activity"
+            android:parentActivityName=".BlacklistActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BlacklistActivity" />
+        </activity>
+        <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_settings_activity">
+            android:label="@string/title_settings_activity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".DebugActivity"
-            android:label="@string/debug_activity_label">
+            android:label="@string/debug_activity_label"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

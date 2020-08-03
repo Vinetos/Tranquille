@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import java.util.concurrent.TimeUnit;
 
 import dummydomain.yetanothercallblocker.PermissionHelper;
+import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
+import dummydomain.yetanothercallblocker.data.db.YacbDaoSessionFactory;
 import dummydomain.yetanothercallblocker.sia.Settings;
 import dummydomain.yetanothercallblocker.sia.SettingsImpl;
 import dummydomain.yetanothercallblocker.sia.Storage;
@@ -104,8 +106,6 @@ public class Config {
         DatabaseSingleton.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
                 new DbDownloader(okHttpClientFactory)));
 
-        DatabaseSingleton.setHiddenNumberDetector(NumberUtils::isHiddenNumber);
-
         CommunityDatabase communityDatabase = new CommunityDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX,
                 SIA_SECONDARY_PATH_PREFIX, siaSettings, webService);
@@ -119,20 +119,33 @@ public class Config {
         wsParameterProvider.setSiaMetadata(siaMetadata);
         DatabaseSingleton.setSiaMetadata(siaMetadata);
 
-        DatabaseSingleton.setFeaturedDatabase(new FeaturedDatabase(
-                storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX));
+        FeaturedDatabase featuredDatabase = new FeaturedDatabase(
+                storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX);
+        DatabaseSingleton.setFeaturedDatabase(featuredDatabase);
 
         DatabaseSingleton.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
 
-        DatabaseSingleton.setContactsProvider(number -> {
+        YacbDaoSessionFactory daoSessionFactory = new YacbDaoSessionFactory(context, "YACB");
+
+        BlacklistDao blacklistDao = new BlacklistDao(daoSessionFactory::getDaoSession);
+        DatabaseSingleton.setBlacklistDao(blacklistDao);
+
+        BlacklistService blacklistService = new BlacklistService(
+                settings::setBlacklistIsNotEmpty, blacklistDao);
+        DatabaseSingleton.setBlacklistService(blacklistService);
+
+        ContactsProvider contactsProvider = number -> {
             if (settings.getUseContacts() && PermissionHelper.hasContactsPermission(context)) {
                 String contactName = ContactsHelper.getContactName(context, number);
                 if (!TextUtils.isEmpty(contactName)) return new ContactItem(contactName);
             }
             return null;
-        });
+        };
 
-        DatabaseSingleton.setBlockingDecisionMaker(new BlockingDecisionMaker(settings));
+        NumberInfoService numberInfoService = new NumberInfoService(
+                settings, NumberUtils::isHiddenNumber,
+                communityDatabase, featuredDatabase, contactsProvider, blacklistService);
+        DatabaseSingleton.setNumberInfoService(numberInfoService);
     }
 
 }
