@@ -101,9 +101,9 @@ public class Config {
         wsParameterProvider.setSettings(settings);
 
         WebService webService = new WebService(wsParameterProvider, okHttpClientFactory);
-        DatabaseSingleton.setWebService(webService);
+        YacbHolder.setWebService(webService);
 
-        DatabaseSingleton.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
+        YacbHolder.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
                 new DbDownloader(okHttpClientFactory)));
 
         CommunityDatabase communityDatabase = new CommunityDatabase(
@@ -111,28 +111,28 @@ public class Config {
                 SIA_SECONDARY_PATH_PREFIX, siaSettings, webService);
 
         wsParameterProvider.setCommunityDatabase(communityDatabase);
-        DatabaseSingleton.setCommunityDatabase(communityDatabase);
+        YacbHolder.setCommunityDatabase(communityDatabase);
 
         SiaMetadata siaMetadata = new SiaMetadata(storage, SIA_PATH_PREFIX,
                 communityDatabase::isUsingInternal);
 
         wsParameterProvider.setSiaMetadata(siaMetadata);
-        DatabaseSingleton.setSiaMetadata(siaMetadata);
+        YacbHolder.setSiaMetadata(siaMetadata);
 
         FeaturedDatabase featuredDatabase = new FeaturedDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX);
-        DatabaseSingleton.setFeaturedDatabase(featuredDatabase);
+        YacbHolder.setFeaturedDatabase(featuredDatabase);
 
-        DatabaseSingleton.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
+        YacbHolder.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
 
         YacbDaoSessionFactory daoSessionFactory = new YacbDaoSessionFactory(context, "YACB");
 
         BlacklistDao blacklistDao = new BlacklistDao(daoSessionFactory::getDaoSession);
-        DatabaseSingleton.setBlacklistDao(blacklistDao);
+        YacbHolder.setBlacklistDao(blacklistDao);
 
         BlacklistService blacklistService = new BlacklistService(
                 settings::setBlacklistIsNotEmpty, blacklistDao);
-        DatabaseSingleton.setBlacklistService(blacklistService);
+        YacbHolder.setBlacklistService(blacklistService);
 
         ContactsProvider contactsProvider = number -> {
             if (settings.getUseContacts() && PermissionHelper.hasContactsPermission(context)) {
@@ -145,7 +145,7 @@ public class Config {
         NumberInfoService numberInfoService = new NumberInfoService(
                 settings, NumberUtils::isHiddenNumber,
                 communityDatabase, featuredDatabase, contactsProvider, blacklistService);
-        DatabaseSingleton.setNumberInfoService(numberInfoService);
+        YacbHolder.setNumberInfoService(numberInfoService);
     }
 
 }

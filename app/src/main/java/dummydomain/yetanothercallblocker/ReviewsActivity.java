@@ -18,7 +18,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.List;
 
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReview;
 
 public class ReviewsActivity extends AppCompatActivity {
@@ -97,7 +97,7 @@ public class ReviewsActivity extends AppCompatActivity {
                 = new AsyncTask<String, Void, List<CommunityReview>>() {
             @Override
             protected List<CommunityReview> doInBackground(String... params) {
-                return DatabaseSingleton.getCommunityReviewsLoader()
+                return YacbHolder.getCommunityReviewsLoader()
                         .loadReviews(params[0], App.getSettings().getCountryCodeForReviews());
             }
 

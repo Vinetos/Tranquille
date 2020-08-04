@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
@@ -90,7 +90,7 @@ public class InfoDialogHelper {
         };
 
         Runnable webReviewAction = () -> {
-            Uri uri = Uri.parse(DatabaseSingleton.getWebService().getWebReviewsUrlPart()
+            Uri uri = Uri.parse(YacbHolder.getWebService().getWebReviewsUrlPart()
                     + numberInfo.number);
             IntentHelper.startActivity(context, new Intent(Intent.ACTION_VIEW, uri));
         };

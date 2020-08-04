@@ -17,7 +17,7 @@ import dummydomain.yetanothercallblocker.App;
 import dummydomain.yetanothercallblocker.NotificationHelper;
 import dummydomain.yetanothercallblocker.R;
 import dummydomain.yetanothercallblocker.Settings;
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
@@ -88,10 +88,10 @@ public class TaskService extends IntentService {
 
         postStickyEvent(sticky);
         try {
-            DatabaseSingleton.getDbManager().downloadMainDb();
-            DatabaseSingleton.getCommunityDatabase().reload();
-            DatabaseSingleton.getFeaturedDatabase().reload();
-            DatabaseSingleton.getSiaMetadata().reload();
+            YacbHolder.getDbManager().downloadMainDb();
+            YacbHolder.getCommunityDatabase().reload();
+            YacbHolder.getFeaturedDatabase().reload();
+            YacbHolder.getSiaMetadata().reload();
         } finally {
             removeStickyEvent(sticky);
         }
@@ -106,7 +106,7 @@ public class TaskService extends IntentService {
 
         postStickyEvent(sticky);
         try {
-            if (DatabaseSingleton.getCommunityDatabase().updateSecondaryDb()) {
+            if (YacbHolder.getCommunityDatabase().updateSecondaryDb()) {
                 settings.setLastUpdateTime(System.currentTimeMillis());
             }
             settings.setLastUpdateCheckTime(System.currentTimeMillis());

@@ -17,9 +17,9 @@ import androidx.annotation.RequiresApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.data.NumberInfoService;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
@@ -29,7 +29,7 @@ public class CallScreeningServiceImpl extends CallScreeningService {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallScreeningServiceImpl.class);
 
-    private NumberInfoService numberInfoService = DatabaseSingleton.getNumberInfoService();
+    private NumberInfoService numberInfoService = YacbHolder.getNumberInfoService();
 
     @Override
     public void onScreenCall(@NonNull Call.Details callDetails) {

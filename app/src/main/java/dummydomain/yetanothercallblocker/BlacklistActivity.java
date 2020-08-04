@@ -23,7 +23,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.BlacklistService;
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.data.db.BlacklistItem;
 import dummydomain.yetanothercallblocker.event.BlacklistChangedEvent;
@@ -31,8 +31,8 @@ import dummydomain.yetanothercallblocker.event.BlacklistChangedEvent;
 public class BlacklistActivity extends AppCompatActivity {
 
     private final Settings settings = App.getSettings();
-    private final BlacklistDao blacklistDao = DatabaseSingleton.getBlacklistDao();
-    private final BlacklistService blacklistService = DatabaseSingleton.getBlacklistService();
+    private final BlacklistDao blacklistDao = YacbHolder.getBlacklistDao();
+    private final BlacklistService blacklistService = YacbHolder.getBlacklistService();
 
     private BlacklistItemRecyclerViewAdapter blacklistAdapter;
 

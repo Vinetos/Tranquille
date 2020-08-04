@@ -14,8 +14,8 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Date;
 
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
@@ -53,7 +53,7 @@ public class DebugActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onSecondaryDbUpdateFinished(SecondaryDbUpdateFinished event) {
         setResult(getString(R.string.debug_update_result,
-                DatabaseSingleton.getCommunityDatabase().getEffectiveDbVersion()));
+                YacbHolder.getCommunityDatabase().getEffectiveDbVersion()));
     }
 
     public void onQueryDbButtonClick(View view) {
@@ -62,10 +62,10 @@ public class DebugActivity extends AppCompatActivity {
         new AsyncTask<Void, Void, Pair<CommunityDatabaseItem, FeaturedDatabaseItem>>() {
             @Override
             protected Pair<CommunityDatabaseItem, FeaturedDatabaseItem> doInBackground(Void... voids) {
-                CommunityDatabaseItem item = DatabaseSingleton.getCommunityDatabase()
+                CommunityDatabaseItem item = YacbHolder.getCommunityDatabase()
                         .getDbItemByNumber(getNumber());
 
-                FeaturedDatabaseItem featuredItem = DatabaseSingleton.getFeaturedDatabase()
+                FeaturedDatabaseItem featuredItem = YacbHolder.getFeaturedDatabase()
                         .getDbItemByNumber(getNumber());
 
                 return new Pair<>(item, featuredItem);
@@ -112,12 +112,12 @@ public class DebugActivity extends AppCompatActivity {
     public void onResetDbClick(View view) {
         clearMessage();
 
-        DatabaseSingleton.getCommunityDatabase().resetSecondaryDatabase();
+        YacbHolder.getCommunityDatabase().resetSecondaryDatabase();
 
-        DatabaseSingleton.getDbManager().removeMainDb();
-        DatabaseSingleton.getCommunityDatabase().reload();
-        DatabaseSingleton.getFeaturedDatabase().reload();
-        DatabaseSingleton.getSiaMetadata().reload();
+        YacbHolder.getDbManager().removeMainDb();
+        YacbHolder.getCommunityDatabase().reload();
+        YacbHolder.getFeaturedDatabase().reload();
+        YacbHolder.getSiaMetadata().reload();
 
         setResult("Database removed");
     }
@@ -125,7 +125,7 @@ public class DebugActivity extends AppCompatActivity {
     public void onResetSecondaryDbClick(View view) {
         clearMessage();
 
-        DatabaseSingleton.getCommunityDatabase().resetSecondaryDatabase();
+        YacbHolder.getCommunityDatabase().resetSecondaryDatabase();
 
         setResult("Secondary database removed");
     }
@@ -138,8 +138,8 @@ public class DebugActivity extends AppCompatActivity {
             protected String doInBackground(Void... voids) {
                 StringBuilder sb = new StringBuilder();
 
-                SiaMetadata siaMetadata = DatabaseSingleton.getSiaMetadata();
-                CommunityDatabase communityDatabase = DatabaseSingleton.getCommunityDatabase();
+                SiaMetadata siaMetadata = YacbHolder.getSiaMetadata();
+                CommunityDatabase communityDatabase = YacbHolder.getCommunityDatabase();
 
                 sb.append("DB info:\n");
                 sb.append("Operational: ").append(communityDatabase.isOperational()).append('\n');
@@ -149,7 +149,7 @@ public class DebugActivity extends AppCompatActivity {
                 sb.append("Last update time: ").append(dateOrNever(App.getSettings().getLastUpdateTime())).append('\n');
                 sb.append("Last update check time: ").append(dateOrNever(App.getSettings().getLastUpdateCheckTime())).append('\n');
 
-                FeaturedDatabase featuredDatabase = DatabaseSingleton.getFeaturedDatabase();
+                FeaturedDatabase featuredDatabase = YacbHolder.getFeaturedDatabase();
 
                 sb.append("\nFeatured DB info:\n");
                 sb.append("Operational: ").append(featuredDatabase.isOperational()).append('\n');

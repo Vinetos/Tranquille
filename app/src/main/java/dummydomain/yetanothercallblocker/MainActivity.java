@@ -23,7 +23,7 @@ import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.CallLogHelper;
 import dummydomain.yetanothercallblocker.data.CallLogItem;
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 = new AsyncTask<Void, Void, Boolean>() {
             @Override
             protected Boolean doInBackground(Void... voids) {
-                return DatabaseSingleton.getCommunityDatabase().isOperational();
+                return YacbHolder.getCommunityDatabase().isOperational();
             }
 
             @Override
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this, settings.getNumberOfRecentCalls());
 
                 for (CallLogItem item : items) {
-                    item.numberInfo = DatabaseSingleton.getNumberInfo(item.number);
+                    item.numberInfo = YacbHolder.getNumberInfo(item.number);
                 }
 
                 return items;

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import dummydomain.yetanothercallblocker.App;
 import dummydomain.yetanothercallblocker.Settings;
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdatingEvent;
 
@@ -38,7 +38,7 @@ public class UpdateWorker extends Worker {
 
         postStickyEvent(sticky);
         try {
-            if (DatabaseSingleton.getCommunityDatabase().updateSecondaryDb()) {
+            if (YacbHolder.getCommunityDatabase().updateSecondaryDb()) {
                 settings.setLastUpdateTime(System.currentTimeMillis());
             }
             settings.setLastUpdateCheckTime(System.currentTimeMillis());

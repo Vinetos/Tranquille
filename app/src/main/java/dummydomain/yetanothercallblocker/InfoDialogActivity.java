@@ -7,8 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 
 public class InfoDialogActivity extends AppCompatActivity {
 
@@ -25,8 +25,7 @@ public class InfoDialogActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        NumberInfo numberInfo = DatabaseSingleton.getNumberInfo(
-                getIntent().getStringExtra(PARAM_NUMBER));
+        NumberInfo numberInfo = YacbHolder.getNumberInfo(getIntent().getStringExtra(PARAM_NUMBER));
 
         InfoDialogHelper.showDialog(this, numberInfo, (d) -> finish());
     }

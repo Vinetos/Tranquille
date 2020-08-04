@@ -8,7 +8,7 @@ import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
 
-public class DatabaseSingleton {
+public class YacbHolder {
 
     private static WebService webService;
     private static DbManager dbManager;
@@ -23,39 +23,39 @@ public class DatabaseSingleton {
     private static NumberInfoService numberInfoService;
 
     static void setWebService(WebService webService) {
-        DatabaseSingleton.webService = webService;
+        YacbHolder.webService = webService;
     }
 
     static void setDbManager(DbManager dbManager) {
-        DatabaseSingleton.dbManager = dbManager;
+        YacbHolder.dbManager = dbManager;
     }
 
     static void setSiaMetadata(SiaMetadata siaMetadata) {
-        DatabaseSingleton.siaMetadata = siaMetadata;
+        YacbHolder.siaMetadata = siaMetadata;
     }
 
     static void setCommunityDatabase(CommunityDatabase communityDatabase) {
-        DatabaseSingleton.communityDatabase = communityDatabase;
+        YacbHolder.communityDatabase = communityDatabase;
     }
 
     static void setFeaturedDatabase(FeaturedDatabase featuredDatabase) {
-        DatabaseSingleton.featuredDatabase = featuredDatabase;
+        YacbHolder.featuredDatabase = featuredDatabase;
     }
 
     static void setCommunityReviewsLoader(CommunityReviewsLoader communityReviewsLoader) {
-        DatabaseSingleton.communityReviewsLoader = communityReviewsLoader;
+        YacbHolder.communityReviewsLoader = communityReviewsLoader;
     }
 
     static void setBlacklistDao(BlacklistDao blacklistDao) {
-        DatabaseSingleton.blacklistDao = blacklistDao;
+        YacbHolder.blacklistDao = blacklistDao;
     }
 
     static void setBlacklistService(BlacklistService blacklistService) {
-        DatabaseSingleton.blacklistService = blacklistService;
+        YacbHolder.blacklistService = blacklistService;
     }
 
     static void setNumberInfoService(NumberInfoService numberInfoService) {
-        DatabaseSingleton.numberInfoService = numberInfoService;
+        YacbHolder.numberInfoService = numberInfoService;
     }
 
     public static WebService getWebService() {

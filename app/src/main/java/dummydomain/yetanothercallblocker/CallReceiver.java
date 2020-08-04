@@ -18,9 +18,9 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.data.NumberInfoService;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.CallOngoingEvent;
 
@@ -67,7 +67,7 @@ public class CallReceiver extends BroadcastReceiver {
             boolean showNotifications = settings.getIncomingCallNotifications();
 
             if (blockingEnabled || showNotifications) {
-                NumberInfoService numberInfoService = DatabaseSingleton.getNumberInfoService();
+                NumberInfoService numberInfoService = YacbHolder.getNumberInfoService();
                 NumberInfo numberInfo = numberInfoService.getNumberInfo(incomingNumber, false);
 
                 boolean blocked = false;

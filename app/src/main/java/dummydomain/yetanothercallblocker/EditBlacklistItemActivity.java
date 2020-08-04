@@ -24,7 +24,7 @@ import java.util.Objects;
 
 import dummydomain.yetanothercallblocker.data.BlacklistService;
 import dummydomain.yetanothercallblocker.data.BlacklistUtils;
-import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
+import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.data.db.BlacklistItem;
 
@@ -39,8 +39,8 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
 
     private static final Logger LOG = LoggerFactory.getLogger(EditBlacklistItemActivity.class);
 
-    private BlacklistDao blacklistDao = DatabaseSingleton.getBlacklistDao();
-    private BlacklistService blacklistService = DatabaseSingleton.getBlacklistService();
+    private BlacklistDao blacklistDao = YacbHolder.getBlacklistDao();
+    private BlacklistService blacklistService = YacbHolder.getBlacklistService();
 
     private TextInputLayout nameTextField;
     private TextInputLayout patternTextField;
