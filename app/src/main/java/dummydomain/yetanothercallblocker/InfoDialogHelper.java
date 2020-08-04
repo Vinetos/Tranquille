@@ -16,6 +16,7 @@ import dummydomain.yetanothercallblocker.data.DatabaseSingleton;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
+import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
 import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
 
@@ -65,6 +66,14 @@ public class InfoDialogHelper {
             featuredNameView.setVisibility(View.GONE);
         }
 
+        TextView inBlacklistView = view.findViewById(R.id.in_blacklist);
+        if (numberInfo.blacklistItem != null) {
+            inBlacklistView.setVisibility(View.VISIBLE);
+            if (numberInfo.contactItem != null) {
+                inBlacklistView.setText(R.string.info_in_blacklist_contact);
+            }
+        }
+
         ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
                 numberInfo.communityDatabaseItem);
 
@@ -86,8 +95,17 @@ public class InfoDialogHelper {
             IntentHelper.startActivity(context, new Intent(Intent.ACTION_VIEW, uri));
         };
 
+        Runnable addToBlacklistAction = () -> {
+            FeaturedDatabaseItem featuredDatabaseItem = numberInfo.featuredDatabaseItem;
+            String name = featuredDatabaseItem != null ? featuredDatabaseItem.getName() : null;
+            context.startActivity(EditBlacklistItemActivity
+                    .getIntent(context, name, numberInfo.number));
+        };
+
         builder.setPositiveButton(R.string.add_web_review, null)
-                .setNeutralButton(R.string.online_reviews, null);
+                .setNeutralButton(R.string.online_reviews, null)
+                .setNegativeButton(R.string.add_to_blacklist, (dialog, which)
+                        -> addToBlacklistAction.run());
 
         AlertDialog dialog = builder.create();
 

@@ -150,6 +150,9 @@
     <string name="number_pattern_incorrect">Incorrect pattern</string>
     <string name="number_pattern_empty">Empty pattern</string>
     <string name="number_pattern_hint">Enter the number in +COUNTRY-NUMBER format (as Android would show in your dialer). Use \"*\" as a wildcard for zero or more digits, and \"#\" for exactly one digit.</string>
+    <string name="info_in_blacklist">In blacklist</string>
+    <string name="info_in_blacklist_contact">In blacklist (contacts are not blocked)</string>
+    <string name="add_to_blacklist">Add to blacklist</string>
 
     <string name="open_debug_activity">Open debug screen</string>
     <string name="debug_activity_label">Debug</string>

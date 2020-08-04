@@ -46,4 +46,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp" />
 
+    <TextView
+        android:id="@+id/in_blacklist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center_horizontal"
+        android:text="@string/info_in_blacklist"
+        android:textAlignment="center"
+        android:visibility="gone" />
+
 </LinearLayout>
