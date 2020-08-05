@@ -36,7 +36,7 @@
             android:id="@+id/stats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="3 calls, last: Aug 01, 2020 10:10" />
+            tools:text="3 calls, last: 3 days ago" />
 
     </LinearLayout>
 

@@ -2,6 +2,7 @@ package dummydomain.yetanothercallblocker;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +18,7 @@ import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.db.BlacklistItem;
@@ -91,7 +92,6 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
         final TextView name, pattern, stats;
         final AppCompatImageView errorIcon;
-        final DateFormat dateFormat, timeFormat;
 
         ItemDetailsLookup.ItemDetails<Long> itemDetails;
 
@@ -102,9 +102,6 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
             pattern = itemView.findViewById(R.id.pattern);
             stats = itemView.findViewById(R.id.stats);
             errorIcon = itemView.findViewById(R.id.errorIcon);
-
-            dateFormat = android.text.format.DateFormat.getMediumDateFormat(itemView.getContext());
-            timeFormat = android.text.format.DateFormat.getTimeFormat(itemView.getContext());
         }
 
         @Override
@@ -118,9 +115,10 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
                 stats.setVisibility(View.VISIBLE);
 
                 Context context = stats.getContext();
-                String dateString = item.getLastCallDate() != null
-                        ? dateFormat.format(item.getLastCallDate()) + ' '
-                        + timeFormat.format(item.getLastCallDate())
+
+                Date lastCallDate = item.getLastCallDate();
+                String dateString = lastCallDate != null
+                        ? DateUtils.getRelativeTimeSpanString(lastCallDate.getTime()).toString()
                         : context.getString(R.string.blacklist_item_date_no_info);
 
                 stats.setText(context.getResources().getQuantityString(

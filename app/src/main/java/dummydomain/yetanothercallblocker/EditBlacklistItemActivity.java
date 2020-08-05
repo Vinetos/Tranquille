@@ -8,8 +8,10 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +21,9 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Objects;
 
 import dummydomain.yetanothercallblocker.data.BlacklistService;
@@ -72,6 +76,7 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
 
         nameTextField = findViewById(R.id.nameTextField);
         patternTextField = findViewById(R.id.patternTextField);
+        TextView statsTextView = findViewById(R.id.stats);
 
         EditText patternEditText = Objects.requireNonNull(patternTextField.getEditText());
         patternEditText.addTextChangedListener(new TextWatcher() {
@@ -125,6 +130,29 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
 
             setString(nameTextField, name);
             setString(patternTextField, pattern);
+        }
+
+        if (blacklistItem != null) {
+            String statsString;
+            if (blacklistItem.getNumberOfCalls() > 0) {
+                DateFormat dateFormat = android.text.format.DateFormat.getMediumDateFormat(this);
+                DateFormat timeFormat = android.text.format.DateFormat.getTimeFormat(this);
+
+                Date lastCallDate = blacklistItem.getLastCallDate();
+                String dateString = lastCallDate != null
+                        ? dateFormat.format(lastCallDate) + ' '
+                        + timeFormat.format(lastCallDate)
+                        : getString(R.string.blacklist_item_date_no_info);
+
+                statsString = getResources().getQuantityString(
+                        R.plurals.blacklist_item_stats, blacklistItem.getNumberOfCalls(),
+                        blacklistItem.getNumberOfCalls(), dateString);
+            } else {
+                statsString = getString(R.string.blacklist_item_no_calls);
+            }
+            statsTextView.setText(statsString);
+        } else {
+            statsTextView.setVisibility(View.GONE);
         }
 
         patternTextField.requestFocus();

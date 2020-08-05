@@ -140,6 +140,7 @@
         <item quantity="other">%1$d calls, last: %2$s</item>
     </plurals>
     <string name="blacklist_item_date_no_info">no info</string>
+    <string name="blacklist_item_no_calls">Never called</string>
     <string name="blacklist_add">Add</string>
     <string name="blacklist_delete">Delete</string>
     <string name="blacklist_delete_confirmation">Delete the selected items?</string>
