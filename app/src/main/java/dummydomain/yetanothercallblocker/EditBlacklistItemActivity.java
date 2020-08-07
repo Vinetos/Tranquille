@@ -222,7 +222,13 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
             }
         } else {
             if (TextUtils.isEmpty(name) && TextUtils.isEmpty(pattern)) {
-                LOG.warn("save() not creating a new item because fields are empty");
+                LOG.info("save() not creating a new item because fields are empty");
+                return;
+            }
+
+            if (blacklistDao.findByNameAndPattern(name, pattern) != null) {
+                LOG.info("save() not creating a new item because" +
+                        " an item with the same name and pattern exists");
                 return;
             }
 

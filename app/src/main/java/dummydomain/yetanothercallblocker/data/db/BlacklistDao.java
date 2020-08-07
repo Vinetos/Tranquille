@@ -51,6 +51,13 @@ public class BlacklistDao {
                 .orderAsc(BlacklistItemDao.Properties.Pattern));
     }
 
+    public BlacklistItem findByNameAndPattern(String name, String pattern) {
+        return first(getBlacklistItemDao().queryBuilder()
+                .where(BlacklistItemDao.Properties.Name.eq(name))
+                .where(BlacklistItemDao.Properties.Pattern.eq(pattern))
+                .orderAsc(BlacklistItemDao.Properties.Pattern));
+    }
+
     public void save(BlacklistItem blacklistItem) {
         getBlacklistItemDao().save(blacklistItem);
     }
