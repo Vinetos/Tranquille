@@ -3,6 +3,7 @@ package dummydomain.yetanothercallblocker.data.db;
 import org.greenrobot.greendao.Property;
 import org.greenrobot.greendao.internal.SqlUtils;
 import org.greenrobot.greendao.query.CloseableListIterator;
+import org.greenrobot.greendao.query.Query;
 import org.greenrobot.greendao.query.QueryBuilder;
 import org.greenrobot.greendao.query.WhereCondition;
 import org.slf4j.Logger;
@@ -44,8 +45,18 @@ public class BlacklistDao {
         return getBlacklistItemDao().load(id);
     }
 
+    public BlacklistItem findByPattern(String pattern) {
+        return first(getBlacklistItemDao().queryBuilder()
+                .where(BlacklistItemDao.Properties.Pattern.eq(pattern))
+                .orderAsc(BlacklistItemDao.Properties.Pattern));
+    }
+
     public void save(BlacklistItem blacklistItem) {
         getBlacklistItemDao().save(blacklistItem);
+    }
+
+    public void insert(BlacklistItem blacklistItem) {
+        getBlacklistItemDao().insert(blacklistItem);
     }
 
     public void delete(Iterable<Long> keys) {
@@ -58,13 +69,7 @@ public class BlacklistDao {
     }
 
     public BlacklistItem getFirstMatch(String number) {
-        try (CloseableListIterator<BlacklistItem> it = getMatchesQueryBuilder(number).build()
-                .listIterator()) {
-            if (it.hasNext()) return it.next();
-        } catch (IOException e) {
-            LOG.debug("getFirstMatch()", e);
-        }
-        return null;
+        return first(getMatchesQueryBuilder(number));
     }
 
     private QueryBuilder<BlacklistItem> getMatchesQueryBuilder(String number) {
@@ -72,6 +77,19 @@ public class BlacklistDao {
                 .where(BlacklistItemDao.Properties.Invalid.notEq(true),
                         new InverseLikeCondition(BlacklistItemDao.Properties.Pattern, number))
                 .orderAsc(BlacklistItemDao.Properties.CreationDate);
+    }
+
+    private <T> T first(QueryBuilder<T> queryBuilder) {
+        return first(queryBuilder.build());
+    }
+
+    private <T> T first(Query<T> query) {
+        try (CloseableListIterator<T> it = query.listIterator()) {
+            if (it.hasNext()) return it.next();
+        } catch (IOException e) {
+            LOG.debug("first()", e);
+        }
+        return null;
     }
 
     private BlacklistItemDao getBlacklistItemDao() {

@@ -74,6 +74,8 @@
     <string name="back">Back</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="done">Done</string>
+    <string name="error">Error</string>
 
     <string name="are_you_sure">Are you sure?</string>
     <string name="load_reviews_confirmation_message">Loading online reviews will leak the number to a 3rd party service. Are you sure you want to do it with a number present in your Contacts?</string>
@@ -144,6 +146,8 @@
     <string name="blacklist_add">Add</string>
     <string name="blacklist_delete">Delete</string>
     <string name="blacklist_delete_confirmation">Delete the selected items?</string>
+    <string name="blacklist_export">Export</string>
+    <string name="blacklist_import">Import</string>
     <string name="title_add_blacklist_item_activity">Add number</string>
     <string name="title_edit_blacklist_item_activity">Edit number</string>
     <string name="edit_blacklist_item_name">Name</string>

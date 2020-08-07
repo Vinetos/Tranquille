@@ -78,6 +78,8 @@
     <string name="back">Назад</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+    <string name="done">Выполнено</string>
+    <string name="error">Ошибка</string>
     <string name="are_you_sure">Вы уверены?</string>
     <string name="load_reviews_confirmation_message">Это номер из адресной книги! Для получения отзывов номер передается в сторонний сервис и может попасть к третьим лицам. Вы точно хотите посмотреть отзывы на этот номер?</string>
     <string name="call_log_permission_message">Разрешите доступ к журналу вызовов, чтобы здесь отображались недавние вызовы</string>
@@ -133,6 +135,8 @@
     <string name="blacklist_add">Добавить</string>
     <string name="blacklist_delete">Удалить</string>
     <string name="blacklist_delete_confirmation">Удалить выбранные элементы?</string>
+    <string name="blacklist_export">Экспортировать</string>
+    <string name="blacklist_import">Импортировать</string>
     <string name="title_add_blacklist_item_activity">Добавить</string>
     <string name="title_edit_blacklist_item_activity">Редактировать</string>
     <string name="edit_blacklist_item_name">Имя</string>

@@ -1,15 +1,19 @@
 package dummydomain.yetanothercallblocker;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
@@ -19,16 +23,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.data.BlacklistImporterExporter;
 import dummydomain.yetanothercallblocker.data.BlacklistService;
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.data.db.BlacklistItem;
 import dummydomain.yetanothercallblocker.event.BlacklistChangedEvent;
+import dummydomain.yetanothercallblocker.utils.FileUtils;
 
 public class BlacklistActivity extends AppCompatActivity {
+
+    private static final int REQUEST_CODE_IMPORT = 1;
+
+    private static final Logger LOG = LoggerFactory.getLogger(BlacklistActivity.class);
 
     private final Settings settings = App.getSettings();
     private final BlacklistDao blacklistDao = YacbHolder.getBlacklistDao();
@@ -172,6 +188,38 @@ public class BlacklistActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_IMPORT && resultCode == Activity.RESULT_OK
+                && data != null && data.getData() != null) {
+            boolean error = false;
+
+            ParcelFileDescriptor pfd = null;
+            try {
+                pfd = getContentResolver().openFileDescriptor(data.getData(), "r");
+            } catch (FileNotFoundException e) {
+                error = true;
+                LOG.warn("onActivityResult() get file for import result", e);
+            }
+
+            if (pfd != null) {
+                if (new BlacklistImporterExporter().importBlacklist(
+                        YacbHolder.getBlacklistDao(), YacbHolder.getBlacklistService(),
+                        pfd.getFileDescriptor())) {
+                    Toast.makeText(this, R.string.done, Toast.LENGTH_SHORT).show();
+                } else {
+                    error = true;
+                }
+            }
+
+            if (error) {
+                Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onBlacklistChanged(BlacklistChangedEvent blacklistChangedEvent) {
         loadItems();
@@ -212,6 +260,44 @@ public class BlacklistActivity extends AppCompatActivity {
 
     private void onItemClicked(BlacklistItem blacklistItem) {
         startActivity(EditBlacklistItemActivity.getIntent(this, blacklistItem.getId()));
+    }
+
+    public void onExportBlacklistClicked(MenuItem item) {
+        File file = exportBlacklist();
+        if (file != null) {
+            FileUtils.shareFile(this, file);
+        } else {
+            Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private File exportBlacklist() {
+        File file = new File(getCacheDir(), "YetAnotherCallBlocker_backup.csv");
+        try {
+            if (!file.exists() && !file.createNewFile()) return null;
+
+            try (FileWriter writer = new FileWriter(file)) {
+                if (new BlacklistImporterExporter().writeBackup(blacklistDao.loadAll(), writer)) {
+                    return file;
+                }
+            }
+        } catch (IOException e) {
+            LOG.warn("exportBlacklist()", e);
+        }
+
+        return null;
+    }
+
+    public void onImportBlacklistClicked(MenuItem item) {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, REQUEST_CODE_IMPORT);
+        } else {
+            Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

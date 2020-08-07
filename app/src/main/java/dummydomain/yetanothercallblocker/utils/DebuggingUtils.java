@@ -4,8 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 
-import androidx.core.content.ContextCompat;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -125,22 +123,11 @@ public class DebuggingUtils {
 
     private static File getFilesDir(Context context, boolean external) {
         if (external) {
-            File[] dirs = ContextCompat.getExternalFilesDirs(context, null);
-            for (File dir : dirs) {
-                if (dir != null) return dir;
-            }
+            File f = FileUtils.getExternalFilesDir(context);
+            if (f != null) return f;
 
             Log.d(TAG, "getFilesDir() no external dirs available");
         }
-
-/*
-        not secure enough
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            if (!context.isDeviceProtectedStorage()) {
-                context = context.createDeviceProtectedStorageContext();
-            }
-        }
-*/
 
         return context.getCacheDir();
     }

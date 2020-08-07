@@ -1,10 +1,12 @@
 package dummydomain.yetanothercallblocker.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
 import androidx.core.app.ShareCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import org.slf4j.Logger;
@@ -32,6 +34,14 @@ public class FileUtils {
         } catch (Exception e) {
             LOG.warn("shareFile()", e);
         }
+    }
+
+    public static File getExternalFilesDir(Context context) {
+        File[] dirs = ContextCompat.getExternalFilesDirs(context, null);
+        for (File dir : dirs) {
+            if (dir != null) return dir;
+        }
+        return null;
     }
 
 }

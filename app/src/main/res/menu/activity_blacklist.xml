@@ -7,4 +7,12 @@
         android:onClick="onBlockBlacklistedChanged"
         android:title="@string/block_blacklisted_short" />
 
+    <item
+        android:onClick="onExportBlacklistClicked"
+        android:title="@string/blacklist_export" />
+
+    <item
+        android:onClick="onImportBlacklistClicked"
+        android:title="@string/blacklist_import" />
+
 </menu>

@@ -37,17 +37,25 @@ public class BlacklistService {
     public void save(BlacklistItem blacklistItem) {
         boolean newItem = blacklistItem.getId() == null;
 
-        blacklistItem.setInvalid(!BlacklistUtils.isValidPattern(blacklistItem.getPattern()));
+        sanitize(blacklistItem);
         blacklistDao.save(blacklistItem);
 
-        blacklistChanged();
+        blacklistChanged(!newItem);
+    }
 
-        postEvent(newItem ? new BlacklistChangedEvent() : new BlacklistItemChangedEvent());
+    public void insert(BlacklistItem blacklistItem) {
+        sanitize(blacklistItem);
+        blacklistDao.insert(blacklistItem);
+
+        blacklistChanged(false);
     }
 
     public void addCall(BlacklistItem blacklistItem, Date date) {
+        sanitize(blacklistItem);
+
         blacklistItem.setLastCallDate(Objects.requireNonNull(date));
         blacklistItem.setNumberOfCalls(blacklistItem.getNumberOfCalls() + 1);
+
         blacklistDao.save(blacklistItem);
 
         postEvent(new BlacklistItemChangedEvent());
@@ -56,11 +64,19 @@ public class BlacklistService {
     public void delete(Iterable<Long> keys) {
         blacklistDao.delete(keys);
 
-        blacklistChanged();
+        blacklistChanged(false);
     }
 
-    private void blacklistChanged() {
+    private void sanitize(BlacklistItem blacklistItem) {
+        blacklistItem.setInvalid(!BlacklistUtils.isValidPattern(blacklistItem.getPattern()));
+        if (blacklistItem.getCreationDate() == null) blacklistItem.setCreationDate(new Date());
+        if (blacklistItem.getNumberOfCalls() < 0) blacklistItem.setNumberOfCalls(0);
+    }
+
+    private void blacklistChanged(boolean itemUpdate) {
         callback.changed(blacklistDao.countValid() != 0);
+
+        postEvent(itemUpdate ? new BlacklistItemChangedEvent() : new BlacklistChangedEvent());
     }
 
 }
