@@ -4,10 +4,12 @@ using an offline phone number database.
 Features:
 
 * Uses offline database.
-* Blocks unwanted calls automatically (option).
+* Blocks calls with negative rating automatically (option).
+* Local blacklist with wildcard support.
 * Displays a notification with phone number summary (rating, reviews count, category) during incoming calls (option).
 * Automatic incremental/delta database updates (option).
 * You can view online reviews for caller's number (provided by 3rd party service).
+* "Advanced call blocking mode" for blocking calls on Android 7+ before the phone starts ringing (needs to be manually enabled in app Settings).
 
 How to use:
 
@@ -15,9 +17,9 @@ How to use:
 * The option to show caller info notifications is enabled by default, so the app will ask for phone-related permissions.
 * At first start, the app will suggest to download main database which is required for most of the functions. Simply confirm the download.
 * Check the "Auto-update database" checkbox in the menu (recommended) to automatically receive daily DB updates (these are incremental/delta updates, so they consume very little traffic).
-* Check the "Block unwanted calls" checkbox to block calls with negative rating automatically.
+* Check the "Block by rating" checkbox to block calls with negative rating automatically.
 * You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
-* After these steps everything should just work. Enjoy!
+* After these steps everything should just work (but you can always find more options in Settings). Enjoy!
 
 The main phone number database is downloaded from a gitlab repository.
 Delta updates and detailed review queries are performed using 3rd-party servers.
