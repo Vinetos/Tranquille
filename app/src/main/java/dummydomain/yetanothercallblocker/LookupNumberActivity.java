@@ -126,6 +126,8 @@ public class LookupNumberActivity extends AppCompatActivity {
                     String pasteData = item.getText().toString();
                     if (!TextUtils.isEmpty(pasteData)) {
                         phoneNumberInput.setText(pasteData);
+
+                        onQueryDbButtonClick(null);
                     }
                 }
             }
