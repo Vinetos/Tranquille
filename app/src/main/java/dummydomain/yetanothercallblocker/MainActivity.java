@@ -3,7 +3,6 @@ package dummydomain.yetanothercallblocker;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -90,12 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        // workaround for a black/non-responsive activity after theme change
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
-            getDelegate().setLocalNightMode(settings.getUiMode());
-        }
-
         super.onStart();
 
         EventUtils.register(this);
