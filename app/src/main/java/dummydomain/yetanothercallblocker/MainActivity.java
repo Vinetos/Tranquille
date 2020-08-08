@@ -205,10 +205,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, SettingsActivity.class));
     }
 
-    public void onOpenDebugActivity(MenuItem item) {
-        startActivity(new Intent(this, DebugActivity.class));
-    }
-
     private void onCallLogItemClicked(CallLogItem item) {
         InfoDialogHelper.showDialog(this, item.numberInfo, null);
     }

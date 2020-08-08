@@ -127,13 +127,11 @@
     <string name="error">Erreur</string>
     <string name="no_number"><![CDATA[<aucun numéro>]]></string>
 
-    <string name="open_debug_activity">Ouvrir l\'écran de débogage</string>
-    <string name="debug_activity_label">Déboggage</string>
-    <string name="debug_db_info">Infos de la BD</string>
-    <string name="debug_reset_base">Réinitialiser la BD</string>
-    <string name="debug_reset_secondary">Réinitialiser les mises à jour</string>
-    <string name="debug_update_db">Mise à jour de la BD</string>
-    <string name="debug_update_result">Mise à jour terminée; BD ver: %d</string>
+    <string name="db_management_db_info">Infos de la BD</string>
+    <string name="db_management_reset_base">Réinitialiser la BD</string>
+    <string name="db_management_reset_secondary">Réinitialiser les mises à jour</string>
+    <string name="db_management_update_db">Mise à jour de la BD</string>
+    <string name="db_management_update_result">Mise à jour terminée; BD ver: %d</string>
 
     <string name="lookup_query_db">Interroger la DB</string>
     <string name="lookup_load_reviews">Charger les évaluations (en ligne)</string>

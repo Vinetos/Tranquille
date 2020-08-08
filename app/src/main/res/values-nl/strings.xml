@@ -77,13 +77,11 @@
     <string name="auto_updates">Databank automatisch bijwerken</string>
     <string name="use_contacts">Contactpersonen uitlezen</string>
 
-    <string name="open_debug_activity">Foutopsporingsinformatie tonen</string>
-    <string name="debug_activity_label">Foutopsporing</string>
     <string name="lookup_query_db">Databank raadplegen</string>
     <string name="lookup_load_reviews">Online-recensies tonen</string>
-    <string name="debug_db_info">Databankinformatie</string>
-    <string name="debug_update_db">Databank bijwerken</string>
+    <string name="db_management_db_info">Databankinformatie</string>
+    <string name="db_management_update_db">Databank bijwerken</string>
     <string name="lookup_number_not_found">Niet gevonden</string>
-    <string name="debug_update_result">Bijwerken voltooid. Databankversie: %d</string>
+    <string name="db_management_update_result">Bijwerken voltooid. Databankversie: %d</string>
 
 </resources>

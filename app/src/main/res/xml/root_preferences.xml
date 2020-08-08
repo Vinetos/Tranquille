@@ -67,6 +67,10 @@
         <PreferenceScreen
             app:key="screenAdvanced"
             app:title="@string/settings_screen_advanced">
+            <Preference
+                app:key="dbManagement"
+                app:persistent="false"
+                app:title="@string/open_db_management_activity" />
             <PreferenceCategory
                 app:key="categoryCountryCodes"
                 app:title="@string/settings_category_country_codes">

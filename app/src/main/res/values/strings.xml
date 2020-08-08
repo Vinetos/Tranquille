@@ -159,13 +159,13 @@
     <string name="info_in_blacklist_contact">In blacklist (contacts are not blocked)</string>
     <string name="add_to_blacklist">Add to blacklist</string>
 
-    <string name="open_debug_activity">Database operations</string>
-    <string name="debug_activity_label">Operate with DB</string>
-    <string name="debug_db_info">DB info</string>
-    <string name="debug_reset_base">Reset DB</string>
-    <string name="debug_reset_secondary">Reset updates</string>
-    <string name="debug_update_db">Update DB</string>
-    <string name="debug_update_result">Update finished; DB ver: %d</string>
+    <string name="open_db_management_activity">Manage database</string>
+    <string name="db_management_activity_label">DB management</string>
+    <string name="db_management_db_info">DB info</string>
+    <string name="db_management_reset_base">Reset DB</string>
+    <string name="db_management_reset_secondary">Reset updates</string>
+    <string name="db_management_update_db">Update DB</string>
+    <string name="db_management_update_result">Update finished; DB ver: %d</string>
 
     <string name="title_lookup_number">Lookup number</string>
     <string name="lookup_default_test_number" translatable="false">74995861192</string>

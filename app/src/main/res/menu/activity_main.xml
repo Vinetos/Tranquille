@@ -41,8 +41,4 @@
         android:onClick="onOpenSettings"
         android:title="@string/open_settings_activity" />
 
-    <item
-        android:onClick="onOpenDebugActivity"
-        android:title="@string/open_debug_activity" />
-
 </menu>

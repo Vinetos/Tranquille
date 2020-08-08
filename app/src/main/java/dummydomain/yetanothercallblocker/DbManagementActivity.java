@@ -20,14 +20,14 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.work.TaskService;
 
-public class DebugActivity extends AppCompatActivity {
+public class DbManagementActivity extends AppCompatActivity {
 
     private AsyncTask<Void, Void, String> dbInfoTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_debug);
+        setContentView(R.layout.activity_db_management);
 
         onDbInfoButtonClick(null);
     }
@@ -55,7 +55,7 @@ public class DebugActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onSecondaryDbUpdateFinished(SecondaryDbUpdateFinished event) {
-        setResult(getString(R.string.debug_update_result,
+        setResult(getString(R.string.db_management_update_result,
                 YacbHolder.getCommunityDatabase().getEffectiveDbVersion()));
     }
 
