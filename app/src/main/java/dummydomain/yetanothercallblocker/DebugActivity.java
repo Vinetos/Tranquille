@@ -1,37 +1,33 @@
 package dummydomain.yetanothercallblocker;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.util.Pair;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Date;
 
-import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
-import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
-import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
-import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 import dummydomain.yetanothercallblocker.work.TaskService;
 
 public class DebugActivity extends AppCompatActivity {
+
+    private AsyncTask<Void, Void, String> dbInfoTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug);
-        hideSummary();
 
         onDbInfoButtonClick(null);
     }
@@ -50,63 +46,17 @@ public class DebugActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    @Override
+    protected void onDestroy() {
+        cancelDbInfoTask();
+
+        super.onDestroy();
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onSecondaryDbUpdateFinished(SecondaryDbUpdateFinished event) {
         setResult(getString(R.string.debug_update_result,
                 YacbHolder.getCommunityDatabase().getEffectiveDbVersion()));
-    }
-
-    public void onQueryDbButtonClick(View view) {
-        clearMessage();
-
-        new AsyncTask<Void, Void, Pair<CommunityDatabaseItem, FeaturedDatabaseItem>>() {
-            @Override
-            protected Pair<CommunityDatabaseItem, FeaturedDatabaseItem> doInBackground(Void... voids) {
-                CommunityDatabaseItem item = YacbHolder.getCommunityDatabase()
-                        .getDbItemByNumber(getNumber());
-
-                FeaturedDatabaseItem featuredItem = YacbHolder.getFeaturedDatabase()
-                        .getDbItemByNumber(getNumber());
-
-                return new Pair<>(item, featuredItem);
-            }
-
-            @Override
-            protected void onPostExecute(Pair<CommunityDatabaseItem, FeaturedDatabaseItem> result) {
-                CommunityDatabaseItem item = result.first;
-                FeaturedDatabaseItem featuredItem = result.second;
-
-                String string;
-                if (item != null) {
-                    string = item.getNumber() + "\n";
-
-                    if (item.getUnknownData() != 0) {
-                        string += "unknownData=" + item.getUnknownData() + "\n";
-                    }
-
-                    NumberCategory category = NumberCategory.getById(item.getCategory());
-                    if (category != null) {
-                        string += SiaNumberCategoryUtils.getName(DebugActivity.this, category);
-                    } else {
-                        string += "category=" + item.getCategory() + "\n";
-                    }
-
-                    displaySummary(item);
-                } else {
-                    string = DebugActivity.this.getString(R.string.debug_not_found);
-                }
-
-                if (featuredItem != null) {
-                    string += "\n" + "Featured name: " + featuredItem.getName();
-                }
-
-                setResult(string);
-            }
-        }.execute();
-    }
-
-    public void onLoadReviewsButtonClick(View view) {
-        ReviewsActivity.startForNumber(this, getNumber());
     }
 
     public void onResetDbClick(View view) {
@@ -133,7 +83,20 @@ public class DebugActivity extends AppCompatActivity {
     public void onDbInfoButtonClick(View view) {
         clearMessage();
 
-        new AsyncTask<Void, Void, String>() {
+        startDbInfoTask();
+    }
+
+    public void onUpdateDbButtonClick(View view) {
+        clearMessage();
+
+        TaskService.start(this, TaskService.TASK_UPDATE_SECONDARY_DB);
+    }
+
+    private void startDbInfoTask() {
+        cancelDbInfoTask();
+
+        @SuppressLint("StaticFieldLeak")
+        AsyncTask<Void, Void, String> task = this.dbInfoTask = new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... voids) {
                 StringBuilder sb = new StringBuilder();
@@ -167,34 +130,23 @@ public class DebugActivity extends AppCompatActivity {
             protected void onPostExecute(String info) {
                 setResult(info);
             }
-        }.execute();
+        };
+        task.execute();
     }
 
-    public void onUpdateDbButtonClick(View view) {
-        clearMessage();
-
-        TaskService.start(this, TaskService.TASK_UPDATE_SECONDARY_DB);
-    }
-
-    private String getNumber() {
-        return this.<EditText>findViewById(R.id.debugPhoneNumberEditText).getText().toString();
+    private void cancelDbInfoTask() {
+        if (dbInfoTask != null) {
+            dbInfoTask.cancel(true);
+            dbInfoTask = null;
+        }
     }
 
     private void clearMessage() {
         setResult("");
-        hideSummary();
     }
 
     private void setResult(String result) {
         this.<TextView>findViewById(R.id.debugResultsTextView).setText(result);
-    }
-
-    private void hideSummary() {
-        findViewById(R.id.reviews_summary).setVisibility(View.GONE);
-    }
-
-    private void displaySummary(CommunityDatabaseItem item) {
-        ReviewsSummaryHelper.populateSummary(findViewById(R.id.reviews_summary), item);
     }
 
 }

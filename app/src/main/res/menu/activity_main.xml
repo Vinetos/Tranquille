@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_lookup_number"
+        android:icon="@drawable/ic_search_24dp"
+        android:onClick="onLookupNumberClicked"
+        android:title="@string/title_lookup_number"
+        app:showAsAction="collapseActionView|always" />
 
     <item
         android:id="@+id/menu_show_notifications"

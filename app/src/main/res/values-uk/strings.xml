@@ -35,13 +35,10 @@
     <string name="auto_updates_summary">Отримувати щоденні оновлення бази (завантажуються тільки зміни, тому витрата трафіку невеликий)</string>
     <string name="open_debug_activity">Робота з базою номерів</string>
     <string name="debug_activity_label">Робота з базою номерів</string>
-    <string name="debug_query_db">Шукати у встановленій базі</string>
-    <string name="debug_load_reviews">Показати online-відгуки</string>
     <string name="debug_db_info">Інфо про встановлену базу</string>
     <string name="debug_reset_base">Скинути базу</string>
     <string name="debug_reset_secondary">Скинути оновлення</string>
     <string name="debug_update_db">Оновити базу самостійно</string>
-    <string name="debug_not_found">​​не знайдено</string>
     <string name="debug_update_result">Оновлення завершено. Версія: %d</string>
     <string name="incoming_call_notifications">відображення вхідних дзвінків</string>
     <string name="incoming_call_notifications_summary">Показує повідомлення з короткою інформацією про номер (рейтинги, кількість відгуків, категорія) при вхідних дзвінках</string>
@@ -147,4 +144,8 @@
     <string name="info_in_blacklist">У чорному списку</string>
     <string name="info_in_blacklist_contact">У чорному списку (контакти не блокуються)</string>
     <string name="add_to_blacklist">Додати до чорного списку</string>
+
+    <string name="lookup_query_db">Шукати у встановленій базі</string>
+    <string name="lookup_load_reviews">Показати online-відгуки</string>
+    <string name="lookup_number_not_found">​​не знайдено</string>
 </resources>

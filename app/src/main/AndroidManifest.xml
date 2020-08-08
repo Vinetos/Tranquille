@@ -34,6 +34,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LookupNumberActivity"
+            android:label="@string/title_lookup_number"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".BlacklistActivity"
             android:label="@string/title_blacklist_activity"
             android:parentActivityName=".MainActivity">
@@ -70,14 +78,12 @@
             android:label="@string/title_activity_reviews"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".InfoDialogActivity"
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
             android:noHistory="true"
             android:theme="@style/DialogBackgroundTheme" />
-
         <activity
             android:name=".DummyDialerActivity"
             android:autoRemoveFromRecents="true"

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LookupNumberActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/item_padding"
+        tools:context=".LookupNumberActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/lookup_hint_input_number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneNumberInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="50"
+                    android:text="@string/lookup_default_test_number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/lookup_clear_number"
+                android:onClick="onClearNumberButtonClick"
+                android:src="@drawable/ic_clear_24dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/lookup_paste_number"
+                android:onClick="onPasteNumberButtonClick"
+                android:src="@drawable/ic_menu_paste_material" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onQueryDbButtonClick"
+            android:text="@string/lookup_query_db" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onLoadReviewsButtonClick"
+            android:text="@string/lookup_load_reviews" />
+
+        <TextView
+            android:id="@+id/reviews_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="+74995861192" />
+
+        <include
+            layout="@layout/reviews_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/reviews_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            tools:text="Financial service" />
+
+    </LinearLayout>
+
+</ScrollView>

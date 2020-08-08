@@ -35,13 +35,10 @@
     <string name="auto_updates_summary">Получать ежедневные обновления базы (загружаются только изменения, поэтому расход трафика небольшой)</string>
     <string name="open_debug_activity">Работа с базой номеров</string>
     <string name="debug_activity_label">Работа с базой номеров</string>
-    <string name="debug_query_db">Искать в установленной базе</string>
-    <string name="debug_load_reviews">Показать online-отзывы</string>
     <string name="debug_db_info">Инфо об установленной базе</string>
     <string name="debug_reset_base">Сбросить базу</string>
     <string name="debug_reset_secondary">Сбросить обновления</string>
     <string name="debug_update_db">Обновить базу вручную</string>
-    <string name="debug_not_found">Не найдено</string>
     <string name="debug_update_result">Обновление завершено. Версия: %d</string>
     <string name="incoming_call_notifications">Отображ. уведомл. при входящих</string>
     <string name="incoming_call_notifications_summary">Отображает уведомление с краткой информацией о номере (рейтинги, кол-во отзывов, категория) при входящих вызовах</string>
@@ -147,4 +144,15 @@
     <string name="info_in_blacklist">В чёрном списке</string>
     <string name="info_in_blacklist_contact">В чёрном списке (контакты не блокируются)</string>
     <string name="add_to_blacklist">Добавить в чёрный список</string>
+
+    <string name="title_lookup_number">Поиск номера</string>
+    <string name="lookup_hint_input_number">Номер телефона</string>
+    <string name="lookup_error_not_a_number">Необходимо указать телефонный номер</string>
+    <string name="lookup_clear_number">Очистить номер</string>
+    <string name="lookup_paste_number">Вставить номер</string>
+    <string name="lookup_query_db">Искать в установленной базе</string>
+    <string name="lookup_load_reviews">Показать online-отзывы</string>
+    <string name="lookup_number_not_found">Не найдено</string>
+    <string name="lookup_res_category">Категория: %d</string>
+    <string name="lookup_res_featured_name">Принадлежит: %s</string>
 </resources>

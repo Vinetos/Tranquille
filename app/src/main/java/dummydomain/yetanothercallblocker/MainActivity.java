@@ -172,6 +172,10 @@ public class MainActivity extends AppCompatActivity {
         TaskService.start(this, TaskService.TASK_DOWNLOAD_MAIN_DB);
     }
 
+    public void onLookupNumberClicked(MenuItem item) {
+        startActivity(new Intent(this, LookupNumberActivity.class));
+    }
+
     public void onShowNotificationsChanged(MenuItem item) {
         settings.setIncomingCallNotifications(!item.isChecked());
         checkPermissions();

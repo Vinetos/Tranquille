@@ -90,11 +90,11 @@
     <string name="use_contacts_summary">Los números presentes en la guía telefónica nunca se bloquean y el nombre del contacto aparece junto a/en lugar de un número en toda la aplicación</string>
 
     <string name="open_debug_activity">Abrir pantalla de depuración</string>
-    <string name="debug_activity_label">Depurar</string>
-    <string name="debug_query_db">Consulta DB</string>
-    <string name="debug_load_reviews">Cargar reseñas (online)</string>
+    <string name="debug_activity_label">Operar con DB</string>
+    <string name="lookup_query_db">Consulta DB</string>
+    <string name="lookup_load_reviews">Cargar reseñas (online)</string>
     <string name="debug_db_info">Información de DB</string>
     <string name="debug_update_db">Actualizar DB</string>
-    <string name="debug_not_found">No encontrado</string>
+    <string name="lookup_number_not_found">No encontrado</string>
     <string name="debug_update_result">Actualización terminada; DB ver: %d</string>
 </resources>

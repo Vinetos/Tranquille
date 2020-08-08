@@ -20,7 +20,7 @@
             android:layout_margin="@dimen/text_margin"
             android:text=""
             android:textSize="18sp"
-            tools:text="@string/debug_default_test_number" />
+            tools:text="@string/lookup_default_test_number" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/reviews_list"
