@@ -112,6 +112,8 @@ Also, this project is meant to be non-commercial. So, there's that.
 
 Any contributions are very welcome.
 
+[Help translate Yet Another Call Blocker](https://hosted.weblate.org/engage/yet-another-call-blocker/).
+
 
 ## Building
 
