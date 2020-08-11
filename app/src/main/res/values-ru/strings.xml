@@ -119,7 +119,6 @@
     <string name="no_number"><![CDATA[<нет номера>]]></string>
     <string name="save">Сохранить</string>
     <string name="selected_count">Выбрано: %1$d</string>
-
     <string name="open_blacklist_activity">Чёрный список</string>
     <string name="title_blacklist_activity">Чёрный список</string>
     <plurals name="blacklist_item_stats">
@@ -144,7 +143,6 @@
     <string name="info_in_blacklist">В чёрном списке</string>
     <string name="info_in_blacklist_contact">В чёрном списке (контакты не блокируются)</string>
     <string name="add_to_blacklist">Добавить в чёрный список</string>
-
     <string name="title_lookup_number">Поиск номера</string>
     <string name="lookup_hint_input_number">Номер телефона</string>
     <string name="lookup_error_not_a_number">Необходимо указать телефонный номер</string>
@@ -155,4 +153,10 @@
     <string name="lookup_number_not_found">Не найдено</string>
     <string name="lookup_res_category">Категория: %d</string>
     <string name="lookup_res_featured_name">Принадлежит: %s</string>
+    <string name="sia_category_sms">СМС</string>
+    <string name="sia_category_safe_personal">Безопасный личный</string>
+    <string name="sia_category_safe_nonprofit">Безопасная некоммерческая организация</string>
+    <string name="sia_category_safe_company">Безопасная компания</string>
+    <string name="notification_channel_name_tasks">Задачи</string>
+    <string name="notification_channel_group_name_tasks">Задачи</string>
 </resources>
