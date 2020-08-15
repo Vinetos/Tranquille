@@ -92,6 +92,8 @@ public class NotificationHelper {
     }
 
     public static Notification createServiceNotification(Context context, String title) {
+        initNotificationChannels(context);
+
         if (title == null) title = context.getString(R.string.notification_background_operation);
 
         PendingIntent contentIntent = pendingActivity(context,
