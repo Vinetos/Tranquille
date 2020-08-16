@@ -1,0 +1,31 @@
+Jednostavna aplikacija za blokiranje poziva koja će ti pomoći ne odgovarati na neželjene pozive
+pomoću izvanmrežne baze podataka telefonskih brojeva.
+
+Karakteristike:
+
+* Koristi izvanmrežnu bazu podataka.
+* Automatski blokira pozive s negativnom ocjenom (opcija).
+* Lokalni popis nepoželjnih s podrškom za zamjenske znakove.
+* Prikazuje obavijest sa sažetkom telefonskog broja (ocjena, broj pregleda, kategorija) tijekom dolaznih poziva (opcija).
+* Automatsko inkrementalno/delta aktualiziranje baze podataka (opcija).
+* Moguće je pogledati mrežne recenzije za broj pozivatelja (pruža ih strana usluga).
+* „Napredni način blokiranja poziva” za blokiranje poziva na Androidu 7+ prije nego što telefon počne zvoniti (mora se ručno aktivirati u postavkama aplikacije).
+
+Kako koristiti:
+
+* Instaliraj i pokreni aplikaciju.
+* Opcija prikazivanja obavijesti o pozivima je standardno aktivirana, stoga će aplikacija tražiti korisničke dozvole vezana uz telefon.
+* Na početku će aplikacija predložiti preuzimanje glavne baze podataka koja je potrebna za većinu funkcija. Jednostavno potvrdi preuzimanje.
+* Označi potvrdni okvir „Automatski aktualiziraj bazu podataka” u izborniku (preporučeno) za automatsko primanje dnevnih aktualiziranje baze podataka (inkrementalna/delta aktualiziranja, koje troše vrlo malo prometa).
+* Označi potvrdni okvir „Blokiraj prema ocjeni” za automatsko blokiranje poziva s negativnom ocjenom.
+* Označi potvrdni okvir „Koristi kontakte”, ako želiš da se tvoji kontakti ne tretiraju kao nepoznati pozivači.
+* Nakon ovih koraka sve bi trebalo funkcionirati (daljnje opcije portaži u postavkama). Uživaj!
+
+Glavna baza podataka telefonskih brojeva preuzima se iz gitlab-repozirotija.
+Delta-aktualiziranja i detaljni upiti pregleda izvode se putem stranih poslužitelja.
+Podaci o identitetu korisnika ne šalju se (osim telefonskog broja
+za koji se učitavaju detaljni pregledi).
+
+„Još jedan blokator poziva” se još uvijek nalazi u fazi razvoja. Svaka pomoć je dobrodošla.
+
+„NonFreeNet:” ova strana usluga nije otvorenog koda.
