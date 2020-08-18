@@ -117,7 +117,6 @@
     <string name="no_number"><![CDATA[<немає номера>]]></string>
     <string name="save">Зберегти</string>
     <string name="selected_count">Обрано: %1$d</string>
-
     <string name="open_blacklist_activity">Чорний список</string>
     <string name="title_blacklist_activity">Чорний список</string>
     <plurals name="blacklist_item_stats">
@@ -142,8 +141,7 @@
     <string name="info_in_blacklist">У чорному списку</string>
     <string name="info_in_blacklist_contact">У чорному списку (контакти не блокуються)</string>
     <string name="add_to_blacklist">Додати до чорного списку</string>
-
     <string name="lookup_query_db">Шукати у встановленій базі</string>
     <string name="lookup_load_reviews">Показати online-відгуки</string>
-    <string name="lookup_number_not_found">​​не знайдено</string>
+    <string name="lookup_number_not_found">Не знайдено</string>
 </resources>
