@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://gist.github.com/mikovali/9e57c559bc459c932bc984b64f489090 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item android:state_activated="true">
+                <color android:color="?attr/colorControlActivated" />
+            </item>
+        </selector>
+    </item>
+
+    <item android:drawable="?attr/selectableItemBackground" />
+</layer-list>
