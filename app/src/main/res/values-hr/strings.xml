@@ -143,7 +143,7 @@
     <string name="db_management_db_info">Podaci baze podataka</string>
     <string name="country_code_incorrect_format">Neispravan format koda zemlje. Vrijednost nije aktualizirana</string>
     <string name="notification_channel_name_blocked_info">Blokirani podaci</string>
-    <string name="db_management_update_result">Aktualiziranje gotovo; verzija baze podataka: %s</string>
+    <string name="db_management_update_result">Aktualiziranje gotovo; verzija baze podataka: %d</string>
     <string name="db_management_update_db">Aktualiziraj bazu podataka</string>
     <string name="add_web_review">Dodaj recenziju (web)</string>
     <string name="country_codes_info_summary">Kodovi zemalja koriste se u upitima za poslužitelje trećih strana. Ovi su kodovi postavljeni tako da oponašaju ponašanje službene aplikacije treće strane. Ako se kodovi podudaraju s tvojom stvarnom državom (može se otkriti prema tvojoj IP adresi), tada će tvoji zahtjevi imati najviše izgleda. Automatsko otkrivanje koristi se prema standardnim postavkama (na temelju podataka o mobilnoj mreži ili jeziku sustava), što bi trebalo biti u redu za većinu korisnika, ali kodovi se mogu postaviti ručno. Očekuju se dvoslovni brojevi norme ISO 3166 (poput US)</string>
