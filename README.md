@@ -32,6 +32,8 @@ A free and open source application that can block unwanted calls or warn about p
 * You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work (but you can always find more options in Settings). Enjoy!
 
+Check [frequently asked questions](FAQ.md) to learn more.
+
 
 ## [Screenshots](fastlane/metadata/android/en-US/images/phoneScreenshots/)
 
@@ -110,42 +112,13 @@ Also, this project is meant to be non-commercial. So, there's that.
 
 ## Contributing
 
-Any contributions are very welcome.
+Any contributions are welcome.
 
-[Help translate Yet Another Call Blocker](https://hosted.weblate.org/engage/yet-another-call-blocker/).
+[Translate the app on Weblate](https://hosted.weblate.org/engage/yet-another-call-blocker/).
+
+[More on contributing](CONTRIBUTING.md).
 
 
 ## Building
 
-Clone the project repo:
-
-```
-git clone https://gitlab.com/xynngh/YetAnotherCallBlocker.git
-```
-
-Clone the assets repo (optional step: allows to avoid the initial DB downloading after installation):
-
-```
-git clone https://gitlab.com/xynngh/YetAnotherCallBlocker_data.git
-```
-
-Sym-link the assets:
-
-Linux
-```
-cd YetAnotherCallBlocker/app/src/main/assets/
-ln -s ../../../../../YetAnotherCallBlocker_data/assets/sia .
-```
-Windows
-```
-cd YetAnotherCallBlocker\app\src\main\assets
-mklink /d sia ..\..\..\..\..\YetAnotherCallBlocker_data\assets\sia
-```
-
-**or** copy the whole directory `YetAnotherCallBlocker_data/assets/sia` into `YetAnotherCallBlocker/app/src/main/assets/`.
-
-Then you can build the app using Android Studio or using Gradle:
-
-```
-./gradlew assemble
-```
+See [BUILDING.md](BUILDING.md).
