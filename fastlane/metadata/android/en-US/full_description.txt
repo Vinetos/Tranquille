@@ -1,7 +1,7 @@
 A simple call blocking application that will help you avoid answering unwanted calls
-using an offline phone number database.
+using a crowdsourced phone number database.
 
-Features:
+<b>Features:</b>
 
 * Uses offline database.
 * Blocks calls with negative rating automatically (option).
@@ -11,7 +11,7 @@ Features:
 * You can view online reviews for caller's number (provided by 3rd party service).
 * "Advanced call blocking mode" for blocking calls on Android 7+ before the phone starts ringing (needs to be manually enabled in app Settings).
 
-How to use:
+<b>How to use:</b>
 
 * Install and launch the app.
 * The option to show caller info notifications is enabled by default, so the app will ask for phone-related permissions.
@@ -21,11 +21,13 @@ How to use:
 * You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work (but you can always find more options in Settings). Enjoy!
 
-The main phone number database is downloaded from a gitlab repository.
-Delta updates and detailed review queries are performed using 3rd-party servers.
+See <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">frequently asked questions</a> to learn more.
+
+The main phone number database is downloaded from <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">a gitlab repository</a>.
+<b>Database updates and detailed review queries are performed using 3rd-party servers.</b>
 No user-identifiable information is sent (except for the phone number
 the detailed reviews are loaded for).
 
-Yet Another Call Blocker is still under development. Any help is very welcome.
+Yet Another Call Blocker is still under development. Any help is welcome.
 
 ''NonFreeNet:'' the 3rd-party service is not open source.

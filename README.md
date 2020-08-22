@@ -32,7 +32,7 @@ A free and open source application that can block unwanted calls or warn about p
 * You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
 * After these steps everything should just work (but you can always find more options in Settings). Enjoy!
 
-Check [frequently asked questions](FAQ.md) to learn more.
+See [frequently asked questions](FAQ.md) to learn more.
 
 
 ## [Screenshots](fastlane/metadata/android/en-US/images/phoneScreenshots/)
@@ -63,7 +63,7 @@ At this point most of the essential features (one would expect from a call block
 ## Privacy
 
 Protecting the user's privacy is the first concern during development. No personal data is sent to or otherwise shared with anyone.
-The only known possible data leaks are the following:
+The only known possible data leaks (to the third-party servers) are the following:
 
 * Database update procedure leaks user's IP address to the update servers.  
   The request also includes current database version (base or updated)  
