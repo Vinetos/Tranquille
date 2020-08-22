@@ -13,10 +13,22 @@ See ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mod
 Not necessarily. See ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode).
 
 
+## Calls aren't blocked, I don't get any informational notifications
+
+Check that you granted all the requested permissions (the app asks for missing permissions when you open its main screen).
+
+The app may have troubles with these features on stock firmwares of some manufacturers (like Xiaomi's MIUI). You may try enabling the ["advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) (in Yet Another Call Blocker settings). This feature should fix call blocking, but won't help with the informational notifications ("call blocked" notifications will work fine though).
+
+
+## The app doesn't have a persistent notification. Does it work?
+
+Yet Another Call Blocker doesn't have permanent notifications because it doesn't have any always-running services. The only background work it may do is optional auto-updates and call handling (which is limited to the duration of the corresponding events). So yeah, it does work ([unless it doesn't](FAQ.md#calls-arent-blocked-i-dont-get-any-informational-notifications)).
+
+
 ## Is there a whitelist? How can I allow a particular number with negative rating to call me?
 
-There's no whitelist and it's currently not planned because it adds complexity (you may create an [issue](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues) if you want to convince me otherwise).  
-Contacts are never blocked (you need to enable "use contacts"), so you can simply add that specific number to your contacts and it will be able to call you.
+Contacts are never blocked (you need to enable "use contacts"), so you can simply add that specific number to your contacts and it will be able to call you.  
+There's no whitelist and it's currently not planned because it adds unnecessary complexity (vote for or comment in [this issue](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/11) if you want to convince me otherwise).
 
 
 ## Can I block all numbers not present in Contacts?
@@ -28,23 +40,11 @@ Also, modern Android versions have "Do not Disturb" mode that may be customized 
 If you think Yet Another Call Blocker should have this option, [create an issue](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues).
 
 
-## Calls aren't blocked, I don't get any informational notifications
-
-Check that you granted all the requested permissions (the app asks for missing permissions when you open its main screen).
-
-The app may have troubles with these features on stock firmwares of some manufacturers (like Xiaomi's MIUI). You may try enabling the ["advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) (in Yet Another Call Blocker settings). This feature should fix call blocking, but won't help with the informational notifications ("call blocked" notifications will work fine though).
-
-
 ## What's that "Advanced call blocking mode"?
 
 That's a mode that uses a modern call blocking method ([CallScreeningService](https://developer.android.com/reference/android/telecom/CallScreeningService)-based) that allows to block calls before the phone starts ringing (the "classic" mode cannot block calls fast enough, so your phone may ring for a very short time before the call gets blocked).  
 For this feature to work the app needs to be set as the "Phone app" (Android 7–9) or as the "Caller ID app" (Android 10+). The app doesn't replace any in-call UI - your pre-installed Dialer app is used for calls (or the "Phone app" selected by you on Android 10+).  
 Obviously, on Android 7–9 you can't enable this feature **and** select some third-party Dialer app. This is an Android's restriction, I'm not aware of any way to work around it.
-
-
-## The app doesn't have a persistent notification. Does it work?
-
-Yet Another Call Blocker doesn't have permanent notifications because it doesn't have any always-running services. The only background work it may do is optional auto-updates and call handling (which is limited to the duration of the corresponding events). So yeah, it does work ([unless it doesn't](FAQ.md#calls-arent-blocked-i-dont-get-any-informational-notifications)).
 
 
 ## I don't want to see some of the informational notifications, can I disable them? Can I change notification priorities?
@@ -88,14 +88,6 @@ The number format *must* match the format that Android uses, that's why the lead
 Not yet. If you want this feature, vote for [this issue](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/3).
 
 
-## There's plenty of other \[better looking, with more features\] Android call blocking apps around. Why should I use yours?
-
-You don't have to. If you're happy with some other app - good for you.  
-This project was started because I needed to help my non-techie relatives fight phone spam. Giving calls and contacts permissions to some proprietary app is just not an option for me.  
-There's only a few FOSS (free and open source) apps that do call blocking and none of them has any kind of crowdsourced blacklist. So I created Yet Another Call Blocker to solve this.  
-After a while the app got new features, some of which are unique on the FOSS scene (for example, I believe that the "advanced call blocking mode" is not present in any other FOSS app).
-
-
 ## I have "block hidden numbers" enabled, but some hidden/"private" numbers are still not blocked.
 
 Hidden number detection is not properly standardized in Android. It took quite some effort to implement the feature as it is, but it was mostly borrowed code and guesswork.  
@@ -121,14 +113,22 @@ If you really want to save space, you can build the app yourself embedding the "
 I'm not sure that publicly name the source is a great idea, I didn't ask for a permission to use it after all. Finding out the source is quite easy anyway.
 
 
-## Is there any plans for X feature?
+## Are there any plans for X feature?
 
 Check [issues](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues). If there's nothing about it, create a new one and ask there.
 
 
 ## How to report a crash / get app logs?
 
-Sometimes reporting steps needed to reproduce a problem is enough, but most of the time you need to provide extra information in the form of app logs.  
+Sometimes a report with detailed steps is enough to reproduce a problem, but most of the time you need to provide extra information in the form of app logs.  
 You can get app logs ([logcat](https://developer.android.com/studio/debug/am-logcat) output) by going to "Settings -> Advanced settings" and pressing "Export logcat".  
-As it says in the description, the logs may contain some personal information - don't post it publicly without checking.  
+As mentioned in the description, the logs may contain some personal information - don't post it publicly without checking.  
 If you redact personal data (which you should), *replace* numbers (with random numbers, preferably without changing format) instead of *removing* them completely. Otherwise it is hard to tell whether the number was missing in the app or you removed it. That is especially important when dealing with hidden numbers.
+
+
+## There's plenty of other \[better looking, with more features\] Android call blocking apps around. Why should I use yours?
+
+You don't have to. If you're happy with some other app - good for you.  
+This project was started because I needed to help my non-techie relatives fight phone spam. Giving calls and contacts permissions to some proprietary app is just not an option for me.  
+There's only a few FOSS (free and open source) apps that do call blocking and none of them has any kind of crowdsourced blacklist. So I created Yet Another Call Blocker to solve this.  
+After a while the app got new features, some of which are unique on the FOSS scene (for example, I believe that the "advanced call blocking mode" is not present in any other FOSS app).
