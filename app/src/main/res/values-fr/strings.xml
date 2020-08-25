@@ -78,7 +78,7 @@
     <string name="block_negative_sia">Blocage en fonction de la notation</string>
     <string name="block_negative_sia_numbers_summary">Bloquer les appels provenant de numéros ayant une note négative (sur la base d\'une base de données communautaire))</string>
     <string name="block_hidden_number">Bloquer les numéros masqués</string>
-    <string name="block_hidden_number_summary">Bloquer les appels provenant de numéros masqués. Expérimental. Fonctionne probablement mieux en mode blocage d\'appel avancé. Merci de signaler votre retour d\'expérience sur gitlab</string>
+    <string name="block_hidden_number_summary">(Expérimental.) Bloquer les appels provenant de numéros masqués. Fonctionne probablement mieux en mode blocage d\'appel avancé. Merci de signaler votre retour d\'expérience sur GitLab.</string>
     <string name="use_call_screening_service">Mode de blocage d\'appel avancé</string>
     <string name="use_call_screening_service_summary">Permet de bloquer les appels avant que le téléphone ne commence à sonner. Nécessite que l\'application soit définie comme appli "téléphone" (Android 7–9) ou comme appli \"reconnaissance d\'appel entrant\" (Android 10+)</string>
     <string name="use_call_screening_service_disable_message">Sélectionner une autre \"application téléphonique\" ou \"application d\'identification de l\'appelant\" dans Paramètres - Apps - Apps par défaut</string>
