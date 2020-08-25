@@ -24,7 +24,7 @@
     <string name="block_negative_sia">Блокувати за відгуками</string>
     <string name="block_negative_sia_numbers_summary">Блокувати дзвінки c номерів з негативним рейтингом</string>
     <string name="block_hidden_number">Блокувати приховані номера</string>
-    <string name="block_hidden_number_summary">Блокувати дзвінки зі прихованих номерів. Експериментальна функція. Ймовірно, працює краще в "просунутому режимі блокування". Будь ласка, повідомте про свій досвід використання в репозиторій на gitlab</string>
+    <string name="block_hidden_number_summary">(Експериментальна функція.) Блокувати дзвінки зі прихованих номерів. Ймовірно, працює краще в просунутому режимі блокування. Будь ласка, повідомте про свій досвід використання в репозиторій на GitLab.</string>
     <string name="block_blacklisted_short">Блокувати з НС</string>
     <string name="block_blacklisted">Блокувати з чорного списку</string>
     <string name="block_blacklisted_summary">Блокувати дзвінки з номерів доданих в чорний список</string>
