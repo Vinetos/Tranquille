@@ -107,7 +107,7 @@ Also, this project is meant to be non-commercial. So, there's that.
 
 ## License
 
-[AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).  
+[AGPLv3-only](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
 
 ## Contributing
