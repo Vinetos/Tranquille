@@ -106,7 +106,7 @@
     <string name="auto_updates">Auto-update database</string>
     <string name="auto_updates_summary">Automatically receive daily DB updates (these are incremental/delta updates, so they consume very little traffic)</string>
     <string name="use_contacts">Use contacts</string>
-    <string name="use_contacts_summary">Numbers present in the phone book are never blocked and the contact name is displayed next to/instead of a number throughout the app</string>
+    <string name="use_contacts_summary">Numbers present in Contacts are never blocked and the contact name is displayed next to/instead of a number throughout the app</string>
     <string name="ui_mode">UI theme</string>
     <string name="ui_mode_day">Light</string>
     <string name="ui_mode_night">Dark</string>
