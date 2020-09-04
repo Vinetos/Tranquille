@@ -34,7 +34,7 @@
     <string name="use_contacts">Bruk kontaktliste</string>
     <string name="use_call_screening_service">Avansert anropsblokkeringsmodus</string>
     <string name="block_blacklisted_summary">Blokker anrop fra nummer lagt til i svartelisten</string>
-    <string name="block_hidden_number_summary">Blokker anrop fra skjulte nummer. Eksperimentelt. Fungerer antagelig bedre i \"avansert anropsblokkeringsmodus\". Rapporter din vudering av funksjonaliteten på GitLab</string>
+    <string name="block_hidden_number_summary">(Eksperimentelt.) Blokker anrop fra skjulte nummer. Fungerer antagelig bedre i \"avansert anropsblokkeringsmodus\". Rapporter din vudering av funksjonaliteten på GitLab</string>
     <string name="block_blacklisted">Blokker svartelistede nummer</string>
     <string name="block_blacklisted_short">Blokker svartelistede</string>
     <string name="block_hidden_number">Blokkert skjulte nummer</string>

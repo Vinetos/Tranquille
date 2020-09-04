@@ -96,7 +96,7 @@
     <string name="block_negative_sia">Block based on rating</string>
     <string name="block_negative_sia_numbers_summary">Block calls from numbers with negative rating (based on a community database)</string>
     <string name="block_hidden_number">Block hidden numbers</string>
-    <string name="block_hidden_number_summary">(Experimental.) Block calls from hidden numbers. Probably works better in \"Advanced call blocking mode\". Please report your experience on GitLab.</string>
+    <string name="block_hidden_number_summary">(Experimental.) Block calls from hidden numbers. Probably works better in \"Advanced call blocking mode\". Please report your experience on GitLab</string>
     <string name="block_blacklisted_short">Block blacklisted</string>
     <string name="block_blacklisted">Block blacklisted numbers</string>
     <string name="block_blacklisted_summary">Block calls from numbers added to the blacklist</string>
