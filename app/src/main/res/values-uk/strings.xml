@@ -24,7 +24,7 @@
     <string name="block_negative_sia">Блокувати за відгуками</string>
     <string name="block_negative_sia_numbers_summary">Блокувати дзвінки c номерів з негативним рейтингом</string>
     <string name="block_hidden_number">Блокувати приховані номера</string>
-    <string name="block_hidden_number_summary">Блокувати дзвінки зі прихованих номерів. Експериментальна функція. Ймовірно, працює краще в "просунутому режимі блокування". Будь ласка, повідомте про свій досвід використання в репозиторій на gitlab</string>
+    <string name="block_hidden_number_summary">(Експериментальна функція.) Блокувати дзвінки зі прихованих номерів. Ймовірно, працює краще в \"Просунутому режимі блокування викликів\". Будь ласка, повідомте про свій досвід використання в репозиторій на GitLab</string>
     <string name="block_blacklisted_short">Блокувати з НС</string>
     <string name="block_blacklisted">Блокувати з чорного списку</string>
     <string name="block_blacklisted_summary">Блокувати дзвінки з номерів доданих в чорний список</string>
@@ -38,7 +38,7 @@
     <string name="db_management_reset_secondary">Скинути оновлення</string>
     <string name="db_management_update_db">Оновити базу самостійно</string>
     <string name="db_management_update_result">Оновлення завершено. Версія: %d</string>
-    <string name="incoming_call_notifications">відображення вхідних дзвінків</string>
+    <string name="incoming_call_notifications">Відображення вхідних дзвінків</string>
     <string name="incoming_call_notifications_summary">Показує повідомлення з короткою інформацією про номер (рейтинги, кількість відгуків, категорія) при вхідних дзвінках</string>
     <string name="title_activity_reviews">Відгуки</string>
     <string name="reviews_loading">Завантажуємо відгуки…</string>
@@ -144,4 +144,18 @@
     <string name="lookup_query_db">Шукати у встановленій базі</string>
     <string name="lookup_load_reviews">Показати online-відгуки</string>
     <string name="lookup_number_not_found">Не знайдено</string>
+    <string name="lookup_paste_number">Вставити номер</string>
+    <string name="lookup_error_not_a_number">Необхідно вказати номер телефону</string>
+    <string name="title_lookup_number">Пошук номеру</string>
+    <string name="open_db_management_activity">Керування базою</string>
+    <string name="sia_category_safe_nonprofit">Безпечна не комерційна організація</string>
+    <string name="sia_category_safe_company">Безпечна компанія</string>
+    <string name="sia_category_safe_personal">Безпечний особистий</string>
+    <string name="sia_category_sms">SMS</string>
+    <string name="lookup_res_category">Категорія: %d</string>
+    <string name="lookup_clear_number">Очистити номер</string>
+    <string name="lookup_hint_input_number">Номер телефону</string>
+    <string name="db_management_activity_label">Керування базою</string>
+    <string name="notification_channel_name_tasks">Завдання</string>
+    <string name="notification_channel_group_name_tasks">Завдання</string>
 </resources>
