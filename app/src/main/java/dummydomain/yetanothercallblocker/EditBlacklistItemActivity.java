@@ -76,7 +76,6 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
 
         nameTextField = findViewById(R.id.nameTextField);
         patternTextField = findViewById(R.id.patternTextField);
-        TextView statsTextView = findViewById(R.id.stats);
 
         EditText patternEditText = Objects.requireNonNull(patternTextField.getEditText());
         patternEditText.addTextChangedListener(new TextWatcher() {
@@ -132,6 +131,7 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
             setString(patternTextField, pattern);
         }
 
+        TextView statsTextView = findViewById(R.id.stats);
         if (blacklistItem != null) {
             String statsString;
             if (blacklistItem.getNumberOfCalls() > 0) {
@@ -153,6 +153,15 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
             statsTextView.setText(statsString);
         } else {
             statsTextView.setVisibility(View.GONE);
+        }
+
+        TextView contactsNoticeTextView = findViewById(R.id.contactsNotBlockedNotice);
+        if (App.getSettings().getUseContacts()) {
+            if (!PermissionHelper.hasContactsPermission(this)) {
+                contactsNoticeTextView.setText(R.string.contacts_are_not_blocked_no_permission);
+            }
+        } else {
+            contactsNoticeTextView.setText(R.string.contacts_are_not_blocked_not_enabled);
         }
 
         patternTextField.requestFocus();

@@ -155,6 +155,9 @@
     <string name="number_pattern_incorrect">Incorrect pattern</string>
     <string name="number_pattern_empty">Empty pattern</string>
     <string name="number_pattern_hint">Enter the number in +COUNTRY-NUMBER format (as Android would show in your dialer). Use \"*\" as a wildcard for zero or more digits, and \"#\" for exactly one digit.</string>
+    <string name="contacts_are_not_blocked_blacklist_notice">Calls from contacts are never blocked (even if the number matches the blacklist pattern)</string>
+    <string name="contacts_are_not_blocked_not_enabled">Calls from contacts may be blocked because the \"Use contacts\" option is not enabled!</string>
+    <string name="contacts_are_not_blocked_no_permission">Calls from contacts may be blocked because the \"Contacts\" permission is not granted!</string>
     <string name="info_in_blacklist">In blacklist</string>
     <string name="info_in_blacklist_contact">In blacklist (contacts are not blocked)</string>
     <string name="add_to_blacklist">Add to blacklist</string>

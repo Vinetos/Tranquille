@@ -140,6 +140,9 @@
     <string name="number_pattern_incorrect">Некорректный шаблон</string>
     <string name="number_pattern_empty">Пустой шаблон</string>
     <string name="number_pattern_hint">Введите номер в формате +СТРАНА-НОМЕР (как Android показал бы в списке вызовов). Используйте \"*\" как подстановку для нуля и более цифр и \"#\" для одной цифры.</string>
+    <string name="contacts_are_not_blocked_blacklist_notice">Звонки от контактов никогда не блокируются (даже если номер совпадает с шаблоном из чёрного списка)</string>
+    <string name="contacts_are_not_blocked_not_enabled">Звонки от контактов могут быть заблокированы, т.к. опция "Доступ к контактам" не включена!</string>
+    <string name="contacts_are_not_blocked_no_permission">Звонки от контактов могут быть заблокированы, т.к. разрешение на доступ к контактам не предоставлено!</string>
     <string name="info_in_blacklist">В чёрном списке</string>
     <string name="info_in_blacklist_contact">В чёрном списке (контакты не блокируются)</string>
     <string name="add_to_blacklist">Добавить в чёрный список</string>
