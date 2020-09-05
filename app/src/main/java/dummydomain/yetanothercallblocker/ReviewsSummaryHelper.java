@@ -3,24 +3,25 @@ package dummydomain.yetanothercallblocker;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.Map;
+import androidx.annotation.IdRes;
 
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
 public class ReviewsSummaryHelper {
 
     public static void populateSummary(View reviewsSummary, CommunityDatabaseItem item) {
-        reviewsSummary.setVisibility(View.VISIBLE);
+        boolean visible = item != null && item.hasRatings();
 
-        Map<Integer, Integer> map = new HashMap<>(3);
-        map.put(R.id.summary_text_negative, item != null ? item.getNegativeRatingsCount() : 0);
-        map.put(R.id.summary_text_neutral, item != null ? item.getNeutralRatingsCount() : 0);
-        map.put(R.id.summary_text_positive, item != null ? item.getPositiveRatingsCount() : 0);
-        for (Map.Entry<Integer, Integer> e : map.entrySet()) {
-            ((TextView) reviewsSummary.findViewById(e.getKey())).setText(
-                    String.valueOf(e.getValue()));
+        reviewsSummary.setVisibility(visible ? View.VISIBLE : View.GONE);
+        if (visible) {
+            setValue(reviewsSummary, R.id.summary_text_negative, item.getNegativeRatingsCount());
+            setValue(reviewsSummary, R.id.summary_text_neutral, item.getNeutralRatingsCount());
+            setValue(reviewsSummary, R.id.summary_text_positive, item.getPositiveRatingsCount());
         }
+    }
+
+    private static void setValue(View parentView, @IdRes int id, int value) {
+        parentView.<TextView>findViewById(id).setText(String.valueOf(value));
     }
 
 }
