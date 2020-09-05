@@ -225,7 +225,8 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this, settings.getNumberOfRecentCalls());
 
                 for (CallLogItem item : items) {
-                    item.numberInfo = YacbHolder.getNumberInfo(item.number);
+                    item.numberInfo = YacbHolder.getNumberInfo(
+                            item.number, settings.getCachedAutoDetectedCountryCode());
                 }
 
                 return items;

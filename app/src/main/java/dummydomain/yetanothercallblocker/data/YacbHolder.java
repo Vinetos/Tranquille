@@ -94,8 +94,8 @@ public class YacbHolder {
         return numberInfoService;
     }
 
-    public static NumberInfo getNumberInfo(String number) {
-        return numberInfoService.getNumberInfo(number, true);
+    public static NumberInfo getNumberInfo(String number, String countryCode) {
+        return numberInfoService.getNumberInfo(number, countryCode, true);
     }
 
 }

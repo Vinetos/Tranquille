@@ -68,7 +68,8 @@ public class CallReceiver extends BroadcastReceiver {
 
             if (blockingEnabled || showNotifications) {
                 NumberInfoService numberInfoService = YacbHolder.getNumberInfoService();
-                NumberInfo numberInfo = numberInfoService.getNumberInfo(incomingNumber, false);
+                NumberInfo numberInfo = numberInfoService.getNumberInfo(incomingNumber,
+                        settings.getCachedAutoDetectedCountryCode(), false);
 
                 boolean blocked = false;
                 if (blockingEnabled && !isOnCall && numberInfoService.shouldBlock(numberInfo)) {

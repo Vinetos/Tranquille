@@ -143,7 +143,7 @@ public class Config {
         };
 
         NumberInfoService numberInfoService = new NumberInfoService(
-                settings, NumberUtils::isHiddenNumber,
+                settings, NumberUtils::isHiddenNumber, NumberUtils::normalizeNumber,
                 communityDatabase, featuredDatabase, contactsProvider, blacklistService);
         YacbHolder.setNumberInfoService(numberInfoService);
     }

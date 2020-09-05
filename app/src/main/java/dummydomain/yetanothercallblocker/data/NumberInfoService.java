@@ -19,30 +19,36 @@ public class NumberInfoService {
         boolean isHiddenNumber(String number);
     }
 
+    public interface NumberNormalizer {
+        String normalizeNumber(String number, String countryCode);
+    }
+
     private static final Logger LOG = LoggerFactory.getLogger(NumberInfoService.class);
 
     protected final Settings settings;
 
     protected final HiddenNumberDetector hiddenNumberDetector;
+    protected final NumberNormalizer numberNormalizer;
     protected final CommunityDatabase communityDatabase;
     protected final FeaturedDatabase featuredDatabase;
     protected final ContactsProvider contactsProvider;
     protected final BlacklistService blacklistService;
 
     public NumberInfoService(Settings settings, HiddenNumberDetector hiddenNumberDetector,
-                             CommunityDatabase communityDatabase, FeaturedDatabase featuredDatabase,
-                             ContactsProvider contactsProvider, BlacklistService blacklistService) {
+                             NumberNormalizer numberNormalizer, CommunityDatabase communityDatabase,
+                             FeaturedDatabase featuredDatabase, ContactsProvider contactsProvider,
+                             BlacklistService blacklistService) {
         this.settings = settings;
         this.hiddenNumberDetector = hiddenNumberDetector;
+        this.numberNormalizer = numberNormalizer;
         this.communityDatabase = communityDatabase;
         this.featuredDatabase = featuredDatabase;
         this.contactsProvider = contactsProvider;
         this.blacklistService = blacklistService;
     }
 
-    public NumberInfo getNumberInfo(String number, boolean full) {
-        LOG.debug("getNumberInfo({}, {}) started", number, full);
-        // TODO: check number format
+    public NumberInfo getNumberInfo(String number, String countryCode, boolean full) {
+        LOG.debug("getNumberInfo({}, {}, {}) started", number, countryCode, full);
 
         NumberInfo numberInfo = new NumberInfo();
         numberInfo.number = number;
@@ -70,13 +76,17 @@ public class NumberInfoService {
         }
         LOG.trace("getNumberInfo() contactItem={}", numberInfo.contactItem);
 
+        String normalizedNumber = numberInfo.normalizedNumber
+                = numberNormalizer.normalizeNumber(number, countryCode);
+        LOG.trace("getNumberInfo() normalizedNumber={}", numberInfo.normalizedNumber);
+
         if (communityDatabase != null) {
-            numberInfo.communityDatabaseItem = communityDatabase.getDbItemByNumber(number);
+            numberInfo.communityDatabaseItem = communityDatabase.getDbItemByNumber(normalizedNumber);
         }
         LOG.trace("getNumberInfo() communityItem={}", numberInfo.communityDatabaseItem);
 
         if (featuredDatabase != null) {
-            numberInfo.featuredDatabaseItem = featuredDatabase.getDbItemByNumber(number);
+            numberInfo.featuredDatabaseItem = featuredDatabase.getDbItemByNumber(normalizedNumber);
         }
         LOG.trace("getNumberInfo() featuredItem={}", numberInfo.featuredDatabaseItem);
 

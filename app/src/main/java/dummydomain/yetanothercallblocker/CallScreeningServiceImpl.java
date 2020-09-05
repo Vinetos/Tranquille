@@ -98,7 +98,8 @@ public class CallScreeningServiceImpl extends CallScreeningService {
             }
 
             if (!ignore) {
-                numberInfo = numberInfoService.getNumberInfo(number, false);
+                numberInfo = numberInfoService.getNumberInfo(number,
+                        App.getSettings().getCachedAutoDetectedCountryCode(), false);
 
                 shouldBlock = numberInfoService.shouldBlock(numberInfo);
             }

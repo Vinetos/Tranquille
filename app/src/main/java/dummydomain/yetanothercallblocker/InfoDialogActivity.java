@@ -25,7 +25,8 @@ public class InfoDialogActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        NumberInfo numberInfo = YacbHolder.getNumberInfo(getIntent().getStringExtra(PARAM_NUMBER));
+        NumberInfo numberInfo = YacbHolder.getNumberInfo(getIntent().getStringExtra(PARAM_NUMBER),
+                App.getSettings().getCachedAutoDetectedCountryCode());
 
         InfoDialogHelper.showDialog(this, numberInfo, (d) -> finish());
     }

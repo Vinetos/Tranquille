@@ -16,6 +16,7 @@ public class NumberInfo {
 
     // id
     public String number;
+    public String normalizedNumber;
 
     // info from various sources
     public boolean isHiddenNumber;
