@@ -21,6 +21,8 @@ import java.util.List;
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReview;
 
+import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
+
 public class ReviewsActivity extends AppCompatActivity {
 
     private static final String PARAM_NUMBER = "param_number";
@@ -38,7 +40,7 @@ public class ReviewsActivity extends AppCompatActivity {
     }
 
     public static void startForNumber(Context context, String number) {
-        context.startActivity(getNumberIntent(context, number));
+        context.startActivity(clearTop(getNumberIntent(context, number)));
     }
 
     @Override

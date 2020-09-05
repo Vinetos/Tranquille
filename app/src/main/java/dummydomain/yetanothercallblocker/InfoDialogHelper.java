@@ -18,8 +18,6 @@ import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
-import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
-
 public class InfoDialogHelper {
 
     public static void showDialog(Context context, NumberInfo numberInfo,
@@ -84,10 +82,7 @@ public class InfoDialogHelper {
             return;
         }
 
-        Runnable reviewsAction = () -> {
-            context.startActivity(clearTop(
-                    ReviewsActivity.getNumberIntent(context, numberInfo.number)));
-        };
+        Runnable reviewsAction = () -> ReviewsActivity.startForNumber(context, numberInfo.number);
 
         Runnable webReviewAction = () -> {
             Uri uri = Uri.parse(YacbHolder.getWebService().getWebReviewsUrlPart()
