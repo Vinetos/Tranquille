@@ -81,7 +81,7 @@
     <string name="load_reviews_confirmation_message">Это номер из адресной книги! Для получения отзывов номер передается в сторонний сервис и может попасть к третьим лицам. Вы точно хотите посмотреть отзывы на этот номер?</string>
     <string name="call_log_permission_message">Разрешите доступ к журналу вызовов, чтобы здесь отображались недавние вызовы</string>
     <string name="notification_background_operation">Выполняется процесс в фоне…</string>
-    <string name="use_contacts">Отображать имена контактов</string>
+    <string name="use_contacts">Доступ к контактам</string>
     <string name="use_contacts_summary">Номера из телефонной книги никогда не блокируются, и имя контакта отображается рядом/вместо номера</string>
     <string name="ui_mode">Тема приложения</string>
     <string name="ui_mode_day">Светлая</string>
@@ -89,7 +89,7 @@
     <string name="ui_mode_auto">Определяется системой</string>
     <string name="number_of_recent_calls">Кол-во недавних вызовов</string>
     <string name="number_of_recent_calls_summary">Количество недавних вызовов на основном экране</string>
-    <string name="notification_incoming_call_contact">Контакт</string>
+    <string name="notification_incoming_call_contact">Из списка контактов</string>
     <string name="open_settings_activity">Настройки</string>
     <string name="title_settings_activity">Настройки</string>
     <string name="settings_category_main">Основные</string>
