@@ -19,6 +19,8 @@ Check that you've granted all the requested permissions (the app asks for missin
 
 The app may encounter troubles providing its features on stock firmwares by some manufacturers (like MIUI from Xiaomi). You may try to enable the ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) (in Yet Another Call Blocker settings). The feature should help to fix call blocking, though still won't help to provide the informational notifications (except "Call blocked" notifications - these will work fine).
 
+Known issues: ["normal" blocking mode doesn't work on MIUI](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/12), [no informational notifications on some modern Samsung phones](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/13).
+
 
 ## The app doesn't have a persistent notification. Does it work?
 
