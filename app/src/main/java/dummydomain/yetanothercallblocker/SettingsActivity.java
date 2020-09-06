@@ -65,6 +65,8 @@ public class SettingsActivity extends AppCompatActivity
         fragment.setArguments(args);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left,
+                R.anim.enter_from_left, R.anim.exit_to_right);
         ft.replace(R.id.settings, fragment, preferenceScreen.getKey());
         ft.addToBackStack(preferenceScreen.getKey());
         ft.commit();
