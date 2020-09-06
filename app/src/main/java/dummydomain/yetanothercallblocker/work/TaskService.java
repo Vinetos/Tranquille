@@ -92,6 +92,8 @@ public class TaskService extends IntentService {
             YacbHolder.getCommunityDatabase().reload();
             YacbHolder.getFeaturedDatabase().reload();
             YacbHolder.getSiaMetadata().reload();
+        } catch (Exception e) {
+            LOG.warn("downloadMainDb()", e);
         } finally {
             removeStickyEvent(sticky);
         }
