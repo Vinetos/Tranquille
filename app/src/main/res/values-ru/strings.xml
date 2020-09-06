@@ -109,6 +109,7 @@
     <string name="country_code_for_reviews_override">Код страны для отзывов</string>
     <string name="country_code_for_reviews_override_summary">Код страны, используемый для запроса онлайн-отзывов. Предназначен для представления страны звонящего. Оставьте пустым для автоопределения</string>
     <string name="country_code_incorrect_format">Некорректный формат кода страны. Значение не обновлено</string>
+    <string name="database_download_url">URL для загрузки основной базы</string>
     <string name="settings_category_debugging">Отладка</string>
     <string name="save_crashes_to_external_storage">Сохранять отчёты в общее хранилище</string>
     <string name="save_crashes_to_external_storage_summary">Сохранять отчёты об ошибках и логи в общее хранилище. В противном случае отчёты сохраняются в личную папку приложения. Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Другие приложения с разрешением на доступ к хранилищу могут иметь доступ к этим данным в общем хранилище</string>

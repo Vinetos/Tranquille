@@ -88,6 +88,9 @@
                     app:summary="@string/country_code_for_reviews_override_summary"
                     app:title="@string/country_code_for_reviews_override" />
             </PreferenceCategory>
+            <EditTextPreference
+                app:key="databaseDownloadUrl"
+                app:title="@string/database_download_url" />
             <PreferenceCategory
                 app:key="categoryDebugging"
                 app:title="@string/settings_category_debugging">

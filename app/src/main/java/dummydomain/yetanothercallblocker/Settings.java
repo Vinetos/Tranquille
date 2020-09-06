@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import dummydomain.yetanothercallblocker.data.CountryHelper;
+import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 
 public class Settings extends GenericSettings {
 
@@ -27,6 +28,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
     public static final String PREF_COUNTRY_CODE_OVERRIDE = "countryCodeOverride";
     public static final String PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE = "countryCodeForReviewsOverride";
+    public static final String PREF_DATABASE_DOWNLOAD_URL = "databaseDownloadUrl";
     public static final String PREF_SAVE_CRASHES_TO_EXTERNAL_STORAGE = "saveCrashesToExternalStorage";
     public static final String PREF_SAVE_LOGCAT_ON_CRASH = "saveLogcatOnCrash";
 
@@ -205,6 +207,14 @@ public class Settings extends GenericSettings {
 
     public void setCountryCodeForReviewsOverride(String code) {
         setString(PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE, code);
+    }
+
+    public String getDatabaseDownloadUrl() {
+        return getNonEmptyString(PREF_DATABASE_DOWNLOAD_URL, DbManager.DEFAULT_URL);
+    }
+
+    public void setDatabaseDownloadUrl(String url) {
+        setString(PREF_DATABASE_DOWNLOAD_URL, url);
     }
 
     public String getCountryCode() {

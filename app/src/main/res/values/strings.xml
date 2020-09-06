@@ -124,6 +124,7 @@
     <string name="country_code_for_reviews_override">Country code for reviews</string>
     <string name="country_code_for_reviews_override_summary">Country code used in requests for online reviews. Meant to represent the country of the caller. Leave empty for auto-detection</string>
     <string name="country_code_incorrect_format">Incorrect country code format. Value is not updated</string>
+    <string name="database_download_url">Primary DB download URL</string>
     <string name="settings_category_debugging">Debugging</string>
     <string name="save_crashes_to_external_storage">Save reports to public storage</string>
     <string name="save_crashes_to_external_storage_summary">Save crash reports and logs to public storage, otherwise crash reports are saved to a private app folder. The reports may contain sensitive data (phone numbers, contact names). Other apps with storage permission may have access to this data in public storage</string>

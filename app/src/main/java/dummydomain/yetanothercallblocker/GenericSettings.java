@@ -2,6 +2,7 @@ package dummydomain.yetanothercallblocker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 public class GenericSettings {
 
@@ -51,6 +52,12 @@ public class GenericSettings {
 
     public String getString(String key, String defValue) {
         return pref.getString(key, defValue);
+    }
+
+    public String getNonEmptyString(String key, String defValue) {
+        String value = getString(key);
+        if (TextUtils.isEmpty(value)) value = defValue;
+        return value;
     }
 
     public void setString(String key, String value) {
