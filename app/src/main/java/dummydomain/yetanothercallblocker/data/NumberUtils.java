@@ -12,7 +12,7 @@ import java.util.Set;
 public class NumberUtils {
 
     private static final Set<String> HIDDEN_NUMBERS = new HashSet<>(Arrays.asList(
-            "-1", "-2", "UNAVAILABLE", "ABSENT NUMBER", "NNN", "PRIVATE NUMBER"
+            "-1", "-2", "UNAVAILABLE", "ABSENT NUMBER", "NNN", "PRIVATE NUMBER", "ANONYMOUS"
     ));
 
     public static boolean isHiddenNumber(String number) {
