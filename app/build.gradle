@@ -8,8 +8,8 @@ android {
         minSdkVersion 14
         //noinspection OldTargetApi: required for call blocking
         targetSdkVersion 28
-        versionCode 5030
-        versionName "0.5.3"
+        versionCode 5040
+        versionName "0.5.4"
 
         javaCompileOptions {
             annotationProcessorOptions {
