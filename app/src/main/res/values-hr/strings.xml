@@ -81,7 +81,7 @@
     <string name="lookup_hint_input_number">Broj telefona</string>
     <string name="sia_category_fax">FAX</string>
     <string name="block_negative_sia_numbers_summary">Blokiraj pozive brojeva s negativnim ocjenama (bazirano na bazi podataka zajednice)</string>
-    <string name="number_pattern_incorrect">Neispravan oblik</string>
+    <string name="number_pattern_incorrect">Neispravan format</string>
     <string name="notification_channel_name_positive">Pozitivni pozivi</string>
     <string name="use_call_screening_service">Napredni modus blokiranja poziva</string>
     <string name="no_main_db_text">Baza podataka nije prisutna. Da bi aplikacija obavila većinu svojih funkcija, moraš preuzeti bazu podataka. Trebat će oko 25 MB prometa.</string>
@@ -112,10 +112,10 @@
     <string name="sia_category_political">Politika</string>
     <string name="settings_category_notifications_incoming_calls">Obavijesti o dolaznim pozivima</string>
     <string name="notification_incoming_call_contact">Kontakt</string>
-    <string name="use_contacts_summary">Brojevi koji su prisutni u telefonskom imeniku nikada se ne blokiraju, a ime kontakta prikazuje se svuda pored/umjesto broja</string>
+    <string name="use_contacts_summary">Brojevi koji su prisutni u kontaktima nikada se ne blokiraju, a ime kontakta prikazuje se svuda pored/umjesto broja</string>
     <string name="blacklist_import">Uvezi</string>
     <string name="notification_incoming_call_negative">Negativan poziv</string>
-    <string name="number_pattern_empty">Prazan oblik</string>
+    <string name="number_pattern_empty">Prazan format</string>
     <string name="ui_mode">Tema korisničkog sučelja</string>
     <string name="lookup_error_not_a_number">Očekuje se telefonski broj</string>
     <string name="db_management_activity_label">Upravljanje bazom podataka</string>
@@ -125,7 +125,7 @@
     <string name="notification_channel_group_name_tasks">Zadaci</string>
     <string name="sia_category_telemarketer">Telemarketing</string>
     <string name="call_log_permission_message">Odobri dozvolu „Telefon” za prikaz nedavnih poziva</string>
-    <string name="edit_blacklist_item_number_pattern">Oblik broja</string>
+    <string name="edit_blacklist_item_number_pattern">Format broja</string>
     <string name="block_blacklisted_summary">Blokiraj pozive brojeva dodanih u popis nepoželjnih</string>
     <string name="ui_mode_auto">Slijedi sustav</string>
     <string name="block_blacklisted_short">Blokiraj nepoželjne</string>
@@ -155,8 +155,12 @@
     <string name="add_to_blacklist">Dodano u popis nepoželjnih</string>
     <string name="edit_blacklist_item_name">Ime</string>
     <string name="are_you_sure">Stvarno\?</string>
-    <string name="number_pattern_hint">Upiši broj u formatu +COUNTRY-NUMBER (kao što bi Android pokazao u biraču). Koristi „*” kao zamjenski znak za nulu ili više znamenki, a „#” za točno jednu znamenku.</string>
+    <string name="number_pattern_hint">Upiši broj u formatu +BROJ-DRŽAVE (kao što bi Android pokazao u biraču). Koristi „*” kao zamjenski znak za nulu ili više znamenki, a „#” za točno jednu znamenku.</string>
     <string name="notification_channel_name_negative">Negativni pozivi</string>
     <string name="recent_calls">Nedavni pozivi</string>
     <string name="denied_call_screening_role_message">Napredno blokiranje poziva neće raditi, jer aplikacija nije postavljena kao „Aplikacija ID oznake pozivatelja”</string>
+    <string name="contacts_are_not_blocked_no_permission">Pozivi osoba u kontaktima se možda blokiraju, jer „Kontakti” nemaju odgovarajuću dozvolu!</string>
+    <string name="contacts_are_not_blocked_not_enabled">Pozivi osoba u kontaktima se možda blokiraju, jer opcija „Koristi kontakte” nije aktivirana!</string>
+    <string name="database_download_url">Primarna URL adresa za preuzimanje baze podataka</string>
+    <string name="contacts_are_not_blocked_blacklist_notice">Pozivi osoba u kontaktima nikada se ne blokiraju (čak niti u slučaju, da se broj poklapa s formatom za nepoželjne brojeve)</string>
 </resources>
