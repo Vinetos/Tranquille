@@ -122,7 +122,6 @@
     <string name="title_activity_reviews">Recenzije</string>
     <string name="blacklist_item_no_calls">Nikada nazvan</string>
     <string name="block_hidden_number">Blokiraj skrivene brojeve</string>
-    <string name="notification_channel_group_name_tasks">Zadaci</string>
     <string name="sia_category_telemarketer">Telemarketing</string>
     <string name="call_log_permission_message">Odobri dozvolu „Telefon” za prikaz nedavnih poziva</string>
     <string name="edit_blacklist_item_number_pattern">Format broja</string>

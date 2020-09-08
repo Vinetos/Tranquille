@@ -50,6 +50,11 @@
             app:title="@string/use_call_screening_service" />
     </PreferenceCategory>
 
+    <SwitchPreferenceCompat
+        app:key="useMonitoringService"
+        app:summary="@string/use_monitoring_service_summary"
+        app:title="@string/use_monitoring_service" />
+
     <PreferenceCategory
         app:key="categoryNotifications"
         app:title="@string/settings_category_notifications_incoming_calls">

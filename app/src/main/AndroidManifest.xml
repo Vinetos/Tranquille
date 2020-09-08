@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.READ_LOG" android:maxSdkVersion="15" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <!-- may be needed for call blocking on Android 9, also requires to be installed as a system app -->
     <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"
@@ -103,17 +104,31 @@
         </activity>
 
         <receiver
-            android:name=".CallReceiver"
+            android:name=".StartupReceiver"
             android:directBootAware="true"
-            android:enabled="true"
-            android:exported="true">
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".CallReceiver"
+            android:directBootAware="true">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
 
         <service android:name=".work.TaskService" />
-
+        <service
+            android:name=".CallMonitoringService"
+            android:description="@string/monitoring_service_description"
+            android:directBootAware="true"
+            android:exported="false"
+            android:label="@string/monitoring_service_label" />
         <service
             android:name=".CallScreeningServiceImpl"
             android:directBootAware="true"

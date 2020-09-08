@@ -45,6 +45,10 @@ public class App extends Application {
         Config.init(getDeviceProtectedStorageContext(), settings);
 
         setUiMode(settings.getUiMode());
+
+        if (settings.getUseMonitoringService()) {
+            CallMonitoringService.start(this);
+        }
     }
 
     private Context getDeviceProtectedStorageContext() {

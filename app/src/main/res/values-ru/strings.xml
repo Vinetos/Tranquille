@@ -162,5 +162,11 @@
     <string name="sia_category_safe_nonprofit">Безопасная некоммерческая организация</string>
     <string name="sia_category_safe_company">Безопасная компания</string>
     <string name="notification_channel_name_tasks">Задачи</string>
-    <string name="notification_channel_group_name_tasks">Задачи</string>
+    <string name="notification_channel_group_name_services">Службы</string>
+    <string name="notification_channel_name_monitoring_service">Служба мониторинга</string>
+    <string name="use_monitoring_service">Использовать службу мониторинга</string>
+    <string name="use_monitoring_service_summary">Включает постоянно запущенную службу мониторинга, которая помогает получать события телефонии на некоторых телефонах. Включайте эту функцию, только если блокирование вызовов и информационные уведомления не работают. Эта функция никак не влияет на расход энергии</string>
+    <string name="monitoring_service_label">Служба мониторинга вызовов</string>
+    <string name="monitoring_service_description">Служба для мониторинга состояния телефона в фоне</string>
+    <string name="monitoring_service_notification_title">Мониторинг вызовов</string>
 </resources>

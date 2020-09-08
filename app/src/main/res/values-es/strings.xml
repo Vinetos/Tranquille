@@ -3,7 +3,6 @@
 
     <string name="notification_channel_group_name_incoming_calls">Llamadas entrantes</string>
     <string name="notification_channel_group_name_blocked_calls">Llamadas bloqueadas</string>
-    <string name="notification_channel_group_name_tasks">Tareas</string>
 
     <string name="notification_channel_name_known">Llamadas conocidas</string>
     <string name="notification_channel_name_positive">Llamadas positivas</string>

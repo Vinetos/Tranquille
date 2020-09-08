@@ -1,6 +1,7 @@
 package dummydomain.yetanothercallblocker;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import java.util.regex.Pattern;
 import dummydomain.yetanothercallblocker.preference.IntListPreference;
 import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
 import dummydomain.yetanothercallblocker.utils.FileUtils;
+import dummydomain.yetanothercallblocker.utils.PackageManagerUtils;
 import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
 import static java.util.Objects.requireNonNull;
@@ -179,6 +181,23 @@ public class SettingsActivity extends AppCompatActivity
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                 callScreeningPref.setVisible(false);
             }
+
+            SwitchPreferenceCompat monitoringPref =
+                    requireNonNull(findPreference(Settings.PREF_USE_MONITORING_SERVICE));
+            monitoringPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                boolean enabled = Boolean.TRUE.equals(newValue);
+                Context context = requireContext();
+
+                PackageManagerUtils.setComponentEnabledOrDefault(
+                        context, StartupReceiver.class, enabled);
+                if (enabled) {
+                    CallMonitoringService.start(context);
+                } else {
+                    CallMonitoringService.stop(context);
+                }
+
+                return true;
+            });
 
             SwitchPreferenceCompat nonPersistentAutoUpdatePref =
                     requireNonNull(findPreference(PREF_AUTO_UPDATE_ENABLED));

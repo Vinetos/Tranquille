@@ -157,5 +157,4 @@
     <string name="lookup_hint_input_number">Номер телефону</string>
     <string name="db_management_activity_label">Керування базою</string>
     <string name="notification_channel_name_tasks">Завдання</string>
-    <string name="notification_channel_group_name_tasks">Завдання</string>
 </resources>

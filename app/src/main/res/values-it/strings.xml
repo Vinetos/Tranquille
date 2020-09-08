@@ -14,7 +14,6 @@
     <string name="notification_channel_name_neutral">Numeri neutro</string>
     <string name="notification_channel_name_positive">Numeri buoni</string>
     <string name="notification_channel_name_known">Chiamate conosciute</string>
-    <string name="notification_channel_group_name_tasks">Azioni</string>
     <string name="notification_channel_group_name_blocked_calls">Chiamate bloccate</string>
     <string name="notification_channel_group_name_incoming_calls">Chiamate in entrata</string>
     <string name="app_name">Yet Another Call Blocker</string>

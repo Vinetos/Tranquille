@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import java.util.concurrent.TimeUnit;
 
 import dummydomain.yetanothercallblocker.PermissionHelper;
+import dummydomain.yetanothercallblocker.PhoneStateHandler;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.data.db.YacbDaoSessionFactory;
 import dummydomain.yetanothercallblocker.sia.Settings;
@@ -146,6 +147,8 @@ public class Config {
                 settings, NumberUtils::isHiddenNumber, NumberUtils::normalizeNumber,
                 communityDatabase, featuredDatabase, contactsProvider, blacklistService);
         YacbHolder.setNumberInfoService(numberInfoService);
+
+        YacbHolder.setPhoneStateHandler(new PhoneStateHandler(settings, numberInfoService));
     }
 
 }

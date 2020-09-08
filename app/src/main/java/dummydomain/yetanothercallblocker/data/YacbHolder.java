@@ -1,5 +1,6 @@
 package dummydomain.yetanothercallblocker.data;
 
+import dummydomain.yetanothercallblocker.PhoneStateHandler;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
 import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
@@ -21,6 +22,8 @@ public class YacbHolder {
     private static BlacklistService blacklistService;
 
     private static NumberInfoService numberInfoService;
+
+    private static PhoneStateHandler phoneStateHandler;
 
     static void setWebService(WebService webService) {
         YacbHolder.webService = webService;
@@ -58,6 +61,10 @@ public class YacbHolder {
         YacbHolder.numberInfoService = numberInfoService;
     }
 
+    static void setPhoneStateHandler(PhoneStateHandler phoneStateHandler) {
+        YacbHolder.phoneStateHandler = phoneStateHandler;
+    }
+
     public static WebService getWebService() {
         return webService;
     }
@@ -92,6 +99,10 @@ public class YacbHolder {
 
     public static NumberInfoService getNumberInfoService() {
         return numberInfoService;
+    }
+
+    public static PhoneStateHandler getPhoneStateHandler() {
+        return phoneStateHandler;
     }
 
     public static NumberInfo getNumberInfo(String number, String countryCode) {

@@ -3,7 +3,6 @@
 
     <string name="notification_channel_group_name_incoming_calls">Inkomende oproepen</string>
     <string name="notification_channel_group_name_blocked_calls">Geblokkeerde oproepen</string>
-    <string name="notification_channel_group_name_tasks">Taken</string>
 
     <string name="notification_channel_name_known">Bekende oproepen</string>
     <string name="notification_channel_name_positive">Gewenste oproepen</string>

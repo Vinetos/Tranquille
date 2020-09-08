@@ -126,6 +126,5 @@
     <string name="notification_channel_name_tasks">Zadania</string>
     <string name="notification_channel_group_name_blocked_calls">Zablokowane połączenia</string>
     <string name="notification_channel_group_name_incoming_calls">Połączenia przychodzące</string>
-    <string name="notification_channel_group_name_tasks">Zadania</string>
     <string name="app_name">Yet Another Call Blocker</string>
 </resources>

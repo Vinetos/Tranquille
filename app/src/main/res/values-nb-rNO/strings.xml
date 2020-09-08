@@ -149,7 +149,6 @@
     <string name="notification_channel_name_neutral">Nøytrale anrop</string>
     <string name="notification_channel_name_positive">Positive anrop</string>
     <string name="notification_channel_name_known">Kjente anrop</string>
-    <string name="notification_channel_group_name_tasks">Gjøremål</string>
     <string name="notification_channel_group_name_blocked_calls">Blokkerte anrop</string>
     <string name="notification_channel_group_name_incoming_calls">Innkommende anrop</string>
 </resources>

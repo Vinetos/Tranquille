@@ -159,7 +159,6 @@
     <string name="notification_channel_name_neutral">Ουδέτερες κλήσεις</string>
     <string name="notification_channel_name_positive">Θετικές κλήσεις</string>
     <string name="notification_channel_name_known">Γνωστές κλήσεις</string>
-    <string name="notification_channel_group_name_tasks">Καθήκοντα</string>
     <string name="notification_channel_group_name_blocked_calls">Αποκλεισμένες κλήσεις</string>
     <string name="notification_channel_group_name_incoming_calls">Εισερχόμενες κλήσεις</string>
 </resources>

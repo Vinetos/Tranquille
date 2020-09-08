@@ -31,11 +31,12 @@ public class NotificationHelper {
 
     private static final int NOTIFICATION_ID_INCOMING_CALL = 1;
     private static final int NOTIFICATION_ID_BLOCKED_CALL = 2;
-    public static final int NOTIFICATION_ID_TASKS = 3;
+    public static final int NOTIFICATION_ID_MONITORING_SERVICE = 3;
+    public static final int NOTIFICATION_ID_TASKS = 4;
 
     private static final String CHANNEL_GROUP_ID_INCOMING_CALLS = "incoming_calls";
     private static final String CHANNEL_GROUP_ID_BLOCKED_CALLS = "blocked_calls";
-    private static final String CHANNEL_GROUP_ID_TASKS = "tasks";
+    private static final String CHANNEL_GROUP_ID_SERVICES = "services";
 
     private static final String CHANNEL_ID_KNOWN = "known_calls";
     private static final String CHANNEL_ID_POSITIVE = "positive_calls";
@@ -43,6 +44,7 @@ public class NotificationHelper {
     private static final String CHANNEL_ID_UNKNOWN = "unknown_calls";
     private static final String CHANNEL_ID_NEGATIVE = "negative_calls";
     private static final String CHANNEL_ID_BLOCKED_INFO = "blocked_info";
+    private static final String CHANNEL_ID_MONITORING_SERVICE = "monitoring_service";
     private static final String CHANNEL_ID_TASKS = "tasks";
 
     private static boolean notificationChannelsInitialized;
@@ -89,6 +91,22 @@ public class NotificationHelper {
         String tag = NOTIFICATION_TAG_BLOCKED_CALL
                 + (!numberInfo.noNumber ? numberInfo.number : System.nanoTime()); // TODO: handle repeating
         notify(context, tag, NOTIFICATION_ID_BLOCKED_CALL, notification);
+    }
+
+    public static Notification createMonitoringServiceNotification(Context context) {
+        initNotificationChannels(context);
+
+        PendingIntent contentIntent = pendingActivity(context,
+                new Intent(context, MainActivity.class));
+
+        return new NotificationCompat.Builder(context, CHANNEL_ID_MONITORING_SERVICE)
+                .setSmallIcon(R.drawable.ic_security_24dp)
+                .setContentTitle(context.getString(R.string.monitoring_service_notification_title))
+                .setContentIntent(contentIntent)
+                .setCategory(NotificationCompat.CATEGORY_SERVICE)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
+                .setShowWhen(false)
+                .build();
     }
 
     public static Notification createServiceNotification(Context context, String title) {
@@ -253,10 +271,10 @@ public class NotificationHelper {
                     context.getString(R.string.notification_channel_group_name_blocked_calls));
             notificationManager.createNotificationChannelGroup(channelGroupBlocked);
 
-            NotificationChannelGroup channelGroupTasks = new NotificationChannelGroup(
-                    CHANNEL_GROUP_ID_TASKS,
-                    context.getString(R.string.notification_channel_group_name_tasks));
-            notificationManager.createNotificationChannelGroup(channelGroupTasks);
+            NotificationChannelGroup channelGroupServices = new NotificationChannelGroup(
+                    CHANNEL_GROUP_ID_SERVICES,
+                    context.getString(R.string.notification_channel_group_name_services));
+            notificationManager.createNotificationChannelGroup(channelGroupServices);
 
             List<NotificationChannel> channels = new ArrayList<>();
 
@@ -305,10 +323,18 @@ public class NotificationHelper {
             channels.add(channel);
 
             channel = new NotificationChannel(
+                    CHANNEL_ID_MONITORING_SERVICE,
+                    context.getString(R.string.notification_channel_name_monitoring_service),
+                    NotificationManager.IMPORTANCE_LOW
+            );
+            channel.setGroup(channelGroupServices.getId());
+            channels.add(channel);
+
+            channel = new NotificationChannel(
                     CHANNEL_ID_TASKS, context.getString(R.string.notification_channel_name_tasks),
                     NotificationManager.IMPORTANCE_LOW
             );
-            channel.setGroup(channelGroupTasks.getId());
+            channel.setGroup(channelGroupServices.getId());
             channels.add(channel);
 
             notificationManager.createNotificationChannels(channels);
