@@ -107,7 +107,7 @@ public class DebuggingUtils {
     public static void appendDeviceInfo(String file) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             writer.newLine();
-            writer.append("API level: ").append(android.os.Build.VERSION.SDK).append('\n');
+            writer.append("API level: ").append(String.valueOf(android.os.Build.VERSION.SDK_INT)).append('\n');
             writer.append("Brand: ").append(Build.BRAND).append('\n');
             writer.append("Manufacturer: ").append(Build.MANUFACTURER).append('\n');
             writer.append("Model: ").append(android.os.Build.MODEL).append('\n');
