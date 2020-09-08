@@ -1,9 +1,9 @@
 Jednostavna aplikacija za blokiranje poziva koja će ti pomoći ne odgovarati na neželjene pozive
-pomoću izvanmrežne baze podataka telefonskih brojeva.
+pomoću baze podataka telefonskih brojeva dobivene masovnom podrškom.
 
-Karakteristike:
+<b>Karakteristike:</b>
 
-* Koristi izvanmrežnu bazu podataka.
+* Koristi neumreženu bazu podataka.
 * Automatski blokira pozive s negativnom ocjenom (opcija).
 * Lokalni popis nepoželjnih s podrškom za zamjenske znakove.
 * Prikazuje obavijest sa sažetkom telefonskog broja (ocjena, broj pregleda, kategorija) tijekom dolaznih poziva (opcija).
@@ -11,7 +11,7 @@ Karakteristike:
 * Moguće je pogledati mrežne recenzije za broj pozivatelja (pruža ih strana usluga).
 * „Napredni način blokiranja poziva” za blokiranje poziva na Androidu 7+ prije nego što telefon počne zvoniti (mora se ručno aktivirati u postavkama aplikacije).
 
-Kako koristiti:
+<b>Kako koristiti:</b>
 
 * Instaliraj i pokreni aplikaciju.
 * Opcija prikazivanja obavijesti o pozivima je standardno aktivirana, stoga će aplikacija tražiti korisničke dozvole vezana uz telefon.
@@ -21,8 +21,10 @@ Kako koristiti:
 * Označi potvrdni okvir „Koristi kontakte”, ako želiš da se tvoji kontakti ne tretiraju kao nepoznati pozivači.
 * Nakon ovih koraka sve bi trebalo funkcionirati (daljnje opcije portaži u postavkama). Uživaj!
 
-Glavna baza podataka telefonskih brojeva preuzima se iz gitlab-repozirotija.
-Delta-aktualiziranja i detaljni upiti pregleda izvode se putem stranih poslužitelja.
+Saznaj više na stranicama sa <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">često postavljenim pitanjima</a>.
+
+Glavna baza podataka telefonskih brojeva preuzima se iz <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">gitlab repozirotija</a>.
+<b>Aktualiziranja baze podataka i detaljni upiti pregleda izvode se putem stranih poslužitelja.</b>
 Podaci o identitetu korisnika ne šalju se (osim telefonskog broja
 za koji se učitavaju detaljni pregledi).
 
