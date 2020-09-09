@@ -1,5 +1,8 @@
 package dummydomain.yetanothercallblocker.data;
 
+import android.annotation.SuppressLint;
+
+import dummydomain.yetanothercallblocker.NotificationService;
 import dummydomain.yetanothercallblocker.PhoneStateHandler;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
@@ -22,6 +25,9 @@ public class YacbHolder {
     private static BlacklistService blacklistService;
 
     private static NumberInfoService numberInfoService;
+
+    @SuppressLint("StaticFieldLeak")
+    private static NotificationService notificationService;
 
     private static PhoneStateHandler phoneStateHandler;
 
@@ -59,6 +65,10 @@ public class YacbHolder {
 
     static void setNumberInfoService(NumberInfoService numberInfoService) {
         YacbHolder.numberInfoService = numberInfoService;
+    }
+
+    static void setNotificationService(NotificationService notificationService) {
+        YacbHolder.notificationService = notificationService;
     }
 
     static void setPhoneStateHandler(PhoneStateHandler phoneStateHandler) {
@@ -99,6 +109,10 @@ public class YacbHolder {
 
     public static NumberInfoService getNumberInfoService() {
         return numberInfoService;
+    }
+
+    public static NotificationService getNotificationService() {
+        return notificationService;
     }
 
     public static PhoneStateHandler getPhoneStateHandler() {

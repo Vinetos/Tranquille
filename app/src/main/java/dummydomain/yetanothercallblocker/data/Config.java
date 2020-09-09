@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import java.util.concurrent.TimeUnit;
 
+import dummydomain.yetanothercallblocker.NotificationService;
 import dummydomain.yetanothercallblocker.PermissionHelper;
 import dummydomain.yetanothercallblocker.PhoneStateHandler;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
@@ -148,7 +149,11 @@ public class Config {
                 communityDatabase, featuredDatabase, contactsProvider, blacklistService);
         YacbHolder.setNumberInfoService(numberInfoService);
 
-        YacbHolder.setPhoneStateHandler(new PhoneStateHandler(settings, numberInfoService));
+        NotificationService notificationService = new NotificationService(context);
+        YacbHolder.setNotificationService(notificationService);
+
+        YacbHolder.setPhoneStateHandler(
+                new PhoneStateHandler(settings, numberInfoService, notificationService));
     }
 
 }

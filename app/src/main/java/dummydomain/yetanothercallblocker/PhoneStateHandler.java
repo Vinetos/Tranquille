@@ -19,12 +19,15 @@ public class PhoneStateHandler {
 
     private final Settings settings;
     private final NumberInfoService numberInfoService;
+    private final NotificationService notificationService;
 
     private boolean isOffHook;
 
-    public PhoneStateHandler(Settings settings, NumberInfoService numberInfoService) {
+    public PhoneStateHandler(Settings settings, NumberInfoService numberInfoService,
+                             NotificationService notificationService) {
         this.settings = settings;
         this.numberInfoService = numberInfoService;
+        this.notificationService = notificationService;
     }
 
     public void onRinging(Context context, String phoneNumber) {
@@ -53,7 +56,7 @@ public class PhoneStateHandler {
             blocked = PhoneUtils.rejectCall(context);
 
             if (blocked) {
-                notifyBlocked(context, numberInfo);
+                notificationService.notifyCallBlocked(numberInfo);
 
                 numberInfoService.blockedCall(numberInfo);
 
@@ -62,7 +65,7 @@ public class PhoneStateHandler {
         }
 
         if (!blocked && showNotifications) {
-            startIndication(context, numberInfo);
+            notificationService.startCallIndication(numberInfo);
         }
     }
 
@@ -79,21 +82,9 @@ public class PhoneStateHandler {
 
         isOffHook = false;
 
-        stopAllIndication(context);
+        notificationService.stopAllCallsIndication();
 
         postEvent(new CallEndedEvent());
-    }
-
-    private void startIndication(Context context, NumberInfo numberInfo) {
-        NotificationHelper.showIncomingCallNotification(context, numberInfo);
-    }
-
-    private void stopAllIndication(Context context) {
-        NotificationHelper.hideIncomingCallNotification(context);
-    }
-
-    private void notifyBlocked(Context context, NumberInfo numberInfo) {
-        NotificationHelper.showBlockedCallNotification(context, numberInfo);
     }
 
 }
