@@ -29,6 +29,7 @@ public class YacbHolder {
     @SuppressLint("StaticFieldLeak")
     private static NotificationService notificationService;
 
+    @SuppressLint("StaticFieldLeak")
     private static PhoneStateHandler phoneStateHandler;
 
     static void setWebService(WebService webService) {

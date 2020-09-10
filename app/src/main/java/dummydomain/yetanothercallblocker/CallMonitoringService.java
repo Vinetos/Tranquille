@@ -26,7 +26,7 @@ public class CallMonitoringService extends Service {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallMonitoringService.class);
 
-    private final MyPhoneStateListener phoneStateListener = new MyPhoneStateListener(this);
+    private final MyPhoneStateListener phoneStateListener = new MyPhoneStateListener();
     private final CallReceiver callReceiver = new CallReceiver(true);
 
     private boolean monitoringStarted;
@@ -122,12 +122,6 @@ public class CallMonitoringService extends Service {
 
         private static final Logger LOG = LoggerFactory.getLogger(MyPhoneStateListener.class);
 
-        private final Context context;
-
-        public MyPhoneStateListener(Context context) {
-            this.context = context;
-        }
-
         @Override
         public void onCallStateChanged(int state, String phoneNumber) {
             LOG.info("onCallStateChanged({}, \"{}\")", state, phoneNumber);
@@ -143,13 +137,13 @@ public class CallMonitoringService extends Service {
             PhoneStateHandler phoneStateHandler = YacbHolder.getPhoneStateHandler();
             switch (state) {
                 case TelephonyManager.CALL_STATE_IDLE:
-                    phoneStateHandler.onIdle(context, phoneNumber);
+                    phoneStateHandler.onIdle(phoneNumber);
                     break;
                 case TelephonyManager.CALL_STATE_RINGING:
-                    phoneStateHandler.onRinging(context, phoneNumber);
+                    phoneStateHandler.onRinging(phoneNumber);
                     break;
                 case TelephonyManager.CALL_STATE_OFFHOOK:
-                    phoneStateHandler.onOffHook(context, phoneNumber);
+                    phoneStateHandler.onOffHook(phoneNumber);
                     break;
             }
         }

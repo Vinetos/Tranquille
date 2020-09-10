@@ -22,7 +22,7 @@ public class PhoneUtils {
 
     private static final Logger LOG = LoggerFactory.getLogger(PhoneUtils.class);
 
-    public static boolean rejectCall(@NonNull Context context) {
+    public static boolean endCall(@NonNull Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             try {
                 TelecomManager telecomManager = requireNonNull(

@@ -153,7 +153,7 @@ public class Config {
         YacbHolder.setNotificationService(notificationService);
 
         YacbHolder.setPhoneStateHandler(
-                new PhoneStateHandler(settings, numberInfoService, notificationService));
+                new PhoneStateHandler(context, settings, numberInfoService, notificationService));
     }
 
 }

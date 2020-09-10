@@ -58,11 +58,11 @@ public class CallReceiver extends BroadcastReceiver {
 
         PhoneStateHandler phoneStateHandler = YacbHolder.getPhoneStateHandler();
         if (TelephonyManager.EXTRA_STATE_RINGING.equals(telephonyExtraState)) {
-            phoneStateHandler.onRinging(context, incomingNumber);
+            phoneStateHandler.onRinging(incomingNumber);
         } else if (TelephonyManager.EXTRA_STATE_OFFHOOK.equals(telephonyExtraState)) {
-            phoneStateHandler.onOffHook(context, incomingNumber);
+            phoneStateHandler.onOffHook(incomingNumber);
         } else if (TelephonyManager.EXTRA_STATE_IDLE.equals(telephonyExtraState)) {
-            phoneStateHandler.onIdle(context, incomingNumber);
+            phoneStateHandler.onIdle(incomingNumber);
         }
     }
 
