@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 
+import static dummydomain.yetanothercallblocker.utils.StringUtils.quote;
 import static java.util.Objects.requireNonNull;
 
 public class CallMonitoringService extends Service {
@@ -125,7 +126,7 @@ public class CallMonitoringService extends Service {
 
         @Override
         public void onCallStateChanged(int state, String phoneNumber) {
-            LOG.info("onCallStateChanged({}, \"{}\")", state, phoneNumber);
+            LOG.info("onCallStateChanged({}, {})", state, quote(phoneNumber));
 
             /*
              * According to docs, an empty string may be passed if the app lacks permissions.

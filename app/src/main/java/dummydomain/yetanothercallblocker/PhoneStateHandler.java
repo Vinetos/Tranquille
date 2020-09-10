@@ -20,6 +20,7 @@ import dummydomain.yetanothercallblocker.event.CallOngoingEvent;
 import dummydomain.yetanothercallblocker.utils.PhoneUtils;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
+import static dummydomain.yetanothercallblocker.utils.StringUtils.quote;
 
 public class PhoneStateHandler {
 
@@ -51,7 +52,7 @@ public class PhoneStateHandler {
     }
 
     public void onRinging(Source source, String phoneNumber) {
-        LOG.debug("onRinging({}, \"{}\")", source, phoneNumber);
+        LOG.debug("onRinging({}, {})", source, quote(phoneNumber));
 
         boolean ignore = false;
 
@@ -117,7 +118,7 @@ public class PhoneStateHandler {
     }
 
     public void onOffHook(Source source, String phoneNumber) {
-        LOG.debug("onOffHook({}, \"{}\")", source, phoneNumber);
+        LOG.debug("onOffHook({}, {})", source, quote(phoneNumber));
 
         isOffHook = true;
 
@@ -125,7 +126,7 @@ public class PhoneStateHandler {
     }
 
     public void onIdle(Source source, String phoneNumber) {
-        LOG.debug("onIdle({}, \"{}\")", source, phoneNumber);
+        LOG.debug("onIdle({}, {})", source, quote(phoneNumber));
 
         isOffHook = false;
 

@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 
+import static dummydomain.yetanothercallblocker.utils.StringUtils.quote;
+
 public class CallReceiver extends BroadcastReceiver {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallReceiver.class);
@@ -43,7 +45,7 @@ public class CallReceiver extends BroadcastReceiver {
         String incomingNumber = intent.getStringExtra(extraIncomingNumber);
         boolean hasNumberExtra = intent.hasExtra(extraIncomingNumber);
         LOG.info("onReceive() extraState={}, incomingNumber={}, hasNumberExtra={}",
-                telephonyExtraState, incomingNumber, hasNumberExtra);
+                telephonyExtraState, quote(incomingNumber), hasNumberExtra);
 
         extraLogging(intent); // TODO: make optional or remove
 
