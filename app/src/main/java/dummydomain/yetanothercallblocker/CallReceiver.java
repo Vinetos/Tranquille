@@ -15,20 +15,20 @@ public class CallReceiver extends BroadcastReceiver {
 
     private static final Logger LOG = LoggerFactory.getLogger(CallReceiver.class);
 
-    private final boolean monitoringService;
+    private final PhoneStateHandler.Source source;
 
     @SuppressWarnings({"unused", "RedundantSuppression"}) // required for BroadcastReceivers
     public CallReceiver() {
-        this(false);
+        this(PhoneStateHandler.Source.PHONE_STATE_BROADCAST_RECEIVER);
     }
 
-    public CallReceiver(boolean monitoringService) {
-        this.monitoringService = monitoringService;
+    public CallReceiver(PhoneStateHandler.Source source) {
+        this.source = source;
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        LOG.debug("onReceive() invoked, monitoringService={}", monitoringService);
+        LOG.debug("onReceive() invoked, source={}", source);
 
         if (!TelephonyManager.ACTION_PHONE_STATE_CHANGED.equals(intent.getAction())
                 && !TelephonyManager.EXTRA_STATE_RINGING.equals(intent.getAction())) { // TODO: check
@@ -58,11 +58,11 @@ public class CallReceiver extends BroadcastReceiver {
 
         PhoneStateHandler phoneStateHandler = YacbHolder.getPhoneStateHandler();
         if (TelephonyManager.EXTRA_STATE_RINGING.equals(telephonyExtraState)) {
-            phoneStateHandler.onRinging(incomingNumber);
+            phoneStateHandler.onRinging(source, incomingNumber);
         } else if (TelephonyManager.EXTRA_STATE_OFFHOOK.equals(telephonyExtraState)) {
-            phoneStateHandler.onOffHook(incomingNumber);
+            phoneStateHandler.onOffHook(source, incomingNumber);
         } else if (TelephonyManager.EXTRA_STATE_IDLE.equals(telephonyExtraState)) {
-            phoneStateHandler.onIdle(incomingNumber);
+            phoneStateHandler.onIdle(source, incomingNumber);
         }
     }
 

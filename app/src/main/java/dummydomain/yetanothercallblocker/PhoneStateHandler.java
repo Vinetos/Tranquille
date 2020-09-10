@@ -3,6 +3,8 @@ package dummydomain.yetanothercallblocker;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.core.util.Predicate;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +22,12 @@ import dummydomain.yetanothercallblocker.utils.PhoneUtils;
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
 
 public class PhoneStateHandler {
+
+    public enum Source {
+        PHONE_STATE_LISTENER,
+        PHONE_STATE_BROADCAST_RECEIVER_MONITORING,
+        PHONE_STATE_BROADCAST_RECEIVER
+    }
 
     private static final Logger LOG = LoggerFactory.getLogger(PhoneStateHandler.class);
 
@@ -42,8 +50,8 @@ public class PhoneStateHandler {
         this.notificationService = notificationService;
     }
 
-    public void onRinging(String phoneNumber) {
-        LOG.debug("onRinging({})", phoneNumber);
+    public void onRinging(Source source, String phoneNumber) {
+        LOG.debug("onRinging({}, \"{}\")", source, phoneNumber);
 
         boolean ignore = false;
 
@@ -53,17 +61,30 @@ public class PhoneStateHandler {
                 return;
             }
 
-            // TODO: check
-            LOG.debug("onRinging() ignoring null");
-            ignore = true;
+            if (source == Source.PHONE_STATE_LISTENER) {
+                LOG.info("onRinging() treating null from PhoneStateListener as a hidden number");
+                phoneNumber = "";
+            } else if ((source == Source.PHONE_STATE_BROADCAST_RECEIVER_MONITORING
+                    || source == Source.PHONE_STATE_BROADCAST_RECEIVER)
+                    && isEventPresent(sameSourceAndNumber(source, null))
+                    && !isEventPresent(nonEmptyNumber())) {
+                LOG.info("onRinging() treating repeated null from PhoneStateBroadcastReceiver" +
+                        " as a hidden number");
+                phoneNumber = "";
+            }
+
+            if (phoneNumber == null) {
+                LOG.debug("onRinging() ignoring null");
+                ignore = true;
+            }
         }
 
-        if (!ignore && !shouldProcess(phoneNumber)) {
+        if (!ignore && isEventPresent(sameNumber(phoneNumber))) {
             LOG.debug("onRinging() ignoring repeated event");
             ignore = true;
         }
 
-        recordEvent(phoneNumber);
+        recordEvent(source, phoneNumber);
 
         if (ignore) return;
 
@@ -95,16 +116,16 @@ public class PhoneStateHandler {
         }
     }
 
-    public void onOffHook(String phoneNumber) {
-        LOG.debug("onOffHook({})", phoneNumber);
+    public void onOffHook(Source source, String phoneNumber) {
+        LOG.debug("onOffHook({}, \"{}\")", source, phoneNumber);
 
         isOffHook = true;
 
         postEvent(new CallOngoingEvent());
     }
 
-    public void onIdle(String phoneNumber) {
-        LOG.debug("onIdle({})", phoneNumber);
+    public void onIdle(Source source, String phoneNumber) {
+        LOG.debug("onIdle({}, \"{}\")", source, phoneNumber);
 
         isOffHook = false;
 
@@ -113,38 +134,56 @@ public class PhoneStateHandler {
         postEvent(new CallEndedEvent());
     }
 
-    private boolean shouldProcess(String phoneNumber) {
+    private static Predicate<CallEvent> sameNumber(String number) {
+        return event -> TextUtils.equals(event.number, number);
+    }
+
+    private static Predicate<CallEvent> sameSourceAndNumber(Source source, String number) {
+        return event -> event.source == source && TextUtils.equals(event.number, number);
+    }
+
+    private static Predicate<CallEvent> nonEmptyNumber() {
+        return event -> !TextUtils.isEmpty(event.number);
+    }
+
+    private boolean isEventPresent(Predicate<CallEvent> predicate) {
+        return findEvent(predicate) != null;
+    }
+
+    private CallEvent findEvent(Predicate<CallEvent> predicate) {
         // using 1 second ago as the cutoff point - consider everything older as unrelated events
         long cutoff = System.nanoTime() - TimeUnit.SECONDS.toNanos(1);
 
         if (lastEventTimestamp - cutoff < 0) { // no events in the last second
             lastEvents.clear();
-            return true;
+            return null;
         }
 
         for (ListIterator<CallEvent> it = lastEvents.listIterator(); it.hasNext(); ) {
             CallEvent event = it.next();
             if (event.timestamp - cutoff < 0) { // event is older than the cutoff point
                 it.remove();
-            } else if (TextUtils.equals(event.number, phoneNumber)) {
-                return false; // don't process same event
+            } else if (predicate.test(event)) {
+                return event;
             }
         }
 
-        return true;
+        return null;
     }
 
-    private void recordEvent(String phoneNumber) {
+    private void recordEvent(Source source, String phoneNumber) {
         long currentTimestamp = System.nanoTime();
-        lastEvents.add(new CallEvent(phoneNumber, currentTimestamp));
+        lastEvents.add(new CallEvent(source, phoneNumber, currentTimestamp));
         lastEventTimestamp = currentTimestamp;
     }
 
     private static class CallEvent {
+        final Source source;
         final String number;
         final long timestamp;
 
-        public CallEvent(String number, long timestamp) {
+        public CallEvent(Source source, String number, long timestamp) {
+            this.source = source;
             this.number = number;
             this.timestamp = timestamp;
         }
