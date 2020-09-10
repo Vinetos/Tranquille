@@ -14,9 +14,11 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
+import dummydomain.yetanothercallblocker.BuildConfig;
+
 public class FileUtils {
 
-    private static final String FILEPROVIDER_AUTHORITY = "dummydomain.yetanothercallblocker.fileprovider";
+    private static final String FILEPROVIDER_AUTHORITY = BuildConfig.APPLICATION_ID + ".fileprovider";
 
     private static final Logger LOG = LoggerFactory.getLogger(FileUtils.class);
 
