@@ -1,0 +1,33 @@
+Prosta aplikacja do blokowania połączeń, która pomoże uniknąć ci odbierania niechcianych połączeń,
+korzystając z bazy danych numerów telefonów pozyskiwanych w ramach crowdsourcingu.
+
+<b>Cechy:</b>
+
+* Wykorzystuje bazę danych offline.
+* Automatycznie blokuje połączenia z negatywną oceną. (Opcjonalne)
+* Lokalna czarna lista z obsługą wieloznacznika (ang. wildcard).
+* Wyświetla powiadomienie z podsumowaniem numeru telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących. (Opcjonalne)
+* Automatyczne aktualizacje przyrostowe bazy danych. (Opcjonalne)
+* Możliwość przeglądania recenzji online dotyczących dzwoniącego numeru. (Dostarczane przez zewnętrzną usługę.)
+* „Zaawansowany tryb blokowania” for blocking calls on Android 7+ before the phone starts ringing (needs to be manually enabled in app Settings).
+
+<b>Jak używać:</b>
+
+* Zainstaluj i uruchom aplikację.
+* The option to show caller info notifications is enabled by default, so the app will ask for phone-related permissions.
+* At first start, the app will suggest to download main database which is required for most of the functions. Simply confirm the download.
+* Check the "Auto-update database" checkbox in the menu (recommended) to automatically receive daily DB updates (these are incremental/delta updates, so they consume very little traffic).
+* Check the "Block by rating" checkbox to block calls with negative rating automatically.
+* You can also check the "Use contacts" checkbox if you want your contacts not to be treated as unknown callers.
+* After these steps everything should just work (but you can always find more options in Settings). Enjoy!
+
+Zobacz <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">frequently asked questions</a>, aby dowiedzieć się wiecej.
+
+The main phone number database is downloaded from <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">a gitlab repository</a>.
+<b>Database updates and detailed review queries are performed using 3rd-party servers.</b>
+No user-identifiable information is sent (except for the phone number
+the detailed reviews are loaded for).
+
+Yet Another Call Blocker is still under development. Any help is welcome.
+
+„Ta aplikacja promuje niewolne usługi sieciowe (NonFreeNet)”: Usługi dostarczane przez zewnętrzną firmę nie są wolne.
