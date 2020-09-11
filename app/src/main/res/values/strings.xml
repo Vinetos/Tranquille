@@ -142,7 +142,7 @@
     <string name="open_blacklist_activity">Blacklist</string>
     <string name="title_blacklist_activity">Blacklist</string>
     <plurals name="blacklist_item_stats">
-        <item quantity="one">Called at %2$s</item>
+        <item quantity="one">Called %2$s</item>
         <item quantity="other">%1$d calls, last: %2$s</item>
     </plurals>
     <string name="blacklist_item_date_no_info">no info</string>
