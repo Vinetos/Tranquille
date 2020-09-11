@@ -17,9 +17,13 @@ Not necessarily. See ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-
 
 Check that you've granted all the requested permissions (the app asks for missing permissions when you open its main screen).
 
-The app may encounter troubles providing its features on stock firmwares by some manufacturers (like MIUI from Xiaomi). You may try to enable the ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) (in Yet Another Call Blocker settings). The feature should help to fix call blocking, though still won't help to provide the informational notifications (except "Call blocked" notifications - these will work fine).
+The app may encounter troubles providing its features on stock firmwares by some manufacturers (like MIUI from Xiaomi). There are two known issues so far:
 
-Known issues: ["normal" blocking mode doesn't work on MIUI](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/12), [no informational notifications on some modern Samsung phones](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/13).
+* [Call blocking and informational notifications don't work on MIUI (stock firmware on Xiaomi phones)](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/12).  
+  This problem can be solved by enabling an always-running "monitoring service" (in Yet Another Call Blocker settings). Android requires to display a notification for a service like that, but on Android 8+ you may disable the notification using "notification channels". This feature has no effect on battery life.  
+  Alternatively (or additionally) you may enable the ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) (in Yet Another Call Blocker settings). The feature should help to fix call blocking, though still won't help to provide the informational notifications (except "Call blocked" notifications - these will work fine).
+* [No informational notifications on some modern Samsung phones](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/13).  
+  The cause of this problem is unknown (so far) and there's no workaround. Provide system logs (not app logs - these show no anomalies) if you want this fixed.
 
 
 ## The app doesn't have a persistent notification. Does it work?
