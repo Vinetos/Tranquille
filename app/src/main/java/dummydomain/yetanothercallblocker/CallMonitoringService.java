@@ -28,7 +28,8 @@ public class CallMonitoringService extends Service {
     private static final Logger LOG = LoggerFactory.getLogger(CallMonitoringService.class);
 
     private final MyPhoneStateListener phoneStateListener = new MyPhoneStateListener();
-    private final CallReceiver callReceiver = new CallReceiver(
+    private final PhoneStateBroadcastReceiver phoneStateBroadcastReceiver
+            = new PhoneStateBroadcastReceiver(
             PhoneStateHandler.Source.PHONE_STATE_BROADCAST_RECEIVER_MONITORING);
 
     private boolean monitoringStarted;
@@ -95,7 +96,7 @@ public class CallMonitoringService extends Service {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TelephonyManager.EXTRA_STATE_RINGING); // TODO: check
             intentFilter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
-            registerReceiver(callReceiver, intentFilter);
+            registerReceiver(phoneStateBroadcastReceiver, intentFilter);
         } catch (Exception e) {
             LOG.error("startMonitoring()", e);
         }
@@ -107,7 +108,7 @@ public class CallMonitoringService extends Service {
         try {
             getTelephonyManager().listen(phoneStateListener, PhoneStateListener.LISTEN_NONE);
 
-            unregisterReceiver(callReceiver);
+            unregisterReceiver(phoneStateBroadcastReceiver);
         } catch (Exception e) {
             LOG.error("stopMonitoring()", e);
         }

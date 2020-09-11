@@ -13,18 +13,18 @@ import dummydomain.yetanothercallblocker.data.YacbHolder;
 
 import static dummydomain.yetanothercallblocker.utils.StringUtils.quote;
 
-public class CallReceiver extends BroadcastReceiver {
+public class PhoneStateBroadcastReceiver extends BroadcastReceiver {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CallReceiver.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PhoneStateBroadcastReceiver.class);
 
     private final PhoneStateHandler.Source source;
 
     @SuppressWarnings({"unused", "RedundantSuppression"}) // required for BroadcastReceivers
-    public CallReceiver() {
+    public PhoneStateBroadcastReceiver() {
         this(PhoneStateHandler.Source.PHONE_STATE_BROADCAST_RECEIVER);
     }
 
-    public CallReceiver(PhoneStateHandler.Source source) {
+    public PhoneStateBroadcastReceiver(PhoneStateHandler.Source source) {
         this.source = source;
     }
 

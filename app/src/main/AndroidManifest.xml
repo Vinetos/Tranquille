@@ -115,7 +115,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".CallReceiver"
+            android:name=".PhoneStateBroadcastReceiver"
             android:directBootAware="true">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
