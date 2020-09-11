@@ -16,7 +16,6 @@
     <string name="country_code_for_reviews_override">Numer kierunkowy dla recenzji</string>
     <string name="country_codes_info_summary_addition">Wykryte automatycznie: %s</string>
     <string name="number_of_recent_calls">Liczba ostatnich połączeń</string>
-    <string name="selected_count">%1$d wybrane(-nych)</string>
     <string name="settings_category_call_blocking">Blokowanie połączeń</string>
     <string name="settings_category_main">Główne</string>
     <string name="title_settings_activity">Ustawienia</string>

@@ -90,7 +90,6 @@
     <string name="title_edit_blacklist_item_activity">Rediger nummer</string>
     <string name="title_blacklist_activity">Svarteliste</string>
     <string name="open_blacklist_activity">Svarteliste</string>
-    <string name="selected_count">%1$d valgt</string>
     <string name="save">Lagre</string>
     <string name="export_logcat">Eksporter logcat</string>
     <string name="settings_category_debugging">Avlusing</string>

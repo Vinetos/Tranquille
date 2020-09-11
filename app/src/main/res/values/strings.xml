@@ -137,7 +137,10 @@
     <string name="export_logcat_summary">Export and share logcat contents with an app of your choosing (for example with an email client). The reports may contain sensitive data (phone numbers, contact names). Only the chosen app will have access to this data</string>
     <string name="no_number"><![CDATA[<no number>]]></string>
     <string name="save">Save</string>
-    <string name="selected_count">%1$d selected</string>
+    <plurals name="selected_count">
+        <item quantity="one">%1$d selected</item>
+        <item quantity="other">%1$d selected</item>
+    </plurals>
 
     <string name="open_blacklist_activity">Blacklist</string>
     <string name="title_blacklist_activity">Blacklist</string>

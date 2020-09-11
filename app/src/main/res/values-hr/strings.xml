@@ -50,7 +50,6 @@
     <string name="export_logcat">Izvezi logcat</string>
     <string name="app_name">Još jedan blokator poziva</string>
     <string name="sia_category_prank">Zajebancija</string>
-    <string name="selected_count">odabrano: %1$d</string>
     <string name="save_logcat_on_crash">Spremi logcat pri rušenju</string>
     <string name="number_of_recent_calls_summary">Broj nedavnih poziva koji se prikazuju na glavnom ekranu</string>
     <string name="sia_category_scam">Prevara</string>

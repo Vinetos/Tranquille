@@ -135,8 +135,9 @@ public class BlacklistActivity extends AppCompatActivity {
                 }
 
                 if (actionMode != null) {
-                    actionMode.setTitle(getString(R.string.selected_count,
-                            selectionTracker.getSelection().size()));
+                    int count = selectionTracker.getSelection().size();
+                    actionMode.setTitle(getResources().getQuantityString(
+                            R.plurals.selected_count, count, count));
                 }
             }
         });

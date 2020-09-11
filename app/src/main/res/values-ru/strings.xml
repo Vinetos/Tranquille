@@ -119,7 +119,11 @@
     <string name="export_logcat_summary">Экспортировать и поделиться содержимым logcat с приложением по вашему выбору (например, с email-клиентом). Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Только выбранное приложение получит доступ к этим данным</string>
     <string name="no_number"><![CDATA[<нет номера>]]></string>
     <string name="save">Сохранить</string>
-    <string name="selected_count">Выбрано: %1$d</string>
+    <plurals name="selected_count">
+        <item quantity="one">%1$d выбран</item>
+        <item quantity="few">%1$d выбрано</item>
+        <item quantity="many">%1$d выбрано</item>
+    </plurals>
     <string name="open_blacklist_activity">Чёрный список</string>
     <string name="title_blacklist_activity">Чёрный список</string>
     <plurals name="blacklist_item_stats">

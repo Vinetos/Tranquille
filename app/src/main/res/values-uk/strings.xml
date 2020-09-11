@@ -116,7 +116,6 @@
     <string name="export_logcat_summary">Експортувати і поділитися вмістом logcat з додатком за вашим вибором (наприклад, з email-клієнтом). Звіти можуть містити конфіденційні дані (номери телефонів, імена контактів). Тільки обраний додаток отримає доступ до цих даних</string>
     <string name="no_number"><![CDATA[<немає номера>]]></string>
     <string name="save">Зберегти</string>
-    <string name="selected_count">Обрано: %1$d</string>
     <string name="open_blacklist_activity">Чорний список</string>
     <string name="title_blacklist_activity">Чорний список</string>
     <plurals name="blacklist_item_stats">

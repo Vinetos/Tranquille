@@ -10,7 +10,6 @@
     <string name="number_pattern_incorrect">Λανθασμένο μοτίβο</string>
     <string name="number_pattern_empty">Κενό μοτίβο</string>
     <string name="edit_blacklist_item_number_pattern">Μοτίβο αριθμού</string>
-    <string name="selected_count">%1$d επιλέχθηκαν</string>
     <string name="export_logcat">Εξαγωγή αρχείου καταγραφής</string>
     <string name="export_logcat_summary">Εξαγωγή και κοινή χρήση περιεχομένων της καταγραφής με μία εφαρμογή της επιλογής σας (για παράδειγμα με την εφαρμογή email). Οι αναφορές ενδέχεται να περιέχουν ευαίσθητα δεδομένα (αριθμούς τηλεφώνου, ονόματα επαφών). Μόνο η επιλεγμένη εφαρμογή θα έχει πρόσβαση σε αυτά τα δεδομένα</string>
     <string name="save_logcat_on_crash_summary">Αποθήκευση του αποτελέσματος της καταγραφής κατά την αναγκαστική διακοπή (επιπρόσθετα του βασικού stack trace)</string>

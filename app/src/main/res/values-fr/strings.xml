@@ -149,7 +149,6 @@
     </plurals>
     <string name="title_blacklist_activity">Liste noire</string>
     <string name="open_blacklist_activity">Liste noire</string>
-    <string name="selected_count">%1$d sélectionné(s)</string>
     <string name="save">Enregistrer</string>
     <string name="export_logcat_summary">Exporter et partager le contenu de la logcat avec une application de votre choix (par exemple avec un client de messagerie). Les rapports peuvent contenir des données sensibles (numéros de téléphone, noms de contacts). Seule l’application choisie aura accès à ces données</string>
     <string name="export_logcat">Exporter le catalogue des journaux</string>
