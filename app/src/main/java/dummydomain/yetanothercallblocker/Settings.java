@@ -9,6 +9,8 @@ import androidx.preference.PreferenceManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Locale;
+
 import dummydomain.yetanothercallblocker.data.CountryHelper;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 
@@ -228,14 +230,14 @@ public class Settings extends GenericSettings {
 
     public String getCountryCode() {
         String override = getCountryCodeOverride();
-        if (!TextUtils.isEmpty(override)) return override.toUpperCase();
+        if (!TextUtils.isEmpty(override)) return override.toUpperCase(Locale.ROOT);
 
         return getCachedAutoDetectedCountryCode();
     }
 
     public String getCountryCodeForReviews() {
         String override = getCountryCodeForReviewsOverride();
-        if (!TextUtils.isEmpty(override)) return override.toUpperCase();
+        if (!TextUtils.isEmpty(override)) return override.toUpperCase(Locale.ROOT);
 
         String code = getCachedAutoDetectedCountryCode();
         return !TextUtils.isEmpty(code) ? code : "US";

@@ -9,6 +9,8 @@ import androidx.core.os.ConfigurationCompat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Locale;
+
 public class CountryHelper {
 
     private static final Logger LOG = LoggerFactory.getLogger(CountryHelper.class);
@@ -20,10 +22,10 @@ public class CountryHelper {
 
             if (tm != null) {
                 String countryCode = tm.getNetworkCountryIso();
-                if (!TextUtils.isEmpty(countryCode)) return countryCode.toUpperCase();
+                if (!TextUtils.isEmpty(countryCode)) return countryCode.toUpperCase(Locale.ROOT);
 
                 countryCode = tm.getSimCountryIso();
-                if (!TextUtils.isEmpty(countryCode)) return countryCode.toUpperCase();
+                if (!TextUtils.isEmpty(countryCode)) return countryCode.toUpperCase(Locale.ROOT);
             }
 
             String countryCode = ConfigurationCompat
