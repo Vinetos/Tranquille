@@ -197,6 +197,7 @@ public class NotificationHelper {
                 .setColor(UiUtils.getColorInt(context, R.color.rateNegative))
                 .setContentTitle(title)
                 .setContentText(text)
+                .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setCategory(NotificationCompat.CATEGORY_STATUS);
 
