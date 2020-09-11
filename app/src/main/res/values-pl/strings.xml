@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="block_hidden_number_summary">Blokuj połączenia z numerów zastrzeżonych. Prawdopodobnie działa lepiej w trybie „Zaawansowany tryb blokowania połączeń”. (Eksperymentalne: prosimy zgłaszać wszelkie problemy na GitLab.)</string>
+    <string name="block_hidden_number_summary">Blokuj połączenia z numerów zastrzeżonych. Prawdopodobnie działa lepiej w trybie „Zaawansowany tryb blokowania połączeń” (Eksperymentalne: prosimy zgłaszać wszelkie problemy na GitLab)</string>
     <string name="notification_channel_name_blocked_info">Informacja o zablokowanych</string>
     <string name="notification_channel_name_negative">Złe połączenia</string>
     <string name="notification_channel_name_unknown">Nieznane połączenia</string>
@@ -46,8 +46,8 @@
     <string name="notification_incoming_call_text_description">Złe: %1$d, dobre: %2$d, neutralne: %3$d</string>
     <string name="notification_background_operation">Wykonywanie operacji w tle…</string>
     <string name="sia_category_none">Brak</string>
-    <string name="notification_incoming_call_negative">Zły numer</string>
-    <string name="notification_incoming_call_positive">Dobry numer</string>
+    <string name="notification_incoming_call_negative">Złe połączenie</string>
+    <string name="notification_incoming_call_positive">Dobre połączenie</string>
     <string name="block_hidden_number">Blokuj numery zastrzeżone</string>
     <string name="block_blacklisted_summary">Blokuj połączenia z numerów dodanych do czarnej listy</string>
     <string name="block_blacklisted_short">Blokuj z czarnej listy</string>
@@ -118,12 +118,28 @@
     <string name="sia_category_silent">Głuchy telefon</string>
     <string name="sia_category_dept_collector">Komornik</string>
     <string name="sia_category_telemarketer">Telemarketer</string>
-    <string name="notification_blocked_call">Zablokowany numer</string>
-    <string name="notification_incoming_call_neutral">Neutralny numer</string>
-    <string name="notification_incoming_call_unknown">Nieznany numer</string>
+    <string name="notification_blocked_call">Zablokowane połączenie</string>
+    <string name="notification_incoming_call_neutral">Neutralne połączenie</string>
+    <string name="notification_incoming_call_unknown">Nieznane połączenie</string>
     <string name="notification_incoming_call_contact">Kontakt</string>
     <string name="notification_channel_name_tasks">Zadania</string>
     <string name="notification_channel_group_name_blocked_calls">Zablokowane połączenia</string>
     <string name="notification_channel_group_name_incoming_calls">Połączenia przychodzące</string>
     <string name="app_name">Yet Another Call Blocker</string>
+    <string name="block_negative_sia_numbers_summary">Blokuj połączenia z numerów z negatywną oceną (na podstawie bazy danych tworzonej przez społeczność)</string>
+    <string name="show_notifications_for_unknown_callers_summary">Wyświetlaj powiadomienia dla nieznanych połączeń (ani w kontaktach, ani w bazie danych numerów)</string>
+    <string name="show_notifications_for_known_callers_summary">Wyświetlaj powiadomienia dla znanych połączeń (numery w kontaktach)</string>
+    <string name="load_reviews_confirmation_message">Wczytywanie opinii online spowoduje wyciek numeru do usługi firm trzecich. Czy na pewno chcesz to zrobić z numerem znajdującym się w twoich kontaktach\?</string>
+    <string name="no_main_db_text">Brak bazy danych. Aby aplikacja mogła wykonywać większość swoich funkcji, musi zostać pobrana baza danych. Zajmie to około 25 MB ruchu sieciowego.</string>
+    <string name="denied_call_screening_role_message">Zaawansowane blokowanie połączeń nie będzie działać, ponieważ aplikacja nie jest ustawiona jako „Aplikacja Caller ID”</string>
+    <string name="denied_default_dialer_message">Zaawansowane blokowanie połączeń nie będzie działać, ponieważ aplikacja nie jest ustawiona jako „Aplikacja telefonu”</string>
+    <string name="block_negative_sia">Blokuj na podstawie oceny</string>
+    <string name="block_negative_sia_short">Blokuj według oceny</string>
+    <string name="incoming_call_notifications">Powiadomienia połączeń przychodzących</string>
+    <string name="show_notifications_for_unknown_callers">Powiadomienia dla nieznanych połączeń</string>
+    <string name="show_notifications_for_known_callers">Powiadomienia dla znanych połączeń</string>
+    <string name="settings_category_notifications_incoming_calls">Powiadomienia połączeń przychodzących</string>
+    <string name="call_log_permission_message">Przyznaj uprawnienie „Telefon”, aby zobaczyć ostatnie połączenia</string>
+    <string name="notification_channel_name_monitoring_service">Usługa monitorowania</string>
+    <string name="notification_channel_group_name_services">Usługi</string>
 </resources>
