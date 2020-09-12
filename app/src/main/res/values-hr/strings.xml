@@ -26,7 +26,7 @@
     <string name="no">Ne</string>
     <string name="title_add_blacklist_item_activity">Dodaj broj</string>
     <string name="feature_call_blocking">blokiranje poziva</string>
-    <string name="block_hidden_number_summary">(Eksperimentalno). Blokiraj pozive skrivenih brojeva. Vjerojatno bolje funkcionira u „Naprednom modusu blokiranja poziva”. Prijavi svoje iskustvo na GitLab-u</string>
+    <string name="block_hidden_number_summary">Blokiraj pozive skrivenih brojeva. Može raditi drugačije (bolje ili gore) u „Napredni način blokiranja poziva”</string>
     <string name="settings_category_call_blocking">Blokiranje poziva</string>
     <string name="sia_category_nonprofit">Neprofitna organizacija</string>
     <string name="denied_default_dialer_message">Napredno blokiranje poziva neće raditi, jer aplikacija nije postavljena kao „Aplikacija telefona”</string>
@@ -161,4 +161,7 @@
     <string name="contacts_are_not_blocked_not_enabled">Pozivi osoba u kontaktima se možda blokiraju, jer opcija „Koristi kontakte” nije aktivirana!</string>
     <string name="database_download_url">Primarna URL adresa za preuzimanje baze podataka</string>
     <string name="contacts_are_not_blocked_blacklist_notice">Pozivi osoba u kontaktima nikada se ne blokiraju (čak niti u slučaju, da se broj poklapa s formatom za nepoželjne brojeve)</string>
+    <string name="use_monitoring_service">Koristi uslugu praćenja</string>
+    <string name="notification_channel_name_monitoring_service">Usluga praćenja</string>
+    <string name="notification_channel_group_name_services">Usluge</string>
 </resources>
