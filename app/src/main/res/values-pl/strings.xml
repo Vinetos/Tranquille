@@ -142,4 +142,23 @@
     <string name="call_log_permission_message">Przyznaj uprawnienie „Telefon”, aby zobaczyć ostatnie połączenia</string>
     <string name="notification_channel_name_monitoring_service">Usługa monitorowania</string>
     <string name="notification_channel_group_name_services">Usługi</string>
+    <string name="monitoring_service_notification_title">Monitorowanie połączeń</string>
+    <string name="monitoring_service_description">Usługa monitorowania stanu telefonu w tle</string>
+    <string name="monitoring_service_label">Usługa monitorowania połączeń</string>
+    <string name="contacts_are_not_blocked_no_permission">Połączenia od kontaktów mogą być blokowane, ponieważ uprawnienie „Kontakty” nie jest przyznane!</string>
+    <string name="contacts_are_not_blocked_not_enabled">Połączenia od kontaktów mogą być blokowane, ponieważ opcja „Użyj kontaktów” nie jest włączona!</string>
+    <string name="contacts_are_not_blocked_blacklist_notice">Połączenia z listy kontaktów nigdy nie są blokowane (nawet jeśli numer jest zgodny ze wzorcem z czarnej listy)</string>
+    <plurals name="selected_count">
+        <item quantity="one">%1$d wybrany</item>
+        <item quantity="few">%1$d wybrane</item>
+        <item quantity="many">%1$d wybranych</item>
+        <item quantity="other">%1$d wybranych</item>
+    </plurals>
+    <string name="export_logcat">Eksportuj logi logcat</string>
+    <string name="save_logcat_on_crash_summary">Zapisz dane wyjściowe logcat w przypadku awarii (oprócz podstawowego śledzenia stosu)</string>
+    <string name="save_logcat_on_crash">Zapisz logi z logcat w przypadku awarii</string>
+    <string name="number_of_recent_calls_summary">Liczba ostatnich połączeń do wyświetlenia na głównym ekranie</string>
+    <string name="use_monitoring_service">Użyj usługi monitorowania</string>
+    <string name="use_call_screening_service_summary">Pozwala blokować połączenia, zanim telefon zacznie dzwonić. Wymaga ustawienia aplikacji jako „Telefon” (Android 7–9) lub „Caller ID” (Android 10+)</string>
+    <string name="incoming_call_notifications_summary">Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących</string>
 </resources>
