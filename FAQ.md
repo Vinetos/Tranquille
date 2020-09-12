@@ -48,8 +48,8 @@ If you think Yet Another Call Blocker should have such an option, please [create
 
 ## What's that "Advanced call blocking mode"?
 
-"Advanced call blocking mode" is a mode that uses a modern call blocking method ([CallScreeningService](https://developer.android.com/reference/android/telecom/CallScreeningService)-based) which allows to block calls immediately before the phone starts ringing (a "classic" mode can't handle incoming calls fast enough, so your phone may ring for a very short period of time before the call is finally blocked).  
-For this feature to work the app must be set as a "Phone app" (Android 7–9) or a "Caller ID app" (Android 10+). The feature is not available on older Android versions.  
+"Advanced call blocking mode" is a mode that uses a modern call blocking method ([CallScreeningService](https://developer.android.com/reference/android/telecom/CallScreeningService)-based) which allows to block calls immediately before the phone starts ringing ("normal" mode can't handle incoming calls fast enough, so your phone may ring for a very short period of time before the call is finally blocked).  
+For this feature to work the app must be set as a "Phone app" (Android 7–9) or a "Caller ID app" (Android 10+). The feature is not available on older Android versions. This feature has no effect on battery life.  
 **Important**: the app doesn't provide/replace any in-call UI - call handling is delegated to your pre-installed Dialer app (or the "Phone app" selected by you on Android 10+), which is actually used to manage a call.  
 Obviously, on Android 7–9 you can't enable this feature **and** select some third-party Dialer app. This is a restriction of Android, I'm not aware of any way to work around it.
 

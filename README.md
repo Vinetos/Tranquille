@@ -48,7 +48,7 @@ At this point most of the essential features (one would expect from a call block
 
 * Automatic blocking of calls with negative rating, calls from hidden or locally blacklisted numbers. *Works offline.*  
   Call blocking should work on most Android versions (including Android 10).  
-  Some phones (like some Xiaomi) require to enable "Advanced call blocking mode".
+  Some phones (like some Xiaomi) [require](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/12) to enable "Advanced call blocking mode" or a monitoring service.
 * Local blacklist with wildcard support.  
   Import of NoPhoneSpam backup is supported.
 * Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
