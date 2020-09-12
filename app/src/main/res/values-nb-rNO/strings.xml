@@ -150,4 +150,12 @@
     <string name="notification_channel_name_known">Kjente anrop</string>
     <string name="notification_channel_group_name_blocked_calls">Blokkerte anrop</string>
     <string name="notification_channel_group_name_incoming_calls">Innkommende anrop</string>
+    <plurals name="selected_count">
+        <item quantity="one">%1$d valgt</item>
+        <item quantity="other">%1$d valgt</item>
+    </plurals>
+    <string name="use_monitoring_service_summary">Skrur på en overvåkningstjeneste som alltid kjører. Den hjelper deg å motta telefonihendelser på noen telefoner. Kun skru dette på hvis samtaleblokkering og info-merknader ikke virker. Denne funksjonen har ingen innvirkning på batteribruk.</string>
+    <string name="use_monitoring_service">Bruk en overvåkningstjeneste</string>
+    <string name="notification_channel_name_monitoring_service">Overvåkningstjeneste</string>
+    <string name="notification_channel_group_name_services">Tjenester</string>
 </resources>

@@ -5,9 +5,9 @@
     <string name="sia_category_call_center">Call centar</string>
     <string name="lookup_query_db">Pretraži bazu podataka</string>
     <plurals name="blacklist_item_stats">
-        <item quantity="one">Pozvan %2$s</item>
-        <item quantity="few">%1$d poziva, zadnji: %2$s</item>
-        <item quantity="other">%1$d poziva, zadnji: %2$s</item>
+        <item quantity="one">Poziva: %2$s</item>
+        <item quantity="few">Poziva: %1$d, zadnji: %2$s</item>
+        <item quantity="other">Poziva: %1$d, zadnji: %2$s</item>
     </plurals>
     <string name="sia_category_dept_collector">Naplata potraživanja</string>
     <string name="notification_incoming_call_unknown">Nepoznat poziv</string>
@@ -26,7 +26,7 @@
     <string name="no">Ne</string>
     <string name="title_add_blacklist_item_activity">Dodaj broj</string>
     <string name="feature_call_blocking">blokiranje poziva</string>
-    <string name="block_hidden_number_summary">(Eksperimentalno). Blokiraj pozive skrivenih brojeva. Vjerojatno bolje funkcionira u „Naprednom modusu blokiranja poziva”. Prijavi svoje iskustvo na GitLab-u</string>
+    <string name="block_hidden_number_summary">Blokiraj pozive skrivenih brojeva. Može raditi drugačije (bolje ili gore) u „Napredni način blokiranja poziva”</string>
     <string name="settings_category_call_blocking">Blokiranje poziva</string>
     <string name="sia_category_nonprofit">Neprofitna organizacija</string>
     <string name="denied_default_dialer_message">Napredno blokiranje poziva neće raditi, jer aplikacija nije postavljena kao „Aplikacija telefona”</string>
@@ -161,4 +161,16 @@
     <string name="contacts_are_not_blocked_not_enabled">Pozivi osoba u kontaktima se možda blokiraju, jer opcija „Koristi kontakte” nije aktivirana!</string>
     <string name="database_download_url">Primarna URL adresa za preuzimanje baze podataka</string>
     <string name="contacts_are_not_blocked_blacklist_notice">Pozivi osoba u kontaktima nikada se ne blokiraju (čak niti u slučaju, da se broj poklapa s formatom za nepoželjne brojeve)</string>
+    <string name="use_monitoring_service">Koristi uslugu praćenja</string>
+    <string name="notification_channel_name_monitoring_service">Usluga praćenja</string>
+    <string name="notification_channel_group_name_services">Usluge</string>
+    <string name="monitoring_service_notification_title">Praćenje poziva</string>
+    <string name="monitoring_service_description">Usluga za praćenje stanja telefona u pozadini</string>
+    <string name="monitoring_service_label">Usluga praćenja poziva</string>
+    <string name="use_monitoring_service_summary">Omogućuje stalno pokrenutu uslugu praćenja koja pomaže pri primanju telefonskih događaja na nekim telefonima. Aktiviraj ovu funkciju samo ako blokiranje poziva i informativna obavještavanja ne rade. Ova funkcija nema utjecaja na vijek trajanja baterije</string>
+    <plurals name="selected_count">
+        <item quantity="one">Odabrano: %1$d</item>
+        <item quantity="few">Odabrano: %1$d</item>
+        <item quantity="other">Odabrano: %1$d</item>
+    </plurals>
 </resources>
