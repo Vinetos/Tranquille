@@ -68,7 +68,7 @@
     <string name="blacklist_item_no_calls">Δεν κάλεσε ποτέ</string>
     <string name="blacklist_item_date_no_info">χωρίς πληροφορίες</string>
     <plurals name="blacklist_item_stats">
-        <item quantity="one">Κάλεσε στις %2$s</item>
+        <item quantity="one">Κάλεσε %2$s</item>
         <item quantity="other">%1$d κλήσεις, τελευταία: %2$s</item>
     </plurals>
     <string name="title_blacklist_activity">Μαύρη λίστα</string>
@@ -102,7 +102,7 @@
     <string name="block_blacklisted_summary">Αποκλεισμός κλήσεων από αριθμούς που έχουν προστεθεί στη μαύρη λίστα</string>
     <string name="block_blacklisted">Αποκλεισμός αριθμών από τη μαύρη λίστα</string>
     <string name="block_blacklisted_short">Αποκλεισμός μαύρης λίστας</string>
-    <string name="block_hidden_number_summary">(Πειραματικό.) Αποκλεισμός κλήσεων από κρυφούς αριθμούς. Πιθανότατα λειτουργεί καλύτερα στη \"Σύνθετη λειτουργία αποκλεισμού κλήσεων\". Αναφέρετε την εμπειρία σας στο GitLab</string>
+    <string name="block_hidden_number_summary">Αποκλεισμός κλήσεων από κρυφούς αριθμούς. Ίσως να λειτουργεί διαφορετικά (καλύτερα ή χειρότερα) στη \"Σύνθετη λειτουργία αποκλεισμού κλήσεων\"</string>
     <string name="block_hidden_number">Αποκλεισμός κρυφών αριθμών</string>
     <string name="settings_category_notifications_incoming_calls">Ειδοποιήσεις εισερχόμενων κλήσεων</string>
     <string name="incoming_call_notifications">Ειδοποιήσεις εισερχόμενων κλήσεων</string>
@@ -160,4 +160,15 @@
     <string name="notification_channel_name_known">Γνωστές κλήσεις</string>
     <string name="notification_channel_group_name_blocked_calls">Αποκλεισμένες κλήσεις</string>
     <string name="notification_channel_group_name_incoming_calls">Εισερχόμενες κλήσεις</string>
+    <string name="monitoring_service_notification_title">Παρακολούθηση κλήσεων</string>
+    <string name="monitoring_service_description">Μία υπηρεσία η οποία παρακολουθεί την κατάσταστη του τηλεφώνου στο παρασκήνιο</string>
+    <string name="monitoring_service_label">Υπηρεσία παρακολούθησης κλήσεων</string>
+    <plurals name="selected_count">
+        <item quantity="one">%1$d επιλέχθηκε</item>
+        <item quantity="other">%1$d επιλέχθηκαν</item>
+    </plurals>
+    <string name="use_monitoring_service_summary">Ενεργοποιεί μία υπηρεσία παρακολούθησης που λειτουργεί πάντα και η οποία βοηθά στη λήψη γεγονότων τηλεφωνίας σε ορισμένες συσκευές. Ενεργοποιήστε αυτή τη λειτουργία μόνο εάν ο αποκλεισμός κλήσεων και οι ενημετωτικές ειδοποιήσεις δεν λειτουργούν. Αυτή η λειτουργία δεν έχει καμία επίπτωση στη διάρκεια ζωής της μπαταρίας</string>
+    <string name="use_monitoring_service">Χρήση μίας υπηρεσίας παρακολούθησης</string>
+    <string name="notification_channel_name_monitoring_service">Υπηρεσία παρακολούθησης</string>
+    <string name="notification_channel_group_name_services">Υπηρεσίες</string>
 </resources>
