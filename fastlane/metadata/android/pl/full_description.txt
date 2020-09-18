@@ -7,14 +7,14 @@ Prosta aplikacja do blokowania połączeń, która pomoże ci uniknąć odbieran
 * Lokalna czarna lista z obsługą wieloznacznika (ang. wildcard).
 * Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących. (Opcjonalne)
 * Automatyczne aktualizacje przyrostowe bazy danych. (Opcjonalne)
-* Możliwość przeglądania recenzji online dotyczących dzwoniącego numeru. (Dostarczane przez zewnętrzną usługę.)
+* Możliwość przeglądania recenzji online dotyczących dzwoniącego numeru. (Dostarczane przez zewnętrzną usługę).
 * „Zaawansowany tryb blokowania” do blokowania połączeń na Androidzie 7+, zanim telefon zacznie dzwonić. (Należy ręcznie włączyć w ustawieniach aplikacji).
 
 <b>Jak używać:</b>
 
 * Zainstaluj i uruchom aplikację.
 * Opcja wyświetlania powiadomień o dzwoniącym numerze jest domyślnie włączona, więc aplikacja zapyta o uprawnienia związane z telefonem.
-* Przy pierwszym uruchomieniu aplikacja zasugeruje pobranie głównej bazy danych, która jest wymagana dla większości funkcji. Po prostu potwierdź pobieranie.
+* Przy pierwszym uruchomieniu aplikacja zasugeruje pobranie głównej bazy danych, która jest wymagana do działania większości funkcji. Po prostu potwierdź pobieranie.
 * Zaznacz pole wyboru „Automatycznie aktualizuj bazę danych” w menu (zalecane), aby automatycznie otrzymywać codzienne aktualizacje bazy danych (są to aktualizacje przyrostowe, więc zużywają bardzo mało danych).
 * Zaznacz pole wyboru „Blokuj według oceny”, aby automatycznie blokować połączenia z negatywną oceną.
 * Możesz także zaznaczyć pole wyboru „Użyj kontaktów”, jeśli nie chcesz, aby twoje kontakty były traktowane jako nieznani rozmówcy.
@@ -28,4 +28,4 @@ Nie są wysyłane żadne informacje umożliwiające identyfikację użytkownika 
 
 Yet Another Call Blocker jest nadal w fazie rozwoju. Każda pomoc jest mile widziana.
 
-„Ta aplikacja promuje niewolne usługi sieciowe (NonFreeNet)”: Usługi dostarczane przez zewnętrzną firmę nie są wolne.
+„Ta aplikacja promuje niewolne usługi sieciowe (NonFreeNet)”: usługi dostarczane przez zewnętrzną firmę nie są wolne.
