@@ -158,16 +158,9 @@ public class NotificationHelper {
             title = context.getString(R.string.notification_incoming_call_contact);
         }
 
-        if (numberInfo.communityDatabaseItem != null) {
-            CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
+        title = concat(title, " - ", getTitleExtra(context, numberInfo));
 
-            NumberCategory category = NumberCategory.getById(communityItem.getCategory());
-            if (category != null && category != NumberCategory.NONE) {
-                title += " - " + SiaNumberCategoryUtils.getName(context, category);
-            }
-        }
-
-        text += getDescription(context, numberInfo);
+        text += getInfoDescription(context, numberInfo);
 
         IconAndColor iconAndColor = IconAndColor.forNumberRating(
                 numberInfo.rating, numberInfo.contactItem != null);
@@ -176,7 +169,8 @@ public class NotificationHelper {
                 .setSmallIcon(iconAndColor.iconResId)
                 .setColor(iconAndColor.getColorInt(context))
                 .setContentTitle(title)
-                .setContentText(text)
+                .setContentText(firstLine(text))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(text))
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_STATUS)
                 .setShowWhen(false)
@@ -188,15 +182,18 @@ public class NotificationHelper {
     }
 
     private static Notification createBlockedCallNotification(Context context, NumberInfo numberInfo) {
-        String title = context.getString(R.string.notification_blocked_call);
-        String text = getDescription(context, numberInfo);
+        String title = concat(context.getString(R.string.notification_blocked_call),
+                " - ", getTitleExtra(context, numberInfo));
+
+        String text = getBlockedDescription(context, numberInfo);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 context, CHANNEL_ID_BLOCKED_INFO)
                 .setSmallIcon(R.drawable.ic_brick_24dp)
                 .setColor(UiUtils.getColorInt(context, R.color.rateNegative))
                 .setContentTitle(title)
-                .setContentText(text)
+                .setContentText(firstLine(text))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(text))
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setCategory(NotificationCompat.CATEGORY_STATUS);
@@ -206,25 +203,87 @@ public class NotificationHelper {
         return builder.build();
     }
 
-    private static String getDescription(Context context, NumberInfo numberInfo) {
-        String text = "";
-
+    private static String getTitleExtra(Context context, NumberInfo numberInfo) {
         if (numberInfo.communityDatabaseItem != null) {
             CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
 
-            if (!TextUtils.isEmpty(numberInfo.name)) {
-                text += numberInfo.name;
+            NumberCategory category = NumberCategory.getById(communityItem.getCategory());
+            if (category != null && category != NumberCategory.NONE) {
+                return SiaNumberCategoryUtils.getName(context, category);
             }
+        }
+
+        if (numberInfo.blacklistItem != null && numberInfo.contactItem == null) {
+            return context.getString(R.string.info_in_blacklist);
+        }
+
+        return null;
+    }
+
+    private static String getInfoDescription(Context context, NumberInfo numberInfo) {
+        String text = numberInfo.name;
+
+        text = concat(text, "; ", getCommunityDescriptionPart(context, numberInfo));
+        text = concat(text, "\n", getBlacklistDescriptionPart(context, numberInfo));
+        text = concat(text, "\n", getNumberDescriptionPart(context, numberInfo));
+
+        return text;
+    }
+
+    private static String getBlockedDescription(Context context, NumberInfo numberInfo) {
+        String text = numberInfo.name;
+
+        text = concat(text, "\n", getCommunityDescriptionPart(context, numberInfo));
+        text = concat(text, "\n", getBlacklistDescriptionPart(context, numberInfo));
+        text = concat(text, "\n", getNumberDescriptionPart(context, numberInfo));
+
+        return text;
+    }
+
+    private static String getNumberDescriptionPart(Context context, NumberInfo numberInfo) {
+        return numberInfo.noNumber ? context.getString(R.string.no_number) : numberInfo.number;
+    }
+
+    private static String getCommunityDescriptionPart(Context context, NumberInfo numberInfo) {
+        if (numberInfo.communityDatabaseItem != null) {
+            CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
 
             if (communityItem.hasRatings()) {
-                if (!text.isEmpty()) text += "; ";
-                text += context.getString(R.string.notification_incoming_call_text_description,
+                return context.getString(R.string.notification_incoming_call_text_description,
                         communityItem.getNegativeRatingsCount(), communityItem.getPositiveRatingsCount(),
                         communityItem.getNeutralRatingsCount());
             }
         }
 
-        return text;
+        return null;
+    }
+
+    private static String getBlacklistDescriptionPart(Context context, NumberInfo numberInfo) {
+        if (numberInfo.blacklistItem != null && numberInfo.contactItem == null) {
+            String name = numberInfo.blacklistItem.getName();
+            return context.getString(R.string.info_in_blacklist)
+                    + (!TextUtils.isEmpty(name) ? " (" + name + ")" : "");
+        }
+
+        return null;
+    }
+
+    private static String concat(String base, String delimiter, String extra) {
+        if (!TextUtils.isEmpty(extra)) {
+            if (TextUtils.isEmpty(base)) {
+                base = "";
+            } else {
+                base += delimiter;
+            }
+            base += extra;
+        }
+        return base;
+    }
+
+    private static String firstLine(String s) {
+        int index;
+        if (TextUtils.isEmpty(s) || (index = s.indexOf('\n')) == -1) return s;
+        return s.substring(0, index);
     }
 
     private static void addCallNotificationIntents(Context context,
