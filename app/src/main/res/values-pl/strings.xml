@@ -161,4 +161,18 @@
     <string name="use_monitoring_service">Użyj usługi monitorowania</string>
     <string name="use_call_screening_service_summary">Pozwala blokować połączenia, zanim telefon zacznie dzwonić. Wymaga ustawienia aplikacji jako „Telefon” (Android 7–9) lub „Caller ID” (Android 10+)</string>
     <string name="incoming_call_notifications_summary">Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących</string>
+    <string name="save_crashes_to_external_storage_summary">Zapisuj raporty o awariach i logi w pamięci publicznej, w przeciwnym razie raporty o awariach są zapisywane w prywatnym folderze aplikacji. Raporty mogą zawierać dane wrażliwe (numery telefonów, nazwy kontaktów). Inne aplikacje z uprawnieniami do przechowywania mogą mieć dostęp do tych danych w pamięci publicznej</string>
+    <string name="number_pattern_hint">Wpisz numer w formacie +NUMER-KRAJOWY (tak jak Android pokazałby w dialerze). Użyj znaku „*” jako symbolu wieloznacznego (ang. wildcard) dla zera lub większej liczby cyfr oraz „#” dla dokładnie jednej cyfry.</string>
+    <string name="export_logcat_summary">Eksportuj i udostępniaj zawartość logcata z wybraną przez siebie aplikacją (np. z klientem poczty elektronicznej). Raporty mogą zawierać dane wrażliwe (numery telefonów, nazwy kontaktów). Tylko wybrana aplikacja będzie miała dostęp do tych danych</string>
+    <string name="save_crashes_to_external_storage">Zapisuj raporty w pamięci publicznej</string>
+    <string name="country_codes_info_summary">Kody krajów używane są w zapytaniach do serwerów zewnętrznych. Kody te mają naśladować działanie oficjalnej aplikacji zewnętrznej firmy. Jeśli kody pasują do kraju, w którym przebywasz (a to może zostać wykryte poprzez twój adres IP), twoje zapytania będą wyglądać najbardziej niepozornie. Automatyczne wykrywanie jest używane domyślnie (na podstawie informacji o sieci komórkowej lub ustawień regionalnych systemu), co powinno wystarczyć większości użytkowników, ale możesz ustawić kod ręcznie. Jest to 2-literowy kod zgodny ze standardem ISO 3166 (np. PL)</string>
+    <string name="use_call_screening_service_disable_message">Wybierz inną „aplikację do obsługi telefonu” lub„ aplikację do identyfikacji rozmówcy i spamu” w „Ustawienia” → „Aplikacje i powiadomienia” → „Aplikacje domyślne”</string>
+    <string name="lookup_res_featured_name">Wyróżniona nazwa: %s</string>
+    <string name="title_lookup_number">Numer wyszukiwania</string>
+    <string name="country_code_incorrect_format">Nieprawidłowy format kodu kraju. Wartość nie zostanie zmieniona</string>
+    <string name="country_code_override_summary">Kod kraju używany we wszystkich zapytaniach. Pozostaw puste w celu automatycznego wykrywania</string>
+    <string name="country_code_for_reviews_override_summary">Kod kraju używany w zapytaniach o opinie online. Oznacza kraj dzwoniącego. Pozostaw puste w celu automatycznego wykrywania</string>
+    <string name="use_contacts_summary">Numery obecne w kontaktach nigdy nie są blokowane, a nazwa kontaktu wyświetlana jest obok/zamiast numeru wszędzie w aplikacji</string>
+    <string name="auto_updates_summary">Automatycznie aktualizuje bazę danych każdego dnia (są to aktualizacje przyrostowe, więc zużywają bardzo mało danych)</string>
+    <string name="use_monitoring_service_summary">Włącza stale działającą usługę monitorowania, która pomaga w odbieraniu zdarzeń telefonicznych na niektórych telefonach. Włącz tę funkcję tylko wtedy, gdy blokowanie połączeń i powiadomienia informacyjne nie działają. Ta funkcja nie ma wpływu na żywotność baterii</string>
 </resources>
