@@ -5,6 +5,8 @@ import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -107,6 +109,13 @@ public class LookupNumberActivity extends AppCompatActivity {
         if (isWrongNumberInput()) return;
 
         ReviewsActivity.startForNumber(this, getPureNumber());
+    }
+
+    public void onAddReviewButtonClick(View view) {
+        if (isWrongNumberInput()) return;
+
+        Uri uri = Uri.parse(YacbHolder.getWebService().getWebReviewsUrlPart() + getPureNumber());
+        IntentHelper.startActivity(this, new Intent(Intent.ACTION_VIEW, uri));
     }
 
     public void onClearNumberButtonClick(View view) {

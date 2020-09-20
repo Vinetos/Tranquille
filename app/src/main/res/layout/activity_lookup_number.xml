@@ -62,6 +62,12 @@
             android:onClick="onLoadReviewsButtonClick"
             android:text="@string/lookup_load_reviews" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onAddReviewButtonClick"
+            android:text="@string/add_web_review" />
+
         <TextView
             android:id="@+id/reviews_phone_number"
             android:layout_width="wrap_content"
