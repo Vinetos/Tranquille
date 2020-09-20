@@ -29,6 +29,9 @@ public class BlacklistDao {
 
     public List<BlacklistItem> loadAll() {
         return getBlacklistItemDao().queryBuilder()
+                .orderRaw("T.'" + BlacklistItemDao.Properties.Name.columnName + "' IS NULL" +
+                        " OR T.'" + BlacklistItemDao.Properties.Name.columnName + "' = ''")
+                .orderAsc(BlacklistItemDao.Properties.Name)
                 .orderAsc(BlacklistItemDao.Properties.Pattern)
                 .list();
     }
