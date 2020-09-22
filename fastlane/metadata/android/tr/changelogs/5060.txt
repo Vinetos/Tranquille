@@ -1,0 +1,10 @@
+* Bildirim içeriği biraz iyileştirildi.
+* Arama ekranından değerlendirme eklemek için düğme eklendi.
+* Yannis T. (@azakosath) ve Evo (@verahawk) sayesinde çeviriler güncellendi.
+
+0.5.5:
+
+* İsteğe bağlı izleme hizmeti eklendi (YACB'nin Xiaomi MIUI üzerinde çalışmasına izin verir).
+* "Normal" modda gizli numara algılama iyileştirildi.
+* Evo (@verahawk) sayesinde Lehçe çeviri eklendi.
+* Düzeltmeler ve iyileştirmeler.

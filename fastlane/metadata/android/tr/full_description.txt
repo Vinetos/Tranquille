@@ -1,0 +1,33 @@
+Kitle kaynaklı bir telefon numarası veri tabanı kullanarak istenmeyen aramaları
+cevaplamaktan kaçınmanıza yardımcı olacak basit bir arama engelleme uygulaması.
+
+<b>Özellikler:</b>
+
+* Çevrim dışı bir veri tabanı kullanır.
+* Olumsuz derecelendirmeye sahip aramaları otomatik olarak engeller (seçenek).
+* Joker karakter desteğine sahip yerel kara liste.
+* Gelen aramalar sırasında telefon numarası özetini (derecelendirme, değerlendirme sayısı, kategori) içeren bir bildirim görüntüler (seçenek).
+* Otomatik artımlı/delta veri tabanı güncellemeleri (seçenek).
+* Arayanın numarası için çevrim içi değerlendirmeleri görüntüleyebilirsiniz (3. taraf hizmeti tarafından sağlanır).
+* Android 7+ için telefon çalmaya başlamadan önce aramaları engellemek için "gelişmiş arama engelleme modu" (uygulama ayarlarında elle etkinleştirilmesi gerekiyor).
+
+<b>Nasıl kullanılır:</b>
+
+* Uygulamayı kurun ve başlatın.
+* Arayan bilgisi bildirimlerini gösterme seçeneği öntanımlı olarak etkindir, bu nedenle uygulama telefonla ilgili izinler isteyecektir.
+* İlk başlangıçta uygulama, işlevlerin çoğu için gerekli olan ana veri tabanını indirmenizi önerecektir. İndirmeyi onaylamanız yeterlidir.
+* Günlük veri tabanı güncellemelerini otomatik olarak almak için menüdeki "Veri tabanını otomatik güncelle" onay kutusunu işaretleyin (önerilen) (bunlar artımlı/delta güncellemelerdir, dolayısıyla çok az veri harcarlar).
+* Olumsuz derecelendirmeli aramaları otomatik olarak engellemek için "Derecelendirmeye göre engelle" onay kutusunu işaretleyin.
+* Kişilerinizin bilinmeyen arayanlar olarak değerlendirilmemesini istiyorsanız "Kişileri kullan" onay kutusunu da işaretleyebilirsiniz.
+* Bu adımlardan sonra her şey düzgün şekilde çalışmalıdır (ancak ayarlarda her zaman daha fazla seçenek bulabilirsiniz). Keyfini sürün!
+
+Daha fazlasını öğrenmek için <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">sık sorulan sorulara</a> bakın.
+
+Ana telefon numarası veri tabanı from <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">bir gitlab deposundan</a> indirilir.
+<b>Veri tabanı güncellemeleri ve ayrıntılı değerlendirme sorguları 3. taraf sunucular kullanılarak gerçekleştirilir.</b>
+Kullanıcıyı tanımlayabilecek bir bilgi gönderilmez (hakkında ayrıntılı
+değerlendirmelerin yüklendiği telefon numarası dışında).
+
+Yet Another Call Blocker hala geliştirme aşamasındadır. Her türlü yardıma açığız.
+
+''NonFreeNet:'' 3. taraf hizmeti açık kaynaklı değildir.
