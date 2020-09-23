@@ -110,9 +110,9 @@ Sure! There's no proxy settings in the app, but system-wide tunnels should work 
 
 ## The app takes too much storage space. What can I do?
 
-Normally the app takes a little under 120 MB in total: ~7 MB for the APK and ~110 MB for data (the offline number rating database).
+Normally the app takes a little under 130 MB in total: ~18 MB for the app and ~112 MB for data (the offline number rating database).
 
-If you really want to save space, you can build the app yourself with a primary DB embedded (see the optional step in [build instructions](BUILDING.md#clone-the-assets-repo-optional-step-allows-to-avoid-the-initial-db-downloading-after-installation)). The APK size would increase up to ~30 MB, but the app data size will decrease by 90 MB. You won't need to perform that "initial DB downloading" on first start. The downside is that you'll eventually (once in a couple of months) have to rebuild the app with a fresh primary DB (and you won't be able to update via F-Droid).
+If you really want to save space, you can build the app yourself with a primary DB embedded (see the optional step in [build instructions](BUILDING.md#clone-the-assets-repo-optional-step-allows-to-avoid-the-initial-db-downloading-after-installation)). The app will take less than 60 MB in total: ~38 MB for the app and ~18 MB for data. You won't need to perform that "initial DB downloading" on first start. The downside is that you'll eventually (once in a couple of months) have to rebuild the app with a fresh primary DB (and you won't be able to update via F-Droid).
 
 
 ## What's the source of that "third-party crowdsourced phone number database"?
