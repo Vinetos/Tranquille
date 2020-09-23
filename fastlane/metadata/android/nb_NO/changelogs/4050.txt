@@ -1,0 +1,18 @@
+* Fixed compatibility with older Android versions.
+* Small fixes.
+
+0.4.4:
+
+* Added Spanish translation thanks to Diego Sanguinetti (@sguinetti).
+* Small fixes.
+
+0.4.3:
+
+* Fixed notification actions.
+
+0.4.2:
+
+* Added Dutch translation thanks to Heimen Stoffels (@Vistaus).
+* Fixed incoming call notifications not being removed on some devices.
+* Added options to disable some of the notifications on older devices.
+* Other small improvements.

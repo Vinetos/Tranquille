@@ -1,0 +1,14 @@
+* Fixed notification actions.
+
+0.4.2:
+
+* Added Dutch translation thanks to Heimen Stoffels (@Vistaus).
+* Fixed incoming call notifications not being removed on some devices.
+* Added options to disable some of the notifications on older devices.
+* Other small improvements.
+
+0.4.1:
+
+* New app icon.
+* Display number category on the number info screen.
+* Changed icon and color of blocked call notification.

@@ -1,0 +1,3 @@
+* The ANSWER_PHONE_CALLS permission is not requested before Android 9.
+* Changed notification category.
+* Updated dependencies.

@@ -1,0 +1,15 @@
+* Added Dutch translation thanks to Heimen Stoffels (@Vistaus).
+* Fixed incoming call notifications not being removed on some devices.
+* Added options to disable some of the notifications on older devices.
+* Other small improvements.
+
+0.4.1:
+
+* New app icon.
+* Display number category on the number info screen.
+* Changed icon and color of blocked call notification.
+
+0.4.0:
+
+* Display recent calls on the main screen.
+* An option for special treatment of contacts (never blocked, name is displayed).
