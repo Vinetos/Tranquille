@@ -18,10 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import dummydomain.yetanothercallblocker.data.CallLogHelper;
 import dummydomain.yetanothercallblocker.data.CallLogItem;
+import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
@@ -224,9 +227,17 @@ public class MainActivity extends AppCompatActivity {
                 List<CallLogItem> items = CallLogHelper.getRecentCalls(
                         MainActivity.this, settings.getNumberOfRecentCalls());
 
+                Map<String, NumberInfo> cache = new HashMap<>();
+                String countryCode = settings.getCachedAutoDetectedCountryCode();
+
                 for (CallLogItem item : items) {
-                    item.numberInfo = YacbHolder.getNumberInfo(
-                            item.number, settings.getCachedAutoDetectedCountryCode());
+                    NumberInfo numberInfo = cache.get(item.number);
+                    if (numberInfo == null) {
+                        numberInfo = YacbHolder.getNumberInfo(item.number, countryCode);
+                        cache.put(item.number, numberInfo);
+                    }
+
+                    item.numberInfo = numberInfo;
                 }
 
                 return items;
