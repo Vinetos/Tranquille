@@ -81,7 +81,7 @@ class IconAndColor {
 
             default:
                 noInfo = true;
-                icon = R.drawable.ic_thumbs_up_down_24dp;
+                icon = R.drawable.ic_question_mark_24dp;
                 color = R.color.notFound;
                 break;
         }
