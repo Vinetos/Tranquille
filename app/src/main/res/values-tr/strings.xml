@@ -113,7 +113,6 @@
     <string name="back">Geri</string>
     <string name="add_web_review">Değerlendirme ekle (web)</string>
     <string name="online_reviews">Çevrim içi değerlendirmeler</string>
-    <string name="recent_calls">Son aramalar</string>
     <string name="secondary_db_updating">Veri tabanı güncelleniyor…</string>
     <string name="main_db_downloading">Veri tabanı indiriliyor…</string>
     <string name="download_main_db">Veri tabanını indir</string>

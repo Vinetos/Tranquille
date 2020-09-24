@@ -117,7 +117,6 @@
     <string name="error">Σφάλμα</string>
     <string name="no">Όχι</string>
     <string name="yes">Ναι</string>
-    <string name="recent_calls">Πρόσφατες κλήσεις</string>
     <string name="no_main_db_text">Η βάση δεδομένων δεν υπάρχει. Για να εκτελέσει η εφαρμογή τις περισσότερες από τις λειτουργίες της, πρέπει να πραγματοποιήσετε λήψη της βάσης δεδομένων. Θα χρειαστούν περίπου 25 MB δεδομένων.</string>
     <string name="secondary_db_updating">Ενημέρωση βάσης δεδομένων…</string>
     <string name="main_db_downloading">Λήψη βάσης δεδομένων…</string>

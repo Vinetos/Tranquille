@@ -67,7 +67,6 @@
     <string name="download_main_db">Завантажити базу номерів</string>
     <string name="main_db_downloading">Завантаження бази номерів…</string>
     <string name="secondary_db_updating">Оновлення бази номерів…</string>
-    <string name="recent_calls">Недавні виклики</string>
     <string name="online_reviews">Online-відгуки</string>
     <string name="add_web_review">Додати відгук (веб)</string>
     <string name="back">Назад</string>

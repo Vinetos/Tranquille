@@ -28,7 +28,6 @@
     <string name="back">Wstecz</string>
     <string name="add_web_review">Dodaj opinię (online)</string>
     <string name="online_reviews">Opinie online</string>
-    <string name="recent_calls">Ostatnie połączenia</string>
     <string name="secondary_db_updating">Aktualizowanie bazy danych…</string>
     <string name="main_db_downloading">Pobieranie bazy danych…</string>
     <string name="no_main_db_title">Pobierz główną bazę danych</string>

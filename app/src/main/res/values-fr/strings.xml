@@ -55,7 +55,6 @@
     <string name="download_main_db">Télécharger la base de données</string>
     <string name="main_db_downloading">Téléchargement de la BD…</string>
     <string name="secondary_db_updating">Mise à jour de la BD…</string>
-    <string name="recent_calls">Appels récents</string>
     <string name="online_reviews">Évaluations en ligne</string>
     <string name="add_web_review">Ajouter une évaluation (web)</string>
     <string name="back">Retour</string>

@@ -155,7 +155,6 @@
     <string name="are_you_sure">Stvarno\?</string>
     <string name="number_pattern_hint">Upiši broj u formatu +BROJ-DRŽAVE (kao što bi Android pokazao u biraču). Koristi „*” kao zamjenski znak za nulu ili više znamenki, a „#” za točno jednu znamenku.</string>
     <string name="notification_channel_name_negative">Negativni pozivi</string>
-    <string name="recent_calls">Nedavni pozivi</string>
     <string name="denied_call_screening_role_message">Napredno blokiranje poziva neće raditi, jer aplikacija nije postavljena kao „Aplikacija ID oznake pozivatelja”</string>
     <string name="contacts_are_not_blocked_no_permission">Pozivi osoba u kontaktima se možda blokiraju, jer „Kontakti” nemaju odgovarajuću dozvolu!</string>
     <string name="contacts_are_not_blocked_not_enabled">Pozivi osoba u kontaktima se možda blokiraju, jer opcija „Koristi kontakte” nije aktivirana!</string>

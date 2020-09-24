@@ -269,9 +269,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.callLogPermissionMessage)
                 .setVisibility(visible ? View.GONE : View.VISIBLE);
 
-        int visibility = visible ? View.VISIBLE : View.GONE;
-        findViewById(R.id.callLogTitle).setVisibility(visibility);
-        findViewById(R.id.callLogList).setVisibility(visibility);
+        findViewById(R.id.callLogList).setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
 }

@@ -48,7 +48,6 @@
     <string name="settings_category_notifications_incoming_calls">Merknader for innkommende anrop</string>
     <string name="show_notifications_for_known_callers">Merknader for kjente oppringere</string>
     <string name="add_web_review">Legg til vurdering (nettbasert)</string>
-    <string name="recent_calls">Nylige anrop</string>
     <string name="no_main_db_text">Databasen finnes ikke. For at programmet skal utføre brorparten av dets funksjoner må du laste ned databasen. Den er omtrent 25 MB.</string>
     <string name="call_log_permission_message">Innvilg \"Telefon\"-tilgang for å se nylige anrop</string>
     <string name="denied_default_dialer_message">Avansert samtaleblokkering vil ikke fungere som følge av at programmet ikke er satt som \"Telefonprogram\"</string>
