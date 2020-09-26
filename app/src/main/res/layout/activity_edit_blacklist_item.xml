@@ -55,13 +55,29 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             tools:text="3 calls, last: Aug 01, 2020 10:10" />
 
-        <TextView
-            android:id="@+id/contactsNotBlockedNotice"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_padding"
-            android:text="@string/contacts_are_not_blocked_blacklist_notice"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/info_icon_description"
+                android:src="@drawable/ic_info_24dp"
+                android:tint="@android:color/tab_indicator_text" />
+
+            <TextView
+                android:id="@+id/contactsNotBlockedNotice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contacts_are_not_blocked_blacklist_notice"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
 
     </LinearLayout>
 
