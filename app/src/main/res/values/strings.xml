@@ -192,4 +192,8 @@
     <string name="monitoring_service_label">Call monitoring service</string>
     <string name="monitoring_service_description">A service for monitoring phone state in background</string>
     <string name="monitoring_service_notification_title">Monitoring calls</string>
+
+    <string name="duration_h_m_s">%1$dh %2$dm %3$ds</string>
+    <string name="duration_m_s">%1$dm %2$ds</string>
+    <string name="duration_s">%ds</string>
 </resources>

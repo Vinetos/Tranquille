@@ -1,5 +1,6 @@
 package dummydomain.yetanothercallblocker;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.CallLogItem;
+import dummydomain.yetanothercallblocker.data.NumberInfo;
 
 public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         <CallLogItem, CallLogItemRecyclerViewAdapter.ViewHolder> {
@@ -41,6 +43,8 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         final AppCompatImageView callTypeIcon;
         final TextView label;
         final AppCompatImageView numberInfoIcon;
+        final TextView duration;
+        final TextView description;
         final TextView time;
 
         ViewHolder(View view) {
@@ -49,11 +53,15 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
             callTypeIcon = view.findViewById(R.id.callTypeIcon);
             label = view.findViewById(R.id.item_label);
             numberInfoIcon = view.findViewById(R.id.numberInfoIcon);
+            duration = view.findViewById(R.id.duration);
+            description = view.findViewById(R.id.description);
             time = view.findViewById(R.id.time);
         }
 
         @Override
         void bind(CallLogItem item) {
+            Context context = itemView.getContext();
+
             Integer icon;
             switch (item.type) {
                 case INCOMING:
@@ -82,27 +90,54 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
                 callTypeIcon.setImageDrawable(null);
             }
 
-            label.setText(ellipsize(
-                    item.numberInfo.noNumber ? label.getContext().getString(R.string.no_number) :
-                            item.numberInfo.name != null ? item.numberInfo.name : item.number,
-                    15));
+            NumberInfo numberInfo = item.numberInfo;
+
+            label.setText(numberInfo.noNumber
+                    ? context.getString(R.string.no_number)
+                    : numberInfo.name != null ? numberInfo.name : item.number);
 
             IconAndColor iconAndColor = IconAndColor.forNumberRating(
-                    item.numberInfo.rating, item.numberInfo.contactItem != null);
+                    numberInfo.rating, numberInfo.contactItem != null);
 
             if (!iconAndColor.noInfo) {
-                iconAndColor.setOnImageView(numberInfoIcon);
+                iconAndColor.applyToImageView(numberInfoIcon);
             } else {
                 numberInfoIcon.setImageDrawable(null);
             }
 
-            time.setText(DateUtils.getRelativeTimeSpanString(item.timestamp));
+            if (item.duration == 0 && item.type == CallLogItem.Type.MISSED
+                    || item.type == CallLogItem.Type.REJECTED) {
+                duration.setVisibility(View.GONE);
+            } else {
+                duration.setText(getDuration(context, item.duration));
+                duration.setVisibility(View.VISIBLE);
+            }
+
+            String descriptionString = NumberInfoUtils.getShortDescription(context, numberInfo);
+            if (!TextUtils.isEmpty(descriptionString)) {
+                description.setText(descriptionString);
+                description.setVisibility(View.VISIBLE);
+            } else {
+                description.setVisibility(View.GONE);
+            }
+
+            time.setText(DateUtils.getRelativeTimeSpanString(
+                    item.timestamp, System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS,
+                    DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_ABBREV_ALL));
         }
 
-        String ellipsize(String s, int maxLength) {
-            return s == null || s.length() <= maxLength
-                    ? s
-                    : (s.substring(0, maxLength - 1) + '…');
+        private String getDuration(Context context, long duration) {
+            long seconds = duration % 60;
+            long minutes = duration / 60;
+            long hours = minutes / 60;
+            minutes -= hours * 60;
+
+            if (hours != 0) {
+                return context.getString(R.string.duration_h_m_s, hours, minutes, seconds);
+            } else if (minutes != 0) {
+                return context.getString(R.string.duration_m_s, minutes, seconds);
+            }
+            return context.getString(R.string.duration_s, seconds);
         }
 
         @Override

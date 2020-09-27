@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.NumberInfo;
-import dummydomain.yetanothercallblocker.data.SiaNumberCategoryUtils;
-import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
 import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
@@ -204,20 +202,7 @@ public class NotificationHelper {
     }
 
     private static String getTitleExtra(Context context, NumberInfo numberInfo) {
-        if (numberInfo.communityDatabaseItem != null) {
-            CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
-
-            NumberCategory category = NumberCategory.getById(communityItem.getCategory());
-            if (category != null && category != NumberCategory.NONE) {
-                return SiaNumberCategoryUtils.getName(context, category);
-            }
-        }
-
-        if (numberInfo.blacklistItem != null && numberInfo.contactItem == null) {
-            return context.getString(R.string.info_in_blacklist);
-        }
-
-        return null;
+        return NumberInfoUtils.getShortDescription(context, numberInfo);
     }
 
     private static String getInfoDescription(Context context, NumberInfo numberInfo) {

@@ -36,7 +36,7 @@ class IconAndColor {
         return UiUtils.getColorInt(context, colorResId);
     }
 
-    void setOnImageView(AppCompatImageView imageView) {
+    void applyToImageView(AppCompatImageView imageView) {
         imageView.setImageResource(iconResId);
         ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(
                 getColorInt(imageView.getContext())));

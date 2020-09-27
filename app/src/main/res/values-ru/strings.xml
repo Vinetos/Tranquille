@@ -173,4 +173,7 @@
     <string name="monitoring_service_label">Служба мониторинга вызовов</string>
     <string name="monitoring_service_description">Служба для мониторинга состояния телефона в фоне</string>
     <string name="monitoring_service_notification_title">Мониторинг вызовов</string>
+    <string name="duration_h_m_s">%1$dч %2$dм %3$dс</string>
+    <string name="duration_m_s">%1$dм %2$dс</string>
+    <string name="duration_s">%dс</string>
 </resources>
