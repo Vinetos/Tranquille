@@ -114,6 +114,7 @@ public class DebuggingUtils {
             writer.append("Product: ").append(android.os.Build.PRODUCT).append('\n');
             writer.append("Device: ").append(android.os.Build.DEVICE).append('\n');
             writer.append("Board: ").append(Build.BOARD).append('\n');
+            writer.append("Build display ID: ").append(Build.DISPLAY).append('\n');
         }
     }
 
