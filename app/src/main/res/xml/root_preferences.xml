@@ -22,6 +22,13 @@
             app:key="uiMode"
             app:title="@string/ui_mode"
             app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            app:defaultValue="consecutive"
+            app:entries="@array/recent_calls_grouping_entries"
+            app:entryValues="@array/recent_calls_grouping_values"
+            app:key="recentCallsGrouping"
+            app:title="@string/recent_calls_grouping"
+            app:useSimpleSummaryProvider="true" />
         <dummydomain.yetanothercallblocker.preference.IntEditTextPreference
             app:defaultValue="20"
             app:key="numberOfRecentCalls"

@@ -12,15 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
+import java.util.Iterator;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.CallLogItem;
+import dummydomain.yetanothercallblocker.data.CallLogItemGroup;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 
 public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
-        <CallLogItem, CallLogItemRecyclerViewAdapter.ViewHolder> {
+        <CallLogItemGroup, CallLogItemRecyclerViewAdapter.ViewHolder> {
 
-    public CallLogItemRecyclerViewAdapter(@Nullable ListInteractionListener<CallLogItem> listener) {
+    public CallLogItemRecyclerViewAdapter(@Nullable ListInteractionListener<CallLogItemGroup> listener) {
         super(listener);
     }
 
@@ -34,13 +36,13 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
     @Override
     protected DiffUtilCallback getDiffUtilCallback(
-            List<CallLogItem> oldList, List<CallLogItem> newList) {
+            List<CallLogItemGroup> oldList, List<CallLogItemGroup> newList) {
         return new DiffUtilCallback(oldList, newList);
     }
 
-    class ViewHolder extends GenericRecyclerViewAdapter<CallLogItem, ViewHolder>.GenericViewHolder {
+    class ViewHolder extends GenericRecyclerViewAdapter<CallLogItemGroup, ViewHolder>.GenericViewHolder {
 
-        final AppCompatImageView callTypeIcon;
+        final AppCompatImageView[] callTypeIcons;
         final TextView label;
         final AppCompatImageView numberInfoIcon;
         final TextView duration;
@@ -50,7 +52,11 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         ViewHolder(View view) {
             super(view);
 
-            callTypeIcon = view.findViewById(R.id.callTypeIcon);
+            callTypeIcons = new AppCompatImageView[]{
+                    view.findViewById(R.id.callTypeIcon),
+                    view.findViewById(R.id.callTypeIcon2),
+                    view.findViewById(R.id.callTypeIcon3)
+            };
             label = view.findViewById(R.id.item_label);
             numberInfoIcon = view.findViewById(R.id.numberInfoIcon);
             duration = view.findViewById(R.id.duration);
@@ -59,36 +65,10 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         }
 
         @Override
-        void bind(CallLogItem item) {
+        void bind(CallLogItemGroup group) {
+            CallLogItem item = group.getItems().get(0);
+
             Context context = itemView.getContext();
-
-            Integer icon;
-            switch (item.type) {
-                case INCOMING:
-                    icon = R.drawable.ic_call_received_24dp;
-                    break;
-
-                case OUTGOING:
-                    icon = R.drawable.ic_call_made_24dp;
-                    break;
-
-                case MISSED:
-                    icon = R.drawable.ic_call_missed_24dp;
-                    break;
-
-                case REJECTED:
-                    icon = R.drawable.ic_call_rejected_24dp;
-                    break;
-
-                default:
-                    icon = null;
-                    break;
-            }
-            if (icon != null) {
-                callTypeIcon.setImageResource(icon);
-            } else {
-                callTypeIcon.setImageDrawable(null);
-            }
 
             NumberInfo numberInfo = item.numberInfo;
 
@@ -113,6 +93,8 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
                 duration.setVisibility(View.VISIBLE);
             }
 
+            bindTypeIcons(group);
+
             String descriptionString = NumberInfoUtils.getShortDescription(context, numberInfo);
             if (!TextUtils.isEmpty(descriptionString)) {
                 description.setText(descriptionString);
@@ -121,9 +103,55 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
                 description.setVisibility(View.GONE);
             }
 
-            time.setText(DateUtils.getRelativeTimeSpanString(
+            CharSequence timeString = DateUtils.getRelativeTimeSpanString(
                     item.timestamp, System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS,
-                    DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_ABBREV_ALL));
+                    DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_ABBREV_ALL);
+
+            if (group.getItems().size() > 3) {
+                timeString = "(" + group.getItems().size() + ") " + timeString;
+            }
+
+            time.setText(timeString);
+        }
+
+        private void bindTypeIcons(CallLogItemGroup group) {
+            List<CallLogItem> items = group.getItems();
+
+            for (int i = 0; i < callTypeIcons.length; i++) {
+                CallLogItem.Type type = i < items.size() ? items.get(i).type : null;
+                bindTypeIcon(type, callTypeIcons[i]);
+            }
+        }
+
+        private void bindTypeIcon(CallLogItem.Type type, AppCompatImageView view) {
+            Integer icon = null;
+
+            if (type != null) {
+                switch (type) {
+                    case INCOMING:
+                        icon = R.drawable.ic_call_received_24dp;
+                        break;
+
+                    case OUTGOING:
+                        icon = R.drawable.ic_call_made_24dp;
+                        break;
+
+                    case MISSED:
+                        icon = R.drawable.ic_call_missed_24dp;
+                        break;
+
+                    case REJECTED:
+                        icon = R.drawable.ic_call_rejected_24dp;
+                        break;
+                }
+            }
+
+            if (icon != null) {
+                view.setImageResource(icon);
+                view.setVisibility(View.VISIBLE);
+            } else {
+                view.setVisibility(View.GONE);
+            }
         }
 
         private String getDuration(Context context, long duration) {
@@ -147,13 +175,24 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
     }
 
     static class DiffUtilCallback
-            extends GenericRecyclerViewAdapter.GenericDiffUtilCallback<CallLogItem> {
+            extends GenericRecyclerViewAdapter.GenericDiffUtilCallback<CallLogItemGroup> {
 
-        DiffUtilCallback(List<CallLogItem> oldList, List<CallLogItem> newList) {
+        DiffUtilCallback(List<CallLogItemGroup> oldList, List<CallLogItemGroup> newList) {
             super(oldList, newList);
         }
 
         @Override
+        protected boolean areItemsTheSame(CallLogItemGroup oldGroup, CallLogItemGroup newGroup) {
+            if (oldGroup.getItems().size() != newGroup.getItems().size()) return false;
+
+            for (Iterator<CallLogItem> it1 = oldGroup.getItems().iterator(),
+                 it2 = newGroup.getItems().iterator(); it1.hasNext(); ) {
+                if (!areItemsTheSame(it1.next(), it2.next())) return false;
+            }
+
+            return true;
+        }
+
         protected boolean areItemsTheSame(CallLogItem oldItem, CallLogItem newItem) {
             return newItem.type == oldItem.type
                     && TextUtils.equals(newItem.number, oldItem.number)

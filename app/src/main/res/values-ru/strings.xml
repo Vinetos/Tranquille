@@ -86,6 +86,10 @@
     <string name="ui_mode_day">Светлая</string>
     <string name="ui_mode_night">Тёмная</string>
     <string name="ui_mode_auto">Определяется системой</string>
+    <string name="recent_calls_grouping">Группировка недавних вызовов</string>
+    <string name="recent_calls_grouping_none">Без группировки</string>
+    <string name="recent_calls_grouping_consecutive">Последовательные вызовы</string>
+    <string name="recent_calls_grouping_day">Непоследовательные в течение дня</string>
     <string name="number_of_recent_calls">Кол-во недавних вызовов</string>
     <string name="number_of_recent_calls_summary">Количество недавних вызовов на основном экране</string>
     <string name="notification_incoming_call_contact">Из списка контактов</string>

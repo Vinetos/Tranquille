@@ -24,6 +24,7 @@ import java.util.Map;
 
 import dummydomain.yetanothercallblocker.data.CallLogHelper;
 import dummydomain.yetanothercallblocker.data.CallLogItem;
+import dummydomain.yetanothercallblocker.data.CallLogItemGroup;
 import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private AsyncTask<Void, Void, Boolean> checkMainDbTask;
-    private AsyncTask<Void, Void, List<CallLogItem>> loadCallLogTask;
+    private AsyncTask<Void, Void, List<CallLogItemGroup>> loadCallLogTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -208,8 +209,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, SettingsActivity.class));
     }
 
-    private void onCallLogItemClicked(CallLogItem item) {
-        InfoDialogHelper.showDialog(this, item.numberInfo, null);
+    private void onCallLogItemClicked(CallLogItemGroup item) {
+        InfoDialogHelper.showDialog(this, item.getItems().get(0).numberInfo, null);
     }
 
     private void loadCallLog() {
@@ -220,10 +221,10 @@ public class MainActivity extends AppCompatActivity {
 
         cancelLoadingCallLogTask();
         @SuppressLint("StaticFieldLeak")
-        AsyncTask<Void, Void, List<CallLogItem>> loadCallLogTask = this.loadCallLogTask
-                = new AsyncTask<Void, Void, List<CallLogItem>>() {
+        AsyncTask<Void, Void, List<CallLogItemGroup>> loadCallLogTask = this.loadCallLogTask
+                = new AsyncTask<Void, Void, List<CallLogItemGroup>>() {
             @Override
-            protected List<CallLogItem> doInBackground(Void... voids) {
+            protected List<CallLogItemGroup> doInBackground(Void... voids) {
                 List<CallLogItem> items = CallLogHelper.getRecentCalls(
                         MainActivity.this, settings.getNumberOfRecentCalls());
 
@@ -240,11 +241,18 @@ public class MainActivity extends AppCompatActivity {
                     item.numberInfo = numberInfo;
                 }
 
-                return items;
+                switch (settings.getRecentCallsGrouping()) {
+                    case Settings.PREF_RECENT_CALLS_GROUPING_NONE:
+                        return CallLogItemGroup.noGrouping(items);
+                    case Settings.PREF_RECENT_CALLS_GROUPING_DAY:
+                        return CallLogItemGroup.groupInDay(items);
+                    default:
+                        return CallLogItemGroup.groupConsecutive(items);
+                }
             }
 
             @Override
-            protected void onPostExecute(List<CallLogItem> items) {
+            protected void onPostExecute(List<CallLogItemGroup> items) {
                 // workaround for auto-scrolling to first item
                 // https://stackoverflow.com/a/44053550
                 @SuppressWarnings("ConstantConditions")
