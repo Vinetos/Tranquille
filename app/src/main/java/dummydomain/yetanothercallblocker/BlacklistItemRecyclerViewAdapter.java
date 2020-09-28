@@ -16,10 +16,10 @@ import androidx.core.util.ObjectsCompat;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Date;
-import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.db.BlacklistItem;
 
@@ -30,7 +30,7 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
     public BlacklistItemRecyclerViewAdapter(
             @Nullable ListInteractionListener<BlacklistItem> listener) {
-        super(listener);
+        super(new DiffUtilCallback(), listener);
     }
 
     public void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
@@ -42,13 +42,13 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
             @Nullable
             @Override
             public Long getKey(int position) {
-                return items.get(position).getId();
+                return getItem(position).getId();
             }
 
             @Override
             public int getPosition(@NonNull Long key) {
-                for (int i = 0; i < items.size(); i++) {
-                    BlacklistItem item = items.get(i);
+                for (int i = 0; i < getItemCount(); i++) {
+                    BlacklistItem item = getItem(i);
                     if (key.equals(item.getId())) return i;
                 }
                 return RecyclerView.NO_POSITION;
@@ -79,12 +79,6 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.blacklist_item, parent, false);
         return new BlacklistItemRecyclerViewAdapter.ViewHolder(view);
-    }
-
-    @Override
-    protected DiffUtilCallback getDiffUtilCallback(
-            List<BlacklistItem> oldList, List<BlacklistItem> newList) {
-        return new DiffUtilCallback(oldList, newList);
     }
 
     class ViewHolder extends GenericRecyclerViewAdapter
@@ -148,7 +142,7 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
                     public Long getSelectionKey() {
                         int position = getAdapterPosition();
                         return position != RecyclerView.NO_POSITION
-                                ? items.get(position).getId() : null;
+                                ? getItem(position).getId() : null;
                     }
                 };
             }
@@ -162,15 +156,11 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
     }
 
-    static class DiffUtilCallback
-            extends GenericRecyclerViewAdapter.GenericDiffUtilCallback<BlacklistItem> {
-
-        DiffUtilCallback(List<BlacklistItem> oldList, List<BlacklistItem> newList) {
-            super(oldList, newList);
-        }
+    static class DiffUtilCallback extends DiffUtil.ItemCallback<BlacklistItem> {
 
         @Override
-        protected boolean areItemsTheSame(BlacklistItem oldItem, BlacklistItem newItem) {
+        public boolean areItemsTheSame(@NonNull BlacklistItem oldItem,
+                                       @NonNull BlacklistItem newItem) {
             if (oldItem.getId() != null || newItem.getId() != null) {
                 return ObjectsCompat.equals(oldItem.getId(), newItem.getId());
             }
@@ -179,7 +169,8 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         }
 
         @Override
-        protected boolean areContentsTheSame(BlacklistItem oldItem, BlacklistItem newItem) {
+        public boolean areContentsTheSame(@NonNull BlacklistItem oldItem,
+                                          @NonNull BlacklistItem newItem) {
             return ObjectsCompat.equals(oldItem.getPattern(), newItem.getPattern())
                     && ObjectsCompat.equals(oldItem.getName(), newItem.getName())
                     && oldItem.getNumberOfCalls() == newItem.getNumberOfCalls()

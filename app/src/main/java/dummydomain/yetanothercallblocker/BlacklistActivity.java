@@ -238,7 +238,7 @@ public class BlacklistActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(List<BlacklistItem> items) {
-                blacklistAdapter.setItems(items);
+                blacklistAdapter.submitList(items);
             }
         };
         loadBlacklistTask.execute();

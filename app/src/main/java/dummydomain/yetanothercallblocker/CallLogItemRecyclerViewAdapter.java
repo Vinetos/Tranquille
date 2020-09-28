@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.recyclerview.widget.DiffUtil;
 
 import java.util.Iterator;
 import java.util.List;
@@ -23,7 +24,7 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         <CallLogItemGroup, CallLogItemRecyclerViewAdapter.ViewHolder> {
 
     public CallLogItemRecyclerViewAdapter(@Nullable ListInteractionListener<CallLogItemGroup> listener) {
-        super(listener);
+        super(new DiffUtilCallback(), listener);
     }
 
     @Override
@@ -32,12 +33,6 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.call_log_item, parent, false);
         return new ViewHolder(view);
-    }
-
-    @Override
-    protected DiffUtilCallback getDiffUtilCallback(
-            List<CallLogItemGroup> oldList, List<CallLogItemGroup> newList) {
-        return new DiffUtilCallback(oldList, newList);
     }
 
     class ViewHolder extends GenericRecyclerViewAdapter<CallLogItemGroup, ViewHolder>.GenericViewHolder {
@@ -174,15 +169,11 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         }
     }
 
-    static class DiffUtilCallback
-            extends GenericRecyclerViewAdapter.GenericDiffUtilCallback<CallLogItemGroup> {
-
-        DiffUtilCallback(List<CallLogItemGroup> oldList, List<CallLogItemGroup> newList) {
-            super(oldList, newList);
-        }
+    static class DiffUtilCallback extends DiffUtil.ItemCallback<CallLogItemGroup> {
 
         @Override
-        protected boolean areItemsTheSame(CallLogItemGroup oldGroup, CallLogItemGroup newGroup) {
+        public boolean areItemsTheSame(@NonNull CallLogItemGroup oldGroup,
+                                       @NonNull CallLogItemGroup newGroup) {
             if (oldGroup.getItems().size() != newGroup.getItems().size()) return false;
 
             for (Iterator<CallLogItem> it1 = oldGroup.getItems().iterator(),
@@ -201,7 +192,8 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         }
 
         @Override
-        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+        public boolean areContentsTheSame(@NonNull CallLogItemGroup oldItem,
+                                          @NonNull CallLogItemGroup newItem) {
             return false; // time always updates
         }
 

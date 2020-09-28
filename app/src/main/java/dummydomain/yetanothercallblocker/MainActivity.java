@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
                 // https://stackoverflow.com/a/44053550
                 @SuppressWarnings("ConstantConditions")
                 Parcelable recyclerViewState = recyclerView.getLayoutManager().onSaveInstanceState();
-                callLogAdapter.setItems(items);
+                callLogAdapter.submitList(items);
                 recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
 
                 setCallLogVisibility(true);
