@@ -30,7 +30,7 @@
             app:title="@string/recent_calls_grouping"
             app:useSimpleSummaryProvider="true" />
         <dummydomain.yetanothercallblocker.preference.IntEditTextPreference
-            app:defaultValue="20"
+            app:defaultValue="30"
             app:key="numberOfRecentCalls"
             app:summary="@string/number_of_recent_calls_summary"
             app:title="@string/number_of_recent_calls" />

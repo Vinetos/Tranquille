@@ -170,7 +170,7 @@ public class Settings extends GenericSettings {
     }
 
     public int getNumberOfRecentCalls() {
-        return getInt(PREF_NUMBER_OF_RECENT_CALLS, 20);
+        return getInt(PREF_NUMBER_OF_RECENT_CALLS, 30);
     }
 
     public void setNumberOfRecentCalls(int number) {
