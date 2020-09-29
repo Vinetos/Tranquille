@@ -1,0 +1,31 @@
+Enkelt samtaleblokkeringsprogram som hjelper deg å unngå uønskede samtaler
+ved å bruke en gemenskapsdrevet telefonnummerdatabase.
+
+<b>Features:</b>
+
+* Bruker frakoblet database.
+* Blokkerer anrop med negativ vurdering automatisk (valg).
+* Lokal svarteliste med jokertegnsstøtte.
+* Viser en merknad med telefonnummerssammendrag (vurdering, vurderingsantall, kategori) ved innkommende anrop (valg).
+* Automatiske inkrementelle/delta-databaseoppdateringer (valg).
+* Du kan vise nettbaserte vurderinger for anropsnummer (tilbys av en tredjepartstjeneste).
+* "Avansert anropsblokkeringsmodus" for blokkering av anrop på Android 7+ før telefonen begynner å ringe (må skrus på manuelt i programinnstillingene.
+
+<b>Bruk:</b>
+
+* Installer og start programmet.
+* Valget for å vise anropsinfo-merknader er påskrudd som forvalg, så programmet vil etterspørre telefonrelaterte tilganger.
+* Ved første start, vil programmet foreslå å laste ned hoveddatabasen, som kreves for det meste av funksjonene. Bekreft så nedlastingen.
+* Kryss av "Automatisk oppdatering av database" i menyen (anbefalt) for å motta databaseoppdateringer automatisk (disse er inkrementelle/delta-oppdateringer, så du bruker veldig lite trafikk).
+* Huk av «Blokker etter vurdering» for å blokkere anrop med negativ vurdering automatisk.
+* Du kan også huke av «Bruk kontakter» hvis du ønsker at kontakter skal behandles som ukjente oppringere.
+* Etter disse stegene skal alt bare virker (men du finner flere ting i innstillingene). Vel bekommen.
+
+Sjekk <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">ofte stilte spørsmål</a> for å lære mer.
+
+Hovedtelefondatabasen lastes ned fra <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">et GitLab-kodelager</a>.
+<b>Databaseoppdateringer og detaljerte vurderingsspørringer utføres av tredjepartstjenere</b>.
+
+Fremdeles i utvikling. All hjelp er velkommen.
+
+''NonFreeNet:''tredjepartstjenesten er ikke fri programvare.
