@@ -117,8 +117,6 @@
     <string name="recent_calls_grouping_none">No grouping</string>
     <string name="recent_calls_grouping_consecutive">Consecutive calls</string>
     <string name="recent_calls_grouping_day">Non-consecutive in a day</string>
-    <string name="number_of_recent_calls">Number of recent calls</string>
-    <string name="number_of_recent_calls_summary">The number of recent calls to display on the main screen</string>
 
     <string name="settings_screen_advanced">Advanced settings</string>
     <string name="settings_category_country_codes">Country codes</string>

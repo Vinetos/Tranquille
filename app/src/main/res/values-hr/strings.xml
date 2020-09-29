@@ -51,7 +51,6 @@
     <string name="app_name">Još jedan blokator poziva</string>
     <string name="sia_category_prank">Zajebancija</string>
     <string name="save_logcat_on_crash">Spremi logcat pri rušenju</string>
-    <string name="number_of_recent_calls_summary">Broj nedavnih poziva koji se prikazuju na glavnom ekranu</string>
     <string name="sia_category_scam">Prevara</string>
     <string name="reviews_loading">Učitavanje recenzija …</string>
     <string name="sia_category_safe_company">Sigurno poduzeće</string>
@@ -64,7 +63,6 @@
     <string name="country_code_for_reviews_override_summary">Kȏd zemlje koji se koristi u zahtjevima za mrežne recenzije. Namijenjeno je za predstavljanje zemlje pozivatelja. Ostavi prazno za automatsko otkrivanje</string>
     <string name="error">Greška</string>
     <string name="sia_category_sms">SMS</string>
-    <string name="number_of_recent_calls">Broj nedavnih poziva</string>
     <string name="sia_category_safe_personal">Sigurni osobni</string>
     <string name="db_management_reset_base">Resetiraj bazu podataka</string>
     <string name="notification_incoming_call_positive">Pozitivan poziv</string>

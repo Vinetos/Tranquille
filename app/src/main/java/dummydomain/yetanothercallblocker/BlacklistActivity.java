@@ -1,12 +1,11 @@
 package dummydomain.yetanothercallblocker;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
+import androidx.lifecycle.LiveData;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PagedList;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +32,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
+import java.util.Objects;
 
 import dummydomain.yetanothercallblocker.data.BlacklistImporterExporter;
 import dummydomain.yetanothercallblocker.data.BlacklistService;
@@ -44,19 +46,26 @@ public class BlacklistActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_IMPORT = 1;
 
+    private static final String STATE_LIST_LAST_KEY = "list_last_key";
+    private static final String STATE_LIST_LAYOUT_MANAGER = "list_layout_manager";
+
     private static final Logger LOG = LoggerFactory.getLogger(BlacklistActivity.class);
 
     private final Settings settings = App.getSettings();
     private final BlacklistDao blacklistDao = YacbHolder.getBlacklistDao();
     private final BlacklistService blacklistService = YacbHolder.getBlacklistService();
 
+    private RecyclerView recyclerView;
     private BlacklistItemRecyclerViewAdapter blacklistAdapter;
+    private BlacklistDataSource.Factory blacklistDataSourceFactory;
 
     private SelectionTracker<Long> selectionTracker;
     private ActionMode.Callback actionModeCallback;
     private ActionMode actionMode;
 
-    private AsyncTask<Void, Void, List<BlacklistItem>> loadBlacklistTask;
+    private Parcelable listLayoutManagerSavedState;
+
+    private boolean activityFirstStart = true;
 
     public static Intent getIntent(Context context) {
         return new Intent(context, BlacklistActivity.class);
@@ -68,7 +77,7 @@ public class BlacklistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blacklist);
 
         blacklistAdapter = new BlacklistItemRecyclerViewAdapter(this::onItemClicked);
-        RecyclerView recyclerView = findViewById(R.id.blacklistItemsList);
+        recyclerView = findViewById(R.id.blacklistItemsList);
         recyclerView.setAdapter(blacklistAdapter);
         recyclerView.addItemDecoration(new CustomVerticalDivider(this));
 
@@ -103,7 +112,6 @@ public class BlacklistActivity extends AppCompatActivity {
                                 if (selectionTracker.hasSelection()) {
                                     blacklistService.delete(selectionTracker.getSelection());
                                     selectionTracker.clearSelection();
-                                    loadItems();
                                 }
                             })
                             .setNegativeButton(R.string.no, null)
@@ -142,6 +150,39 @@ public class BlacklistActivity extends AppCompatActivity {
             }
         });
 
+        Integer initialKey = null;
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(STATE_LIST_LAST_KEY)) {
+                initialKey = savedInstanceState.getInt(STATE_LIST_LAST_KEY);
+            }
+
+            listLayoutManagerSavedState = savedInstanceState
+                    .getParcelable(STATE_LIST_LAYOUT_MANAGER);
+        }
+
+        blacklistDataSourceFactory = blacklistDao.dataSourceFactory();
+
+        PagedList.Config config = new PagedList.Config.Builder()
+                .setPageSize(30)
+                .setInitialLoadSizeHint(60)
+                .build();
+
+        LiveData<PagedList<BlacklistItem>> itemLiveData
+                = new LivePagedListBuilder<>(blacklistDataSourceFactory, config)
+                .setInitialLoadKey(initialKey)
+                .build();
+
+        itemLiveData.observe(this, data -> {
+            blacklistAdapter.submitList(data);
+
+            if (listLayoutManagerSavedState != null) {
+                Objects.requireNonNull(recyclerView.getLayoutManager())
+                        .onRestoreInstanceState(listLayoutManagerSavedState);
+
+                listLayoutManagerSavedState = null;
+            }
+        });
+
         selectionTracker.onRestoreInstanceState(savedInstanceState);
     }
 
@@ -165,7 +206,11 @@ public class BlacklistActivity extends AppCompatActivity {
 
         EventUtils.register(this);
 
-        loadItems();
+        if (activityFirstStart) {
+            activityFirstStart = false;
+        } else {
+            reloadItems();
+        }
     }
 
     @Override
@@ -173,6 +218,17 @@ public class BlacklistActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
 
         selectionTracker.onSaveInstanceState(outState);
+
+        PagedList<BlacklistItem> currentList = blacklistAdapter.getCurrentList();
+        if (currentList != null) {
+            Integer lastKey = (Integer) currentList.getLastKey();
+            if (lastKey != null) {
+                outState.putInt(STATE_LIST_LAST_KEY, lastKey);
+            }
+        }
+
+        outState.putParcelable(STATE_LIST_LAYOUT_MANAGER,
+                Objects.requireNonNull(recyclerView.getLayoutManager()).onSaveInstanceState());
     }
 
     @Override
@@ -180,13 +236,6 @@ public class BlacklistActivity extends AppCompatActivity {
         EventUtils.unregister(this);
 
         super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        cancelLoadingBlacklistTask();
-
-        super.onDestroy();
     }
 
     @Override
@@ -223,32 +272,11 @@ public class BlacklistActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onBlacklistChanged(BlacklistChangedEvent blacklistChangedEvent) {
-        loadItems();
+        reloadItems();
     }
 
-    private void loadItems() {
-        cancelLoadingBlacklistTask();
-        @SuppressLint("StaticFieldLeak")
-        AsyncTask<Void, Void, List<BlacklistItem>> loadBlacklistTask = this.loadBlacklistTask
-                = new AsyncTask<Void, Void, List<BlacklistItem>>() {
-            @Override
-            protected List<BlacklistItem> doInBackground(Void... voids) {
-                return blacklistDao.detach(blacklistDao.loadAll());
-            }
-
-            @Override
-            protected void onPostExecute(List<BlacklistItem> items) {
-                blacklistAdapter.submitList(items);
-            }
-        };
-        loadBlacklistTask.execute();
-    }
-
-    private void cancelLoadingBlacklistTask() {
-        if (loadBlacklistTask != null) {
-            loadBlacklistTask.cancel(true);
-            loadBlacklistTask = null;
-        }
+    private void reloadItems() {
+        blacklistDataSourceFactory.invalidate();
     }
 
     public void onBlockBlacklistedChanged(MenuItem item) {

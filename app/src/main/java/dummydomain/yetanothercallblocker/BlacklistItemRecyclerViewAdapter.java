@@ -42,14 +42,15 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
             @Nullable
             @Override
             public Long getKey(int position) {
-                return getItem(position).getId();
+                BlacklistItem item = getItem(position);
+                return item != null ? item.getId() : null;
             }
 
             @Override
             public int getPosition(@NonNull Long key) {
                 for (int i = 0; i < getItemCount(); i++) {
                     BlacklistItem item = getItem(i);
-                    if (key.equals(item.getId())) return i;
+                    if (item != null && key.equals(item.getId())) return i;
                 }
                 return RecyclerView.NO_POSITION;
             }
@@ -100,10 +101,21 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
         @Override
         void bind(BlacklistItem item) {
+            if (item == null) { // placeholder
+                name.setVisibility(View.INVISIBLE);
+                pattern.setVisibility(View.INVISIBLE);
+                stats.setVisibility(View.GONE);
+                errorIcon.setVisibility(View.GONE);
+                itemView.setActivated(false);
+
+                return;
+            }
+
             name.setText(item.getName());
             name.setVisibility(TextUtils.isEmpty(item.getName()) ? View.GONE : View.VISIBLE);
 
             pattern.setText(item.getHumanReadablePattern());
+            pattern.setVisibility(View.VISIBLE);
 
             if (item.getNumberOfCalls() > 0) {
                 stats.setVisibility(View.VISIBLE);
@@ -124,9 +136,8 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
             errorIcon.setVisibility(item.getInvalid() ? View.VISIBLE : View.GONE);
 
-            if (selectionTracker != null) {
-                itemView.setActivated(selectionTracker.isSelected(item.getId()));
-            }
+            itemView.setActivated(selectionTracker != null
+                    && selectionTracker.isSelected(item.getId()));
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails() {
@@ -141,14 +152,16 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
                     @Override
                     public Long getSelectionKey() {
                         int position = getAdapterPosition();
-                        return position != RecyclerView.NO_POSITION
-                                ? getItem(position).getId() : null;
+                        BlacklistItem item = position != RecyclerView.NO_POSITION
+                                ? getItem(position) : null;
+                        return item != null ? item.getId() : null;
                     }
                 };
             }
             return itemDetails;
         }
 
+        @SuppressWarnings("NullableProblems")
         @Override
         public String toString() {
             return super.toString() + " '" + pattern.getText() + "'";

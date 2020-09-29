@@ -16,7 +16,7 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_thumb_down_24dp"
+        tools:src="@drawable/ic_thumb_down_24dp"
         tools:tint="@color/rateNegative" />
 
     <LinearLayout
@@ -62,21 +62,21 @@
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_call_missed_24dp" />
+                tools:src="@drawable/ic_call_missed_24dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/callTypeIcon2"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_call_missed_24dp" />
+                tools:src="@drawable/ic_call_missed_24dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/callTypeIcon3"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_call_missed_24dp" />
+                tools:src="@drawable/ic_call_missed_24dp" />
 
             <TextView
                 android:id="@+id/time"

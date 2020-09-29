@@ -84,8 +84,6 @@
     <string name="ui_mode_day">Світла</string>
     <string name="ui_mode_night">Темна</string>
     <string name="ui_mode_auto">Визначається системою</string>
-    <string name="number_of_recent_calls">Кількість нещодавніх викликів</string>
-    <string name="number_of_recent_calls_summary">Кількість нещодавніх викликів на основному екрані</string>
     <string name="notification_incoming_call_contact">Контакт</string>
     <string name="open_settings_activity">Налаштування</string>
     <string name="title_settings_activity">Налаштування</string>

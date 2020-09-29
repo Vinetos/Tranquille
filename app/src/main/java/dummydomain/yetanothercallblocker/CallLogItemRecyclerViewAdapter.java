@@ -61,6 +61,23 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
         @Override
         void bind(CallLogItemGroup group) {
+            if (group == null) { // placeholder
+                label.setVisibility(View.INVISIBLE);
+                numberInfoIcon.setVisibility(View.INVISIBLE);
+                duration.setVisibility(View.GONE);
+                description.setVisibility(View.GONE);
+                time.setVisibility(View.INVISIBLE);
+                for (AppCompatImageView icon : callTypeIcons) {
+                    bindTypeIcon(null, icon);
+                }
+
+                return;
+            } else {
+                label.setVisibility(View.VISIBLE);
+                numberInfoIcon.setVisibility(View.VISIBLE);
+                time.setVisibility(View.VISIBLE);
+            }
+
             CallLogItem item = group.getItems().get(0);
 
             Context context = itemView.getContext();
@@ -163,6 +180,7 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
             return context.getString(R.string.duration_s, seconds);
         }
 
+        @SuppressWarnings("NullableProblems")
         @Override
         public String toString() {
             return super.toString() + " '" + label.getText() + "'";

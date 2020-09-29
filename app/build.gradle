@@ -50,6 +50,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
+    implementation 'androidx.paging:paging-runtime:2.1.2'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'androidx.work:work-runtime:2.4.0'

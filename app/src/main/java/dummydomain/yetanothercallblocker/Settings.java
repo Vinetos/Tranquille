@@ -24,7 +24,6 @@ public class Settings extends GenericSettings {
     public static final String PREF_USE_CONTACTS = "useContacts";
     public static final String PREF_UI_MODE = "uiMode";
     public static final String PREF_RECENT_CALLS_GROUPING = "recentCallsGrouping";
-    public static final String PREF_NUMBER_OF_RECENT_CALLS = "numberOfRecentCalls";
     public static final String PREF_USE_MONITORING_SERVICE = "useMonitoringService";
     public static final String PREF_NOTIFICATIONS_KNOWN = "showNotificationsForKnownCallers";
     public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
@@ -167,14 +166,6 @@ public class Settings extends GenericSettings {
 
     public void setRecentCallsGrouping(String value) {
         setString(PREF_RECENT_CALLS_GROUPING, value);
-    }
-
-    public int getNumberOfRecentCalls() {
-        return getInt(PREF_NUMBER_OF_RECENT_CALLS, 30);
-    }
-
-    public void setNumberOfRecentCalls(int number) {
-        setInt(PREF_NUMBER_OF_RECENT_CALLS, number);
     }
 
     public boolean getUseMonitoringService() {

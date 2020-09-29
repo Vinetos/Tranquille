@@ -27,7 +27,6 @@
     <string name="save_logcat_on_crash">Lagre logcat ved kræsj</string>
     <string name="save_crashes_to_external_storage">Lagre rapporter til offentlig lager</string>
     <string name="country_codes_info_summary_addition">Oppdaget automatisk: %s</string>
-    <string name="number_of_recent_calls_summary">Antall nylige anrop å vise på hovedsjermen</string>
     <string name="ui_mode_night">Mørk</string>
     <string name="ui_mode_day">Lys</string>
     <string name="ui_mode">Drakt</string>
@@ -98,7 +97,6 @@
     <string name="country_codes_info">Forklaring</string>
     <string name="settings_category_country_codes">Landskoder</string>
     <string name="settings_screen_advanced">Avanserte innstillinger</string>
-    <string name="number_of_recent_calls">Antall nylige anrop</string>
     <string name="ui_mode_auto">Følg system</string>
     <string name="settings_category_call_blocking">Anropsblokkering</string>
     <string name="title_settings_activity">Innstillinger</string>

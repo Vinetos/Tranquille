@@ -71,8 +71,6 @@
     <string name="country_codes_info">Açıklama</string>
     <string name="settings_category_country_codes">Ülke kodları</string>
     <string name="settings_screen_advanced">Gelişmiş ayarlar</string>
-    <string name="number_of_recent_calls_summary">Ana ekranda görüntülenecek son aramaların sayısı</string>
-    <string name="number_of_recent_calls">Son aramaların sayısı</string>
     <string name="ui_mode_auto">Sistem teması</string>
     <string name="ui_mode_night">Karanlık</string>
     <string name="ui_mode_day">Aydınlık</string>

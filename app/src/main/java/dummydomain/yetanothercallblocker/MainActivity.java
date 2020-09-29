@@ -13,27 +13,33 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.arch.core.util.Function;
+import androidx.lifecycle.LiveData;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PagedList;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
-import dummydomain.yetanothercallblocker.data.CallLogHelper;
+import dummydomain.yetanothercallblocker.data.CallLogDataSource;
 import dummydomain.yetanothercallblocker.data.CallLogItem;
 import dummydomain.yetanothercallblocker.data.CallLogItemGroup;
-import dummydomain.yetanothercallblocker.data.NumberInfo;
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.CallEndedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
+import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
 import dummydomain.yetanothercallblocker.work.TaskService;
 import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String STATE_CALL_LOG_DATA_LAST_KEY = "call_log_data_last_key";
+    private static final String STATE_CALL_LOG_LAYOUT_MANAGER = "call_log_layout_manager";
 
     private final Settings settings = App.getSettings();
 
@@ -41,9 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
     private CallLogItemRecyclerViewAdapter callLogAdapter;
     private RecyclerView recyclerView;
+    private CallLogDataSource.Factory callLogDsFactory;
+
+    private Parcelable callLogLayoutManagerState;
 
     private AsyncTask<Void, Void, Boolean> checkMainDbTask;
-    private AsyncTask<Void, Void, List<CallLogItemGroup>> loadCallLogTask;
+
+    private boolean activityFirstStart = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +64,39 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.callLogList);
         recyclerView.setAdapter(callLogAdapter);
         recyclerView.addItemDecoration(new CustomVerticalDivider(this));
+
+        callLogDsFactory = new CallLogDataSource.Factory(getCallLogGroupConverter());
+
+        PagedList.Config config = new PagedList.Config.Builder()
+                .setPageSize(30)
+                .setInitialLoadSizeHint(30)
+                .setPrefetchDistance(15)
+                .build();
+
+        CallLogDataSource.GroupId initialKey = null;
+        if (savedInstanceState != null) {
+            initialKey = CallLogDataSource.GroupId.fromParcelable(
+                    savedInstanceState.getParcelable(STATE_CALL_LOG_DATA_LAST_KEY));
+
+            callLogLayoutManagerState = savedInstanceState
+                    .getParcelable(STATE_CALL_LOG_LAYOUT_MANAGER);
+        }
+
+        LiveData<PagedList<CallLogItemGroup>> callLogData
+                = new LivePagedListBuilder<>(callLogDsFactory, config)
+                .setInitialLoadKey(initialKey)
+                .build();
+
+        callLogData.observe(this, data -> {
+            callLogAdapter.submitList(data);
+
+            if (callLogLayoutManagerState != null) {
+                Objects.requireNonNull(recyclerView.getLayoutManager())
+                        .onRestoreInstanceState(callLogLayoutManagerState);
+
+                callLogLayoutManagerState = null;
+            }
+        });
     }
 
     @Override
@@ -88,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
                 settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
                 settings.getUseContacts());
 
-        loadCallLog();
+        updateCallLogVisibility();
+        reloadCallLog();
     }
 
     @Override
@@ -101,7 +145,13 @@ public class MainActivity extends AppCompatActivity {
 
         checkPermissions();
 
-        loadCallLog();
+        updateCallLogVisibility();
+        if (activityFirstStart) {
+            activityFirstStart = false;
+        } else {
+            callLogDsFactory.setGroupConverter(getCallLogGroupConverter());
+            reloadCallLog();
+        }
     }
 
     @Override
@@ -114,19 +164,40 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         cancelCheckMainDbTask();
-        cancelLoadingCallLogTask();
 
         super.onDestroy();
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        PagedList<CallLogItemGroup> currentList = callLogAdapter.getCurrentList();
+        if (currentList != null) {
+            Object lastKey = currentList.getLastKey();
+            if (lastKey != null) {
+                outState.putParcelable(STATE_CALL_LOG_DATA_LAST_KEY,
+                        ((CallLogDataSource.GroupId) lastKey).saveInstanceState());
+            }
+        }
+
+        outState.putParcelable(STATE_CALL_LOG_LAYOUT_MANAGER,
+                Objects.requireNonNull(recyclerView.getLayoutManager()).onSaveInstanceState());
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onCallEvent(CallEndedEvent event) {
-        new Handler(getMainLooper()).postDelayed(this::loadCallLog, 1000);
+        new Handler(getMainLooper()).postDelayed(this::reloadCallLog, 1000);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onMainDbDownloadFinished(MainDbDownloadFinishedEvent event) {
-        loadCallLog();
+        reloadCallLog();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
+    public void onSecondaryDbUpdateFinished(SecondaryDbUpdateFinished event) {
+        reloadCallLog();
     }
 
     private void checkPermissions() {
@@ -198,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
     public void onUseContactsChanged(MenuItem item) {
         settings.setUseContacts(!item.isChecked());
         checkPermissions();
-        loadCallLog();
+        reloadCallLog();
     }
 
     public void onOpenBlacklist(MenuItem item) {
@@ -213,64 +284,12 @@ public class MainActivity extends AppCompatActivity {
         InfoDialogHelper.showDialog(this, item.getItems().get(0).numberInfo, null);
     }
 
-    private void loadCallLog() {
-        if (!PermissionHelper.hasCallLogPermission(this)) {
-            setCallLogVisibility(false);
-            return;
-        }
-
-        cancelLoadingCallLogTask();
-        @SuppressLint("StaticFieldLeak")
-        AsyncTask<Void, Void, List<CallLogItemGroup>> loadCallLogTask = this.loadCallLogTask
-                = new AsyncTask<Void, Void, List<CallLogItemGroup>>() {
-            @Override
-            protected List<CallLogItemGroup> doInBackground(Void... voids) {
-                List<CallLogItem> items = CallLogHelper.getRecentCalls(
-                        MainActivity.this, settings.getNumberOfRecentCalls());
-
-                Map<String, NumberInfo> cache = new HashMap<>();
-                String countryCode = settings.getCachedAutoDetectedCountryCode();
-
-                for (CallLogItem item : items) {
-                    NumberInfo numberInfo = cache.get(item.number);
-                    if (numberInfo == null) {
-                        numberInfo = YacbHolder.getNumberInfo(item.number, countryCode);
-                        cache.put(item.number, numberInfo);
-                    }
-
-                    item.numberInfo = numberInfo;
-                }
-
-                switch (settings.getRecentCallsGrouping()) {
-                    case Settings.PREF_RECENT_CALLS_GROUPING_NONE:
-                        return CallLogItemGroup.noGrouping(items);
-                    case Settings.PREF_RECENT_CALLS_GROUPING_DAY:
-                        return CallLogItemGroup.groupInDay(items);
-                    default:
-                        return CallLogItemGroup.groupConsecutive(items);
-                }
-            }
-
-            @Override
-            protected void onPostExecute(List<CallLogItemGroup> items) {
-                // workaround for auto-scrolling to first item
-                // https://stackoverflow.com/a/44053550
-                @SuppressWarnings("ConstantConditions")
-                Parcelable recyclerViewState = recyclerView.getLayoutManager().onSaveInstanceState();
-                callLogAdapter.submitList(items);
-                recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
-
-                setCallLogVisibility(true);
-            }
-        };
-        loadCallLogTask.execute();
+    private void reloadCallLog() {
+        callLogDsFactory.invalidate();
     }
 
-    private void cancelLoadingCallLogTask() {
-        if (loadCallLogTask != null) {
-            loadCallLogTask.cancel(true);
-            loadCallLogTask = null;
-        }
+    private void updateCallLogVisibility() {
+        setCallLogVisibility(PermissionHelper.hasCallLogPermission(this));
     }
 
     private void setCallLogVisibility(boolean visible) {
@@ -278,6 +297,22 @@ public class MainActivity extends AppCompatActivity {
                 .setVisibility(visible ? View.GONE : View.VISIBLE);
 
         findViewById(R.id.callLogList).setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    private Function<List<CallLogItem>, List<CallLogItemGroup>> getCallLogGroupConverter() {
+        Function<List<CallLogItem>, List<CallLogItemGroup>> converter;
+        switch (settings.getRecentCallsGrouping()) {
+            case Settings.PREF_RECENT_CALLS_GROUPING_NONE:
+                converter = CallLogItemGroup::noGrouping;
+                break;
+            case Settings.PREF_RECENT_CALLS_GROUPING_DAY:
+                converter = CallLogItemGroup::groupInDay;
+                break;
+            default:
+                converter = CallLogItemGroup::groupConsecutive;
+                break;
+        }
+        return converter;
     }
 
 }

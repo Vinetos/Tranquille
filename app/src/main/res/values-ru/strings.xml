@@ -90,8 +90,6 @@
     <string name="recent_calls_grouping_none">Без группировки</string>
     <string name="recent_calls_grouping_consecutive">Последовательные вызовы</string>
     <string name="recent_calls_grouping_day">Непоследовательные в течение дня</string>
-    <string name="number_of_recent_calls">Кол-во недавних вызовов</string>
-    <string name="number_of_recent_calls_summary">Количество недавних вызовов на основном экране</string>
     <string name="notification_incoming_call_contact">Из списка контактов</string>
     <string name="open_settings_activity">Настройки</string>
     <string name="title_settings_activity">Настройки</string>

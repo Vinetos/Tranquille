@@ -88,8 +88,6 @@
     <string name="ui_mode_day">Clair</string>
     <string name="ui_mode_night">Sombre</string>
     <string name="ui_mode_auto">Automatique</string>
-    <string name="number_of_recent_calls">Nombre d\'appels récents</string>
-    <string name="number_of_recent_calls_summary">Le nombre d\'appels récents à afficher sur l\'écran principal</string>
     <string name="settings_screen_advanced">Paramètres avancés</string>
     <string name="settings_category_country_codes">Codes pays</string>
     <string name="country_codes_info">Explication</string>

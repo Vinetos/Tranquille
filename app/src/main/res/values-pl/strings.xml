@@ -15,7 +15,6 @@
     </plurals>
     <string name="country_code_for_reviews_override">Numer kierunkowy dla recenzji</string>
     <string name="country_codes_info_summary_addition">Wykryte automatycznie: %s</string>
-    <string name="number_of_recent_calls">Liczba ostatnich połączeń</string>
     <string name="settings_category_call_blocking">Blokowanie połączeń</string>
     <string name="settings_category_main">Główne</string>
     <string name="title_settings_activity">Ustawienia</string>
@@ -156,7 +155,6 @@
     <string name="export_logcat">Eksportuj logi logcat</string>
     <string name="save_logcat_on_crash_summary">Zapisz dane wyjściowe logcat w przypadku awarii (oprócz podstawowego śledzenia stosu)</string>
     <string name="save_logcat_on_crash">Zapisz logi z logcat w przypadku awarii</string>
-    <string name="number_of_recent_calls_summary">Liczba ostatnich połączeń do wyświetlenia na głównym ekranie</string>
     <string name="use_monitoring_service">Użyj usługi monitorowania</string>
     <string name="use_call_screening_service_summary">Pozwala blokować połączenia, zanim telefon zacznie dzwonić. Wymaga ustawienia aplikacji jako „Telefon” (Android 7–9) lub „Caller ID” (Android 10+)</string>
     <string name="incoming_call_notifications_summary">Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących</string>

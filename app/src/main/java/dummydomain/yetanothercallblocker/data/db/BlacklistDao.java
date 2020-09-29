@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.BlacklistDataSource;
+
 public class BlacklistDao {
 
     public interface DaoSessionProvider {
@@ -27,13 +29,20 @@ public class BlacklistDao {
         this.daoSessionProvider = daoSessionProvider;
     }
 
+    public BlacklistDataSource.Factory dataSourceFactory() {
+        return new BlacklistDataSource.Factory(this);
+    }
+
     public List<BlacklistItem> loadAll() {
+        return getDefaultQueryBuilder().list();
+    }
+
+    public QueryBuilder<BlacklistItem> getDefaultQueryBuilder() {
         return getBlacklistItemDao().queryBuilder()
                 .orderRaw("T.'" + BlacklistItemDao.Properties.Name.columnName + "' IS NULL" +
                         " OR T.'" + BlacklistItemDao.Properties.Name.columnName + "' = ''")
                 .orderAsc(BlacklistItemDao.Properties.Name)
-                .orderAsc(BlacklistItemDao.Properties.Pattern)
-                .list();
+                .orderAsc(BlacklistItemDao.Properties.Pattern);
     }
 
     public <T extends Collection<BlacklistItem>> T detach(T items) {
@@ -71,6 +80,10 @@ public class BlacklistDao {
 
     public void delete(Iterable<Long> keys) {
         getBlacklistItemDao().deleteByKeyInTx(keys);
+    }
+
+    public long countAll() {
+        return getBlacklistItemDao().queryBuilder().count();
     }
 
     public long countValid() {

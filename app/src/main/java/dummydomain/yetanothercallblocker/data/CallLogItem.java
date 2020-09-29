@@ -2,8 +2,6 @@ package dummydomain.yetanothercallblocker.data;
 
 import android.provider.CallLog;
 
-import java.util.Objects;
-
 public class CallLogItem {
 
     public enum Type {
@@ -24,15 +22,15 @@ public class CallLogItem {
         }
     }
 
+    public long id;
     public Type type;
     public String number;
     public long timestamp;
     public long duration;
     public NumberInfo numberInfo;
 
-    public CallLogItem(Type type, String number, long timestamp, long duration) {
-        Objects.requireNonNull(type);
-        Objects.requireNonNull(number);
+    public CallLogItem(long id, Type type, String number, long timestamp, long duration) {
+        this.id = id;
         this.type = type;
         this.number = number;
         this.timestamp = timestamp;

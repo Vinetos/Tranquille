@@ -4,12 +4,12 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class GenericRecyclerViewAdapter<T, V extends GenericRecyclerViewAdapter<T, V>.GenericViewHolder>
-        extends ListAdapter<T, V> {
+        extends PagedListAdapter<T, V> {
 
     public interface ListInteractionListener<T> {
         void onListItemClicked(T item);
