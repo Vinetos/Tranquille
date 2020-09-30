@@ -301,11 +301,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Function<List<CallLogItem>, List<CallLogItemGroup>> getCallLogGroupConverter() {
         Function<List<CallLogItem>, List<CallLogItemGroup>> converter;
-        switch (settings.getRecentCallsGrouping()) {
-            case Settings.PREF_RECENT_CALLS_GROUPING_NONE:
+        switch (settings.getCallLogGrouping()) {
+            case Settings.PREF_CALL_LOG_GROUPING_NONE:
                 converter = CallLogItemGroup::noGrouping;
                 break;
-            case Settings.PREF_RECENT_CALLS_GROUPING_DAY:
+            case Settings.PREF_CALL_LOG_GROUPING_DAY:
                 converter = CallLogItemGroup::groupInDay;
                 break;
             default:

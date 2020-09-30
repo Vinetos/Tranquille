@@ -24,10 +24,10 @@
             app:useSimpleSummaryProvider="true" />
         <ListPreference
             app:defaultValue="consecutive"
-            app:entries="@array/recent_calls_grouping_entries"
-            app:entryValues="@array/recent_calls_grouping_values"
-            app:key="recentCallsGrouping"
-            app:title="@string/recent_calls_grouping"
+            app:entries="@array/call_log_grouping_entries"
+            app:entryValues="@array/call_log_grouping_values"
+            app:key="callLogGrouping"
+            app:title="@string/call_log_grouping"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 

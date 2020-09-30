@@ -23,7 +23,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_BLACKLIST_IS_NOT_EMPTY = "blacklistIsNotEmpty";
     public static final String PREF_USE_CONTACTS = "useContacts";
     public static final String PREF_UI_MODE = "uiMode";
-    public static final String PREF_RECENT_CALLS_GROUPING = "recentCallsGrouping";
+    public static final String PREF_CALL_LOG_GROUPING = "callLogGrouping";
     public static final String PREF_USE_MONITORING_SERVICE = "useMonitoringService";
     public static final String PREF_NOTIFICATIONS_KNOWN = "showNotificationsForKnownCallers";
     public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
@@ -35,9 +35,9 @@ public class Settings extends GenericSettings {
     public static final String PREF_SAVE_CRASHES_TO_EXTERNAL_STORAGE = "saveCrashesToExternalStorage";
     public static final String PREF_SAVE_LOGCAT_ON_CRASH = "saveLogcatOnCrash";
 
-    public static final String PREF_RECENT_CALLS_GROUPING_NONE = "none";
-    public static final String PREF_RECENT_CALLS_GROUPING_CONSECUTIVE = "consecutive";
-    public static final String PREF_RECENT_CALLS_GROUPING_DAY = "day";
+    public static final String PREF_CALL_LOG_GROUPING_NONE = "none";
+    public static final String PREF_CALL_LOG_GROUPING_CONSECUTIVE = "consecutive";
+    public static final String PREF_CALL_LOG_GROUPING_DAY = "day";
 
     static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
 
@@ -160,12 +160,12 @@ public class Settings extends GenericSettings {
         setInt(PREF_UI_MODE, mode);
     }
 
-    public String getRecentCallsGrouping() {
-        return getString(PREF_RECENT_CALLS_GROUPING, PREF_RECENT_CALLS_GROUPING_CONSECUTIVE);
+    public String getCallLogGrouping() {
+        return getString(PREF_CALL_LOG_GROUPING, PREF_CALL_LOG_GROUPING_CONSECUTIVE);
     }
 
-    public void setRecentCallsGrouping(String value) {
-        setString(PREF_RECENT_CALLS_GROUPING, value);
+    public void setCallLogGrouping(String value) {
+        setString(PREF_CALL_LOG_GROUPING, value);
     }
 
     public boolean getUseMonitoringService() {

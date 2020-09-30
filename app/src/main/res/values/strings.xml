@@ -113,10 +113,10 @@
     <string name="ui_mode_day">Light</string>
     <string name="ui_mode_night">Dark</string>
     <string name="ui_mode_auto">Follow system</string>
-    <string name="recent_calls_grouping">Recent calls grouping</string>
-    <string name="recent_calls_grouping_none">No grouping</string>
-    <string name="recent_calls_grouping_consecutive">Consecutive calls</string>
-    <string name="recent_calls_grouping_day">Non-consecutive in a day</string>
+    <string name="call_log_grouping">Call log grouping</string>
+    <string name="call_log_grouping_none">No grouping</string>
+    <string name="call_log_grouping_consecutive">Consecutive calls</string>
+    <string name="call_log_grouping_day">Non-consecutive in a day</string>
 
     <string name="settings_screen_advanced">Advanced settings</string>
     <string name="settings_category_country_codes">Country codes</string>

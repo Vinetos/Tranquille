@@ -10,12 +10,12 @@
         <item>2</item>
         <item>-1</item>
     </string-array>
-    <string-array name="recent_calls_grouping_entries">
-        <item>@string/recent_calls_grouping_none</item>
-        <item>@string/recent_calls_grouping_consecutive</item>
-        <item>@string/recent_calls_grouping_day</item>
+    <string-array name="call_log_grouping_entries">
+        <item>@string/call_log_grouping_none</item>
+        <item>@string/call_log_grouping_consecutive</item>
+        <item>@string/call_log_grouping_day</item>
     </string-array>
-    <string-array name="recent_calls_grouping_values">
+    <string-array name="call_log_grouping_values">
         <item>none</item>
         <item>consecutive</item>
         <item>day</item>

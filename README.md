@@ -54,7 +54,7 @@ At this point most of the essential features (one would expect from a call block
 * Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
 * Loading and displaying a list of reviews for a number (accessed from the notification or the info view). *Requires internet.*
 * Automatic update of the database (for offline use). *Requires internet.*
-* Displaying a list of recent calls with caller rating and the ability to show more info or load online reviews for the number. The list *works offline*, but loading reviews *requires internet.*
+* Displaying call log with caller rating and the ability to show more info or load online reviews for the number. The list *works offline*, but loading reviews *requires internet.*
 * If "use contacts" option is enabled, the numbers present in the phone book are never blocked and the contact name is displayed next to/instead of a number throughout the app.
 * "Advanced call blocking mode" for blocking calls on Android 7+ before the phone starts ringing.  
   Needs to be manually enabled in app Settings.
