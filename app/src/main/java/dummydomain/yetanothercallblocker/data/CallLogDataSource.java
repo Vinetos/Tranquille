@@ -93,6 +93,8 @@ public class CallLogDataSource extends ItemKeyedDataSource<CallLogDataSource.Gro
 
     private final Function<List<CallLogItem>, List<CallLogItemGroup>> groupConverter;
 
+    private final Map<String, NumberInfo> numberInfoCache = new HashMap<>();
+
     public CallLogDataSource(Function<List<CallLogItem>, List<CallLogItemGroup>> groupConverter) {
         this.groupConverter = groupConverter;
     }
@@ -151,14 +153,13 @@ public class CallLogDataSource extends ItemKeyedDataSource<CallLogDataSource.Gro
     }
 
     private List<CallLogItem> loadInfo(List<CallLogItem> items) {
-        Map<String, NumberInfo> cache = new HashMap<>();
         String countryCode = App.getSettings().getCachedAutoDetectedCountryCode();
 
         for (CallLogItem item : items) {
-            NumberInfo numberInfo = cache.get(item.number);
+            NumberInfo numberInfo = numberInfoCache.get(item.number);
             if (numberInfo == null) {
                 numberInfo = YacbHolder.getNumberInfo(item.number, countryCode);
-                cache.put(item.number, numberInfo);
+                numberInfoCache.put(item.number, numberInfo);
             }
 
             item.numberInfo = numberInfo;
