@@ -104,19 +104,22 @@ public class TaskService extends IntentService {
     private void updateSecondaryDb() {
         Settings settings = App.getSettings();
 
+        boolean updated = false;
+
         SecondaryDbUpdatingEvent sticky = new SecondaryDbUpdatingEvent();
 
         postStickyEvent(sticky);
         try {
             if (YacbHolder.getCommunityDatabase().updateSecondaryDb()) {
                 settings.setLastUpdateTime(System.currentTimeMillis());
+                updated = true;
             }
             settings.setLastUpdateCheckTime(System.currentTimeMillis());
         } finally {
             removeStickyEvent(sticky);
         }
 
-        postEvent(new SecondaryDbUpdateFinished());
+        postEvent(new SecondaryDbUpdateFinished(updated));
     }
 
 }

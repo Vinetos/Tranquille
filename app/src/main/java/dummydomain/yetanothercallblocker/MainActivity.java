@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     public void onSecondaryDbUpdateFinished(SecondaryDbUpdateFinished event) {
-        reloadCallLog();
+        if (event.updated) reloadCallLog();
     }
 
     private void checkPermissions() {
