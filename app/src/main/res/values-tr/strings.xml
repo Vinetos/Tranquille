@@ -26,7 +26,7 @@
     <string name="info_in_blacklist">Kara listede</string>
     <string name="contacts_are_not_blocked_no_permission">Kişilerden gelen aramalar, \"Kişiler\" izni verilmediği için engellenebilir!</string>
     <string name="contacts_are_not_blocked_not_enabled">Kişilerden gelen aramalar, \"Kişileri kullan\" seçeneği etkin olmadığı için engellenebilir!</string>
-    <string name="contacts_are_not_blocked_blacklist_notice">Kişilerden gelen aramalar asla engellenmez (numara kara liste şablonuyla eşleşse bile)</string>
+    <string name="contacts_are_not_blocked_blacklist_notice">Kişilerden gelen aramalar asla engellenmez (şablon eşleşse bile)</string>
     <string name="number_pattern_hint">Numarayı +ÜLKE-NUMARA biçiminde girin (arama sırasında Android aygıtınızın göstereceği gibi). Sıfır veya daha fazla basamak için joker karakter olarak \"*\" ve tam olarak bir basamak için \"#\" kullanın.</string>
     <string name="number_pattern_empty">Boş şablon</string>
     <string name="number_pattern_incorrect">Yanlış şablon</string>
@@ -168,4 +168,12 @@
     <string name="notification_channel_group_name_blocked_calls">Engellenen aramalar</string>
     <string name="notification_channel_group_name_incoming_calls">Gelen aramalar</string>
     <string name="app_name">Yet Another Call Blocker</string>
+    <string name="duration_s">%dsn</string>
+    <string name="duration_m_s">%1$ddk %2$dsn</string>
+    <string name="duration_h_m_s">%1$dsa %2$ddk %3$dsn</string>
+    <string name="info_icon_description">Bilgi</string>
+    <string name="call_log_grouping_day">Bir gün içinde ardışık olmayan</string>
+    <string name="call_log_grouping_consecutive">Ardışık aramalar</string>
+    <string name="call_log_grouping_none">Gruplandırma yok</string>
+    <string name="call_log_grouping">Arama kaydı gruplandırma</string>
 </resources>
