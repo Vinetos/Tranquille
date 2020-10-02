@@ -11,10 +11,12 @@
     <string name="notification_channel_name_blocked_info">Info blocco</string>
     <string name="notification_channel_name_negative">Numeri spam</string>
     <string name="notification_channel_name_unknown">Numeri sconosciuti</string>
-    <string name="notification_channel_name_neutral">Numeri neutro</string>
+    <string name="notification_channel_name_neutral">Numeri neutri</string>
     <string name="notification_channel_name_positive">Numeri buoni</string>
     <string name="notification_channel_name_known">Chiamate conosciute</string>
     <string name="notification_channel_group_name_blocked_calls">Chiamate bloccate</string>
     <string name="notification_channel_group_name_incoming_calls">Chiamate in entrata</string>
     <string name="app_name">Yet Another Call Blocker</string>
+    <string name="notification_channel_name_monitoring_service">Servizio di monitoraggio</string>
+    <string name="notification_channel_group_name_services">Servizi</string>
 </resources>
