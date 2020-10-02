@@ -107,8 +107,7 @@ public class NumberInfoService {
             } else if (communityItem.getPositiveRatingsCount() > communityItem.getNeutralRatingsCount()
                     + communityItem.getNegativeRatingsCount()) {
                 numberInfo.rating = NumberInfo.Rating.POSITIVE;
-            } else if (communityItem.getNeutralRatingsCount() > communityItem.getPositiveRatingsCount()
-                    + communityItem.getNegativeRatingsCount()) {
+            } else {
                 numberInfo.rating = NumberInfo.Rating.NEUTRAL;
             }
         }
