@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -52,7 +51,7 @@ public class PermissionHelper {
         CONTACTS_PERMISSIONS.add(Manifest.permission.READ_CONTACTS);
     }
 
-    public static void checkPermissions(AppCompatActivity activity, boolean info,
+    public static void checkPermissions(Activity activity, boolean info,
                                         boolean block, boolean contacts) {
         Set<String> requiredPermissions = new HashSet<>();
 

@@ -147,14 +147,14 @@ public class SettingsActivity extends AppCompatActivity
                     requireNonNull(findPreference(Settings.PREF_INCOMING_CALL_NOTIFICATIONS));
             incomingCallNotificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.checkPermissions((AppCompatActivity) getActivity(), true, false, false);
+                    PermissionHelper.checkPermissions(requireActivity(), true, false, false);
                 }
                 return true;
             });
 
             Preference.OnPreferenceChangeListener callBlockingListener = (preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.checkPermissions((AppCompatActivity) getActivity(), false, true, false);
+                    PermissionHelper.checkPermissions(requireActivity(), false, true, false);
                 }
                 return true;
             };
@@ -167,12 +167,12 @@ public class SettingsActivity extends AppCompatActivity
 
             SwitchPreferenceCompat callScreeningPref =
                     requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));
-            callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(getActivity()));
+            callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
             callScreeningPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.requestCallScreening(getActivity());
+                    PermissionHelper.requestCallScreening(requireActivity());
                 } else {
-                    Toast.makeText(getActivity(),
+                    Toast.makeText(requireActivity(),
                             R.string.use_call_screening_service_disable_message,
                             Toast.LENGTH_LONG).show();
                     return false;
@@ -216,7 +216,7 @@ public class SettingsActivity extends AppCompatActivity
                     requireNonNull(findPreference(Settings.PREF_USE_CONTACTS));
             useContactsPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.checkPermissions((AppCompatActivity) getActivity(), false, false, true);
+                    PermissionHelper.checkPermissions(requireActivity(), false, false, true);
                 }
                 return true;
             });
@@ -251,7 +251,7 @@ public class SettingsActivity extends AppCompatActivity
 
             requireNonNull((Preference) findPreference(PREF_DB_MANAGEMENT))
                     .setOnPreferenceClickListener(preference -> {
-                        startActivity(new Intent(getActivity(), DbManagementActivity.class));
+                        startActivity(new Intent(requireContext(), DbManagementActivity.class));
                         return true;
                     });
 
@@ -263,7 +263,7 @@ public class SettingsActivity extends AppCompatActivity
                     = requireNonNull(findPreference(PREF_COUNTRY_CODES_INFO));
             countryCodesInfoPreference.setSummary(countryCodesExplanationSummary);
             countryCodesInfoPreference.setOnPreferenceClickListener(preference -> {
-                new AlertDialog.Builder(getActivity())
+                new AlertDialog.Builder(requireActivity())
                         .setTitle(R.string.settings_category_country_codes)
                         .setMessage(countryCodesExplanationSummary)
                         .setNegativeButton(R.string.back, null)
@@ -278,7 +278,7 @@ public class SettingsActivity extends AppCompatActivity
                     return true;
                 }
 
-                Toast.makeText(getActivity(), R.string.country_code_incorrect_format,
+                Toast.makeText(requireActivity(), R.string.country_code_incorrect_format,
                         Toast.LENGTH_SHORT).show();
                 return false;
             };
@@ -301,11 +301,11 @@ public class SettingsActivity extends AppCompatActivity
         public void updateCallScreeningPreference() {
             SwitchPreferenceCompat callScreeningPref =
                     requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));
-            callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(getActivity()));
+            callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
         }
 
         private void exportLogcat() {
-            Activity activity = getActivity();
+            Activity activity = requireActivity();
 
             String path = null;
             try {
