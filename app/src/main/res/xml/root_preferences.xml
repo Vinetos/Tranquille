@@ -57,6 +57,11 @@
         app:summary="@string/use_monitoring_service_summary"
         app:title="@string/use_monitoring_service" />
 
+    <Preference
+        app:key="notificationChannelSettings"
+        app:persistent="false"
+        app:title="@string/notification_settings" />
+
     <PreferenceCategory
         app:key="categoryNotifications"
         app:title="@string/settings_category_notifications_incoming_calls">

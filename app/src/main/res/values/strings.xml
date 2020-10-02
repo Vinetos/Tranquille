@@ -89,6 +89,7 @@
     <string name="show_notifications_for_known_callers_summary">Display notifications for known callers (numbers in Contacts)</string>
     <string name="show_notifications_for_unknown_callers">Notifications for unknown callers</string>
     <string name="show_notifications_for_unknown_callers_summary">Display notifications for unknown callers (neither in Contacts nor in number database)</string>
+    <string name="notification_settings">Notification settings</string>
 
     <string name="incoming_call_notifications">Incoming call notifications</string>
     <string name="incoming_call_notifications_summary">Displays a notification with phone number summary (rating, reviews count, category) during incoming calls</string>

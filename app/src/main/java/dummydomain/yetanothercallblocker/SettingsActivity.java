@@ -104,6 +104,7 @@ public class SettingsActivity extends AppCompatActivity
 
         private static final String PREF_USE_CALL_SCREENING_SERVICE = "useCallScreeningService";
         private static final String PREF_AUTO_UPDATE_ENABLED = "autoUpdateEnabled";
+        private static final String PREF_NOTIFICATION_CHANNEL_SETTINGS = "notificationChannelSettings";
         private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
         private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
         private static final String PREF_DB_MANAGEMENT = "dbManagement";
@@ -226,9 +227,22 @@ public class SettingsActivity extends AppCompatActivity
                 return true;
             });
 
+            Preference notificationChannelSettings = requireNonNull(
+                    findPreference(PREF_NOTIFICATION_CHANNEL_SETTINGS));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                notificationChannelSettings.setOnPreferenceClickListener(preference -> {
+                    Intent intent = new Intent(
+                            android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                    intent.putExtra(android.provider.Settings.EXTRA_APP_PACKAGE,
+                            BuildConfig.APPLICATION_ID);
+                    startActivity(intent);
+                    return true;
+                });
+
                 Preference category = requireNonNull(findPreference(PREF_CATEGORY_NOTIFICATIONS));
                 category.setVisible(false);
+            } else {
+                notificationChannelSettings.setVisible(false);
             }
         }
 

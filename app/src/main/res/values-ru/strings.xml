@@ -100,6 +100,7 @@
     <string name="show_notifications_for_known_callers_summary">Показывать уведомления для известных звонящих (номеров из телефонной книги)</string>
     <string name="show_notifications_for_unknown_callers">Уведомления для неизвестных звонящих</string>
     <string name="show_notifications_for_unknown_callers_summary">Показывать уведомления для неизвестных звонящих (отсутствующих в телефонной книге и в базе номеров)</string>
+    <string name="notification_settings">Настройки уведомлений</string>
     <string name="settings_screen_advanced">Продвинутые настройки</string>
     <string name="settings_category_country_codes">Коды страны</string>
     <string name="country_codes_info">Объяснение</string>
