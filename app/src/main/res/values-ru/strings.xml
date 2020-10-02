@@ -38,7 +38,7 @@
     <string name="db_management_db_info">Инфо об установленной базе</string>
     <string name="db_management_reset_base">Сбросить базу</string>
     <string name="db_management_reset_secondary">Сбросить обновления</string>
-    <string name="db_management_update_db">Обновить базу вручную</string>
+    <string name="db_management_update_db">Обновить базу</string>
     <string name="db_management_update_result">Обновление завершено. Версия: %d</string>
     <string name="incoming_call_notifications">Отображ. уведомл. при входящих</string>
     <string name="incoming_call_notifications_summary">Отображает уведомление с краткой информацией о номере (рейтинги, кол-во отзывов, категория) при входящих вызовах</string>
