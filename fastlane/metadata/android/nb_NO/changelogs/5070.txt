@@ -1,0 +1,9 @@
+* Call log improvements: new look, better performance, infinite scrolling, grouping options.
+* Other minor changes.
+
+0.5.6:
+
+* Slightly improved notification content.
+* Added button to add review from the lookup screen.
+* Added Turkish translation thanks to Oğuz Ersen (@ersen).
+* Updated translations thanks to Yannis T. (@azakosath) and Evo (@verahawk).
