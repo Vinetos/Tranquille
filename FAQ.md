@@ -7,6 +7,8 @@ If you didn't find an answer to your question, ask [in issues](https://gitlab.co
 
 ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) eliminates this problem.
 
+Enabling "monitoring service" also seems to help with this.
+
 
 ## Do I have to set Yet Another Call Blocker as the default "Phone app"?
 
