@@ -5,7 +5,7 @@
     <string name="incoming_call_notifications_summary">Εμφανίζει μία ειδοποίηση με περίληψη του αριθμού τηλεφώνου (αξιολόγηση, αριθμός κριτικών, κατηγορία) κατά τη διάρκεια εισερχόμενων κλήσεων</string>
     <string name="block_negative_sia_short">Αποκλεισμός κατά αξιολόγηση</string>
     <string name="lookup_res_featured_name">Επιλεγμένο όνομα: %s</string>
-    <string name="contacts_are_not_blocked_blacklist_notice">Κλήσεις από τις επαφές δεν αποκλείονται ποτέ (ακόμα κι αν ο αριθμός ταιριάζει με τη μορφή της μαύρης λίστας)</string>
+    <string name="contacts_are_not_blocked_blacklist_notice">Κλήσεις από τις επαφές δεν αποκλείονται ποτέ (ακόμα και αν ταιριάζει με μοτίβο)</string>
     <string name="number_pattern_hint">Εισαγάγετε τον αριθμό σε μορφή +ΧΩΡΑ-ΑΡΙΘΜΟΣ (όπως εμφανίζεται στην Android συσκευή σας κατά την κλήση). Χρησιμοποιήστε το \"*\" ως σύμβολο υποκατάστασης για κανένα ή περισσότερα ψηφία και το \"#\" για ακριβώς ένα ψηφίο.</string>
     <string name="number_pattern_incorrect">Λανθασμένο μοτίβο</string>
     <string name="number_pattern_empty">Κενό μοτίβο</string>
@@ -168,4 +168,12 @@
     <string name="use_monitoring_service">Χρήση μίας υπηρεσίας παρακολούθησης</string>
     <string name="notification_channel_name_monitoring_service">Υπηρεσία παρακολούθησης</string>
     <string name="notification_channel_group_name_services">Υπηρεσίες</string>
+    <string name="duration_s">%dδευτ.</string>
+    <string name="duration_m_s">%1$dλ %2$dδ</string>
+    <string name="duration_h_m_s">%1$dώ %2$dλ %3$dδ</string>
+    <string name="info_icon_description">Πληροφορίες</string>
+    <string name="call_log_grouping_consecutive">Διαδοχικές κλήσεις</string>
+    <string name="call_log_grouping_day">Μη διαδοχικές σε μία ημέρα</string>
+    <string name="call_log_grouping_none">Καμία ομαδοποίηση</string>
+    <string name="call_log_grouping">Ομαδοποίηση καταγραφής κλήσεων</string>
 </resources>
