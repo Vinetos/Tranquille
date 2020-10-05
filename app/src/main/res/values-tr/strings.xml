@@ -176,4 +176,5 @@
     <string name="call_log_grouping_consecutive">Ardışık aramalar</string>
     <string name="call_log_grouping_none">Gruplandırma yok</string>
     <string name="call_log_grouping">Arama kaydı gruplandırma</string>
+    <string name="notification_settings">Bildirim ayarları</string>
 </resources>
