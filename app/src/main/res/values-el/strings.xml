@@ -169,8 +169,8 @@
     <string name="notification_channel_name_monitoring_service">Υπηρεσία παρακολούθησης</string>
     <string name="notification_channel_group_name_services">Υπηρεσίες</string>
     <string name="duration_s">%dδευτ.</string>
-    <string name="duration_m_s">%1$dλεπ. %2$dδευτ.</string>
-    <string name="duration_h_m_s">%1$dώρ. %2$dλεπ. %3$dδευτ.</string>
+    <string name="duration_m_s">%1$dλ %2$dδ</string>
+    <string name="duration_h_m_s">%1$dώ %2$dλ %3$dδ</string>
     <string name="info_icon_description">Πληροφορίες</string>
     <string name="call_log_grouping_consecutive">Διαδοχικές κλήσεις</string>
     <string name="call_log_grouping_day">Μη διαδοχικές σε μία ημέρα</string>
