@@ -8,4 +8,6 @@
     <color name="rateNeutral">#ffb300</color>
     <color name="rateNegative">#d40000</color>
     <color name="notFound">#999999</color>
+
+    <color name="gray">#808080</color>
 </resources>

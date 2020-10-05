@@ -69,7 +69,7 @@
                 android:layout_marginRight="6dp"
                 android:contentDescription="@string/info_icon_description"
                 android:src="@drawable/ic_info_24dp"
-                android:tint="@android:color/tab_indicator_text" />
+                android:tint="@color/gray" />
 
             <TextView
                 android:id="@+id/contactsNotBlockedNotice"
