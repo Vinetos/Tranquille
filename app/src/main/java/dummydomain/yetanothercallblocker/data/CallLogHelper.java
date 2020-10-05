@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import dummydomain.yetanothercallblocker.PermissionHelper;
+
 public class CallLogHelper {
 
     private static final String[] QUERY_PROJECTION = new String[]{
@@ -17,6 +19,10 @@ public class CallLogHelper {
 
     public static List<CallLogItem> loadCalls(Context context, Long anchorId, boolean before,
                                               int limit) {
+        if (!PermissionHelper.hasCallLogPermission(context)) {
+            return new ArrayList<>();
+        }
+
         boolean reverseOrder = false;
 
         String selection;
