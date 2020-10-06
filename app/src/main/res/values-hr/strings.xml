@@ -128,7 +128,7 @@
     <string name="sia_category_none">Bez</string>
     <string name="lookup_number_not_found">Nije pronađeno</string>
     <string name="show_notifications_for_known_callers">Obavijesti za poznate pozivače</string>
-    <string name="incoming_call_notifications">Obavijesti o dolaznom pozivu</string>
+    <string name="incoming_call_notifications">Obavijesti o dolaznim pozivima</string>
     <string name="notification_channel_group_name_incoming_calls">Dolazni pozivi</string>
     <string name="title_lookup_number">Potraži broj</string>
     <string name="done">Gotovo</string>
@@ -178,4 +178,5 @@
     <string name="call_log_grouping_consecutive">Uzastopni pozivi</string>
     <string name="call_log_grouping_none">Bez grupiranja</string>
     <string name="call_log_grouping">Grupiranje zapisnika poziva</string>
+    <string name="notification_settings">Postavke obavijesti</string>
 </resources>
