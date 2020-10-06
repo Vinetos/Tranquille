@@ -100,8 +100,8 @@ public class PhoneStateHandler {
                 settings.getCachedAutoDetectedCountryCode(), false);
 
         boolean blocked = false;
-        if (blockingEnabled && !isOffHook && numberInfoService.shouldBlock(numberInfo)) {
-            blocked = PhoneUtils.endCall(context);
+        if (blockingEnabled && numberInfoService.shouldBlock(numberInfo)) {
+            blocked = PhoneUtils.endCall(context, isOffHook);
 
             if (blocked) {
                 notificationService.notifyCallBlocked(numberInfo);

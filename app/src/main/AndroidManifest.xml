@@ -13,10 +13,6 @@
     <uses-permission android:name="android.permission.READ_LOG" android:maxSdkVersion="15" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!-- may be needed for call blocking on Android 9, also requires to be installed as a system app -->
-    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"
-        tools:ignore="ProtectedPermissions" />
-
     <application
         android:name=".App"
         android:allowBackup="true"
