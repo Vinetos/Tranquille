@@ -1,6 +1,7 @@
 package dummydomain.yetanothercallblocker;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -322,9 +323,10 @@ public class BlacklistActivity extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
 
-        if (intent.resolveActivity(getPackageManager()) != null) {
+        try {
             startActivityForResult(intent, REQUEST_CODE_IMPORT);
-        } else {
+        } catch (ActivityNotFoundException e) {
+            LOG.warn("onImportBlacklistClicked()", e);
             Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
         }
     }
