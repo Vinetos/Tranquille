@@ -1,6 +1,6 @@
 Prosta aplikacja do blokowania połączeń, która pomoże ci uniknąć odbierania niechcianych połączeń, korzystając z bazy danych numerów telefonów pozyskiwanych w ramach crowdsourcingu.
 
-<b>Cechy:</b>
+<b>Możliwości:</b>
 
 * Wykorzystuje bazę danych offline.
 * Automatycznie blokuje połączenia z negatywną oceną. (Opcjonalne)
