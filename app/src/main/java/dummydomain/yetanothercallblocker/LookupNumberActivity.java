@@ -25,6 +25,11 @@ import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem
 
 public class LookupNumberActivity extends AppCompatActivity {
 
+    private static final String[] MIME_TYPES = new String[]{
+            ClipDescription.MIMETYPE_TEXT_PLAIN,
+            "vnd.android.cursor.item/phone_v2" // ContactsContract.Phone.CONTENT_ITEM_TYPE
+    };
+
     private Settings settings;
 
     private ClipboardManager clipboardManager;
@@ -127,8 +132,7 @@ public class LookupNumberActivity extends AppCompatActivity {
     public void onPasteNumberButtonClick(View view) {
         if (clipboardManager.hasPrimaryClip()) {
             ClipDescription clipDescription = clipboardManager.getPrimaryClipDescription();
-            if (clipDescription != null && clipDescription
-                    .hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+            if (clipDescription != null && hasMimeType(clipDescription, MIME_TYPES)) {
                 ClipData primaryClip = clipboardManager.getPrimaryClip();
                 if (primaryClip != null) {
                     ClipData.Item item = primaryClip.getItemAt(0);
@@ -210,6 +214,15 @@ public class LookupNumberActivity extends AppCompatActivity {
         }
 
         setReviewsNumberAndDetails(number, details);
+    }
+
+    private static boolean hasMimeType(ClipDescription cd, String... mimeTypes) {
+        for (String mimeType : mimeTypes) {
+            if (cd.hasMimeType(mimeType)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
