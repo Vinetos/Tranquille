@@ -137,7 +137,6 @@ public class SettingsActivity extends AppCompatActivity
         private static final String PREF_NOTIFICATION_CHANNEL_SETTINGS = "notificationChannelSettings";
         private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
         private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
-        private static final String PREF_DB_MANAGEMENT = "dbManagement";
         private static final String PREF_COUNTRY_CODES_INFO = "countryCodesInfo";
         private static final String PREF_EXPORT_LOGCAT = "exportLogcat";
 
@@ -290,12 +289,6 @@ public class SettingsActivity extends AppCompatActivity
 
         private void initAdvancedScreen(String rootKey) {
             if (!PREF_SCREEN_ADVANCED.equals(rootKey)) return;
-
-            requireNonNull((Preference) findPreference(PREF_DB_MANAGEMENT))
-                    .setOnPreferenceClickListener(preference -> {
-                        startActivity(new Intent(requireContext(), DbManagementActivity.class));
-                        return true;
-                    });
 
             String countryCodesExplanationSummary = getString(R.string.country_codes_info_summary)
                     + ". " + getString(R.string.country_codes_info_summary_addition,

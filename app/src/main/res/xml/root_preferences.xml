@@ -1,4 +1,5 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     app:title="@string/title_settings_activity">
 
     <PreferenceCategory app:title="@string/settings_category_main">
@@ -83,7 +84,11 @@
             <Preference
                 app:key="dbManagement"
                 app:persistent="false"
-                app:title="@string/open_db_management_activity" />
+                app:title="@string/open_db_management_activity">
+                <intent
+                    android:targetClass="dummydomain.yetanothercallblocker.DbManagementActivity"
+                    android:targetPackage="@string/app_id" />
+            </Preference>
             <PreferenceCategory
                 app:key="categoryCountryCodes"
                 app:title="@string/settings_category_country_codes">
