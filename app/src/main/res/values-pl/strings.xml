@@ -156,7 +156,7 @@
     <string name="save_logcat_on_crash_summary">Zapisz dane wyjściowe logcat w przypadku awarii (oprócz podstawowego śledzenia stosu)</string>
     <string name="save_logcat_on_crash">Zapisz logi w przypadku awarii</string>
     <string name="use_monitoring_service">Użyj usługi monitorowania</string>
-    <string name="use_call_screening_service_summary">Pozwala blokować połączenia, zanim telefon zacznie dzwonić. Wymaga ustawienia aplikacji jako „Aplikacja do obsługi telefonu” (Android 7-9) lub „Aplikacja do identyfikacji rozmówcy i spamu” (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Pozwala blokować połączenia, zanim telefon zacznie dzwonić. Wymaga ustawienia aplikacji jako „Aplikacja do obsługi telefonu” (Android 7–9) lub „Aplikacja do identyfikacji rozmówcy i spamu” (Android 10+)</string>
     <string name="incoming_call_notifications_summary">Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących</string>
     <string name="save_crashes_to_external_storage_summary">Zapisuj raporty o awariach i logi w pamięci publicznej, w przeciwnym razie raporty o awariach są zapisywane w prywatnym folderze aplikacji. Raporty mogą zawierać dane wrażliwe (numery telefonów, nazwy kontaktów). Inne aplikacje z uprawnieniami do przechowywania mogą mieć dostęp do tych danych w pamięci publicznej</string>
     <string name="number_pattern_hint">Wpisz numer w formacie +NUMER-KRAJOWY (tak jak Android pokazałby w dialerze). Użyj znaku „*” jako symbolu wieloznacznego (ang. wildcard) dla dowolnej liczby cyfr oraz „#” dla dokładnie jednej cyfry.</string>
