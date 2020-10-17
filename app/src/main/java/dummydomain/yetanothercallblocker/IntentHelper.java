@@ -25,12 +25,14 @@ public class IntentHelper {
         return intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
-    public static void startActivity(Context context, Intent intent) {
+    public static boolean startActivity(Context context, Intent intent) {
         try {
             context.startActivity(intent);
+            return true;
         } catch (Exception e) {
             LOG.warn("startActivity() error starting activity", e);
         }
+        return false;
     }
 
 }

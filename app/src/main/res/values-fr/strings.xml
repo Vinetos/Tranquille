@@ -79,7 +79,6 @@
     <string name="block_hidden_number_summary">(Expérimental.) Bloquer les appels provenant de numéros masqués. Fonctionne probablement mieux en mode blocage d\'appel avancé. Merci de signaler votre retour d\'expérience sur GitLab</string>
     <string name="use_call_screening_service">Mode de blocage d\'appel avancé</string>
     <string name="use_call_screening_service_summary">Permet de bloquer les appels avant que le téléphone ne commence à sonner. Nécessite que l\'application soit définie comme appli "téléphone" (Android 7–9) ou comme appli \"reconnaissance d\'appel entrant\" (Android 10+)</string>
-    <string name="use_call_screening_service_disable_message">Sélectionner une autre \"application téléphonique\" ou \"application d\'identification de l\'appelant\" dans Paramètres - Apps - Apps par défaut</string>
     <string name="auto_updates">Mettre à jour automatiquement la base de données</string>
     <string name="auto_updates_summary">Recevoir automatiquement les mises à jour quotidiennes de la BD (il s\'agit de mises à jour incrémentielles/delta, donc elles consomment très peu de données)</string>
     <string name="use_contacts">Utiliser les contacts</string>

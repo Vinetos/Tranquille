@@ -4,7 +4,6 @@
     <string name="use_contacts_summary">Nummer i telefonboken blokkeres aldri, og kontaktnavnet vises ved siden av/istedenfor et nummer i hele programmet</string>
     <string name="auto_updates_summary">Motta daglige databaseoppdateringer (disse legger kun til endringer, slik at de bruker lite data)</string>
     <string name="auto_updates">Automatisk oppdatering av database</string>
-    <string name="use_call_screening_service_disable_message">Velg forskjellig \"telefonprogram\" eller \"samtale-ID-program\" i Innstillinger → Programmer → Forvalgte programmer</string>
     <string name="use_call_screening_service_summary">Blokkerer anrop før telefonen runger. Krever at programmet er satt som \"Telefonprogram\" (Android 7–9) eller som \"Samtale-ID-program\" (Android 10+)</string>
     <string name="incoming_call_notifications_summary">Viser en merknad med telefonnummersammendrag (vurdering, vurderingsantall, kategori) ved innkommende anrop</string>
     <string name="load_reviews_confirmation_message">Innlasting av nettbaserte vurderinger lekker nummeret til en tredjepartstjeneste. Er du sikker på at du vil gjøre dette med et nummer som er å finne i kontaktlisten\?</string>

@@ -71,7 +71,6 @@
     <string name="sia_category_survey">Anketa</string>
     <string name="save_crashes_to_external_storage_summary">Spremi izvještaje i log-zapise o rušenju aplikacije u javno spremište, u protivnom se izvještaji o rušenju spremaju u mapu privatne aplikacije. Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Ostale aplikacije s dozvolom za spemanje podataka mogu imati pristup tim podacima u javnom spremištu</string>
     <string name="blacklist_item_date_no_info">nema podataka</string>
-    <string name="use_call_screening_service_disable_message">Odaberi „Aplikacija telefona” ili „Aplikacija ID oznake pozivatelja” u Postavke – Aplikacije – Standardne aplikacije</string>
     <string name="back">Natrag</string>
     <string name="settings_category_main">Glavna</string>
     <string name="lookup_res_featured_name">Predstavljeno ime: %s</string>

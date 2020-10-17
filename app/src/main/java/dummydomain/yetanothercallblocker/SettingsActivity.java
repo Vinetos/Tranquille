@@ -14,6 +14,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
@@ -40,12 +41,19 @@ import static java.util.Objects.requireNonNull;
 public class SettingsActivity extends AppCompatActivity
         implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
 
+    private static final String STATE_REQUEST_TOKEN = "STATE_REQUEST_TOKEN";
+
+    private PermissionHelper.RequestToken requestToken;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState != null) {
+            requestToken = PermissionHelper.RequestToken
+                    .fromSavedInstanceState(savedInstanceState, STATE_REQUEST_TOKEN);
+        } else {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.settings, new SettingsFragment())
@@ -55,6 +63,22 @@ public class SettingsActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        updateCallScreeningPreference();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (requestToken != null) {
+            requestToken.onSaveInstanceState(outState, STATE_REQUEST_TOKEN);
         }
     }
 
@@ -91,11 +115,16 @@ public class SettingsActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (PermissionHelper.handleCallScreeningResult(this, requestCode, resultCode)) {
-            for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-                if (fragment instanceof SettingsFragment) {
-                    ((SettingsFragment) fragment).updateCallScreeningPreference();
-                }
+        if (PermissionHelper.handleCallScreeningResult(
+                this, requestCode, resultCode, requestToken)) {
+            updateCallScreeningPreference();
+        }
+    }
+
+    private void updateCallScreeningPreference() {
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            if (fragment instanceof SettingsFragment) {
+                ((SettingsFragment) fragment).updateCallScreeningPreference();
             }
         }
     }
@@ -170,11 +199,16 @@ public class SettingsActivity extends AppCompatActivity
             callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
             callScreeningPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.requestCallScreening(requireActivity());
+                    FragmentActivity activity = requireActivity();
+
+                    PermissionHelper.RequestToken requestToken
+                            = PermissionHelper.requestCallScreening(activity);
+
+                    if (activity instanceof SettingsActivity) {
+                        ((SettingsActivity) activity).requestToken = requestToken;
+                    }
                 } else {
-                    Toast.makeText(requireActivity(),
-                            R.string.use_call_screening_service_disable_message,
-                            Toast.LENGTH_LONG).show();
+                    PermissionHelper.disableCallScreening(requireContext());
                     return false;
                 }
                 return true;
@@ -299,9 +333,11 @@ public class SettingsActivity extends AppCompatActivity
         }
 
         public void updateCallScreeningPreference() {
-            SwitchPreferenceCompat callScreeningPref =
-                    requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));
-            callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
+            SwitchPreferenceCompat callScreeningPref
+                    = findPreference(PREF_USE_CALL_SCREENING_SERVICE);
+            if (callScreeningPref != null) {
+                callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
+            }
         }
 
         private void exportLogcat() {

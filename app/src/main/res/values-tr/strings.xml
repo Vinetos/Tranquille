@@ -80,7 +80,6 @@
     <string name="auto_updates_summary">Günlük veri tabanı güncellemelerini otomatik olarak al (bunlar artımlı/delta güncellemelerdir, bu nedenle çok az veri harcarlar)</string>
     <string name="use_monitoring_service_summary">Bazı telefonlarda telefon olaylarının alınmasına yardımcı olan, sürekli çalışan bir izleme hizmetini etkinleştirir. Bu özelliği sadece arama engelleme ve bilgilendirme bildirimleri çalışmıyorsa etkinleştirin. Bu özelliğin pil ömrü üzerinde hiçbir etkisi yoktur</string>
     <string name="use_monitoring_service">Bir izleme hizmeti kullan</string>
-    <string name="use_call_screening_service_disable_message">Ayarlar - Uygulamalar - Öntanımlı uygulamalar bölümünde farklı \"Telefon uygulaması\" veya \"Arayan kimliği uygulaması\" seçin</string>
     <string name="use_call_screening_service_summary">Telefon çalmaya başlamadan önce aramaları engellemeye izin verir. Uygulamanın \"Telefon uygulaması\" (Android 7–9) veya \"Arayan kimliği uygulaması\" (Android 10+) olarak ayarlanması gerekir</string>
     <string name="use_call_screening_service">Gelişmiş arama engelleme modu</string>
     <string name="block_blacklisted_summary">Kara listeye eklenen numaralardan gelen aramaları engelle</string>

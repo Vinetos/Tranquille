@@ -30,7 +30,6 @@
     <string name="block_blacklisted_summary">Блокировать звонки с номеров добавленных в чёрный список</string>
     <string name="use_call_screening_service">Продвинутый режим блокирования вызовов</string>
     <string name="use_call_screening_service_summary">Позволяет блокировать вызовы до того, как телефон зазвонит. Это требует назначить приложение \"приложением для звонков\" (на Android 7–9) или \"приложением для АОН и защиты от спама\" (на Android 10+)</string>
-    <string name="use_call_screening_service_disable_message">Выберите другое приложение для звонков или защиты от спама в меню Настройки - Приложения - Приложения по умолчанию</string>
     <string name="auto_updates">Авто-обновл. базы номеров</string>
     <string name="auto_updates_summary">Получать ежедневные обновления базы (загружаются только изменения, поэтому расход трафика небольшой)</string>
     <string name="open_db_management_activity">Управление базой</string>
@@ -64,6 +63,12 @@
     <string name="feature_contacts">имена контактов</string>
     <string name="denied_default_dialer_message">Продвинутый режим блокирования не сможет работать, т.к. приложение не назначено \"приложением для звонков\"</string>
     <string name="denied_call_screening_role_message">Продвинутый режим блокирования не сможет работать, т.к. приложение не назначено \"приложением для АОН и защиты от спама\"</string>
+    <string name="default_caller_id_app">\"Приложение для АОН\" по умолчанию</string>
+    <string name="default_caller_id_app_unset">Выберите другое \"приложение для АОН и защиты от спама\" в \"Приложениях по умолчанию\" в настройках системы</string>
+    <string name="default_phone_app">\"Приложение для звонков\" по умолчанию</string>
+    <string name="default_phone_app_set">Выберите \"Yet Another Call Blocker\" в качестве \"приложения для звонков\" в \"Приложениях по умолчанию\" в настройках системы</string>
+    <string name="default_phone_app_unset">Выберите другое \"приложение для звонков\" в \"Приложениях по умолчанию\" в настройках системы</string>
+    <string name="open_system_settings">Открыть Настройки</string>
     <string name="no_main_db_title">Загрузить базу номеров</string>
     <string name="no_main_db_text">База номеров отсутствует. Для полноценной работы приложения требуется загрузка базы номеров (около 25 МБ трафика).</string>
     <string name="download_main_db">Загрузить базу номеров</string>

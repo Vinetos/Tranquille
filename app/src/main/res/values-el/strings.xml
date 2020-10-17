@@ -94,7 +94,6 @@
     <string name="use_contacts">Χρήση επαφών</string>
     <string name="auto_updates_summary">Αυτόματη λήψη ημερήσιων ενημερώσεων της βάσης δεδομένων (αυτές είναι προσθετικές/delta ενημερώσεις, επομένως καταναλώνουν πολύ λίγα δεδομένα)</string>
     <string name="auto_updates">Αυτόματη ενημέρωση βάσης δεδομένων</string>
-    <string name="use_call_screening_service_disable_message">Επιλέξτε διαφορετική \"Εφαρμογή τηλεφώνου\" ή \"Εφαρμογή αναγνώρισης κλήσης\" στις Ρυθμίσεις - Εφαρμογές - Προεπιλεγμένες εφαρμογές</string>
     <string name="use_call_screening_service_summary">Επιτρέπει τον αποκλεισμό κλήσεων πριν αρχίσει να κουδουνίζει το τηλέφωνο. Απαιτεί η εφαρμογή να οριστεί ως \"Εφαρμογή τηλεφώνου\" (Android 7–9) ή ως \"Εφαρμογή αναγνώρισης κλήσης\" (Android 10+)</string>
     <string name="use_call_screening_service">Σύνθετη λειτουργία αποκλεισμού κλήσεων</string>
     <string name="block_blacklisted_summary">Αποκλεισμός κλήσεων από αριθμούς που έχουν προστεθεί στη μαύρη λίστα</string>

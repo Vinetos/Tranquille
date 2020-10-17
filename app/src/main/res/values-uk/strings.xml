@@ -30,7 +30,6 @@
     <string name="block_blacklisted_summary">Блокувати дзвінки з номерів доданих в чорний список</string>
     <string name="use_call_screening_service">Просунутий режим блокування викликів</string>
     <string name="use_call_screening_service_summary">Дозволяє блокувати виклики до того, як телефон задзвонить. Це вимагає призначити додаток \"додатком для дзвінків \" (на Android 7–9) або \"додатком для АВН і захисту від спаму\" (на Android 10 +)</string>
-    <string name="use_call_screening_service_disable_message">Виберіть інший додаток для дзвінків або захисту від спаму в меню Налаштування - Додатки - Додатки за замовчуванням</string>
     <string name="auto_updates">Авто-оновл. бази номерів</string>
     <string name="auto_updates_summary">Отримувати щоденні оновлення бази (завантажуються тільки зміни, тому витрата трафіку невеликий)</string>
     <string name="db_management_db_info">Інфо про встановлену базу</string>

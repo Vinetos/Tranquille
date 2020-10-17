@@ -59,6 +59,12 @@
     <string name="feature_contacts">using contacts</string>
     <string name="denied_default_dialer_message">Advanced call blocking won\'t work due to the app not being set as the \"Phone app\"</string>
     <string name="denied_call_screening_role_message">Advanced call blocking won\'t work due to the app not being set as the \"Caller ID app\"</string>
+    <string name="default_caller_id_app">Default \"Caller ID app\"</string>
+    <string name="default_caller_id_app_unset">Select a different app as the \"Caller ID app\" in \"Default apps\" in system settings</string>
+    <string name="default_phone_app">Default \"Phone app\"</string>
+    <string name="default_phone_app_set">Select \"Yet Another Call Blocker\" as the \"Phone app\" in \"Default apps\" in system settings</string>
+    <string name="default_phone_app_unset">Select a different app as the \"Phone app\" in \"Default apps\" in system settings</string>
+    <string name="open_system_settings">Open Settings</string>
 
     <string name="call_log_permission_message">Grant \"Phone\" permission to see recent calls</string>
 
@@ -103,7 +109,6 @@
     <string name="block_blacklisted_summary">Block calls from numbers added to the blacklist</string>
     <string name="use_call_screening_service">Advanced call blocking mode</string>
     <string name="use_call_screening_service_summary">Allows to block calls before the phone starts to ring. Requires the app to be set as the \"Phone app\" (Android 7–9) or as the \"Caller ID app\" (Android 10+)</string>
-    <string name="use_call_screening_service_disable_message">Select different \"Phone app\" or \"Caller ID app\" in Settings - Apps - Default apps</string>
     <string name="use_monitoring_service">Use a monitoring service</string>
     <string name="use_monitoring_service_summary">Enables an always-running monitoring service that helps with receiving telephony events on some phones. Enable this feature only if call blocking and informational notifications don\'t work. This feature has no effect on battery life</string>
     <string name="auto_updates">Auto-update database</string>
