@@ -15,7 +15,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -90,12 +89,14 @@ public class SettingsActivity extends AppCompatActivity
         args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, preferenceScreen.getKey());
         fragment.setArguments(args);
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left,
-                R.anim.enter_from_left, R.anim.exit_to_right);
-        ft.replace(R.id.settings, fragment, preferenceScreen.getKey());
-        ft.addToBackStack(preferenceScreen.getKey());
-        ft.commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left,
+                        R.anim.enter_from_left, R.anim.exit_to_right)
+                .replace(R.id.settings, fragment, preferenceScreen.getKey())
+                .addToBackStack(preferenceScreen.getKey())
+                .commit();
+
         return true;
     }
 
@@ -143,6 +144,13 @@ public class SettingsActivity extends AppCompatActivity
         private static final Logger LOG = LoggerFactory.getLogger(SettingsFragment.class);
 
         private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
+
+        @Override
+        public void onStart() {
+            super.onStart();
+
+            requireActivity().setTitle(getPreferenceScreen().getTitle());
+        }
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {

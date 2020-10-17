@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="@string/title_settings_activity">
 
     <PreferenceCategory app:title="@string/settings_category_main">
         <SwitchPreferenceCompat
