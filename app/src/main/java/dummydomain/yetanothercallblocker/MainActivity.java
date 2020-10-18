@@ -280,6 +280,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, SettingsActivity.class));
     }
 
+    public void onOpenAbout(MenuItem item) {
+        startActivity(new Intent(this, AboutActivity.class));
+    }
+
     private void onCallLogItemClicked(CallLogItemGroup item) {
         InfoDialogHelper.showDialog(this, item.getItems().get(0).numberInfo, null);
     }

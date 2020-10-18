@@ -204,4 +204,25 @@
     <string name="duration_h_m_s">%1$dh %2$dm %3$ds</string>
     <string name="duration_m_s">%1$dm %2$ds</string>
     <string name="duration_s">%ds</string>
+
+    <string name="open_about_activity">About</string>
+    <string name="about_activity">About</string>
+    <string name="version_string">v%s</string>
+    <string name="db_version">Database version: %s</string>
+    <string name="db_version_not_available">n/a</string>
+    <string name="db_last_update_check">Last update check: %s</string>
+    <string name="db_last_update_check_never">never</string>
+    <string name="db_last_update_check_checking">checking…</string>
+
+    <string name="motto">Block unwanted calls effortlessly</string>
+    <string name="logo_description">Logo</string>
+    <string name="homepage">Project homepage</string>
+    <string name="faq">Frequently Asked Questions</string>
+    <string name="translate">Translate the app on Weblate</string>
+    <string name="issues">Get support / report a problem</string>
+    <string name="license">This application is licensed under AGPL-3.0-only.</string>
+    <string name="url_repo" translatable="false">https://gitlab.com/xynngh/YetAnotherCallBlocker</string>
+    <string name="url_faq" translatable="false">https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md</string>
+    <string name="url_translate" translatable="false">https://hosted.weblate.org/engage/yet-another-call-blocker/</string>
+    <string name="url_issues" translatable="false">https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues</string>
 </resources>

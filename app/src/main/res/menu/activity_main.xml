@@ -41,4 +41,8 @@
         android:onClick="onOpenSettings"
         android:title="@string/open_settings_activity" />
 
+    <item
+        android:onClick="onOpenAbout"
+        android:title="@string/open_about_activity" />
+
 </menu>

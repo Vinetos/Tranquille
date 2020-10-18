@@ -184,4 +184,21 @@
     <string name="duration_h_m_s">%1$dч %2$dм %3$dс</string>
     <string name="duration_m_s">%1$dм %2$dс</string>
     <string name="duration_s">%dс</string>
+
+    <string name="open_about_activity">О приложении</string>
+    <string name="about_activity">О приложении</string>
+    <string name="version_string">v%s</string>
+    <string name="db_version">Версия базы: %s</string>
+    <string name="db_version_not_available">Н/Д</string>
+    <string name="db_last_update_check">Последняя проверка: %s</string>
+    <string name="db_last_update_check_never">никогда</string>
+    <string name="db_last_update_check_checking">проверяем…</string>
+
+    <string name="motto">Без труда блокируйте нежелательные вызовы</string>
+    <string name="logo_description">Логотип</string>
+    <string name="homepage">Домашняя страница проекта</string>
+    <string name="faq">Часто задаваемые вопросы</string>
+    <string name="translate">Перевести приложение на Weblate</string>
+    <string name="issues">Получить поддержку / сообщить о проблеме</string>
+    <string name="license">Это приложение распространяется под лицензией AGPL-3.0-only.</string>
 </resources>
