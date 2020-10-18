@@ -84,9 +84,7 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
             NumberInfo numberInfo = item.numberInfo;
 
-            label.setText(numberInfo.noNumber
-                    ? context.getString(R.string.no_number)
-                    : numberInfo.name != null ? numberInfo.name : item.number);
+            label.setText(getLabel(context, item));
 
             IconAndColor iconAndColor = IconAndColor.forNumberRating(
                     numberInfo.rating, numberInfo.contactItem != null);
@@ -124,6 +122,21 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
             }
 
             time.setText(timeString);
+        }
+
+        private String getLabel(Context context, CallLogItem item) {
+            NumberInfo numberInfo = item.numberInfo;
+
+            if (numberInfo.noNumber) return context.getString(R.string.no_number);
+
+            if (numberInfo.name != null) return numberInfo.name;
+
+            if (numberInfo.blacklistItem != null
+                    && !TextUtils.isEmpty(numberInfo.blacklistItem.getName())) {
+                return numberInfo.blacklistItem.getName();
+            }
+
+            return item.number;
         }
 
         private void bindTypeIcons(CallLogItemGroup group) {

@@ -64,12 +64,23 @@ public class InfoDialogHelper {
             featuredNameView.setVisibility(View.GONE);
         }
 
+        String blacklistName = null;
+
         TextView inBlacklistView = view.findViewById(R.id.in_blacklist);
         if (numberInfo.blacklistItem != null) {
-            inBlacklistView.setVisibility(View.VISIBLE);
+            blacklistName = numberInfo.blacklistItem.getName();
             if (numberInfo.contactItem != null) {
                 inBlacklistView.setText(R.string.info_in_blacklist_contact);
             }
+        } else {
+            inBlacklistView.setVisibility(View.GONE);
+        }
+
+        TextView blacklistNameView = view.findViewById(R.id.blacklist_name);
+        if (!TextUtils.isEmpty(blacklistName)) {
+            blacklistNameView.setText(blacklistName);
+        } else {
+            blacklistNameView.setVisibility(View.GONE);
         }
 
         ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
