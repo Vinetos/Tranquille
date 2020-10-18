@@ -1,12 +1,10 @@
 package dummydomain.yetanothercallblocker.data;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import java.util.concurrent.TimeUnit;
 
 import dummydomain.yetanothercallblocker.NotificationService;
-import dummydomain.yetanothercallblocker.PermissionHelper;
 import dummydomain.yetanothercallblocker.PhoneStateHandler;
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.data.db.YacbDaoSessionFactory;
@@ -136,13 +134,8 @@ public class Config {
                 settings::setBlacklistIsNotEmpty, blacklistDao);
         YacbHolder.setBlacklistService(blacklistService);
 
-        ContactsProvider contactsProvider = number -> {
-            if (settings.getUseContacts() && PermissionHelper.hasContactsPermission(context)) {
-                String contactName = ContactsHelper.getContactName(context, number);
-                if (!TextUtils.isEmpty(contactName)) return new ContactItem(contactName);
-            }
-            return null;
-        };
+        ContactsProvider contactsProvider = number ->
+                settings.getUseContacts() ? ContactsHelper.getContact(context, number) : null;
 
         NumberInfoService numberInfoService = new NumberInfoService(
                 settings, NumberUtils::isHiddenNumber, NumberUtils::normalizeNumber,

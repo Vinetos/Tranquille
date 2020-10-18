@@ -2,16 +2,19 @@ package dummydomain.yetanothercallblocker.data;
 
 public class ContactItem {
 
+    public long id;
     public String displayName;
 
-    public ContactItem(String displayName) {
+    public ContactItem(long id, String displayName) {
+        this.id = id;
         this.displayName = displayName;
     }
 
     @Override
     public String toString() {
         return "ContactItem{" +
-                "displayName='" + displayName + '\'' +
+                "id=" + id +
+                ", displayName='" + displayName + '\'' +
                 '}';
     }
 }

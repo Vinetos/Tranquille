@@ -7,14 +7,18 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 
+import dummydomain.yetanothercallblocker.PermissionHelper;
+
 public class ContactsHelper {
 
     private static final String[] PROJECTION = new String[]{
-            ContactsContract.PhoneLookup.DISPLAY_NAME
+            ContactsContract.Contacts._ID,
+            ContactsContract.Contacts.DISPLAY_NAME
     };
 
-    public static String getContactName(Context context, String number) {
+    public static ContactItem getContact(Context context, String number) {
         if (TextUtils.isEmpty(number)) return null;
+        if (!PermissionHelper.hasContactsPermission(context)) return null;
 
         Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
                 Uri.encode(number));
@@ -22,8 +26,16 @@ public class ContactsHelper {
         ContentResolver resolver = context.getContentResolver();
         try (Cursor cursor = resolver.query(uri, PROJECTION, null, null, null)) {
             if (cursor != null && cursor.moveToFirst()) {
-                return cursor.getString(cursor.getColumnIndex(
-                        ContactsContract.PhoneLookup.DISPLAY_NAME));
+                ContactItem contact = new ContactItem(
+                        cursor.getLong(cursor.getColumnIndex(
+                                ContactsContract.Contacts._ID)),
+                        cursor.getString(cursor.getColumnIndex(
+                                ContactsContract.Contacts.DISPLAY_NAME))
+                );
+
+                if (TextUtils.isEmpty(contact.displayName)) return null; // TODO: check
+
+                return contact;
             }
         }
 
