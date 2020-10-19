@@ -180,4 +180,25 @@
     <string name="call_log_grouping_consecutive">Kolejne połączenia</string>
     <string name="call_log_grouping_none">Brak grupowania</string>
     <string name="notification_settings">Ustawienia powiadomień</string>
+    <string name="license">Ta aplikacja jest licencjonowana w ramach AGPL-3.0-only.</string>
+    <string name="db_version_not_available">niedostępna</string>
+    <string name="logo_description">Logo</string>
+    <string name="db_last_update_check">Ostatnie sprawdzenie aktualizacji: %s</string>
+    <string name="default_phone_app_unset">Wybierz inną aplikację jako „Aplikacja do obsługi telefonu” w ustawieniach systemowych „Aplikacje domyślne”</string>
+    <string name="default_phone_app_set">Wybierz „Yet Another Call Blocker” jako „Aplikacja do obsługi telefonu” w ustawieniach systemowych „Aplikacje domyślne”</string>
+    <string name="default_caller_id_app_unset">Wybierz inną aplikację jako „Aplikacja do identyfikacji rozmówcy i spamu” w ustawieniach systemowych „Aplikacje domyślne”</string>
+    <string name="about_activity">O aplikacji</string>
+    <string name="open_about_activity">O aplikacji</string>
+    <string name="open_system_settings">Otwórz ustawienia</string>
+    <string name="default_phone_app">Domyślna „Aplikacja do obsługi telefonu”</string>
+    <string name="default_caller_id_app">Domyślna „Aplikacja do identyfikacji rozmówcy i spamu”</string>
+    <string name="issues">Uzyskaj wsparcie / zgłoś problem</string>
+    <string name="translate">Przetłumacz tę aplikację na Weblate</string>
+    <string name="faq">Często zadawane pytania</string>
+    <string name="homepage">Strona główna projektu</string>
+    <string name="motto">Bez wysiłku blokuj niechciane połączenia</string>
+    <string name="db_last_update_check_checking">sprawdzanie…</string>
+    <string name="db_last_update_check_never">nigdy</string>
+    <string name="db_version">Wersja bazy danych: %s</string>
+    <string name="version_string">v%s</string>
 </resources>
