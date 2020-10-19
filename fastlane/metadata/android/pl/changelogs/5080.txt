@@ -1,5 +1,5 @@
-* Fixed startup crash without READ_CALL_LOG permission.
-* Fixed blacklist editor crash on old Android versions.
+* Naprawiono awarię przy uruchamianiu bez przyznanego uprawnienia READ_CALL_LOG.
+* Naprawiono awarię edytora czarnej listy na starszych wersjach Androida.
 * Zaktualizowano tłumaczenia dzięki Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
 * Inne drobne zmiany.
 

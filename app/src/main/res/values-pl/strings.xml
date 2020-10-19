@@ -154,7 +154,7 @@
     </plurals>
     <string name="export_logcat">Eksportuj logi logcat</string>
     <string name="save_logcat_on_crash_summary">Zapisz dane wyjściowe logcat w przypadku awarii (oprócz podstawowego śledzenia stosu)</string>
-    <string name="save_logcat_on_crash">Zapisz logi przypadku awarii</string>
+    <string name="save_logcat_on_crash">Zapisz logi w przypadku awarii</string>
     <string name="use_monitoring_service">Użyj usługi monitorowania</string>
     <string name="use_call_screening_service_summary">Pozwala blokować połączenia, zanim telefon zacznie dzwonić. Wymaga ustawienia aplikacji jako „Aplikacja do obsługi telefonu” (Android 7-9) lub „Aplikacja do identyfikacji rozmówcy i spamu” (Android 10+)</string>
     <string name="incoming_call_notifications_summary">Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących</string>
@@ -162,7 +162,7 @@
     <string name="number_pattern_hint">Wpisz numer w formacie +NUMER-KRAJOWY (tak jak Android pokazałby w dialerze). Użyj znaku „*” jako symbolu wieloznacznego (ang. wildcard) dla dowolnej liczby cyfr oraz „#” dla dokładnie jednej cyfry.</string>
     <string name="export_logcat_summary">Eksportuj i udostępnij zawartość logcata wybranej przez siebie aplikacji (np. klientowi poczty elektronicznej). Raporty mogą zawierać dane wrażliwe (numery telefonów, nazwy kontaktów). Tylko wybrana aplikacja będzie miała dostęp do tych danych</string>
     <string name="save_crashes_to_external_storage">Zapisz raporty w pamięci publicznej</string>
-    <string name="country_codes_info_summary">Kody krajów używane są w zapytaniach do serwerów zewnętrznych. Kody te mają naśladować działanie oficjalnej aplikacji zewnętrznej firmy. Jeśli kody pasują do kraju, w którym przebywasz (a to może zostać wykryte poprzez twój adres IP), twoje zapytania będą wyglądać najbardziej niepozornie. Automatyczne wykrywanie jest używane domyślnie (na podstawie informacji o sieci komórkowej lub ustawień regionalnych systemu), co powinno wystarczyć większości użytkowników, ale możesz ustawić kod ręcznie. Jest to 2-literowy kod zgodny ze standardem ISO 3166 (np. PL)</string>
+    <string name="country_codes_info_summary">Kody krajów używane są w zapytaniach do serwerów zewnętrznych. Kody te ustawione są tak, aby naśladować działanie oficjalnej aplikacji zewnętrznej firmy. Jeśli kod pasuje do kraju, w którym przebywasz (a to może zostać wykryte poprzez twój adres IP), twoje zapytania będą wyglądać najbardziej niepozornie. Domyślnie używane jest automatyczne wykrywanie (na podstawie informacji o sieci komórkowej lub ustawień regionalnych systemu), co powinno wystarczyć większości użytkownikom, ale możesz ustawić kod ręcznie. Jest to 2-literowy kod zgodny ze standardem ISO 3166 (np. PL)</string>
     <string name="use_call_screening_service_disable_message">Wybierz inną „Aplikację do obsługi telefonu” lub „Aplikację do identyfikacji rozmówcy i spamu” w Ustawienia → Aplikacje i powiadomienia → Aplikacje domyślne</string>
     <string name="lookup_res_featured_name">Wyróżniona nazwa: %s</string>
     <string name="title_lookup_number">Wyszukaj numer</string>
@@ -180,4 +180,5 @@
     <string name="info_icon_description">Informacje</string>
     <string name="call_log_grouping_consecutive">Kolejne połączenia</string>
     <string name="call_log_grouping_none">Brak grupowania</string>
+    <string name="notification_settings">Ustawienia powiadomień</string>
 </resources>
