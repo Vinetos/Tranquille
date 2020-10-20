@@ -176,4 +176,25 @@
     <string name="call_log_grouping_none">Gruplandırma yok</string>
     <string name="call_log_grouping">Arama kaydı gruplandırma</string>
     <string name="notification_settings">Bildirim ayarları</string>
+    <string name="license">Bu uygulama yalnızca AGPL-3.0 altında lisanslanmıştır.</string>
+    <string name="issues">Destek alın / sorun bildirin</string>
+    <string name="translate">Uygulamayı Weblate\'de çevirin</string>
+    <string name="faq">Sık Sorulan Sorular</string>
+    <string name="homepage">Proje ana sayfası</string>
+    <string name="logo_description">Logo</string>
+    <string name="motto">İstenmeyen aramaları zahmetsizce engelleyin</string>
+    <string name="db_last_update_check_checking">denetleniyor…</string>
+    <string name="db_last_update_check_never">asla</string>
+    <string name="db_last_update_check">Son güncelleme denetimi: %s</string>
+    <string name="db_version_not_available">yok</string>
+    <string name="db_version">Veri tabanı sürümü: %s</string>
+    <string name="version_string">sürüm %s</string>
+    <string name="about_activity">Hakkında</string>
+    <string name="open_about_activity">Hakkında</string>
+    <string name="open_system_settings">Ayarları Aç</string>
+    <string name="default_phone_app_unset">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Telefon uygulaması\" olarak farklı bir uygulama seçin</string>
+    <string name="default_phone_app_set">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Telefon uygulaması\" olarak \"Yet Another Call Blocker\" seçin</string>
+    <string name="default_phone_app">Öntanımlı \"Telefon uygulaması\"</string>
+    <string name="default_caller_id_app_unset">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Arayan kimliği uygulaması\" olarak farklı bir uygulama seçin</string>
+    <string name="default_caller_id_app">Öntanımlı \"Arayan kimliği uygulaması\"</string>
 </resources>
