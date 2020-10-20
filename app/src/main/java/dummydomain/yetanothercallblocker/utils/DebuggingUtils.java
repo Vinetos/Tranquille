@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import dummydomain.yetanothercallblocker.App;
+import dummydomain.yetanothercallblocker.BuildConfig;
 
 public class DebuggingUtils {
 
@@ -115,6 +116,7 @@ public class DebuggingUtils {
             writer.append("Device: ").append(Build.DEVICE).append('\n');
             writer.append("Board: ").append(Build.BOARD).append('\n');
             writer.append("Build display ID: ").append(Build.DISPLAY).append('\n');
+            writer.append("App version: ").append(String.valueOf(BuildConfig.VERSION_CODE)).append('\n');
         }
     }
 
