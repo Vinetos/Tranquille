@@ -1,0 +1,5 @@
+* "Name" from blacklist is displayed in more places.
+* Added separate horizontal layouts for some screens.
+* Improved UX of enabling/disabling the "advanced call blocking mode".
+* Updated translations thanks to Oğuz Ersen (@ersen) and Evo (@verahawk).
+* Other minor changes.
