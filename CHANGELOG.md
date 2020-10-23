@@ -24,7 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - "Name" from blacklist is displayed in the call log and in the info dialog.
 - Separate horizontal layouts for some screens.
-- Added "About" screen.
+- "About" screen.
 
 ### Changed
 
@@ -60,11 +60,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- Call log: infinite scrolling.
+- Call log: grouping options.
 - Norwegian Bokmål translation of the app description thanks to Allan Nordhøy (@kingu).
 
 ### Changed
 
-- Call log improvements: new look, better performance, infinite scrolling, grouping options.
+- Call log: new look.
+- Call log: better performance.
 - Default to "neutral" community rating if there is no consensus (instead of "unknown").
 - Different icon for unknown calls: a question mark instead of thumbs pointing in different directions.
 - Updated Turkish translation thanks to Oğuz Ersen (@ersen).
@@ -94,7 +97,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- Improved hidden number detection in "normal" (non-"advanced") mode.
+- Improved hidden number detection in "normal" (non-"advanced") mode (#2).  
   The feature is no longer considered experimental.
 - Auto-hide "blocked call" notifications (when tapped).
 - Fallback to standard TLS-stack if Conscrypt can't be loaded.
@@ -106,12 +109,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- Support for numbers without international prefix (Android 5+ only).
+- Support for numbers without international prefix (Android 5+ only) (#15).
 - [Frequently Asked Questions](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md).
 - Option to change primary DB download URL.
 - Norwegian Bokmål translation thanks to Allan Nordhøy (@kingu).
 - Greek translation thanks to Yannis T. (@azakosath).
-- Some Polish translations thanks to Raffaele Cecoro (@rafscarface).
+- Some Italian translations thanks to Raffaele Cecoro (@rafscarface).
 
 ### Changed
 
@@ -149,7 +152,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
-- Crash during initial database download on Android 8+ (introduced in [0.4.8](#048-2020-07-04)).
+- Crash during initial database download on Android 8+ (introduced in [0.4.8](#048-2020-07-04)) (#9).
 
 
 ## [0.5.1] - 2020-08-08
@@ -168,7 +171,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- Local blacklist with wildcard support (import of NoPhoneSpam backups is supported).
+- Local blacklist with wildcard support (import of NoPhoneSpam backups is supported) (#1).
 - French translation thanks to @Larnicone.
 
 ### Changed
@@ -180,7 +183,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- Experimental support for blocking hidden numbers.
+- Experimental support for blocking hidden numbers (#2).
 
 
 ## [0.4.10] - 2020-07-25
