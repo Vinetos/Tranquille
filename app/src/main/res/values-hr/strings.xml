@@ -48,7 +48,7 @@
     <string name="sia_category_unsolicited">Netraženo</string>
     <string name="yes">Da</string>
     <string name="export_logcat">Izvezi logcat</string>
-    <string name="app_name">Još jedan blokator poziva</string>
+    <string name="app_name">Još jedan bloker poziva</string>
     <string name="sia_category_prank">Zajebancija</string>
     <string name="save_logcat_on_crash">Spremi logcat pri rušenju</string>
     <string name="sia_category_scam">Prevara</string>
@@ -179,4 +179,5 @@
     <string name="call_log_grouping">Grupiranje zapisnika poziva</string>
     <string name="notification_settings">Postavke obavijesti</string>
     <string name="open_system_settings">Otvori postavke</string>
+    <string name="motto">Blokiraj neželjene pozive na jednostavan način</string>
 </resources>
