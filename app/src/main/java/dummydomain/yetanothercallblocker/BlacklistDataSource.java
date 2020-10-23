@@ -47,8 +47,6 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
 
     private final BlacklistDao blacklistDao;
 
-    private QueryBuilder<BlacklistItem> queryBuilder;
-
     public BlacklistDataSource(BlacklistDao blacklistDao) {
         this.blacklistDao = blacklistDao;
     }
@@ -60,7 +58,7 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
      * @return an iterable containing ids of all items this DS would load
      */
     public Iterable<Long> getAllIds() {
-        Iterator<BlacklistItem> iterator = newQueryBuilder().listIterator();
+        Iterator<BlacklistItem> iterator = getQueryBuilder().listIterator();
         return () -> new Iterator<Long>() {
             @Override
             public boolean hasNext() {
@@ -130,17 +128,10 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
     }
 
     private long countAll() {
-        return newQueryBuilder().count();
+        return getQueryBuilder().count();
     }
 
     private QueryBuilder<BlacklistItem> getQueryBuilder() {
-        if (queryBuilder == null) {
-            queryBuilder = newQueryBuilder();
-        }
-        return queryBuilder;
-    }
-
-    private QueryBuilder<BlacklistItem> newQueryBuilder() {
         return blacklistDao.getDefaultQueryBuilder();
     }
 
