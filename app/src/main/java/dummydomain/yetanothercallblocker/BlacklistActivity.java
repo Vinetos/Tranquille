@@ -105,7 +105,11 @@ public class BlacklistActivity extends AppCompatActivity {
 
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                if (item.getItemId() == R.id.menu_delete) {
+                if (item.getItemId() == R.id.menu_select_all) {
+                    selectionTracker.setItemsSelected(blacklistDataSourceFactory
+                            .getCurrentDataSource().getAllIds(), true);
+                    return true;
+                } else if (item.getItemId() == R.id.menu_delete) {
                     new AlertDialog.Builder(BlacklistActivity.this)
                             .setTitle(R.string.are_you_sure)
                             .setMessage(R.string.blacklist_delete_confirmation)

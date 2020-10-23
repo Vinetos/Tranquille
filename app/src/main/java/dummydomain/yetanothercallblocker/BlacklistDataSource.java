@@ -8,6 +8,7 @@ import org.greenrobot.greendao.query.QueryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Iterator;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.db.BlacklistDao;
@@ -24,6 +25,10 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
 
         public Factory(BlacklistDao blacklistDao) {
             this.blacklistDao = blacklistDao;
+        }
+
+        public BlacklistDataSource getCurrentDataSource() {
+            return ds;
         }
 
         public void invalidate() {
@@ -48,6 +53,27 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
         this.blacklistDao = blacklistDao;
     }
 
+    /**
+     * The iterable must be iterated through
+     * or the underlying cursor won't be closed.
+     *
+     * @return an iterable containing ids of all items this DS would load
+     */
+    public Iterable<Long> getAllIds() {
+        Iterator<BlacklistItem> iterator = newQueryBuilder().listIterator();
+        return () -> new Iterator<Long>() {
+            @Override
+            public boolean hasNext() {
+                return iterator.hasNext();
+            }
+
+            @Override
+            public Long next() {
+                return iterator.next().getId();
+            }
+        };
+    }
+
     @Override
     public void loadInitial(@NonNull LoadInitialParams params,
                             @NonNull LoadInitialCallback<BlacklistItem> callback) {
@@ -60,7 +86,7 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
         Integer totalCount = null;
 
         if (items.isEmpty()) {
-            totalCount = (int) blacklistDao.countAll();
+            totalCount = (int) countAll();
             if (totalCount > 0) {
                 LOG.debug("loadInitial() initial range is empty: totalCount={}, offset={}",
                         totalCount, offset);
@@ -78,7 +104,7 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
         }
 
         if (params.placeholdersEnabled) {
-            if (totalCount == null) totalCount = (int) blacklistDao.countAll();
+            if (totalCount == null) totalCount = (int) countAll();
 
             callback.onResult(items, offset, totalCount);
         } else {
@@ -103,11 +129,19 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
         return blacklistDao.detach(items); // for DiffUtil to work
     }
 
+    private long countAll() {
+        return newQueryBuilder().count();
+    }
+
     private QueryBuilder<BlacklistItem> getQueryBuilder() {
         if (queryBuilder == null) {
-            queryBuilder = blacklistDao.getDefaultQueryBuilder();
+            queryBuilder = newQueryBuilder();
         }
         return queryBuilder;
+    }
+
+    private QueryBuilder<BlacklistItem> newQueryBuilder() {
+        return blacklistDao.getDefaultQueryBuilder();
     }
 
 }

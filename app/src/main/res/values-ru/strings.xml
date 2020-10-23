@@ -141,6 +141,7 @@
     <string name="blacklist_item_date_no_info">нет информации</string>
     <string name="blacklist_item_no_calls">Никогда не звонил</string>
     <string name="blacklist_add">Добавить</string>
+    <string name="blacklist_select_all">Выделить все</string>
     <string name="blacklist_delete">Удалить</string>
     <string name="blacklist_delete_confirmation">Удалить выбранные элементы?</string>
     <string name="blacklist_export">Экспортировать</string>

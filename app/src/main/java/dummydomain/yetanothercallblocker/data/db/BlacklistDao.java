@@ -82,10 +82,6 @@ public class BlacklistDao {
         getBlacklistItemDao().deleteByKeyInTx(keys);
     }
 
-    public long countAll() {
-        return getBlacklistItemDao().queryBuilder().count();
-    }
-
     public long countValid() {
         return getBlacklistItemDao().queryBuilder()
                 .where(BlacklistItemDao.Properties.Invalid.notEq(true)).count();
