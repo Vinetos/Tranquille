@@ -69,7 +69,7 @@
     <string name="save">Spremi</string>
     <string name="ui_mode_day">Svjetla</string>
     <string name="sia_category_survey">Anketa</string>
-    <string name="save_crashes_to_external_storage_summary">Spremi izvještaje i log-zapise o rušenju aplikacije u javno spremište, u protivnom se izvještaji o rušenju spremaju u mapu privatne aplikacije. Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Ostale aplikacije s dozvolom za spemanje podataka mogu imati pristup tim podacima u javnom spremištu</string>
+    <string name="save_crashes_to_external_storage_summary">Spremi izvještaje i log-zapise o rušenju aplikacije u javno spremište, u protivnom se izvještaji o rušenju spremaju u mapu privatne aplikacije. Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Ostale aplikacije s dozvolom za spremanje podataka mogu imati pristup tim podacima u javnom spremištu</string>
     <string name="blacklist_item_date_no_info">nema podataka</string>
     <string name="back">Natrag</string>
     <string name="settings_category_main">Glavna</string>
@@ -178,4 +178,5 @@
     <string name="call_log_grouping_none">Bez grupiranja</string>
     <string name="call_log_grouping">Grupiranje zapisnika poziva</string>
     <string name="notification_settings">Postavke obavijesti</string>
+    <string name="open_system_settings">Otvori postavke</string>
 </resources>
