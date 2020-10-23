@@ -249,19 +249,27 @@ public class BlacklistActivity extends AppCompatActivity {
 
             ParcelFileDescriptor pfd = null;
             try {
-                pfd = getContentResolver().openFileDescriptor(data.getData(), "r");
-            } catch (FileNotFoundException e) {
-                error = true;
-                LOG.warn("onActivityResult() get file for import result", e);
-            }
-
-            if (pfd != null) {
-                if (new BlacklistImporterExporter().importBlacklist(
-                        YacbHolder.getBlacklistDao(), YacbHolder.getBlacklistService(),
-                        pfd.getFileDescriptor())) {
-                    Toast.makeText(this, R.string.done, Toast.LENGTH_SHORT).show();
-                } else {
+                try {
+                    pfd = getContentResolver().openFileDescriptor(data.getData(), "r");
+                } catch (FileNotFoundException e) {
                     error = true;
+                    LOG.warn("onActivityResult() get file for import result", e);
+                }
+
+                if (pfd != null) {
+                    if (new BlacklistImporterExporter().importBlacklist(
+                            YacbHolder.getBlacklistDao(), YacbHolder.getBlacklistService(),
+                            pfd.getFileDescriptor())) {
+                        Toast.makeText(this, R.string.done, Toast.LENGTH_SHORT).show();
+                    } else {
+                        error = true;
+                    }
+                }
+            } finally {
+                if (pfd != null) {
+                    try {
+                        pfd.close();
+                    } catch (IOException ignored) {}
                 }
             }
 
