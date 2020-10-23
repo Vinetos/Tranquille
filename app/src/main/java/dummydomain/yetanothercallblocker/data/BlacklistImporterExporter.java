@@ -40,6 +40,13 @@ public class BlacklistImporterExporter {
     private static final String HEADER_NAME = "name";
     private static final String HEADER_PATTERN = "pattern";
 
+    private static final int INDEX_ID = 0;
+    private static final int INDEX_NAME = 1;
+    private static final int INDEX_PATTERN = 2;
+    private static final int INDEX_CREATION_DATE = 3;
+    private static final int INDEX_NUMBER_OF_CALLS = 4;
+    private static final int INDEX_LAST_CALL_DATE = 5;
+
     public boolean writeBackup(Iterable<BlacklistItem> blacklistItems, Appendable out) {
         try (CSVPrinter printer = CSVFormat.DEFAULT.print(out)) {
             printer.printRecord(HEADER_ID, HEADER_NAME, HEADER_PATTERN,
@@ -152,7 +159,7 @@ public class BlacklistImporterExporter {
             if (iterator.hasNext()) {
                 CSVRecord record = iterator.next();
 
-                if (record.size() < 6) return false;
+                if (record.size() < INDEX_PATTERN + 1) return false;
 
                 boolean foundHeader = checkYacbHeader(record);
                 LOG.debug("isYacbBackup() found header={}", foundHeader);
@@ -160,18 +167,25 @@ public class BlacklistImporterExporter {
 
                 // check that the types match
                 try {
-                    Long.parseLong(record.get(0));
-
-                    String creationTimestampString = record.get(3);
-                    if (!TextUtils.isEmpty(creationTimestampString)) {
-                        Long.parseLong(creationTimestampString);
+                    if (!TextUtils.isEmpty(get(record, INDEX_ID))) {
+                        Long.parseLong(get(record, INDEX_ID));
                     }
 
-                    Integer.parseInt(record.get(4));
+                    if (!isValidPattern(cleanPattern(patternFromHumanReadable(
+                            get(record, INDEX_PATTERN))))) {
+                        return false;
+                    }
 
-                    String lastCallTimestampString = record.get(5);
-                    if (!TextUtils.isEmpty(lastCallTimestampString)) {
-                        Long.parseLong(lastCallTimestampString);
+                    if (!TextUtils.isEmpty(get(record, INDEX_CREATION_DATE))) {
+                        Long.parseLong(get(record, INDEX_CREATION_DATE));
+                    }
+
+                    if (!TextUtils.isEmpty(get(record, INDEX_NUMBER_OF_CALLS))) {
+                        Integer.parseInt(get(record, INDEX_NUMBER_OF_CALLS));
+                    }
+
+                    if (!TextUtils.isEmpty(get(record, INDEX_LAST_CALL_DATE))) {
+                        Long.parseLong(get(record, INDEX_LAST_CALL_DATE));
                     }
                 } catch (Exception e) {
                     LOG.debug("isYacbBackup() error parsing item", e);
@@ -192,9 +206,9 @@ public class BlacklistImporterExporter {
     private boolean checkYacbHeader(CSVRecord record) {
         boolean foundHeader = false;
         try {
-            foundHeader = HEADER_ID.equals(record.get(0))
-                    && HEADER_NAME.equals(record.get(1))
-                    && HEADER_PATTERN.equals(record.get(2));
+            foundHeader = HEADER_ID.equals(record.get(INDEX_ID))
+                    && HEADER_NAME.equals(record.get(INDEX_NAME))
+                    && HEADER_PATTERN.equals(record.get(INDEX_PATTERN));
         } catch (Exception e) {
             LOG.warn("checkYacbHeader() error checking header", e);
         }
@@ -224,23 +238,30 @@ public class BlacklistImporterExporter {
                 boolean enough = false;
 
                 try {
-                    int i = 0;
-                    item.setId(Long.valueOf(record.get(i++)));
-                    item.setName(record.get(i++));
-                    item.setPattern(cleanPattern(patternFromHumanReadable(record.get(i++))));
+                    if (!TextUtils.isEmpty(get(record, INDEX_ID))) {
+                        item.setId(Long.valueOf(get(record, INDEX_ID)));
+                    }
+
+                    item.setName(record.get(INDEX_NAME));
+
+                    item.setPattern(cleanPattern(patternFromHumanReadable(
+                            record.get(INDEX_PATTERN))));
 
                     enough = true;
 
-                    String creationTimestampString = record.get(i++);
-                    if (!TextUtils.isEmpty(creationTimestampString)) {
-                        item.setCreationDate(new Date(Long.parseLong(creationTimestampString)));
+                    if (!TextUtils.isEmpty(get(record, INDEX_CREATION_DATE))) {
+                        item.setCreationDate(new Date(Long.parseLong(
+                                get(record, INDEX_CREATION_DATE))));
                     }
 
-                    item.setNumberOfCalls(Integer.parseInt(record.get(i++)));
+                    if (!TextUtils.isEmpty(get(record, INDEX_NUMBER_OF_CALLS))) {
+                        item.setNumberOfCalls(Integer.parseInt(
+                                get(record, INDEX_NUMBER_OF_CALLS)));
+                    }
 
-                    String lastCallTimestampString = record.get(i);
-                    if (!TextUtils.isEmpty(lastCallTimestampString)) {
-                        item.setLastCallDate(new Date(Long.parseLong(lastCallTimestampString)));
+                    if (!TextUtils.isEmpty(get(record, INDEX_LAST_CALL_DATE))) {
+                        item.setLastCallDate(new Date(Long.parseLong(
+                                get(record, INDEX_LAST_CALL_DATE))));
                     }
                 } catch (Exception e) {
                     LOG.warn("readYacbBackup() error parsing item", e);
@@ -257,6 +278,10 @@ public class BlacklistImporterExporter {
             LOG.warn("readYacbBackup()", e);
             return null;
         }
+    }
+
+    private static String get(CSVRecord record, int index) {
+        return record.size() > index ? record.get(index) : null;
     }
 
     public boolean isNoPhoneSpamBackup(Reader in) {

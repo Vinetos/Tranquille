@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).  
+  Fields after `pattern` may be omitted.
+
 ### Fixed
 
 - Fixed importing blacklist files larger than 4000 bytes.
