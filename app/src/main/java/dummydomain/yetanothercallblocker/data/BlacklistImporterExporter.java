@@ -120,7 +120,9 @@ public class BlacklistImporterExporter {
         List<BlacklistItem> items = null;
 
         try (BufferedInputStream bis = new BufferedInputStream(inputStream)) {
-            bis.mark(4000);
+            // BufferedReaders used in `isYacbBackup` and `isNoPhoneSpamBackup` use 8192 char buffers,
+            // the max size of a UTF-8 char is 4 bytes.
+            bis.mark(8192 * 4);
 
             if (isYacbBackup(new InputStreamReader(bis))) {
                 bis.reset();
