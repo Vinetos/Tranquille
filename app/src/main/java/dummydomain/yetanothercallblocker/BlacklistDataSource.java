@@ -53,17 +53,36 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
                             @NonNull LoadInitialCallback<BlacklistItem> callback) {
         LOG.debug("loadInitial({}, {})", params.requestedStartPosition, params.requestedLoadSize);
 
-        List<BlacklistItem> items = getQueryBuilder()
-                .offset(params.requestedStartPosition)
-                .limit(params.requestedLoadSize)
-                .list();
+        int offset = params.requestedStartPosition;
 
-        items = blacklistDao.detach(items); // for DiffUtil to work
+        List<BlacklistItem> items = loadItems(offset, params.requestedLoadSize);
+
+        Integer totalCount = null;
+
+        if (items.isEmpty()) {
+            totalCount = (int) blacklistDao.countAll();
+            if (totalCount > 0) {
+                LOG.debug("loadInitial() initial range is empty: totalCount={}, offset={}",
+                        totalCount, offset);
+
+                offset = (totalCount - params.requestedLoadSize)
+                        / params.pageSize * params.pageSize; // align to pageSize using integer math
+
+                if (offset < 0) offset = 0;
+
+                LOG.debug("loadInitial() reloading with offset={}", offset);
+                items = loadItems(offset, params.requestedLoadSize);
+            } else {
+                offset = 0;
+            }
+        }
 
         if (params.placeholdersEnabled) {
-            callback.onResult(items, params.requestedStartPosition, (int) blacklistDao.countAll());
+            if (totalCount == null) totalCount = (int) blacklistDao.countAll();
+
+            callback.onResult(items, offset, totalCount);
         } else {
-            callback.onResult(items, params.requestedStartPosition);
+            callback.onResult(items, offset);
         }
     }
 
@@ -72,12 +91,16 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
                           @NonNull LoadRangeCallback<BlacklistItem> callback) {
         LOG.debug("loadRange({}, {})", params.startPosition, params.loadSize);
 
+        callback.onResult(loadItems(params.startPosition, params.loadSize));
+    }
+
+    private List<BlacklistItem> loadItems(int offset, int limit) {
         List<BlacklistItem> items = getQueryBuilder()
-                .offset(params.startPosition)
-                .limit(params.loadSize)
+                .offset(offset)
+                .limit(limit)
                 .list();
 
-        callback.onResult(blacklistDao.detach(items));
+        return blacklistDao.detach(items); // for DiffUtil to work
     }
 
     private QueryBuilder<BlacklistItem> getQueryBuilder() {

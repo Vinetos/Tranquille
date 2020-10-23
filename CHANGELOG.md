@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - Fixed importing blacklist files larger than 4000 bytes.
+- Fixed occasional crash after deleting blacklist items.
 
 
 ## [0.5.9] - 2020-10-20
