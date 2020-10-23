@@ -30,14 +30,14 @@
 
             <Button
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onResetDbClick"
                 android:text="@string/db_management_reset_base" />
 
             <Button
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onResetSecondaryDbClick"
                 android:text="@string/db_management_reset_secondary" />
