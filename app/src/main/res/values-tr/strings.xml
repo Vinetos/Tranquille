@@ -197,4 +197,5 @@
     <string name="default_phone_app">Öntanımlı \"Telefon uygulaması\"</string>
     <string name="default_caller_id_app_unset">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Arayan kimliği uygulaması\" olarak farklı bir uygulama seçin</string>
     <string name="default_caller_id_app">Öntanımlı \"Arayan kimliği uygulaması\"</string>
+    <string name="blacklist_select_all">Tümünü seç</string>
 </resources>
