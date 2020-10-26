@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+
+## [0.5.10] - 2020-10-26
+
 ### Changed
 
 - `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).  
@@ -405,7 +408,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Offline database with manual updates.
 
 
-[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.9...master
+[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.10...master
+[0.5.10]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.9...v0.5.10
 [0.5.9]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.8...v0.5.9
 [0.5.8]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.7...v0.5.8
 [0.5.7]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.6...v0.5.7
