@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).  
   Fields after `pattern` may be omitted.
+- Updated French and Italian translations thanks to J. Lavoie.
+- Updated Croatian translation thanks to Milo Ivir (@milotype).
+- Updated Greek translation thanks to Yannis T. (@azakosath).
+- Updated Polish translation thanks to Evo (@verahawk).
 
 ### Fixed
 
