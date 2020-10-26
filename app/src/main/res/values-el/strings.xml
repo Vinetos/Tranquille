@@ -24,7 +24,7 @@
     <string name="sia_category_none">Καμία</string>
     <string name="done">Ολοκληρώθηκε</string>
     <string name="feature_call_blocking">αποκλεισμός κλήσεων</string>
-    <string name="denied_call_screening_role_message">Ο σύνθετος αποκλεισμός κλήσεων δεν θα λειτουργήσει επειδή η εφαρμογή δεν έχει οριστεί ως \"Εφαρμογή αναγνώρισης καλούντος\"</string>
+    <string name="denied_call_screening_role_message">Ο σύνθετος αποκλεισμός κλήσεων δεν θα λειτουργήσει επειδή η εφαρμογή δεν έχει οριστεί ως \"Εφαρμογή αναγνώρισης κλήσης/προστασίας από ανεπιθύμητο περιεχόμενο\"</string>
     <string name="back">Πίσω</string>
     <string name="add_web_review">Προσθήκη κριτικής (διαδικτυακά)</string>
     <string name="online_reviews">Διαδικτυακές κριτικές</string>
@@ -119,7 +119,7 @@
     <string name="main_db_downloading">Λήψη βάσης δεδομένων…</string>
     <string name="download_main_db">Λήψη βάσης δεδομένων</string>
     <string name="no_main_db_title">Λήψη κύριας βάσης δεδομένων</string>
-    <string name="denied_default_dialer_message">Ο σύνθετος αποκλεισμός κλήσεων δεν θα λειτουργήσει επειδή η εφαρμογή δεν έχει οριστεί ως \"Εφαρμογή τηλεφώνου\"</string>
+    <string name="denied_default_dialer_message">Ο σύνθετος αποκλεισμός κλήσεων δεν θα λειτουργήσει επειδή η εφαρμογή δεν έχει οριστεί ως \"Εφαρμογή Tηλεφώνο\"</string>
     <string name="feature_contacts">χρήση επαφών</string>
     <string name="feature_info">ειδοποιήσεις</string>
     <string name="denied_permissions_message">Λόγω άρνησης αδειών, οι ακόλουθες λειτουργίες ενδέχεται να μην λειτουργούν:</string>
@@ -175,4 +175,27 @@
     <string name="call_log_grouping_day">Μη διαδοχικές σε μία ημέρα</string>
     <string name="call_log_grouping_none">Καμία ομαδοποίηση</string>
     <string name="call_log_grouping">Ομαδοποίηση καταγραφής κλήσεων</string>
+    <string name="default_phone_app">Προεπιλεγμένη \"Εφαρμογή Τηλέφωνο\"</string>
+    <string name="default_caller_id_app_unset">Επιλέξτε μια διαφορετική εφαρμογή ως \"Εφαρμογή αναγνώρισης κλήσης/προστασίας από ανεπιθύμητο περιεχόμενο\" στις \"Προεπιλέγμενες εφαρμογές\" στις ρυθμίσεις</string>
+    <string name="default_caller_id_app">Προεπιλεγμένη \"Εφαρμογή αναγνώρισης κλήσης/προστασίας από ανεπιθύμητο περιεχόμενο\"</string>
+    <string name="default_phone_app_unset">Επιλέξτε μια διαφορετική εφαρμογή ως \"Εφαρμογή Τηλέφωνο\" στις \"Προεπιλέγμενες εφαρμογές\" στις ρυθμίσεις</string>
+    <string name="default_phone_app_set">Επιλέξτε \"Yet Another Call Blocker\" ως \"Εφαρμογή Τηλέφωνο\" στις \"Προεπιλεγμένες εφαρμογές\" στις ρυθμίσεις</string>
+    <string name="homepage">Ιστοσελίδα του project</string>
+    <string name="license">Αυτή η εφαρμογή είναι αδειοδοτημένη υπό την άδεια AGPL-3.0-μόνο.</string>
+    <string name="issues">Υποστήριξη / αναφορά προβλήματος</string>
+    <string name="translate">Μεταφράστε την εφαρμογή στο Weblate</string>
+    <string name="faq">Συχνές Ερωτήσεις</string>
+    <string name="logo_description">Λογότυπο</string>
+    <string name="motto">Αποκλεισμός ανεπιθύμητων κλήσεων άκοπα</string>
+    <string name="db_last_update_check_checking">έλεγχος…</string>
+    <string name="db_last_update_check_never">ποτέ</string>
+    <string name="db_last_update_check">Τελευταίος έλεγχος ενημέρωσης: %s</string>
+    <string name="db_version_not_available">μη διαθέσιμο</string>
+    <string name="db_version">Έκδοση βάσης δεδομένων: %s</string>
+    <string name="version_string">εκδ.%s</string>
+    <string name="about_activity">Σχετικά</string>
+    <string name="open_about_activity">Σχετικά</string>
+    <string name="blacklist_select_all">Επιλογή όλων</string>
+    <string name="notification_settings">Ρυθμίσεις ειδοποιήσεων</string>
+    <string name="open_system_settings">Ανοίξτε τις ρυθμίσεις</string>
 </resources>

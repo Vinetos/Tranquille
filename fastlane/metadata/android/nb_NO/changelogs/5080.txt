@@ -1,9 +1,9 @@
-* Fixed startup crash without READ_CALL_LOG permission.
-* Fixed blacklist editor crash on old Android versions.
-* Updated translations thanks to Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
-* Other minor changes.
+* Fikset oppstartskræsj uten READ_CALL_LOG-tilgang.
+* Fikset kræsj i redigering av svarteliste på gamle Android-versjoner.
+* Oppdaterte oversettelser takket være Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
+* Andre små endringer.
 
 0.5.7:
 
-* Call log improvements: new look, better performance, infinite scrolling, grouping options.
-* Other minor changes.
+* Andropsloggsforbedringer: nytt utseende, bedre ytelse, uendelig rulling, grupperingslaternativer.
+* Andre små endringer.

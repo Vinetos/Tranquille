@@ -1,0 +1,3 @@
+* Naprawiono importowanie plików czarnej listy większych niż 4000 bajtów.
+* Naprawiono sporadyczne awarie występujące po usunięciu elementu z czarnej listy.
+* Uproszczono format importu czarnej listy (szczegóły w dzienniku zmian).
