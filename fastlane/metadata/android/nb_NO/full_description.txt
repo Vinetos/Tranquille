@@ -25,6 +25,8 @@ Sjekk <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ
 
 Hovedtelefondatabasen lastes ned fra <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">et GitLab-kodelager</a>.
 <b>Databaseoppdateringer og detaljerte vurderingsspørringer utføres av tredjepartstjenere</b>.
+Ingen brukeridentifiserbar info blir sendt (bortsett fra telefonnummeret de detaljerte vurderingene
+er innlastet for).
 
 Fremdeles i utvikling. All hjelp er velkommen.
 
