@@ -1,0 +1,4 @@
+* Fixed importing blacklist files larger than 4000 bytes.
+* Fixed occasional crash after deleting blacklist items.
+* Simplified blacklist import format (see changelog for details).
+* Updated translations thanks to J. Lavoie, Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk), Oğuz Ersen (@ersen).
