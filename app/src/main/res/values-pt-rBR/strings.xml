@@ -157,7 +157,7 @@
     <string name="call_log_permission_message">Conceder permissão de \"Telefone\" para ver as chamadas recentes</string>
     <string name="open_system_settings">Configurações</string>
     <string name="default_phone_app_unset">Selecione um aplicativo diferente como o \"aplicativo de Telefone\" em \"aplicativos Padrão\"em configurações do sistema</string>
-    <string name="default_phone_app_set">Selecione \"Mais Um Bloqueador De Chamadas\" como o \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configuração do sistema</string>
+    <string name="default_phone_app_set">Selecione \"Yet Another Call Blocker\" como o \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configuração do sistema</string>
     <string name="default_phone_app">\"Aplicativo de Telefone\" padrão</string>
     <string name="default_caller_id_app_unset">Selecione um aplicativo diferente como o \"aplicativo Identificador de Chamadas\" em \"aplicativos padrão\" nas configurações do sistema</string>
     <string name="feature_contacts">usando contatos</string>
