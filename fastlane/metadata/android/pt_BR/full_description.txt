@@ -1,0 +1,33 @@
+﻿Um simples aplicativo de bloqueio de chamadas que o ajudará a evitar atender chamadas indesejadas
+ usando um banco de dados de números de telefones construído com a colaboração da comunidade.
+
+<b>Recursos: </b>
+
+* Usa banco de dados offline. 
+* Bloqueia chamadas com avaliação negativa automaticamente (opcional).
+* Lista negra local com suporte a curinga.
+* Exibe uma notificação com informações resumidas do número de telefone (avaliação, contagem de comentários, categoria) durante as chamadas recebidas (opcional).
+* Atualizações incrementais automáticas do banco de dados (opcional).
+* Você pode visualizar análises online para as chamadas recebidas (fornecido por um serviço de terceiros).
+* "Modo de bloqueio avançado de chamadas" para bloquear chamadas no Android 7 ou superior antes do telefone começar a tocar (precisa ser ativado manualmente nas configurações do aplicativo).
+
+<b>Como usar: </b>
+
+* Instale e inicie o aplicativo.
+* A opção de mostrar notificações de informações das chamadas recebidas é habilitada por padrão, portanto, o aplicativo pedirá para conceder permissões relacionadas ao telefone.
+* Na primeira execução, o aplicativo irá sugerir o download do banco de dados principal que é necessário para a maioria das funções. Basta confirmar o download.
+* Marque a caixa de seleção "Auto-atualizar BD" no menu (recomendado) para receber automaticamente atualizações diárias do banco de dados (essas são atualizações incrementais / delta, portanto, consomem muito pouco tráfego).
+* Marque a caixa de seleção "Bloquear por avaliação" para bloquear chamadas com avaliação negativa automaticamente.
+* Você também pode marcar a caixa de seleção "Usar contatos" se quiser que as chamadas de seus contatos não sejam tratadas como chamadas desconhecidas.
+* Após essas etapas, tudo deve funcionar (mas você sempre pode encontrar mais opções em configurações). Aproveite!
+
+Consulte as <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">Perguntas Mais Frequentes</a> para saber mais.
+
+O banco de dados principal de números de telefones é baixado de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">um repositório Gitlab</a>.
+<b>Atualizações de banco de dados e consultas a análises detalhadas são realizadas usando servidores de terceiros.</b>
+Nenhuma informação identificável do usuário é enviada (exceto o número de telefone para consultar
+as análises detalhadas).
+
+Yet Another Call Blocker ainda está em desenvolvimento. Qualquer ajuda é bem vinda.
+
+'' NonFreeNet: '' o serviço de terceiros não é de código aberto.
