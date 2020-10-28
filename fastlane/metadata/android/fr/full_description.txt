@@ -1,31 +1,33 @@
 Une application simple de blocage d'appels qui vous aidera à éviter de répondre aux appels indésirables
-en utilisant une base de données de numéros de téléphone hors ligne.
+en utilisant une base de données de numéros de téléphone participative.
 
-Fonctionnalités :
+<b>Caractéristiques :</b>
 
 * Utilise une base de données hors ligne.
 * Bloque automatiquement les appels avec une note négative (option).
 * Liste noire locale avec prise en charge des caractères génériques.
-* Affiche une notification avec un résumé du numéro de téléphone (note, nombre de commentaires, catégorie) lors des appels entrants (option).
+* Affiche une notification avec un résumé du numéro de téléphone (note, nombre d'avis, catégorie) lors des appels entrants (option).
 * Mises à jour automatiques de la base de données incrémentielle / delta (option).
 * Vous pouvez consulter les avis en ligne pour le numéro de l'appelant (fournis par un service tiers).
-* « Mode de blocage d'appel avancé » pour bloquer les appels sur Android 7+ avant que le téléphone ne commence à sonner (doit être activé manuellement dans les paramètres de l'application).
+* « Mode de blocage d'appel avancé » pour bloquer les appels sur Android 7+ avant que le téléphone commence à sonner (doit être activé manuellement dans les paramètres de l'application).
 
-Comment utiliser :
+<b>Comment l'utiliser :</b>
 
 * Installez et lancez l'application.
-* L'option permettant d'afficher les notifications d'informations sur l'appelant est activée par défaut, l'application demandera donc des autorisations relatives au téléphone.
+* L'option permettant d'afficher les notifications d'informations sur l'appelant est activée par défaut, l'application demandera donc des autorisations liées au téléphone.
 * Au premier démarrage, l'application proposera de télécharger la base de données principale requise pour la plupart des fonctions. Confirmez simplement le téléchargement.
 * Cochez la case « Mise à jour automatique de la base de données » dans le menu (recommandé) pour recevoir automatiquement les mises à jour quotidiennes de la base de données (ce sont des mises à jour incrémentielles / delta, donc elles consomment très peu de trafic).
 * Cochez la case « Bloquer par classement » pour bloquer automatiquement les appels avec une note négative.
-* Vous pouvez également cocher la case « Utiliser les contacts » si vous souhaitez que vos contacts ne soient pas traités comme des appelants inconnus.
+* Vous pouvez également cocher la case « Utiliser les contacts» si vous souhaitez que vos contacts ne soient pas traités comme des appelants inconnus.
 * Après ces étapes, tout devrait fonctionner (mais vous pouvez toujours trouver plus d'options dans les paramètres). Bonne utilisation !
 
-La base de données principale des numéros de téléphone est téléchargée à partir d'un référentiel gitlab.
-Les mises à jour Delta et les requêtes d'examen détaillées sont effectuées à l'aide de serveurs tiers.
+Voir la <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">foire aux questions</a> pour en savoir plus.
+
+La base de données principale des numéros de téléphone est téléchargée depuis <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data"> un référentiel gitlab </a>.
+<b>Les mises à jour de la base de données et les requêtes d'examen détaillées sont effectuées à l'aide de serveurs tiers.</b>
 Aucune information identifiable par l'utilisateur n'est envoyée (à l'exception du numéro de téléphone
 les revues détaillées sont chargées).
 
-Pourtant, un autre bloqueur d'appels est toujours en cours de développement. Toute aide est la bienvenue.
+Yet Another Call Blocker est toujours en cours de développement. Toute aide est la bienvenue.
 
-NonFreeNet : le service tiers n'est pas à code source ouvert.
+NonFreeNet : le code source du service tiers n'est pas ouvert.
