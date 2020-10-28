@@ -14,7 +14,6 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
-        android:textAlignment="center"
         android:textSize="20sp"
         tools:text="Category" />
 
@@ -25,7 +24,6 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="2"
-        android:textAlignment="center"
         android:textSize="20sp"
         tools:text="Contact name" />
 
@@ -36,7 +34,6 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
-        android:textAlignment="center"
         android:textSize="20sp"
         tools:text="Featured company name" />
 
@@ -47,7 +44,6 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
-        android:textAlignment="center"
         android:textSize="20sp"
         tools:text="Blacklist name" />
 
@@ -63,7 +59,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:gravity="center_horizontal"
-        android:text="@string/info_in_blacklist"
-        android:textAlignment="center" />
+        android:text="@string/info_in_blacklist" />
 
 </LinearLayout>

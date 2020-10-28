@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="26dp"
+            android:gravity="center_horizontal"
             android:text="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:text="@string/motto" />
 
         <Space
@@ -82,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             tools:text="v0.5.8" />
 
         <TextView
