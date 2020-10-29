@@ -2,7 +2,7 @@
 <resources>
     <string name="no_main_db_text">O banco de dados não está disponível. Para que o aplicativo execute a maioria de suas funções, você precisa fazer o download do BD. O arquivo tem cerca de 25 MB.</string>
     <string name="number_pattern_hint">Digite o número no formato nacional (como o Android mostraria em seu discador). Use \"*\" como curinga para zero ou mais dígitos, e \"#\" para exatamente um dígito.</string>
-    <string name="save_logcat_on_crash_summary">Salvar a saída do registro de mensagens do sistema (logcat) em caso de falha (além de um básico rastreamento de pilha (stacktrace) )</string>
+    <string name="save_logcat_on_crash_summary">Salvar o registro de mensagens do sistema (logcat) em caso de falha (além de um básico rastreamento de pilha (stacktrace) )</string>
     <string name="country_code_override_summary">Código do país utilizado em todas as solicitações. Deixar em branco para autodetecção</string>
     <string name="country_codes_info_summary_addition">Autodetecção: %s</string>
     <string name="country_codes_info_summary">Os códigos de países são usados em solicitações a servidores de terceiros. Estes códigos são definidos para imitar o comportamento do aplicativo oficial de terceiros. Se os códigos corresponderem a seu país real (podem ser detectados por seu endereço IP), então suas solicitações serão as mais discretas. A autodetecção é usada por padrão (com base nas informações da rede móvel ou configuração de localidade do sistema), o que deve ser bom para a maioria dos usuários, mas você pode definir os códigos manualmente. São esperados os códigos ISO 3166 de 2 letras (como US)</string>
@@ -14,8 +14,8 @@
     <string name="denied_call_screening_role_message">O bloqueio avançado de chamadas não funcionará devido ao aplicativo não estar definido como o \"aplicativo Identificador de Chamadas\"</string>
     <string name="denied_default_dialer_message">O bloqueio avançado de chamadas não funcionará devido ao aplicativo não estar configurado como o \"aplicativo de Telefone\"</string>
     <string name="denied_permissions_message">Devido às permissões negadas, os seguintes recursos podem não funcionar:</string>
-    <string name="sia_category_safe_company">Empresa segura</string>
-    <string name="sia_category_safe_personal">Pessoal segura</string>
+    <string name="sia_category_safe_company">Empresa confiável</string>
+    <string name="sia_category_safe_personal">Pessoal (segura)</string>
     <string name="sia_category_political">Política</string>
     <string name="sia_category_silent">Silenciosa</string>
     <string name="sia_category_nuisance">Perturbação</string>
@@ -175,12 +175,12 @@
     <string name="sia_category_survey">Pesquisa</string>
     <string name="sia_category_sms">SMS</string>
     <string name="sia_category_prank">Trote</string>
-    <string name="sia_category_scam">Fraude</string>
+    <string name="sia_category_scam">Fraude (Golpe)</string>
     <string name="sia_category_nonprofit">Org. sem fins lucrativos</string>
     <string name="sia_category_fax">FAX</string>
     <string name="sia_category_dept_collector">Cobrador de dívidas</string>
     <string name="sia_category_telemarketer">Telemarketing</string>
-    <string name="sia_category_none">Nenhum</string>
+    <string name="sia_category_none">Sem categoria</string>
     <string name="notification_incoming_call_text_description">Negativa(s): %1$d, positiva(s): %2$d, neutra(s): %3$d</string>
     <string name="notification_blocked_call">Chamada bloqueada</string>
     <string name="notification_incoming_call_negative">Chamada negativa</string>
