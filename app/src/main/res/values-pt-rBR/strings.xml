@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="no_main_db_text">O banco de dados não está disponível. Para que o aplicativo execute a maioria de suas funções, você precisa fazer o download do BD. O arquivo tem cerca de 25 MB.</string>
-    <string name="number_pattern_hint">Digite o número no formato nacional (como o Android mostraria em seu discador). Use \"*\" como curinga para zero ou mais dígitos, e \"#\" para exatamente um dígito.</string>
-    <string name="save_logcat_on_crash_summary">Salvar o registro de mensagens do sistema (logcat) em caso de falha (além de um básico rastreamento de pilha (stacktrace) )</string>
+    <string name="number_pattern_hint">Digite o número em formato nacional (como o Android mostraria em seu discador). Use \"*\" como curinga para zero ou mais dígitos, e \"#\" para exatamente um dígito.</string>
+    <string name="save_logcat_on_crash_summary">Salvar o logcat em caso de falha (além de um básico stacktrace (rastreamento de pilha) )</string>
     <string name="country_code_override_summary">Código do país utilizado em todas as solicitações. Deixar em branco para autodetecção</string>
     <string name="country_codes_info_summary_addition">Autodetecção: %s</string>
-    <string name="country_codes_info_summary">Os códigos de países são usados em solicitações a servidores de terceiros. Estes códigos são definidos para imitar o comportamento do aplicativo oficial de terceiros. Se os códigos corresponderem a seu país real (podem ser detectados por seu endereço IP), então suas solicitações serão as mais discretas. A autodetecção é usada por padrão (com base nas informações da rede móvel ou configuração de localidade do sistema), o que deve ser bom para a maioria dos usuários, mas você pode definir os códigos manualmente. São esperados os códigos ISO 3166 de 2 letras (como US)</string>
+    <string name="country_codes_info_summary">Os códigos de países são usados em pedidos a servidores de terceiros. Eles são definidos para imitar a ação do aplicativo oficial de terceiro. Se os códigos corresponderem a seu país real (podem ser detectados por seu endereço IP), então seus pedidos serão os mais discretos. A autodetecção é usada por padrão (baseada nas informações da rede móvel ou definição de localidade do sistema), o que deve ser bom para a maioria dos usuários, mas você pode definir os códigos manualmente. São esperados os códigos ISO 3166 de 2 letras (como US)</string>
     <string name="use_monitoring_service_summary">Permite um serviço de monitoramento sempre em execução que ajuda na recepção de eventos telefônicos em alguns telefones. Habilite este recurso somente se o bloqueio de chamadas e as notificações informativas não funcionarem. Este recurso não tem efeito sobre a vida útil da bateria</string>
     <string name="incoming_call_notifications_summary">Exibe uma notificação com um resumo do número de telefone (avaliação, contagem de comentários, categoria) durante as chamadas recebidas</string>
     <string name="load_reviews_confirmation_message">Carregar avaliações online vazará o número para um serviço de terceiros. Tem certeza de que deseja fazer isso com um número presente em seus contatos\?</string>
@@ -95,7 +95,7 @@
     </plurals>
     <string name="save">Salvar</string>
     <string name="no_number">&lt;nenhum número&gt;</string>
-    <string name="export_logcat_summary">Exportar e compartilhar conteúdo do logcat com um aplicativo de sua escolha (por exemplo, com um cliente de e-mail). Os relatórios podem conter dados sigilosos (números de telefone, nomes de contatos). Somente o aplicativo escolhido terá acesso a esses dados</string>
+    <string name="export_logcat_summary">Exportar e compartilhar o conteúdo do logcat com um aplicativo de sua escolha (por exemplo, com um cliente de e-mail). Os relatórios podem conter dados sigilosos (números de telefone, nomes de contatos). Só o aplicativo escolhido terá acesso a esses dados</string>
     <string name="export_logcat">Exportar logcat</string>
     <string name="save_logcat_on_crash">Salvar logcat em caso de falha</string>
     <string name="save_crashes_to_external_storage_summary">Salve os relatórios de falhas e registros para o armazenamento público, caso contrário, os relatórios de falhas são salvos em uma pasta privada do aplicativo. Os relatórios podem conter dados sigilosos (números de telefone, nomes de contato). Outros aplicativos com permissão de armazenamento podem ter acesso a estes dados no armazenamento público</string>
@@ -157,7 +157,7 @@
     <string name="call_log_permission_message">Conceder permissão de \"Telefone\" para ver as chamadas recentes</string>
     <string name="open_system_settings">Configurações</string>
     <string name="default_phone_app_unset">Selecione um aplicativo diferente como o \"aplicativo de Telefone\" em \"aplicativos Padrão\"em configurações do sistema</string>
-    <string name="default_phone_app_set">Selecione \"Yet Another Call Blocker\" como o \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configuração do sistema</string>
+    <string name="default_phone_app_set">Selecione \"Yet Another Call Blocker\" como o \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configurações do sistema</string>
     <string name="default_phone_app">\"Aplicativo de Telefone\" padrão</string>
     <string name="default_caller_id_app_unset">Selecione um aplicativo diferente como o \"aplicativo Identificador de Chamadas\" em \"aplicativos padrão\" nas configurações do sistema</string>
     <string name="feature_contacts">usando contatos</string>
