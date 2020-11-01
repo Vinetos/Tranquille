@@ -15,7 +15,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
@@ -27,15 +26,13 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
-import dummydomain.yetanothercallblocker.preference.IntListPreference;
 import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
 import dummydomain.yetanothercallblocker.utils.FileUtils;
 import dummydomain.yetanothercallblocker.utils.PackageManagerUtils;
 import dummydomain.yetanothercallblocker.work.UpdateScheduler;
-
-import static java.util.Objects.requireNonNull;
 
 public class SettingsActivity extends AppCompatActivity
         implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
@@ -183,9 +180,7 @@ public class SettingsActivity extends AppCompatActivity
         private void initRootScreen(String rootKey) {
             if (rootKey != null) return;
 
-            SwitchPreferenceCompat incomingCallNotificationPref =
-                    requireNonNull(findPreference(Settings.PREF_INCOMING_CALL_NOTIFICATIONS));
-            incomingCallNotificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            setPrefChangeListener(Settings.PREF_INCOMING_CALL_NOTIFICATIONS, (pref, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
                     PermissionHelper.checkPermissions(requireActivity(), true, false, false);
                 }
@@ -198,15 +193,12 @@ public class SettingsActivity extends AppCompatActivity
                 }
                 return true;
             };
-            requireNonNull((SwitchPreferenceCompat) findPreference(Settings.PREF_BLOCK_NEGATIVE_SIA_NUMBERS))
-                    .setOnPreferenceChangeListener(callBlockingListener);
-            requireNonNull((SwitchPreferenceCompat) findPreference(Settings.PREF_BLOCK_HIDDEN_NUMBERS))
-                    .setOnPreferenceChangeListener(callBlockingListener);
-            requireNonNull((SwitchPreferenceCompat) findPreference(Settings.PREF_BLOCK_BLACKLISTED))
-                    .setOnPreferenceChangeListener(callBlockingListener);
+            setPrefChangeListener(Settings.PREF_BLOCK_NEGATIVE_SIA_NUMBERS, callBlockingListener);
+            setPrefChangeListener(Settings.PREF_BLOCK_HIDDEN_NUMBERS, callBlockingListener);
+            setPrefChangeListener(Settings.PREF_BLOCK_BLACKLISTED, callBlockingListener);
 
             SwitchPreferenceCompat callScreeningPref =
-                    requireNonNull(findPreference(PREF_USE_CALL_SCREENING_SERVICE));
+                    requirePreference(PREF_USE_CALL_SCREENING_SERVICE);
             callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
             callScreeningPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
@@ -228,9 +220,7 @@ public class SettingsActivity extends AppCompatActivity
                 callScreeningPref.setVisible(false);
             }
 
-            SwitchPreferenceCompat monitoringPref =
-                    requireNonNull(findPreference(Settings.PREF_USE_MONITORING_SERVICE));
-            monitoringPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            setPrefChangeListener(Settings.PREF_USE_MONITORING_SERVICE, (pref, newValue) -> {
                 boolean enabled = Boolean.TRUE.equals(newValue);
                 Context context = requireContext();
 
@@ -246,7 +236,7 @@ public class SettingsActivity extends AppCompatActivity
             });
 
             SwitchPreferenceCompat nonPersistentAutoUpdatePref =
-                    requireNonNull(findPreference(PREF_AUTO_UPDATE_ENABLED));
+                    requirePreference(PREF_AUTO_UPDATE_ENABLED);
             nonPersistentAutoUpdatePref.setChecked(updateScheduler.isAutoUpdateScheduled());
             nonPersistentAutoUpdatePref.setOnPreferenceChangeListener((preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
@@ -257,41 +247,35 @@ public class SettingsActivity extends AppCompatActivity
                 return true;
             });
 
-            SwitchPreferenceCompat useContactsPref =
-                    requireNonNull(findPreference(Settings.PREF_USE_CONTACTS));
-            useContactsPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            setPrefChangeListener(Settings.PREF_USE_CONTACTS, (preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
                     PermissionHelper.checkPermissions(requireActivity(), false, false, true);
                 }
                 return true;
             });
 
-            IntListPreference uiModePref = requireNonNull(findPreference(Settings.PREF_UI_MODE));
-            uiModePref.setOnPreferenceChangeListener((preference, newValue) -> {
+            setPrefChangeListener(Settings.PREF_UI_MODE, (preference, newValue) -> {
                 App.setUiMode(Integer.parseInt((String) newValue));
                 return true;
             });
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Preference notificationChannelSettings = requireNonNull(
-                        findPreference(PREF_NOTIFICATION_CHANNEL_SETTINGS));
-                notificationChannelSettings.setOnPreferenceClickListener(preference -> {
-                    Intent intent = new Intent(
-                            android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS);
-                    intent.putExtra(android.provider.Settings.EXTRA_APP_PACKAGE,
-                            BuildConfig.APPLICATION_ID);
-                    startActivity(intent);
-                    return true;
-                });
+                requirePreference(PREF_NOTIFICATION_CHANNEL_SETTINGS)
+                        .setOnPreferenceClickListener(preference -> {
+                            Intent intent = new Intent(
+                                    android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                            intent.putExtra(android.provider.Settings.EXTRA_APP_PACKAGE,
+                                    BuildConfig.APPLICATION_ID);
+                            startActivity(intent);
+                            return true;
+                        });
 
-                Preference legacyCategory = requireNonNull(findPreference(PREF_CATEGORY_NOTIFICATIONS_LEGACY));
-                legacyCategory.setVisible(false);
+                requirePreference(PREF_CATEGORY_NOTIFICATIONS_LEGACY).setVisible(false);
             } else {
-                Preference modernCategory = requireNonNull(findPreference(PREF_CATEGORY_NOTIFICATIONS));
-                modernCategory.setVisible(false);
+                requirePreference(PREF_CATEGORY_NOTIFICATIONS).setVisible(false);
 
                 SwitchPreferenceCompat blockedCallNotificationsPref =
-                        requireNonNull(findPreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT));
+                        requirePreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT);
                 blockedCallNotificationsPref.setChecked(
                         App.getSettings().getNotificationsForBlockedCalls());
                 blockedCallNotificationsPref.setOnPreferenceChangeListener((pref, newValue) -> {
@@ -331,8 +315,7 @@ public class SettingsActivity extends AppCompatActivity
                     + ". " + getString(R.string.country_codes_info_summary_addition,
                     App.getSettings().getCachedAutoDetectedCountryCode());
 
-            Preference countryCodesInfoPreference
-                    = requireNonNull(findPreference(PREF_COUNTRY_CODES_INFO));
+            Preference countryCodesInfoPreference = requirePreference(PREF_COUNTRY_CODES_INFO);
             countryCodesInfoPreference.setSummary(countryCodesExplanationSummary);
             countryCodesInfoPreference.setOnPreferenceClickListener(preference -> {
                 new AlertDialog.Builder(requireActivity())
@@ -355,15 +338,11 @@ public class SettingsActivity extends AppCompatActivity
                 return false;
             };
 
-            EditTextPreference countryCodePreference
-                    = requireNonNull(findPreference(Settings.PREF_COUNTRY_CODE_OVERRIDE));
-            countryCodePreference.setOnPreferenceChangeListener(countryCodeChangeListener);
+            setPrefChangeListener(Settings.PREF_COUNTRY_CODE_OVERRIDE, countryCodeChangeListener);
+            setPrefChangeListener(Settings.PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE,
+                    countryCodeChangeListener);
 
-            EditTextPreference countryCodeForReviewsPreference
-                    = requireNonNull(findPreference(Settings.PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE));
-            countryCodeForReviewsPreference.setOnPreferenceChangeListener(countryCodeChangeListener);
-
-            requireNonNull((Preference) findPreference(PREF_EXPORT_LOGCAT))
+            requirePreference(PREF_EXPORT_LOGCAT)
                     .setOnPreferenceClickListener(preference -> {
                         exportLogcat();
                         return true;
@@ -393,5 +372,17 @@ public class SettingsActivity extends AppCompatActivity
                 FileUtils.shareFile(activity, new File(path));
             }
         }
+
+        private void setPrefChangeListener(@NonNull CharSequence key,
+                                           Preference.OnPreferenceChangeListener listener) {
+            requirePreference(key).setOnPreferenceChangeListener(listener);
+        }
+
+        @NonNull
+        private <T extends Preference> T requirePreference(@NonNull CharSequence key) {
+            return Objects.requireNonNull(findPreference(key));
+        }
+
     }
+
 }
