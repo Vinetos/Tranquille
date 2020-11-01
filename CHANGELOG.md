@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Portuguese (Brazil) translation thanks to APL ([@APL](https://hosted.weblate.org/user/APL/)).
+
+### Changed
+
+- Updated Croatian translation thanks to Milo Ivir (@milotype).
+- Updated French translation thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
+
 
 ## [0.5.10] - 2020-10-26
 
@@ -14,7 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).  
   Fields after `pattern` may be omitted.
-- Updated French and Italian translations thanks to J. Lavoie.
+- Updated French and Italian translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
 - Updated Greek translation thanks to Yannis T. (@azakosath).
 - Updated Polish translation thanks to Evo (@verahawk).
@@ -121,7 +130,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Option to change primary DB download URL.
 - Norwegian Bokmål translation thanks to Allan Nordhøy (@kingu).
 - Greek translation thanks to Yannis T. (@azakosath).
-- Some Italian translations thanks to Raffaele Cecoro (@rafscarface).
+- Some Italian translations thanks to Raffaele Cecoro ([@rafscarface](https://hosted.weblate.org/user/rafscarface/)).
 
 ### Changed
 
@@ -155,7 +164,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- Updated French translation thanks to J. Lavoie.
+- Updated French translation thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 
 ### Fixed
 
