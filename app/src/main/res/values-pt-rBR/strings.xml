@@ -122,7 +122,7 @@
     <string name="auto_updates_summary">Receber automaticamente atualizações diárias do BD (estas são atualizações incrementais/delta, portanto consomem muito pouco tráfego)</string>
     <string name="auto_updates">Auto-atualizar BD</string>
     <string name="use_monitoring_service">Use um serviço de monitoramento</string>
-    <string name="use_call_screening_service_summary">Permite bloquear chamadas antes que o telefone comece a tocar. Requer que o app seja configurado como o \"app de Telefone\" (Android 7-9) ou como o \"app Identificador de Chamadas\" (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Permite bloquear chamadas antes que o telefone comece a tocar. Requer que o app seja configurado como o \"app de Telefone\" (Android 7–9) ou como o \"app Identificador de Chamadas\" (Android 10+)</string>
     <string name="use_call_screening_service">Modo avançado de bloqueio de chamada</string>
     <string name="block_blacklisted_summary">Bloquear chamadas de números adicionados à lista negra</string>
     <string name="block_blacklisted">Bloquear números da lista negra</string>
