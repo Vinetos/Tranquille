@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="sia_category_silent">Šutnja</string>
-    <string name="export_logcat_summary">Izvezi i dijeli sadržaja logcata sa željenom aplikacijom (na primjer, s klijentom e-pošte). Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Pristup ovim podacima imat će samo odabrana aplikacija</string>
+    <string name="export_logcat_summary">Izvezi i dijeli sadržaja logcata sa željenim programom (na primjer, s klijentom e-pošte). Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Pristup ovim podacima imat će samo odabrani program</string>
     <string name="sia_category_call_center">Call centar</string>
     <string name="lookup_query_db">Pretraži bazu podataka</string>
     <plurals name="blacklist_item_stats">
@@ -29,7 +29,7 @@
     <string name="block_hidden_number_summary">Blokiraj pozive skrivenih brojeva. Može raditi drugačije (bolje ili gore) u „Napredni način blokiranja poziva”</string>
     <string name="settings_category_call_blocking">Blokiranje poziva</string>
     <string name="sia_category_nonprofit">Neprofitna organizacija</string>
-    <string name="denied_default_dialer_message">Napredno blokiranje poziva neće raditi, jer aplikacija nije postavljena kao „Aplikacija telefona”</string>
+    <string name="denied_default_dialer_message">Napredno blokiranje poziva neće raditi, jer program nije postavljena kao „Program za telefoniranje”</string>
     <string name="use_contacts">Koristi kontakte</string>
     <string name="title_settings_activity">Postavke</string>
     <string name="notification_blocked_call">Blokirani poziv</string>
@@ -69,7 +69,7 @@
     <string name="save">Spremi</string>
     <string name="ui_mode_day">Svjetla</string>
     <string name="sia_category_survey">Anketa</string>
-    <string name="save_crashes_to_external_storage_summary">Spremi izvještaje i log-zapise o rušenju aplikacije u javno spremište, u protivnom se izvještaji o rušenju spremaju u mapu privatne aplikacije. Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Ostale aplikacije s dozvolom za spremanje podataka mogu imati pristup tim podacima u javnom spremištu</string>
+    <string name="save_crashes_to_external_storage_summary">Spremi izvještaje i log-zapise o rušenju aplikacije u javno spremište, u protivnom se izvještaji o rušenju spremaju u privatnu mapu programa. Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Ostali programi s dozvolom za spremanje podataka mogu pristupiti tim podacima u javnom spremištu</string>
     <string name="blacklist_item_date_no_info">nema podataka</string>
     <string name="back">Natrag</string>
     <string name="settings_category_main">Glavna</string>
@@ -80,7 +80,7 @@
     <string name="number_pattern_incorrect">Neispravan format</string>
     <string name="notification_channel_name_positive">Pozitivni pozivi</string>
     <string name="use_call_screening_service">Napredni modus blokiranja poziva</string>
-    <string name="no_main_db_text">Baza podataka nije prisutna. Da bi aplikacija obavila većinu svojih funkcija, moraš preuzeti bazu podataka. Trebat će oko 25 MB prometa.</string>
+    <string name="no_main_db_text">Baza podataka nije prisutna. Da bi program obavio većinu svojih funkcija, moraš preuzeti bazu podataka. Trebat će oko 25 MB prometa.</string>
     <string name="notification_channel_group_name_blocked_calls">Blokirani pozivi</string>
     <string name="block_negative_sia">Blokiraj prema ocjeni</string>
     <string name="show_notifications_for_unknown_callers_summary">Prikaži obavijesti za nepoznate pozivače (ne nalaze se u kontaktima, niti u bazi podataka brojeva)</string>
@@ -91,7 +91,7 @@
     <string name="notification_incoming_call_neutral">Neutralni poziv</string>
     <string name="open_blacklist_activity">Popis nepoželjnih</string>
     <string name="block_negative_sia_short">Blokiraj prema ocjeni</string>
-    <string name="use_call_screening_service_summary">Omogućuje blokiranje poziva prije nego što telefon počne zvoniti. Aplikacija se mora postaviti na „Aplikacija telefona” (Android 7–9) ili na „Aplikacija ID oznake pozivatelja” (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Omogućuje blokiranje poziva prije nego što telefon počne zvoniti. Program se mora postaviti kao „Program za telefoniranje” (Android 7–9) ili kao „Program za identifikaciju pozivača” (Android 10+)</string>
     <string name="online_reviews">Mrežne recenzije</string>
     <string name="no_main_db_title">Preuzmi glavnu bazu podataka</string>
     <string name="ui_mode_night">Tamna</string>
@@ -108,7 +108,7 @@
     <string name="sia_category_political">Politika</string>
     <string name="settings_category_notifications_incoming_calls">Obavijesti o dolaznim pozivima</string>
     <string name="notification_incoming_call_contact">Kontakt</string>
-    <string name="use_contacts_summary">Brojevi koji su prisutni u kontaktima nikada se ne blokiraju, a ime kontakta prikazuje se svuda pored/umjesto broja</string>
+    <string name="use_contacts_summary">Brojevi koji su prisutni u kontaktima nikada se ne blokiraju, a ime kontakta prikazuje se uz broj ili umjesto broja</string>
     <string name="blacklist_import">Uvezi</string>
     <string name="notification_incoming_call_negative">Negativan poziv</string>
     <string name="number_pattern_empty">Prazan format</string>
@@ -141,7 +141,7 @@
     <string name="db_management_update_result">Aktualiziranje gotovo; verzija baze podataka: %d</string>
     <string name="db_management_update_db">Aktualiziraj bazu podataka</string>
     <string name="add_web_review">Dodaj recenziju (web)</string>
-    <string name="country_codes_info_summary">Kodovi zemalja koriste se u upitima za poslužitelje trećih strana. Ovi su kodovi postavljeni tako da oponašaju ponašanje službene aplikacije treće strane. Ako se kodovi podudaraju s tvojom stvarnom državom (može se otkriti prema tvojoj IP adresi), tada će tvoji zahtjevi imati najviše izgleda. Automatsko otkrivanje koristi se prema standardnim postavkama (na temelju podataka o mobilnoj mreži ili jeziku sustava), što bi trebalo biti u redu za većinu korisnika, ali kodovi se mogu postaviti ručno. Očekuju se dvoslovni brojevi norme ISO 3166 (poput US)</string>
+    <string name="country_codes_info_summary">Kodovi zemalja koriste se u upitima za poslužitelje trećih strana. Ovi su kodovi postavljeni tako da oponašaju službene programe treće strane. Ako se kodovi podudaraju s tvojom stvarnom državom (može se otkriti prema tvojoj IP adresi), tada će tvoji zahtjevi imati najviše izgleda. Automatsko otkrivanje koristi se prema standardnim postavkama (na temelju podataka o mobilnoj mreži ili jeziku sustava), što bi trebalo biti u redu za većinu korisnika, ali kodovi se mogu postaviti ručno. Očekuju se dvoslovni brojevi norme ISO 3166</string>
     <string name="lookup_clear_number">Izbriši broj</string>
     <string name="sia_category_financial_service">Financijska usluga</string>
     <string name="save_logcat_on_crash_summary">Spremi logcat rezultat pri rušenju (dodatno osnovnom praćenju memorije)</string>
@@ -152,7 +152,7 @@
     <string name="are_you_sure">Stvarno\?</string>
     <string name="number_pattern_hint">Upiši broj u formatu +BROJ-DRŽAVE (kao što bi Android pokazao u biraču). Koristi „*” kao zamjenski znak za nulu ili više znamenki, a „#” za točno jednu znamenku.</string>
     <string name="notification_channel_name_negative">Negativni pozivi</string>
-    <string name="denied_call_screening_role_message">Napredno blokiranje poziva neće raditi, jer aplikacija nije postavljena kao „Aplikacija ID oznake pozivatelja”</string>
+    <string name="denied_call_screening_role_message">Napredno blokiranje poziva neće raditi, jer program nije postavljena kao „Program za identifikaciju pozivača”</string>
     <string name="contacts_are_not_blocked_no_permission">Pozivi osoba u kontaktima se možda blokiraju, jer „Kontakti” nemaju odgovarajuću dozvolu!</string>
     <string name="contacts_are_not_blocked_not_enabled">Pozivi osoba u kontaktima se možda blokiraju, jer opcija „Koristi kontakte” nije aktivirana!</string>
     <string name="database_download_url">Primarna URL adresa za preuzimanje baze podataka</string>
@@ -180,4 +180,24 @@
     <string name="notification_settings">Postavke obavijesti</string>
     <string name="open_system_settings">Otvori postavke</string>
     <string name="motto">Blokiraj neželjene pozive na jednostavan način</string>
+    <string name="default_phone_app_unset">Odaberi jedan drugi program kao „Program za telefoniranje” u postavkama sustava pod „Standardni programi”</string>
+    <string name="default_phone_app_set">Odaberi „Još jedan bloker poziva” kao „Program za telefoniranje” u postavkama sustava pod „Standardni programi”</string>
+    <string name="default_phone_app">Standardni „Program za telefoniranje”</string>
+    <string name="default_caller_id_app_unset">Odaberi jedan drugi program kao „Program za identifikaciju pozivača” u postavkama sustava pod „Standardni programi”</string>
+    <string name="default_caller_id_app">Standardni „Program za identifikaciju pozivača”</string>
+    <string name="blacklist_select_all">Odaberi sve</string>
+    <string name="license">Ovaj je program izdan pod licencom „AGPL-3.0-only”.</string>
+    <string name="issues">Zatraži pomoć / prijavi problem</string>
+    <string name="translate">Prevedi program na Weblate stranicama</string>
+    <string name="faq">Često postavljena pitanja</string>
+    <string name="homepage">Naslovna stranica projekta</string>
+    <string name="logo_description">Logotip</string>
+    <string name="db_last_update_check_checking">provjeravanje …</string>
+    <string name="db_last_update_check_never">nikada</string>
+    <string name="db_last_update_check">Zadnja provjera nadogradnje: %s</string>
+    <string name="db_version_not_available">--</string>
+    <string name="db_version">Verzija baze podataka: %s</string>
+    <string name="version_string">v%s</string>
+    <string name="about_activity">Informacije</string>
+    <string name="open_about_activity">Informacije</string>
 </resources>

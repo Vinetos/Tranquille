@@ -1,0 +1,10 @@
+* Added optional monitoring service (allows YACB to work on Xiaomi's MIUI).
+* Improved hidden number detection in "normal" mode.
+* Added Polish translation thanks to Evo (@verahawk).
+* Fixes and improvements.
+
+0.5.4:
+
+* Added support for numbers without international prefix (Android 5+ only).
+* Thanks for translations to Allan Nordhøy (@kingu), Olexandr Nesterenko (@burunduk), Yannis T. (@azakosath).
+* Fixes and improvements.

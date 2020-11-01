@@ -47,9 +47,9 @@
     <string name="feature_info">notifications</string>
     <string name="feature_call_blocking">blocage d’appel</string>
     <string name="feature_contacts">utilisation des contacts</string>
-    <string name="denied_default_dialer_message">Comme l’application n’est pas définie comme appli « téléphone », le blocage d’appel avancé ne fonctionnera pas</string>
+    <string name="denied_default_dialer_message">Comme l’application n’est pas définie comme appli « téléphone », le blocage d’appel avancé ne fonctionnera pas</string>
     <string name="denied_call_screening_role_message">Comme l’application n’est pas définie comme appli de « reconnaissance d’appel entrant », le blocage d\'appel avancé ne fonctionnera pas</string>
-    <string name="call_log_permission_message">Accorder l\'autorisation \"Téléphone\" pour voir les appels récents</string>
+    <string name="call_log_permission_message">Accorder l\'autorisation « Téléphone » pour voir les appels récents</string>
     <string name="no_main_db_title">Télécharger la base de données principale</string>
     <string name="no_main_db_text">La base de données n\'est pas disponible. Pour que l\'application puisse remplir la plupart de ses fonctions, vous devez la télécharger. Cela nécessitera environ 25 Mo de données.</string>
     <string name="download_main_db">Télécharger la base de données</string>
@@ -78,7 +78,7 @@
     <string name="block_hidden_number">Bloquer les numéros masqués</string>
     <string name="block_hidden_number_summary">Bloquer les appels provenant de numéros masqués. Peut fonctionner différemment (meilleur ou pire) en « Mode de blocage d\'appel avancé »</string>
     <string name="use_call_screening_service">Mode de blocage d\'appel avancé</string>
-    <string name="use_call_screening_service_summary">Permet de bloquer les appels avant que le téléphone ne commence à sonner. Nécessite que l\'application soit définie comme appli "téléphone" (Android 7–9) ou comme appli \"reconnaissance d\'appel entrant\" (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Permet de bloquer les appels avant que le téléphone ne commence à sonner. Nécessite que l\'application soit définie comme appli téléphone (Android 7–9) ou comme appli « reconnaissance d\'appel entrant » (Android 10+)</string>
     <string name="auto_updates">Mettre à jour automatiquement la base de données</string>
     <string name="auto_updates_summary">Recevoir automatiquement les mises à jour quotidiennes de la BD (il s\'agit de mises à jour incrémentielles/delta, donc elles consomment très peu de données)</string>
     <string name="use_contacts">Utiliser les contacts</string>
@@ -197,4 +197,5 @@
         <item quantity="one">%1$d sélectionné</item>
         <item quantity="other">%1$d sélectionnés</item>
     </plurals>
+    <string name="blacklist_select_all">Tout sélectionner</string>
 </resources>
