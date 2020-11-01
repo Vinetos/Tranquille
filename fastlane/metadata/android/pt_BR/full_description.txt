@@ -3,7 +3,7 @@
 
 <b>Recursos: </b>
 
-* Usa banco de dados offline. 
+* Usa banco de dados offline.
 * Bloqueia chamadas com avaliação negativa automaticamente (opcional).
 * Lista negra local com suporte a curinga.
 * Exibe uma notificação com informações resumidas do número de telefone (avaliação, contagem de comentários, categoria) durante as chamadas recebidas (opcional).
