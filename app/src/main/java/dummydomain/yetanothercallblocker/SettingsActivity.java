@@ -136,6 +136,7 @@ public class SettingsActivity extends AppCompatActivity
         private static final String PREF_AUTO_UPDATE_ENABLED = "autoUpdateEnabled";
         private static final String PREF_NOTIFICATION_CHANNEL_SETTINGS = "notificationChannelSettings";
         private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
+        private static final String PREF_CATEGORY_NOTIFICATIONS_LEGACY = "categoryNotificationsLegacy";
         private static final String PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT = "showNotificationsForBlockedCallsNonPersistent";
         private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
         private static final String PREF_COUNTRY_CODES_INFO = "countryCodesInfo";
@@ -271,9 +272,9 @@ public class SettingsActivity extends AppCompatActivity
                 return true;
             });
 
-            Preference notificationChannelSettings = requireNonNull(
-                    findPreference(PREF_NOTIFICATION_CHANNEL_SETTINGS));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Preference notificationChannelSettings = requireNonNull(
+                        findPreference(PREF_NOTIFICATION_CHANNEL_SETTINGS));
                 notificationChannelSettings.setOnPreferenceClickListener(preference -> {
                     Intent intent = new Intent(
                             android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS);
@@ -283,10 +284,11 @@ public class SettingsActivity extends AppCompatActivity
                     return true;
                 });
 
-                Preference category = requireNonNull(findPreference(PREF_CATEGORY_NOTIFICATIONS));
-                category.setVisible(false);
+                Preference legacyCategory = requireNonNull(findPreference(PREF_CATEGORY_NOTIFICATIONS_LEGACY));
+                legacyCategory.setVisible(false);
             } else {
-                notificationChannelSettings.setVisible(false);
+                Preference modernCategory = requireNonNull(findPreference(PREF_CATEGORY_NOTIFICATIONS));
+                modernCategory.setVisible(false);
 
                 SwitchPreferenceCompat blockedCallNotificationsPref =
                         requireNonNull(findPreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT));
