@@ -52,7 +52,7 @@ public class SettingsActivity extends AppCompatActivity
         } else {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.settings, new SettingsFragment())
+                    .replace(R.id.settings, new RootSettingsFragment())
                     .commit();
         }
 
@@ -81,18 +81,14 @@ public class SettingsActivity extends AppCompatActivity
     @Override
     public boolean onPreferenceStartScreen(PreferenceFragmentCompat preferenceFragmentCompat,
                                            PreferenceScreen preferenceScreen) {
-        SettingsFragment fragment = new SettingsFragment();
-        Bundle args = new Bundle();
-        args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, preferenceScreen.getKey());
-        fragment.setArguments(args);
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left,
-                        R.anim.enter_from_left, R.anim.exit_to_right)
-                .replace(R.id.settings, fragment, preferenceScreen.getKey())
-                .addToBackStack(preferenceScreen.getKey())
-                .commit();
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            if (fragment instanceof BaseSettingsFragment) {
+                if (((BaseSettingsFragment) fragment)
+                        .onPreferenceStartScreen(preferenceFragmentCompat, preferenceScreen)) {
+                    return true;
+                }
+            }
+        }
 
         return true;
     }
@@ -121,46 +117,48 @@ public class SettingsActivity extends AppCompatActivity
 
     private void updateCallScreeningPreference() {
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-            if (fragment instanceof SettingsFragment) {
-                ((SettingsFragment) fragment).updateCallScreeningPreference();
+            if (fragment instanceof BaseSettingsFragment) {
+                ((RootSettingsFragment) fragment).updateCallScreeningPreference();
             }
         }
     }
 
-    public static class SettingsFragment extends PreferenceFragmentCompat {
-
-        private static final String PREF_USE_CALL_SCREENING_SERVICE = "useCallScreeningService";
-        private static final String PREF_AUTO_UPDATE_ENABLED = "autoUpdateEnabled";
-        private static final String PREF_NOTIFICATION_CHANNEL_SETTINGS = "notificationChannelSettings";
-        private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
-        private static final String PREF_CATEGORY_NOTIFICATIONS_LEGACY = "categoryNotificationsLegacy";
-        private static final String PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT = "showNotificationsForBlockedCallsNonPersistent";
-        private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
-        private static final String PREF_COUNTRY_CODES_INFO = "countryCodesInfo";
-        private static final String PREF_EXPORT_LOGCAT = "exportLogcat";
-
-        private static final Logger LOG = LoggerFactory.getLogger(SettingsFragment.class);
-
-        private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
+    public static abstract class BaseSettingsFragment extends PreferenceFragmentCompat
+            implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
 
         @Override
         public void onStart() {
             super.onStart();
 
             requireActivity().setTitle(getPreferenceScreen().getTitle());
-
-            updateBlockedCallNotificationsPreference();
         }
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            checkScreenKey(rootKey);
+
             getPreferenceManager().setStorageDeviceProtected();
 
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
-            initRootScreen(rootKey);
-            initAdvancedScreen(rootKey);
+            initScreen();
 
+            disablePreferenceIcons();
+        }
+
+        protected void checkScreenKey(String key) {
+            String screenKey = getScreenKey();
+            if (!TextUtils.equals(screenKey, key)) {
+                throw new IllegalArgumentException("Incorrect key: " + key
+                        + ", expected: " + screenKey);
+            }
+        }
+
+        protected abstract String getScreenKey();
+
+        protected void initScreen() {}
+
+        protected void disablePreferenceIcons() {
             PreferenceScreen preferenceScreen = getPreferenceScreen();
             int count = preferenceScreen.getPreferenceCount();
             for (int i = 0; i < count; i++) {
@@ -177,9 +175,72 @@ public class SettingsActivity extends AppCompatActivity
             }
         }
 
-        private void initRootScreen(String rootKey) {
-            if (rootKey != null) return;
+        @Override
+        public boolean onPreferenceStartScreen(PreferenceFragmentCompat caller,
+                                               PreferenceScreen pref) {
+            String key = pref.getKey();
 
+            PreferenceFragmentCompat fragment = getSubscreenFragment(key);
+            if (fragment == null) return false;
+
+            Bundle args = new Bundle();
+            args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, key);
+            fragment.setArguments(args);
+
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left,
+                            R.anim.enter_from_left, R.anim.exit_to_right)
+                    .replace(R.id.settings, fragment, key)
+                    .addToBackStack(key)
+                    .commit();
+
+            return true;
+        }
+
+        protected PreferenceFragmentCompat getSubscreenFragment(String key) {
+            return null;
+        }
+
+        protected void setPrefChangeListener(@NonNull CharSequence key,
+                                             Preference.OnPreferenceChangeListener listener) {
+            requirePreference(key).setOnPreferenceChangeListener(listener);
+        }
+
+        @NonNull
+        protected <T extends Preference> T requirePreference(@NonNull CharSequence key) {
+            return Objects.requireNonNull(findPreference(key));
+        }
+
+    }
+
+    public static class RootSettingsFragment extends BaseSettingsFragment {
+
+        private static final String PREF_SCREEN_ROOT = null;
+        private static final String PREF_USE_CALL_SCREENING_SERVICE = "useCallScreeningService";
+        private static final String PREF_AUTO_UPDATE_ENABLED = "autoUpdateEnabled";
+        private static final String PREF_NOTIFICATION_CHANNEL_SETTINGS = "notificationChannelSettings";
+        private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
+        private static final String PREF_CATEGORY_NOTIFICATIONS_LEGACY = "categoryNotificationsLegacy";
+        private static final String PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT = "showNotificationsForBlockedCallsNonPersistent";
+        private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
+
+        private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
+
+        @Override
+        public void onStart() {
+            super.onStart();
+
+            updateBlockedCallNotificationsPreference();
+        }
+
+        @Override
+        protected String getScreenKey() {
+            return PREF_SCREEN_ROOT;
+        }
+
+        @Override
+        protected void initScreen() {
             setPrefChangeListener(Settings.PREF_INCOMING_CALL_NOTIFICATIONS, (pref, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
                     PermissionHelper.checkPermissions(requireActivity(), true, false, false);
@@ -308,9 +369,36 @@ public class SettingsActivity extends AppCompatActivity
             }
         }
 
-        private void initAdvancedScreen(String rootKey) {
-            if (!PREF_SCREEN_ADVANCED.equals(rootKey)) return;
+        public void updateCallScreeningPreference() {
+            SwitchPreferenceCompat callScreeningPref
+                    = findPreference(PREF_USE_CALL_SCREENING_SERVICE);
+            if (callScreeningPref != null) {
+                callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
+            }
+        }
 
+        @Override
+        protected PreferenceFragmentCompat getSubscreenFragment(String key) {
+            return PREF_SCREEN_ADVANCED.equals(key) ? new AdvancedSettingsFragment() : null;
+        }
+
+    }
+
+    public static class AdvancedSettingsFragment extends BaseSettingsFragment {
+
+        private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
+        private static final String PREF_COUNTRY_CODES_INFO = "countryCodesInfo";
+        private static final String PREF_EXPORT_LOGCAT = "exportLogcat";
+
+        private static final Logger LOG = LoggerFactory.getLogger(AdvancedSettingsFragment.class);
+
+        @Override
+        protected String getScreenKey() {
+            return PREF_SCREEN_ADVANCED;
+        }
+
+        @Override
+        protected void initScreen() {
             String countryCodesExplanationSummary = getString(R.string.country_codes_info_summary)
                     + ". " + getString(R.string.country_codes_info_summary_addition,
                     App.getSettings().getCachedAutoDetectedCountryCode());
@@ -349,14 +437,6 @@ public class SettingsActivity extends AppCompatActivity
                     });
         }
 
-        public void updateCallScreeningPreference() {
-            SwitchPreferenceCompat callScreeningPref
-                    = findPreference(PREF_USE_CALL_SCREENING_SERVICE);
-            if (callScreeningPref != null) {
-                callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
-            }
-        }
-
         private void exportLogcat() {
             Activity activity = requireActivity();
 
@@ -371,16 +451,6 @@ public class SettingsActivity extends AppCompatActivity
             if (path != null) {
                 FileUtils.shareFile(activity, new File(path));
             }
-        }
-
-        private void setPrefChangeListener(@NonNull CharSequence key,
-                                           Preference.OnPreferenceChangeListener listener) {
-            requirePreference(key).setOnPreferenceChangeListener(listener);
-        }
-
-        @NonNull
-        private <T extends Preference> T requirePreference(@NonNull CharSequence key) {
-            return Objects.requireNonNull(findPreference(key));
         }
 
     }
