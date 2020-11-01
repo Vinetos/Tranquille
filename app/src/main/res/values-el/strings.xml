@@ -101,7 +101,6 @@
     <string name="block_blacklisted_short">Αποκλεισμός μαύρης λίστας</string>
     <string name="block_hidden_number_summary">Αποκλεισμός κλήσεων από κρυφούς αριθμούς. Ίσως να λειτουργεί διαφορετικά (καλύτερα ή χειρότερα) στη \"Σύνθετη λειτουργία αποκλεισμού κλήσεων\"</string>
     <string name="block_hidden_number">Αποκλεισμός κρυφών αριθμών</string>
-    <string name="settings_category_notifications_incoming_calls">Ειδοποιήσεις εισερχόμενων κλήσεων</string>
     <string name="incoming_call_notifications">Ειδοποιήσεις εισερχόμενων κλήσεων</string>
     <string name="show_notifications_for_unknown_callers">Ειδοποιήσεις για άγνωστους καλούντες</string>
     <string name="show_notifications_for_known_callers_summary">Εμφάνιση ειδοποιήσεων για γνωστούς καλούντες (αριθμοί στις Επαφές)</string>

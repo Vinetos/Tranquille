@@ -136,6 +136,7 @@ public class SettingsActivity extends AppCompatActivity
         private static final String PREF_AUTO_UPDATE_ENABLED = "autoUpdateEnabled";
         private static final String PREF_NOTIFICATION_CHANNEL_SETTINGS = "notificationChannelSettings";
         private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
+        private static final String PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT = "showNotificationsForBlockedCallsNonPersistent";
         private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
         private static final String PREF_COUNTRY_CODES_INFO = "countryCodesInfo";
         private static final String PREF_EXPORT_LOGCAT = "exportLogcat";
@@ -149,6 +150,8 @@ public class SettingsActivity extends AppCompatActivity
             super.onStart();
 
             requireActivity().setTitle(getPreferenceScreen().getTitle());
+
+            updateBlockedCallNotificationsPreference();
         }
 
         @Override
@@ -284,6 +287,38 @@ public class SettingsActivity extends AppCompatActivity
                 category.setVisible(false);
             } else {
                 notificationChannelSettings.setVisible(false);
+
+                SwitchPreferenceCompat blockedCallNotificationsPref =
+                        requireNonNull(findPreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT));
+                blockedCallNotificationsPref.setChecked(
+                        App.getSettings().getNotificationsForBlockedCalls());
+                blockedCallNotificationsPref.setOnPreferenceChangeListener((pref, newValue) -> {
+                    if (Boolean.TRUE.equals(newValue)) {
+                        App.getSettings().setNotificationsForBlockedCalls(true);
+                    } else {
+                        new AlertDialog.Builder(requireActivity())
+                                .setTitle(R.string.are_you_sure)
+                                .setMessage(R.string.blocked_call_notifications_disable_message)
+                                .setPositiveButton(R.string.blocked_call_notifications_disable_confirmation,
+                                        (d, w) -> App.getSettings().setNotificationsForBlockedCalls(false))
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .setOnDismissListener(d -> updateBlockedCallNotificationsPreference())
+                                .show();
+                    }
+                    return true;
+                });
+            }
+        }
+
+        private void updateBlockedCallNotificationsPreference() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) return;
+
+            SwitchPreferenceCompat notificationsForBlockedPref =
+                    findPreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT);
+
+            if (notificationsForBlockedPref != null) {
+                notificationsForBlockedPref.setChecked(
+                        App.getSettings().getNotificationsForBlockedCalls());
             }
         }
 

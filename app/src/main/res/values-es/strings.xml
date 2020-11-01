@@ -60,7 +60,6 @@
     <string name="open_settings_activity">Ajustes</string>
     <string name="title_settings_activity">Ajustes</string>
     <string name="settings_category_main">Inicio</string>
-    <string name="settings_category_notifications_incoming_calls">Notificaciones de llamadas entrantes</string>
     <string name="show_notifications_for_known_callers">Notificaciones de llamadas conocidas</string>
     <string name="show_notifications_for_known_callers_summary">Mostrar notificaciones de llamadas conocidas (números en Contactos)</string>
     <string name="show_notifications_for_unknown_callers">Notificaciones de llamadas desconocidas</string>

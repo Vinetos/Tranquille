@@ -138,7 +138,6 @@
     <string name="show_notifications_for_unknown_callers">Notificações de chamadas desconhecidas</string>
     <string name="show_notifications_for_known_callers_summary">Exibir notificações para chamadas conhecidas (números de Contatos)</string>
     <string name="show_notifications_for_known_callers">Notificações de chamadas conhecidas</string>
-    <string name="settings_category_notifications_incoming_calls">Notificações de chamadas recebidas</string>
     <string name="settings_category_call_blocking">Bloqueio de chamadas</string>
     <string name="settings_category_main">Principal</string>
     <string name="title_settings_activity">Configurações</string>

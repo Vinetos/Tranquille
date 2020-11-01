@@ -96,7 +96,6 @@
     <string name="show_notifications_for_unknown_callers">Bilinmeyen arayanlar için bildirimler</string>
     <string name="show_notifications_for_known_callers">Bilinen arayanlar için bildirimler</string>
     <string name="show_notifications_for_known_callers_summary">Bilinen arayanlar için bildirimleri görüntüle (Kişilerde kayıtlı numaralar)</string>
-    <string name="settings_category_notifications_incoming_calls">Gelen arama bildirimleri</string>
     <string name="settings_category_call_blocking">Arama engelleme</string>
     <string name="settings_category_main">Ana kategori</string>
     <string name="title_settings_activity">Ayarlar</string>

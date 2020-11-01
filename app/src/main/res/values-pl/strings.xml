@@ -136,7 +136,6 @@
     <string name="incoming_call_notifications">Wyświetlaj powiadomienia</string>
     <string name="show_notifications_for_unknown_callers">Powiadomienia dla nieznanych połączeń</string>
     <string name="show_notifications_for_known_callers">Powiadomienia dla znanych połączeń</string>
-    <string name="settings_category_notifications_incoming_calls">Powiadomienia o połączeniach przychodzących</string>
     <string name="call_log_permission_message">Przyznaj uprawnienie „Telefon”, aby zobaczyć ostatnie połączenia</string>
     <string name="notification_channel_name_monitoring_service">Usługa monitorowania</string>
     <string name="notification_channel_group_name_services">Usługi</string>

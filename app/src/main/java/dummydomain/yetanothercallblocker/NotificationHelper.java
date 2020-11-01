@@ -84,6 +84,12 @@ public class NotificationHelper {
     }
 
     public static void showBlockedCallNotification(Context context, NumberInfo numberInfo) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            if (!App.getSettings().getNotificationsForBlockedCalls()) {
+                return;
+            }
+        }
+
         Notification notification = createBlockedCallNotification(context, numberInfo);
 
         String tag = NOTIFICATION_TAG_BLOCKED_CALL

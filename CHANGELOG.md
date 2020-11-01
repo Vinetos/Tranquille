@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- An option to disable notifications for blocked calls on old Android versions.
 - Portuguese (Brazil) translation thanks to APL ([@APL](https://hosted.weblate.org/user/APL/)).
 
 ### Changed

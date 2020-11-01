@@ -106,7 +106,6 @@
     <string name="sia_category_safe_nonprofit">Sigurna neprofitna organizacija</string>
     <string name="blacklist_export">Izvezi</string>
     <string name="sia_category_political">Politika</string>
-    <string name="settings_category_notifications_incoming_calls">Obavijesti o dolaznim pozivima</string>
     <string name="notification_incoming_call_contact">Kontakt</string>
     <string name="use_contacts_summary">Brojevi koji su prisutni u kontaktima nikada se ne blokiraju, a ime kontakta prikazuje se uz broj ili umjesto broja</string>
     <string name="blacklist_import">Uvezi</string>

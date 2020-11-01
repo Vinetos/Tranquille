@@ -43,7 +43,6 @@
     <string name="show_notifications_for_unknown_callers_summary">Vis merknader for ukjente oppringere (hverken i kontakter eller i nummerdatabase)</string>
     <string name="show_notifications_for_unknown_callers">Merknader for ukjente oppringere</string>
     <string name="show_notifications_for_known_callers_summary">Vis merknader for kjente oppringere (nummer i kontaktliste)</string>
-    <string name="settings_category_notifications_incoming_calls">Merknader for innkommende anrop</string>
     <string name="show_notifications_for_known_callers">Merknader for kjente oppringere</string>
     <string name="add_web_review">Legg til vurdering (nettbasert)</string>
     <string name="no_main_db_text">Databasen finnes ikke. For at programmet skal utføre brorparten av dets funksjoner må du laste ned databasen. Den er omtrent 25 MB.</string>

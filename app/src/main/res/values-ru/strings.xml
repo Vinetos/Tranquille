@@ -100,11 +100,14 @@
     <string name="title_settings_activity">Настройки</string>
     <string name="settings_category_main">Основные</string>
     <string name="settings_category_call_blocking">Блокирование вызовов</string>
-    <string name="settings_category_notifications_incoming_calls">Уведомления на входящие</string>
     <string name="show_notifications_for_known_callers">Уведомления для известных звонящих</string>
     <string name="show_notifications_for_known_callers_summary">Показывать уведомления для известных звонящих (номеров из телефонной книги)</string>
     <string name="show_notifications_for_unknown_callers">Уведомления для неизвестных звонящих</string>
     <string name="show_notifications_for_unknown_callers_summary">Показывать уведомления для неизвестных звонящих (отсутствующих в телефонной книге и в базе номеров)</string>
+    <string name="show_notifications_for_blocked_calls">Уведомлять о заблокированных вызовах</string>
+    <string name="show_notifications_for_blocked_calls_summary">Показывать уведомление после блокировки вызова</string>
+    <string name="blocked_call_notifications_disable_message">Вы можете случайно пропустить вызов, если уведомления о блокированных вызовах выключены</string>
+    <string name="blocked_call_notifications_disable_confirmation">Всё равно выключить</string>
     <string name="notification_settings">Настройки уведомлений</string>
     <string name="settings_screen_advanced">Продвинутые настройки</string>
     <string name="settings_category_country_codes">Коды страны</string>

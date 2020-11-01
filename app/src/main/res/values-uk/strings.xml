@@ -88,7 +88,6 @@
     <string name="title_settings_activity">Налаштування</string>
     <string name="settings_category_main">Основні</string>
     <string name="settings_category_call_blocking">Блокування викликів</string>
-    <string name="settings_category_notifications_incoming_calls">Повідомлення на вхідні</string>
     <string name="show_notifications_for_known_callers">Повідомлення для відомих тих, що дзвонять</string>
     <string name="show_notifications_for_known_callers_summary">Показувати сповіщення для відомих тих, що дзвонять (номерів з телефонної книги)</string>
     <string name="show_notifications_for_unknown_callers">Повідомлення для невідомих, що дзвонять</string>

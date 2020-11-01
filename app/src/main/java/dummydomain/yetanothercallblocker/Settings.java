@@ -27,6 +27,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_USE_MONITORING_SERVICE = "useMonitoringService";
     public static final String PREF_NOTIFICATIONS_KNOWN = "showNotificationsForKnownCallers";
     public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
+    public static final String PREF_NOTIFICATIONS_BLOCKED = "showNotificationsForBlockedCalls";
     public static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
     public static final String PREF_COUNTRY_CODE_OVERRIDE = "countryCodeOverride";
@@ -190,6 +191,14 @@ public class Settings extends GenericSettings {
 
     public void setNotificationsForUnknownCallers(boolean show) {
         setBoolean(PREF_NOTIFICATIONS_UNKNOWN, show);
+    }
+
+    public boolean getNotificationsForBlockedCalls() {
+        return getBoolean(PREF_NOTIFICATIONS_BLOCKED, true);
+    }
+
+    public void setNotificationsForBlockedCalls(boolean show) {
+        setBoolean(PREF_NOTIFICATIONS_BLOCKED, show);
     }
 
     public long getLastUpdateTime() {

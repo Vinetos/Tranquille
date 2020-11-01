@@ -65,7 +65,6 @@
     <string name="title_settings_activity">Paramètres</string>
     <string name="settings_category_main">Principaux</string>
     <string name="settings_category_call_blocking">Blocage d\'appel</string>
-    <string name="settings_category_notifications_incoming_calls">Notifications d\'appels entrants</string>
     <string name="show_notifications_for_known_callers">Notifications pour les appelants identifiés</string>
     <string name="show_notifications_for_known_callers_summary">Afficher les notifications pour les appelants identifiés (numéros dans les contacts))</string>
     <string name="show_notifications_for_unknown_callers">Notifications pour les appelants inconnus</string>

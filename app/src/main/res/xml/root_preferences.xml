@@ -1,5 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:title="@string/title_settings_activity">
 
     <PreferenceCategory app:title="@string/settings_category_main">
@@ -66,7 +66,7 @@
 
     <PreferenceCategory
         app:key="categoryNotifications"
-        app:title="@string/settings_category_notifications_incoming_calls">
+        app:title="@string/notification_settings">
         <SwitchPreferenceCompat
             app:key="showNotificationsForKnownCallers"
             app:summary="@string/show_notifications_for_known_callers_summary"
@@ -75,6 +75,11 @@
             app:key="showNotificationsForUnknownCallers"
             app:summary="@string/show_notifications_for_unknown_callers_summary"
             app:title="@string/show_notifications_for_unknown_callers" />
+        <SwitchPreferenceCompat
+            app:key="showNotificationsForBlockedCallsNonPersistent"
+            app:persistent="false"
+            app:summary="@string/show_notifications_for_blocked_calls_summary"
+            app:title="@string/show_notifications_for_blocked_calls" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/settings_screen_advanced">
