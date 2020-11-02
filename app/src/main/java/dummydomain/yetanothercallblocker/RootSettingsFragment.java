@@ -172,6 +172,8 @@ public class RootSettingsFragment extends BaseSettingsFragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             requirePreference(PREF_NOTIFICATION_CHANNEL_SETTINGS)
                     .setOnPreferenceClickListener(preference -> {
+                        NotificationHelper.initNotificationChannels(requireContext());
+
                         Intent intent = new Intent(
                                 android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS);
                         intent.putExtra(android.provider.Settings.EXTRA_APP_PACKAGE,

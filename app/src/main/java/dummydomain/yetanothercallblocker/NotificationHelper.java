@@ -297,7 +297,7 @@ public class NotificationHelper {
                 ReviewsActivity.getNumberIntent(context, numberInfo.number)));
     }
 
-    private static void initNotificationChannels(Context context) {
+    public static void initNotificationChannels(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return;
 
         if (notificationChannelsInitialized) return;
