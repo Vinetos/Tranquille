@@ -31,6 +31,11 @@ public class AdvancedSettingsFragment extends BaseSettingsFragment {
     }
 
     @Override
+    protected int getPreferencesResId() {
+        return R.xml.advanced_preferences;
+    }
+
+    @Override
     protected void initScreen() {
         String countryCodesExplanationSummary = getString(R.string.country_codes_info_summary)
                 + ". " + getString(R.string.country_codes_info_summary_addition,

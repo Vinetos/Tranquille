@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 
 import dummydomain.yetanothercallblocker.utils.PackageManagerUtils;
@@ -24,7 +23,6 @@ public class RootSettingsFragment extends BaseSettingsFragment {
     private static final String PREF_CATEGORY_NOTIFICATIONS = "categoryNotifications";
     private static final String PREF_CATEGORY_NOTIFICATIONS_LEGACY = "categoryNotificationsLegacy";
     private static final String PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT = "showNotificationsForBlockedCallsNonPersistent";
-    private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
 
     private static final String STATE_REQUEST_TOKEN = "STATE_REQUEST_TOKEN";
 
@@ -87,6 +85,11 @@ public class RootSettingsFragment extends BaseSettingsFragment {
     @Override
     protected String getScreenKey() {
         return PREF_SCREEN_ROOT;
+    }
+
+    @Override
+    protected int getPreferencesResId() {
+        return R.xml.root_preferences;
     }
 
     @Override
@@ -215,11 +218,6 @@ public class RootSettingsFragment extends BaseSettingsFragment {
 
         this.<SwitchPreferenceCompat>requirePreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT)
                 .setChecked(App.getSettings().getNotificationsForBlockedCalls());
-    }
-
-    @Override
-    protected PreferenceFragmentCompat getSubscreenFragment(String key) {
-        return PREF_SCREEN_ADVANCED.equals(key) ? new AdvancedSettingsFragment() : null;
     }
 
 }

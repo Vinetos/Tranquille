@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.XmlRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
@@ -12,7 +15,8 @@ import androidx.preference.PreferenceScreen;
 import java.util.Objects;
 
 public abstract class BaseSettingsFragment extends PreferenceFragmentCompat
-        implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
+        implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback,
+        PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     @Override
     public void onStart() {
@@ -25,9 +29,9 @@ public abstract class BaseSettingsFragment extends PreferenceFragmentCompat
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         checkScreenKey(rootKey);
 
-        getPreferenceManager().setStorageDeviceProtected();
+        switchToDeviceProtectedStorage();
 
-        setPreferencesFromResource(R.xml.root_preferences, rootKey);
+        setPreferencesFromResource(rootKey);
 
         initScreen();
 
@@ -43,6 +47,17 @@ public abstract class BaseSettingsFragment extends PreferenceFragmentCompat
     }
 
     protected abstract String getScreenKey();
+
+    protected void switchToDeviceProtectedStorage() {
+        getPreferenceManager().setStorageDeviceProtected();
+    }
+
+    protected void setPreferencesFromResource(String rootKey) {
+        setPreferencesFromResource(getPreferencesResId(), rootKey);
+    }
+
+    @XmlRes
+    protected abstract int getPreferencesResId();
 
     protected void initScreen() {}
 
@@ -66,16 +81,37 @@ public abstract class BaseSettingsFragment extends PreferenceFragmentCompat
     @Override
     public boolean onPreferenceStartScreen(PreferenceFragmentCompat caller,
                                            PreferenceScreen pref) {
-        String key = pref.getKey();
+        return switchToFragment(getFragmentForPreferenceScreen(caller, pref), pref.getKey());
+    }
 
-        PreferenceFragmentCompat fragment = getSubscreenFragment(key);
-        if (fragment == null) return false;
+    @Override
+    public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference pref) {
+        return switchToFragment(getFragmentForPreferenceFragment(caller, pref), pref.getKey());
+    }
+
+    protected Fragment getFragmentForPreferenceScreen(PreferenceFragmentCompat caller,
+                                                      PreferenceScreen pref) {
+        return null; // should be overridden if needed
+    }
+
+    protected Fragment getFragmentForPreferenceFragment(PreferenceFragmentCompat caller,
+                                                        Preference pref) {
+        FragmentActivity activity = requireActivity();
+
+        Fragment fragment = activity.getSupportFragmentManager().getFragmentFactory()
+                .instantiate(activity.getClassLoader(), pref.getFragment());
 
         Bundle args = new Bundle();
-        args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, key);
+        args.putString(PreferenceFragmentCompat.ARG_PREFERENCE_ROOT, pref.getKey());
         fragment.setArguments(args);
 
-        getParentFragmentManager()
+        return fragment;
+    }
+
+    protected boolean switchToFragment(Fragment fragment, String key) {
+        if (fragment == null) return false;
+
+        requireActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left,
                         R.anim.enter_from_left, R.anim.exit_to_right)
@@ -84,10 +120,6 @@ public abstract class BaseSettingsFragment extends PreferenceFragmentCompat
                 .commit();
 
         return true;
-    }
-
-    protected PreferenceFragmentCompat getSubscreenFragment(String key) {
-        return null;
     }
 
     protected void setPrefChangeListener(@NonNull CharSequence key,
