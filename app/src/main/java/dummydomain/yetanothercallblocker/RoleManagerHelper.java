@@ -9,6 +9,7 @@ import android.os.Build;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
 import static android.content.Context.ROLE_SERVICE;
 import static java.util.Objects.requireNonNull;
@@ -25,10 +26,19 @@ public class RoleManagerHelper {
     public static void requestCallScreeningRole(Activity activity) {
         if (hasCallScreeningRole(activity)) return;
 
-        Intent intent = getRoleManager(activity)
-                .createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING);
+        activity.startActivityForResult(
+                getCallScreeningRequestIntent(activity), REQUEST_CODE_CALL_SCREENING);
+    }
 
-        activity.startActivityForResult(intent, REQUEST_CODE_CALL_SCREENING);
+    public static void requestCallScreeningRole(Context context, Fragment fragment) {
+        if (hasCallScreeningRole(context)) return;
+
+        fragment.startActivityForResult(
+                getCallScreeningRequestIntent(context), REQUEST_CODE_CALL_SCREENING);
+    }
+
+    private static Intent getCallScreeningRequestIntent(Context context) {
+        return getRoleManager(context).createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING);
     }
 
     public static boolean handleCallScreeningResult(Context context,

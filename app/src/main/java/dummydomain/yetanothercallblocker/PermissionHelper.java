@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.android.settings.applications.PreferredSettingsUtils;
 
@@ -65,25 +66,42 @@ public class PermissionHelper {
         CONTACTS_PERMISSIONS.add(Manifest.permission.READ_CONTACTS);
     }
 
-    public static void checkPermissions(Activity activity, boolean info,
-                                        boolean block, boolean contacts) {
+    public static List<String> getMissingPermissions(Context context, boolean info,
+                                                     boolean block, boolean contacts) {
         Set<String> requiredPermissions = new HashSet<>();
 
         if (info) requiredPermissions.addAll(INFO_PERMISSIONS);
         if (block) requiredPermissions.addAll(BLOCKING_PERMISSIONS);
         if (contacts) requiredPermissions.addAll(CONTACTS_PERMISSIONS);
 
-        List<String> missingPermissions = new ArrayList<>(requiredPermissions.size());
+        List<String> missingPermissions = new ArrayList<>();
 
         for (String permission : requiredPermissions) {
-            if (ContextCompat.checkSelfPermission(activity, permission)
+            if (ContextCompat.checkSelfPermission(context, permission)
                     != PackageManager.PERMISSION_GRANTED) {
                 missingPermissions.add(permission);
             }
         }
 
+        return missingPermissions;
+    }
+
+    public static void checkPermissions(Activity activity, boolean info,
+                                        boolean block, boolean contacts) {
+        List<String> missingPermissions = getMissingPermissions(activity, info, block, contacts);
+
         if (!missingPermissions.isEmpty()) {
             ActivityCompat.requestPermissions(activity,
+                    missingPermissions.toArray(new String[0]), REQUEST_CODE_PERMISSIONS);
+        }
+    }
+
+    public static void checkPermissions(Context context, Fragment fragment,
+                                        boolean info, boolean block, boolean contacts) {
+        List<String> missingPermissions = getMissingPermissions(context, info, block, contacts);
+
+        if (!missingPermissions.isEmpty()) {
+            fragment.requestPermissions(
                     missingPermissions.toArray(new String[0]), REQUEST_CODE_PERMISSIONS);
         }
     }
@@ -166,11 +184,15 @@ public class PermissionHelper {
     }
 
     public static RequestToken requestCallScreening(Activity activity) {
+        return requestCallScreening(activity, null);
+    }
+
+    public static RequestToken requestCallScreening(Activity activity, Fragment fragment) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            RoleManagerHelper.requestCallScreeningRole(activity);
+            RoleManagerHelper.requestCallScreeningRole(activity, fragment);
             return null;
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return setAsDefaultDialer(activity);
+            return setAsDefaultDialer(activity, fragment);
         }
         return null;
     }
@@ -183,36 +205,36 @@ public class PermissionHelper {
         return isDefaultDialer(context);
     }
 
-    public static void disableCallScreening(Context context) {
+    public static void disableCallScreening(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            if (RoleManagerHelper.hasCallScreeningRole(context)) {
-                new AlertDialog.Builder(context)
+            if (RoleManagerHelper.hasCallScreeningRole(activity)) {
+                new AlertDialog.Builder(activity)
                         .setTitle(R.string.default_caller_id_app)
                         .setMessage(R.string.default_caller_id_app_unset)
                         .setPositiveButton(R.string.open_system_settings,
-                                (d, w) -> openDefaultAppsSettings(context))
+                                (d, w) -> openDefaultAppsSettings(activity))
                         .show();
                 return;
             }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            if (isDefaultDialer(context)) {
-                showDefaultDialerDialog(context, false);
+            if (isDefaultDialer(activity)) {
+                showDefaultDialerDialog(activity, false);
             }
         }
     }
 
-    public static boolean handleCallScreeningResult(Context context,
+    public static boolean handleCallScreeningResult(Activity activity,
                                                     int requestCode, int resultCode,
                                                     RequestToken requestToken) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            if (RoleManagerHelper.handleCallScreeningResult(context, requestCode, resultCode)) {
+            if (RoleManagerHelper.handleCallScreeningResult(activity, requestCode, resultCode)) {
                 return true;
             }
         }
 
-        return handleDefaultDialerResult(context, requestCode, resultCode, requestToken);
+        return handleDefaultDialerResult(activity, requestCode, resultCode, requestToken);
     }
 
     public static boolean isDefaultDialer(Context context) {
@@ -226,6 +248,11 @@ public class PermissionHelper {
 
     @RequiresApi(Build.VERSION_CODES.N)
     public static RequestToken setAsDefaultDialer(Activity activity) {
+        return setAsDefaultDialer(activity, null);
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    public static RequestToken setAsDefaultDialer(Activity activity, Fragment fragment) {
         if (isDefaultDialer(activity)) return null;
 
         Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER);
@@ -233,7 +260,12 @@ public class PermissionHelper {
                 BuildConfig.APPLICATION_ID);
 
         try {
-            activity.startActivityForResult(intent, REQUEST_CODE_DEFAULT_DIALER);
+            if (fragment != null) {
+                fragment.startActivityForResult(intent, REQUEST_CODE_DEFAULT_DIALER);
+            } else {
+                activity.startActivityForResult(intent, REQUEST_CODE_DEFAULT_DIALER);
+            }
+
             return new RequestToken(System.nanoTime());
         } catch (Exception e) {
             LOG.warn("setAsDefaultDialer()", e);
@@ -245,17 +277,17 @@ public class PermissionHelper {
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private static void setAsDefaultDialerFallback(Context context) {
-        showDefaultDialerDialog(context, true);
+    private static void setAsDefaultDialerFallback(Activity activity) {
+        showDefaultDialerDialog(activity, true);
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private static void showDefaultDialerDialog(Context context, boolean set) {
-        new AlertDialog.Builder(context)
+    private static void showDefaultDialerDialog(Activity activity, boolean set) {
+        new AlertDialog.Builder(activity)
                 .setTitle(R.string.default_phone_app)
                 .setMessage(set ? R.string.default_phone_app_set : R.string.default_phone_app_unset)
                 .setPositiveButton(R.string.open_system_settings,
-                        (d, w) -> openDefaultDialerSettings(context))
+                        (d, w) -> openDefaultDialerSettings(activity))
                 .show();
     }
 
@@ -333,7 +365,7 @@ public class PermissionHelper {
         return intent;
     }
 
-    public static boolean handleDefaultDialerResult(Context context,
+    public static boolean handleDefaultDialerResult(Activity activity,
                                                     int requestCode, int resultCode,
                                                     RequestToken requestToken) {
         if (requestCode != REQUEST_CODE_DEFAULT_DIALER) return false;
@@ -343,9 +375,9 @@ public class PermissionHelper {
         if (requestToken != null && System.nanoTime() - requestToken.timestamp
                 < TimeUnit.MILLISECONDS.toNanos(500)) {
             // probably the request is not supported, try workarounds
-            setAsDefaultDialerFallback(context);
+            setAsDefaultDialerFallback(activity);
         } else {
-            Toast.makeText(context, R.string.denied_default_dialer_message, Toast.LENGTH_LONG)
+            Toast.makeText(activity, R.string.denied_default_dialer_message, Toast.LENGTH_LONG)
                     .show();
         }
 

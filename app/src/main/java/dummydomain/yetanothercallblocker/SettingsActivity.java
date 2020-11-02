@@ -14,7 +14,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
@@ -37,19 +36,12 @@ import dummydomain.yetanothercallblocker.work.UpdateScheduler;
 public class SettingsActivity extends AppCompatActivity
         implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
 
-    private static final String STATE_REQUEST_TOKEN = "STATE_REQUEST_TOKEN";
-
-    private PermissionHelper.RequestToken requestToken;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
-        if (savedInstanceState != null) {
-            requestToken = PermissionHelper.RequestToken
-                    .fromSavedInstanceState(savedInstanceState, STATE_REQUEST_TOKEN);
-        } else {
+        if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.settings, new RootSettingsFragment())
@@ -59,22 +51,6 @@ public class SettingsActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        updateCallScreeningPreference();
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        if (requestToken != null) {
-            requestToken.onSaveInstanceState(outState, STATE_REQUEST_TOKEN);
         }
     }
 
@@ -91,36 +67,6 @@ public class SettingsActivity extends AppCompatActivity
         }
 
         return true;
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        Settings settings = App.getSettings();
-
-        PermissionHelper.handlePermissionsResult(this, requestCode, permissions, grantResults,
-                settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
-                settings.getUseContacts());
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (PermissionHelper.handleCallScreeningResult(
-                this, requestCode, resultCode, requestToken)) {
-            updateCallScreeningPreference();
-        }
-    }
-
-    private void updateCallScreeningPreference() {
-        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-            if (fragment instanceof BaseSettingsFragment) {
-                ((RootSettingsFragment) fragment).updateCallScreeningPreference();
-            }
-        }
     }
 
     public static abstract class BaseSettingsFragment extends PreferenceFragmentCompat
@@ -225,12 +171,61 @@ public class SettingsActivity extends AppCompatActivity
         private static final String PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT = "showNotificationsForBlockedCallsNonPersistent";
         private static final String PREF_SCREEN_ADVANCED = "screenAdvanced";
 
+        private static final String STATE_REQUEST_TOKEN = "STATE_REQUEST_TOKEN";
+
         private final UpdateScheduler updateScheduler = UpdateScheduler.get(App.getInstance());
+
+        private PermissionHelper.RequestToken requestToken;
+
+        @Override
+        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                               @NonNull int[] grantResults) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            Settings settings = App.getSettings();
+
+            PermissionHelper.handlePermissionsResult(requireContext(),
+                    requestCode, permissions, grantResults,
+                    settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
+                    settings.getUseContacts());
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (PermissionHelper.handleCallScreeningResult(
+                    requireActivity(), requestCode, resultCode, requestToken)) {
+                updateCallScreeningPreference();
+            }
+        }
+
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            super.onCreatePreferences(savedInstanceState, rootKey);
+
+            requestToken = PermissionHelper.RequestToken
+                    .fromSavedInstanceState(savedInstanceState, STATE_REQUEST_TOKEN);
+        }
+
+        @Override
+        public void onSaveInstanceState(@NonNull Bundle outState) {
+            super.onSaveInstanceState(outState);
+
+            if (requestToken != null) {
+                requestToken.onSaveInstanceState(outState, STATE_REQUEST_TOKEN);
+            }
+        }
 
         @Override
         public void onStart() {
             super.onStart();
 
+            // may be changed externally
+            updateCallScreeningPreference();
+
+            // needs to be updated after the confirmation dialog was closed
+            // due to activity recreation (orientation change, etc.)
             updateBlockedCallNotificationsPreference();
         }
 
@@ -243,14 +238,16 @@ public class SettingsActivity extends AppCompatActivity
         protected void initScreen() {
             setPrefChangeListener(Settings.PREF_INCOMING_CALL_NOTIFICATIONS, (pref, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.checkPermissions(requireActivity(), true, false, false);
+                    PermissionHelper.checkPermissions(requireContext(), this,
+                            true, false, false);
                 }
                 return true;
             });
 
             Preference.OnPreferenceChangeListener callBlockingListener = (preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.checkPermissions(requireActivity(), false, true, false);
+                    PermissionHelper.checkPermissions(requireContext(), this,
+                            false, true, false);
                 }
                 return true;
             };
@@ -263,16 +260,9 @@ public class SettingsActivity extends AppCompatActivity
             callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
             callScreeningPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    FragmentActivity activity = requireActivity();
-
-                    PermissionHelper.RequestToken requestToken
-                            = PermissionHelper.requestCallScreening(activity);
-
-                    if (activity instanceof SettingsActivity) {
-                        ((SettingsActivity) activity).requestToken = requestToken;
-                    }
+                    requestToken = PermissionHelper.requestCallScreening(requireActivity(), this);
                 } else {
-                    PermissionHelper.disableCallScreening(requireContext());
+                    PermissionHelper.disableCallScreening(requireActivity());
                     return false;
                 }
                 return true;
@@ -310,7 +300,8 @@ public class SettingsActivity extends AppCompatActivity
 
             setPrefChangeListener(Settings.PREF_USE_CONTACTS, (preference, newValue) -> {
                 if (Boolean.TRUE.equals(newValue)) {
-                    PermissionHelper.checkPermissions(requireActivity(), false, false, true);
+                    PermissionHelper.checkPermissions(requireContext(), this,
+                            false, false, true);
                 }
                 return true;
             });
@@ -357,24 +348,18 @@ public class SettingsActivity extends AppCompatActivity
             }
         }
 
+        private void updateCallScreeningPreference() {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return;
+
+            this.<SwitchPreferenceCompat>requirePreference(PREF_USE_CALL_SCREENING_SERVICE)
+                    .setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
+        }
+
         private void updateBlockedCallNotificationsPreference() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) return;
 
-            SwitchPreferenceCompat notificationsForBlockedPref =
-                    findPreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT);
-
-            if (notificationsForBlockedPref != null) {
-                notificationsForBlockedPref.setChecked(
-                        App.getSettings().getNotificationsForBlockedCalls());
-            }
-        }
-
-        public void updateCallScreeningPreference() {
-            SwitchPreferenceCompat callScreeningPref
-                    = findPreference(PREF_USE_CALL_SCREENING_SERVICE);
-            if (callScreeningPref != null) {
-                callScreeningPref.setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
-            }
+            this.<SwitchPreferenceCompat>requirePreference(PREF_NOTIFICATIONS_BLOCKED_NON_PERSISTENT)
+                    .setChecked(App.getSettings().getNotificationsForBlockedCalls());
         }
 
         @Override
