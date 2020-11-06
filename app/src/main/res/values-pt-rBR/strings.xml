@@ -23,7 +23,7 @@
     <string name="notification_background_operation">Operação de fundo em curso…</string>
     <string name="notification_channel_name_blocked_info">Informação de bloqueio</string>
     <string name="app_name">Yet Another Call Blocker</string>
-    <string name="db_management_reset_secondary">Reinicializar atualizações</string>
+    <string name="db_management_reset_secondary">Reiniciar atualizações</string>
     <string name="edit_blacklist_item_number_pattern">Padrão numérico</string>
     <string name="sia_category_call_center">Call center</string>
     <string name="license">Este aplicativo é licenciado somente sob AGPL-3.0.</string>
@@ -59,7 +59,7 @@
     <string name="title_lookup_number">Pesquisar número</string>
     <string name="db_management_update_result">Atualização terminada; BD ver: %d</string>
     <string name="db_management_update_db">Atualizar o BD</string>
-    <string name="db_management_reset_base">Reinicializar o BD</string>
+    <string name="db_management_reset_base">Reiniciar o BD</string>
     <string name="db_management_db_info">Informações do BD</string>
     <string name="db_management_activity_label">Gestão do BD</string>
     <string name="open_db_management_activity">Gerenciar o banco de dados</string>
@@ -113,7 +113,7 @@
     <string name="call_log_grouping_consecutive">Chamadas consecutivas</string>
     <string name="call_log_grouping_none">Sem agrupamento</string>
     <string name="call_log_grouping">Agrupamento de registro de chamadas</string>
-    <string name="ui_mode_auto">Influenciado pelo sistema</string>
+    <string name="ui_mode_auto">Segue o sistema</string>
     <string name="ui_mode_night">Escuro</string>
     <string name="ui_mode_day">Claro</string>
     <string name="ui_mode">Tema da interface</string>
