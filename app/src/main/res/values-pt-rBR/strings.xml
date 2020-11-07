@@ -197,4 +197,17 @@
     <string name="notification_channel_group_name_services">Serviços</string>
     <string name="notification_channel_group_name_blocked_calls">Chamadas bloqueadas</string>
     <string name="notification_channel_group_name_incoming_calls">Chamadas recebidas</string>
+    <string name="selected_value_nothing">&lt;nada&gt;</string>
+    <string name="show_notifications_for_blocked_calls_summary">Exibir uma notificação depois que uma chamada for bloqueada</string>
+    <plurals name="selected_values">
+        <item quantity="one">Selecionado: %s</item>
+        <item quantity="other">Selecionados: %s</item>
+    </plurals>
+    <string name="block_in_limited_mode_blacklist">Lista negra</string>
+    <string name="block_in_limited_mode_rating">Por avaliação</string>
+    <string name="block_in_limited_mode_summary">Tipos de bloqueio permitidos no modo Inicialização Direta (os Contatos não podem ser listados confiavelmente na lista branca neste modo)</string>
+    <string name="block_in_limited_mode">Bloquear no modo Inicialização Direta</string>
+    <string name="blocked_call_notifications_disable_confirmation">Desativar mesmo assim</string>
+    <string name="blocked_call_notifications_disable_message">Você pode acidentalmente perder uma chamada se as chamadas forem bloqueadas sem notificações</string>
+    <string name="show_notifications_for_blocked_calls">Notificar sobre chamadas bloqueadas</string>
 </resources>
