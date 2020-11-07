@@ -13,6 +13,14 @@
             android:targetPackage="@string/app_id" />
     </Preference>
 
+    <MultiSelectListPreference
+        android:defaultValue="@array/block_in_limited_mode_default_values"
+        android:entries="@array/block_in_limited_mode_entries"
+        android:entryValues="@array/block_in_limited_mode_values"
+        android:key="blockInLimitedMode"
+        android:summary="@string/block_in_limited_mode_summary"
+        android:title="@string/block_in_limited_mode" />
+
     <PreferenceCategory
         app:key="categoryCountryCodes"
         app:title="@string/settings_category_country_codes">

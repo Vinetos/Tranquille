@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- Changed blocking behavior in Direct Boot mode: blacklisted numbers are not blocked by default.  
+  See #22 for details.
 - \[Internal\] Settings refactoring.
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
 - Updated French translation thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).

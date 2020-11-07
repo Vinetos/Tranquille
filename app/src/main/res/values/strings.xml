@@ -128,6 +128,10 @@
     <string name="call_log_grouping_day">Non-consecutive in a day</string>
 
     <string name="settings_screen_advanced">Advanced settings</string>
+    <string name="block_in_limited_mode">Block in Direct Boot mode</string>
+    <string name="block_in_limited_mode_summary">Allowed kinds of blocking in Direct Boot mode (Contacts can\'t be reliably whitelisted in this mode)</string>
+    <string name="block_in_limited_mode_rating">By rating</string>
+    <string name="block_in_limited_mode_blacklist">Blacklisted</string>
     <string name="settings_category_country_codes">Country codes</string>
     <string name="country_codes_info">Explanation</string>
     <string name="country_codes_info_summary">Country codes are used in requests to 3rd party servers. These codes are set to mimic the behavior of the official 3rd party app. If the codes match your real country (may be detected by your IP address) then your requests will look the most inconspicuous. Auto-detection is used by default (based on mobile network information or system locale), which should be fine for most users, but you can set the codes manually. ISO 3166 2-letter codes (like US) are expected</string>
@@ -151,6 +155,11 @@
         <item quantity="one">%1$d selected</item>
         <item quantity="other">%1$d selected</item>
     </plurals>
+    <plurals name="selected_values">
+        <item quantity="one">Selected: %s</item>
+        <item quantity="other">Selected: %s</item>
+    </plurals>
+    <string name="selected_value_nothing">&lt;nothing&gt;</string>
 
     <string name="open_blacklist_activity">Blacklist</string>
     <string name="title_blacklist_activity">Blacklist</string>

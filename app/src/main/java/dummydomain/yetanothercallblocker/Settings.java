@@ -9,7 +9,10 @@ import androidx.preference.PreferenceManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import dummydomain.yetanothercallblocker.data.CountryHelper;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
@@ -28,6 +31,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_NOTIFICATIONS_KNOWN = "showNotificationsForKnownCallers";
     public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
     public static final String PREF_NOTIFICATIONS_BLOCKED = "showNotificationsForBlockedCalls";
+    public static final String PREF_BLOCK_IN_LIMITED_MODE = "blockInLimitedMode";
     public static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
     public static final String PREF_COUNTRY_CODE_OVERRIDE = "countryCodeOverride";
@@ -39,6 +43,9 @@ public class Settings extends GenericSettings {
     public static final String PREF_CALL_LOG_GROUPING_NONE = "none";
     public static final String PREF_CALL_LOG_GROUPING_CONSECUTIVE = "consecutive";
     public static final String PREF_CALL_LOG_GROUPING_DAY = "day";
+
+    public static final String PREF_BLOCK_IN_LIMITED_MODE_RATING = "rating";
+    public static final String PREF_BLOCK_IN_LIMITED_MODE_BLACKLIST = "blacklist";
 
     static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
 
@@ -199,6 +206,24 @@ public class Settings extends GenericSettings {
 
     public void setNotificationsForBlockedCalls(boolean show) {
         setBoolean(PREF_NOTIFICATIONS_BLOCKED, show);
+    }
+
+    public boolean isBlockingByRatingInLimitedModeAllowed() {
+        return getBlockInLimitedMode().contains(PREF_BLOCK_IN_LIMITED_MODE_RATING);
+    }
+
+    public boolean isBlockingBlacklistedInLimitedModeAllowed() {
+        return getBlockInLimitedMode().contains(PREF_BLOCK_IN_LIMITED_MODE_BLACKLIST);
+    }
+
+    public Set<String> getBlockInLimitedMode() {
+        return getStringSet(PREF_BLOCK_IN_LIMITED_MODE, () ->
+                new HashSet<>(Arrays.asList(context.getResources()
+                        .getStringArray(R.array.block_in_limited_mode_default_values))));
+    }
+
+    public void setBlockInLimitedMode(Set<String> value) {
+        setStringSet(PREF_BLOCK_IN_LIMITED_MODE, value);
     }
 
     public long getLastUpdateTime() {

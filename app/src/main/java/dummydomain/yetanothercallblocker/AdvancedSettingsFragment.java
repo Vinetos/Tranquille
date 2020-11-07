@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.preference.MultiSelectListPreference;
 import androidx.preference.Preference;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import java.util.regex.Pattern;
 
 import dummydomain.yetanothercallblocker.utils.DebuggingUtils;
 import dummydomain.yetanothercallblocker.utils.FileUtils;
+import dummydomain.yetanothercallblocker.utils.SystemUtils;
 
 public class AdvancedSettingsFragment extends BaseSettingsFragment {
 
@@ -37,6 +39,17 @@ public class AdvancedSettingsFragment extends BaseSettingsFragment {
 
     @Override
     protected void initScreen() {
+        Preference blockInLimitedModePref =
+                requirePreference(Settings.PREF_BLOCK_IN_LIMITED_MODE);
+        if (SystemUtils.isFileBasedEncryptionEnabled()) {
+            blockInLimitedModePref.setSummaryProvider(
+                    (Preference.SummaryProvider<MultiSelectListPreference>) preference ->
+                            getString(R.string.block_in_limited_mode_summary) + ".\n"
+                                    + UiUtils.getSummary(requireContext(), preference));
+        } else {
+            blockInLimitedModePref.setVisible(false);
+        }
+
         String countryCodesExplanationSummary = getString(R.string.country_codes_info_summary)
                 + ". " + getString(R.string.country_codes_info_summary_addition,
                 App.getSettings().getCachedAutoDetectedCountryCode());

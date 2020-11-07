@@ -110,6 +110,10 @@
     <string name="blocked_call_notifications_disable_confirmation">Всё равно выключить</string>
     <string name="notification_settings">Настройки уведомлений</string>
     <string name="settings_screen_advanced">Продвинутые настройки</string>
+    <string name="block_in_limited_mode">Блокировать в режиме Direct Boot</string>
+    <string name="block_in_limited_mode_summary">Типы блокировки, разрешённые в режиме Direct Boot (контакты не могут надёжно выполнять роль белого списка в этом режиме)</string>
+    <string name="block_in_limited_mode_rating">По отзывам</string>
+    <string name="block_in_limited_mode_blacklist">Из чёрного списока</string>
     <string name="settings_category_country_codes">Коды страны</string>
     <string name="country_codes_info">Объяснение</string>
     <string name="country_codes_info_summary">Коды страны используются в запросах к сторонним серверам. Эти коды отправляются, для того чтобы имитировать поведение официального приложения. Если коды соответствуют вашей настоящей стране (которая может быть определена по вашему IP-адресу), то запросы будут выглядеть наиболее неприметными. По умолчанию используется автоопределение (по информации мобильной сети или выбранной локали), которое должно устраивать большинство пользователей, но вы можете задать эти коды вручную. Ожидаются двухбуквенные ISO 3166 коды (такие как RU)</string>
@@ -134,6 +138,12 @@
         <item quantity="few">%1$d выбрано</item>
         <item quantity="many">%1$d выбрано</item>
     </plurals>
+    <plurals name="selected_values">
+        <item quantity="one">Выбраны: %s</item>
+        <item quantity="few">Выбраны: %s</item>
+        <item quantity="many">Выбраны: %s</item>
+    </plurals>
+    <string name="selected_value_nothing">&lt;ничего&gt;</string>
     <string name="open_blacklist_activity">Чёрный список</string>
     <string name="title_blacklist_activity">Чёрный список</string>
     <plurals name="blacklist_item_stats">

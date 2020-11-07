@@ -22,6 +22,7 @@ import dummydomain.yetanothercallblocker.sia.network.OkHttpClientFactory;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
 import dummydomain.yetanothercallblocker.sia.utils.Utils;
 import dummydomain.yetanothercallblocker.utils.DeferredInit;
+import dummydomain.yetanothercallblocker.utils.SystemUtils;
 import okhttp3.OkHttpClient;
 
 import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_PATH_PREFIX;
@@ -134,8 +135,17 @@ public class Config {
                 settings::setBlacklistIsNotEmpty, blacklistDao);
         YacbHolder.setBlacklistService(blacklistService);
 
-        ContactsProvider contactsProvider = number ->
-                settings.getUseContacts() ? ContactsHelper.getContact(context, number) : null;
+        ContactsProvider contactsProvider = new ContactsProvider() {
+            @Override
+            public ContactItem get(String number) {
+                return settings.getUseContacts() ? ContactsHelper.getContact(context, number) : null;
+            }
+
+            @Override
+            public boolean isInLimitedMode() {
+                return !SystemUtils.isUserUnlocked(context);
+            }
+        };
 
         NumberInfoService numberInfoService = new NumberInfoService(
                 settings, NumberUtils::isHiddenNumber, NumberUtils::normalizeNumber,

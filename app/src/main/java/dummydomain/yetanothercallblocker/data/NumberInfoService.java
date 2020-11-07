@@ -136,15 +136,36 @@ public class NumberInfoService {
         }
 
         if (numberInfo.rating == NumberInfo.Rating.NEGATIVE
-                && settings.getBlockNegativeSiaNumbers()) {
+                && settings.getBlockNegativeSiaNumbers()
+                && canBlock(NumberInfo.BlockingReason.SIA_RATING)) {
             return NumberInfo.BlockingReason.SIA_RATING;
         }
 
-        if (numberInfo.blacklistItem != null && settings.getBlockBlacklisted()) {
+        if (numberInfo.blacklistItem != null && settings.getBlockBlacklisted()
+                && canBlock(NumberInfo.BlockingReason.BLACKLISTED)) {
             return NumberInfo.BlockingReason.BLACKLISTED;
         }
 
         return null;
+    }
+
+    protected boolean canBlock(NumberInfo.BlockingReason reason) {
+        if (contactsProvider == null || !contactsProvider.isInLimitedMode()) return true;
+
+        if (reason == NumberInfo.BlockingReason.SIA_RATING
+                && settings.isBlockingByRatingInLimitedModeAllowed()) {
+            LOG.trace("canBlock() allowed: " + reason);
+            return true;
+        }
+
+        if (reason == NumberInfo.BlockingReason.BLACKLISTED
+                && settings.isBlockingBlacklistedInLimitedModeAllowed()) {
+            LOG.trace("canBlock() allowed: " + reason);
+            return true;
+        }
+
+        LOG.trace("canBlock() not allowed: " + reason);
+        return false;
     }
 
     public boolean shouldBlock(NumberInfo numberInfo) {

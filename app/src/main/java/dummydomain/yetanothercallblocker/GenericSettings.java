@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
+import androidx.core.util.Supplier;
+
+import java.util.Set;
+
 public class GenericSettings {
 
     protected final Context context;
@@ -62,6 +66,19 @@ public class GenericSettings {
 
     public void setString(String key, String value) {
         pref.edit().putString(key, value).apply();
+    }
+
+    public Set<String> getStringSet(String key, Set<String> defValue) {
+        return pref.getStringSet(key, defValue);
+    }
+
+    public Set<String> getStringSet(String key, Supplier<Set<String>> defValueSupplier) {
+        Set<String> val = pref.getStringSet(key, null);
+        return val != null ? val : defValueSupplier.get();
+    }
+
+    public void setStringSet(String key, Set<String> value) {
+        pref.edit().putStringSet(key, value).apply();
     }
 
     public boolean isSet(String key) {
