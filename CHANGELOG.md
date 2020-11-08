@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+Nothing.
+
+
+## [0.5.11] - 2020-11-08
+
 ### Added
 
 - An option to disable notifications for blocked calls on old Android versions.
@@ -422,7 +427,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Offline database with manual updates.
 
 
-[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.10...master
+[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.11...master
+[0.5.11]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.10...v0.5.11
 [0.5.10]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.9...v0.5.10
 [0.5.9]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.8...v0.5.9
 [0.5.8]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.7...v0.5.8
