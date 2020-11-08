@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - \[Internal\] Settings refactoring.
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
 - Updated French translation thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
+- Updated Turkish translation thanks to Oğuz Ersen (@ersen).
 
 
 ## [0.5.10] - 2020-10-26
