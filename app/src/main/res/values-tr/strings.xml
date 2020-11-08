@@ -197,4 +197,17 @@
     <string name="default_caller_id_app_unset">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Arayan kimliği uygulaması\" olarak farklı bir uygulama seçin</string>
     <string name="default_caller_id_app">Öntanımlı \"Arayan kimliği uygulaması\"</string>
     <string name="blacklist_select_all">Tümünü seç</string>
+    <string name="selected_value_nothing">&lt;hiçbir şey&gt;</string>
+    <plurals name="selected_values">
+        <item quantity="one">Seçildi: %s</item>
+        <item quantity="other">Seçildi: %s</item>
+    </plurals>
+    <string name="block_in_limited_mode_blacklist">Kara listeye göre</string>
+    <string name="block_in_limited_mode_rating">Derecelendirmeye göre</string>
+    <string name="block_in_limited_mode_summary">Doğrudan Önyükleme modunda izin verilen engelleme türleri (Kişiler bu modda güvenilir bir şekilde beyaz listeye alınamaz)</string>
+    <string name="block_in_limited_mode">Doğrudan Önyükleme modunda engelle</string>
+    <string name="blocked_call_notifications_disable_confirmation">Yine de devre dışı bırak</string>
+    <string name="blocked_call_notifications_disable_message">Aramalar bildirim olmadan engellenirse, yanlışlıkla bir aramayı kaçırabilirsiniz</string>
+    <string name="show_notifications_for_blocked_calls_summary">Bir arama engellendikten sonra bildirim görüntüle</string>
+    <string name="show_notifications_for_blocked_calls">Engellenen aramaları bildir</string>
 </resources>
