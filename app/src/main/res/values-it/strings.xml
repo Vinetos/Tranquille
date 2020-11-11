@@ -2,10 +2,10 @@
 <resources>
     <string name="lookup_res_category">Categoria: %d</string>
     <string name="notification_blocked_call">Chiamate bloccate</string>
-    <string name="notification_incoming_call_negative">Chiamate spam</string>
+    <string name="notification_incoming_call_negative">Numero cattivo</string>
     <string name="notification_incoming_call_unknown">Numero sconosciuto</string>
-    <string name="notification_incoming_call_neutral">Numeri neutro</string>
-    <string name="notification_incoming_call_positive">Numeri buoni</string>
+    <string name="notification_incoming_call_neutral">Numero neutro</string>
+    <string name="notification_incoming_call_positive">Numero buono</string>
     <string name="notification_incoming_call_contact">Contatti</string>
     <string name="notification_channel_name_tasks">Azioni</string>
     <string name="notification_channel_name_blocked_info">Info blocco</string>
