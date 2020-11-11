@@ -14,9 +14,9 @@ Cómo utilizarlo:
 * Instale e inicie la aplicación.
 * La opción de mostrar notificaciones de información de la persona que llama está activada de forma predeterminada, por lo que la aplicación solicitará permisos relacionados con el teléfono.
 * En el primer inicio, la aplicación sugerirá que se descargue la base de datos principal que se requiere para la mayoría de las funciones. Simplemente confirme la descarga.
-* Marque la casilla "Auto-actualización de la base de datos" en el menú (recomendado) para recibir automáticamente las actualizaciones diarias de la base de datos (estas son actualizaciones incrementales/delta, por lo que consumen muy poco tráfico).
-* Marque la casilla "Bloquear llamadas no deseadas" para bloquear automáticamente las llamadas con calificación negativa.
-* También puede marcar la casilla de verificación "Usar contactos" si desea que sus contactos no sean tratados como llamadas desconocidas.
+* Marque la casilla «Auto-actualización de la base de datos» en el menú (recomendado) para recibir automáticamente las actualizaciones diarias de la base de datos (estas son actualizaciones incrementales/delta, por lo que consumen muy poco tráfico).
+* Marque la casilla «Bloquear llamadas no deseadas» para bloquear automáticamente las llamadas con calificación negativa.
+* También puede marcar la casilla de verificación «Usar contactos» si desea que sus contactos no sean tratados como llamadas desconocidas.
 * Después de estos pasos todo debería funcionar. ¡Disfrútalo!
 
 La base de datos de números telefónicos principales se descarga de un repositorio de Gitlab.
