@@ -7,7 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-Nothing.
+### Added
+
+- Partial Swedish translation thanks to Kristoffer Grundström (@Umeaboy).
+- Partial German translation thanks to Sebastian Kowalak ([@skowalak](https://hosted.weblate.org/user/skowalak/)) and J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
+
+### Changed
+
+- Updated Greek translation thanks to Yannis T. (@azakosath).
+- Updated French translation thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 
 
 ## [0.5.11] - 2020-11-08
