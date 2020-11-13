@@ -73,7 +73,7 @@
     <string name="no_main_db_text">База номеров отсутствует. Для полноценной работы приложения требуется загрузка базы номеров (около 25 МБ трафика).</string>
     <string name="download_main_db">Загрузить базу номеров</string>
     <string name="main_db_downloading">Загрузка базы номеров…</string>
-    <string name="secondary_db_updating">Обновение базы номеров…</string>
+    <string name="secondary_db_updating">Обновление базы номеров…</string>
     <string name="online_reviews">Online-отзывы</string>
     <string name="add_web_review">Добавить отзыв (веб)</string>
     <string name="back">Назад</string>
@@ -82,7 +82,7 @@
     <string name="done">Выполнено</string>
     <string name="error">Ошибка</string>
     <string name="are_you_sure">Вы уверены?</string>
-    <string name="load_reviews_confirmation_message">Это номер из адресной книги! Для получения отзывов номер передается в сторонний сервис и может попасть к третьим лицам. Вы точно хотите посмотреть отзывы на этот номер?</string>
+    <string name="load_reviews_confirmation_message">Это номер из адресной книги! Для получения отзывов номер передаётся в сторонний сервис и может попасть к третьим лицам. Вы точно хотите посмотреть отзывы на этот номер?</string>
     <string name="call_log_permission_message">Разрешите доступ к журналу вызовов, чтобы здесь отображались недавние вызовы</string>
     <string name="notification_background_operation">Выполняется процесс в фоне…</string>
     <string name="use_contacts">Доступ к контактам</string>
@@ -113,7 +113,7 @@
     <string name="block_in_limited_mode">Блокировать в режиме Direct Boot</string>
     <string name="block_in_limited_mode_summary">Типы блокировки, разрешённые в режиме Direct Boot (контакты не могут надёжно выполнять роль белого списка в этом режиме)</string>
     <string name="block_in_limited_mode_rating">По отзывам</string>
-    <string name="block_in_limited_mode_blacklist">Из чёрного списока</string>
+    <string name="block_in_limited_mode_blacklist">Из чёрного списка</string>
     <string name="settings_category_country_codes">Коды страны</string>
     <string name="country_codes_info">Объяснение</string>
     <string name="country_codes_info_summary">Коды страны используются в запросах к сторонним серверам. Эти коды отправляются, для того чтобы имитировать поведение официального приложения. Если коды соответствуют вашей настоящей стране (которая может быть определена по вашему IP-адресу), то запросы будут выглядеть наиболее неприметными. По умолчанию используется автоопределение (по информации мобильной сети или выбранной локали), которое должно устраивать большинство пользователей, но вы можете задать эти коды вручную. Ожидаются двухбуквенные ISO 3166 коды (такие как RU)</string>
@@ -128,7 +128,7 @@
     <string name="save_crashes_to_external_storage">Сохранять отчёты в общее хранилище</string>
     <string name="save_crashes_to_external_storage_summary">Сохранять отчёты об ошибках и логи в общее хранилище. В противном случае отчёты сохраняются в личную папку приложения. Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Другие приложения с разрешением на доступ к хранилищу могут иметь доступ к этим данным в общем хранилище</string>
     <string name="save_logcat_on_crash">Сохранять logcat при ошибках</string>
-    <string name="save_logcat_on_crash_summary">Сохранять содержимое logcat при ошибках (в дополнение к обычныму stacktrace)</string>
+    <string name="save_logcat_on_crash_summary">Сохранять содержимое logcat при ошибках (в дополнение к обычному stacktrace)</string>
     <string name="export_logcat">Экспортировать logcat</string>
     <string name="export_logcat_summary">Экспортировать и поделиться содержимым logcat с приложением по вашему выбору (например, с email-клиентом). Отчёты могут содержать конфиденциальные данные (номера телефонов, имена контактов). Только выбранное приложение получит доступ к этим данным</string>
     <string name="no_number"><![CDATA[<нет номера>]]></string>
