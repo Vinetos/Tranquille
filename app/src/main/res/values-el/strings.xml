@@ -197,4 +197,17 @@
     <string name="blacklist_select_all">Επιλογή όλων</string>
     <string name="notification_settings">Ρυθμίσεις ειδοποιήσεων</string>
     <string name="open_system_settings">Ανοίξτε τις ρυθμίσεις</string>
+    <string name="selected_value_nothing">&lt;τίποτα&gt;</string>
+    <plurals name="selected_values">
+        <item quantity="one">Επιλέχθηκε: %s</item>
+        <item quantity="other">Επιλέχθηκαν: %s</item>
+    </plurals>
+    <string name="block_in_limited_mode_blacklist">Στη μαύρη λίστα</string>
+    <string name="block_in_limited_mode_rating">Κατά αξιολόγηση</string>
+    <string name="block_in_limited_mode_summary">Επιτρεπόμενα είδη αποκλεισμού σε λειτουργία Άμεσης Εκκίνησης (οι επαφές δεν μπορούν να συμπεριληφθούν αξιόπιστα σε αυτήν τη λειτουργία)</string>
+    <string name="block_in_limited_mode">Αποκλεισμός σε λειτουργία Άμεσης Εκκίνησης</string>
+    <string name="blocked_call_notifications_disable_confirmation">Απενεργοποιήστε ούτως ή άλλως</string>
+    <string name="blocked_call_notifications_disable_message">Μπορεί να χάσετε κατά λάθος μια κλήση εάν οι κλήσεις αποκλείονται χωρίς ειδοποιήσεις</string>
+    <string name="show_notifications_for_blocked_calls_summary">Εμφάνιση ειδοποίησης μετά από αποκλεισμό μιας κλήσης</string>
+    <string name="show_notifications_for_blocked_calls">Ειδοποίηση για τις αποκλεισμένες κλήσεις</string>
 </resources>

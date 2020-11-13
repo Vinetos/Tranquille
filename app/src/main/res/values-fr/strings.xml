@@ -122,8 +122,8 @@
     <string name="db_management_activity_label">Gestion de la base de données</string>
     <string name="open_db_management_activity">Gérer la base de données</string>
     <string name="add_to_blacklist">Ajouter à la liste noire</string>
-    <string name="info_in_blacklist_contact">Sur liste noire (les contacts ne sont pas bloqués)</string>
-    <string name="info_in_blacklist">Sur liste noire</string>
+    <string name="info_in_blacklist_contact">En liste noire (les contacts ne sont pas bloqués)</string>
+    <string name="info_in_blacklist">En liste noire</string>
     <string name="number_pattern_hint">Entrez le numéro au format +INDICATIF-PAYS (comme Android l’indique dans votre clavier). Utilisez « * » comme caractère générique pour zéro ou plus de chiffres, et « # » pour exactement un chiffre.</string>
     <string name="number_pattern_empty">Modèle vide</string>
     <string name="number_pattern_incorrect">Modèle incorrect</string>
@@ -133,14 +133,14 @@
     <string name="title_add_blacklist_item_activity">Ajouter un numéro</string>
     <string name="blacklist_import">Importer</string>
     <string name="blacklist_export">Exporter</string>
-    <string name="blacklist_delete_confirmation">Supprimer les éléments sélectionnés \?</string>
+    <string name="blacklist_delete_confirmation">Supprimer les éléments sélectionnés \?</string>
     <string name="blacklist_delete">Supprimer</string>
     <string name="blacklist_add">Ajouter</string>
     <string name="blacklist_item_no_calls">Jamais appelé</string>
     <string name="blacklist_item_date_no_info">aucune info</string>
     <plurals name="blacklist_item_stats">
         <item quantity="one">Appel à %2$s</item>
-        <item quantity="other">%1$d appels, dernie : %2$s</item>
+        <item quantity="other">%1$d appels, dernier : %2$s</item>
     </plurals>
     <string name="title_blacklist_activity">Liste noire</string>
     <string name="open_blacklist_activity">Liste noire</string>
@@ -197,4 +197,17 @@
         <item quantity="other">%1$d sélectionnés</item>
     </plurals>
     <string name="blacklist_select_all">Tout sélectionner</string>
+    <string name="block_in_limited_mode_rating">Selon la notation</string>
+    <string name="selected_value_nothing">&lt;rien&gt;</string>
+    <plurals name="selected_values">
+        <item quantity="one">Sélectionné : %s</item>
+        <item quantity="other">Sélectionnés : %s</item>
+    </plurals>
+    <string name="block_in_limited_mode_blacklist">En liste noire</string>
+    <string name="block_in_limited_mode_summary">Types de blocage autorisés en mode de démarrage direct (les contacts ne peuvent pas être mis en liste blanche de manière fiable dans ce mode)</string>
+    <string name="block_in_limited_mode">Bloquer en mode de démarrage direct</string>
+    <string name="blocked_call_notifications_disable_confirmation">Désactiver quand même</string>
+    <string name="blocked_call_notifications_disable_message">Ils se peut que vous manquiez un appel si les appels sont bloqués sans notification</string>
+    <string name="show_notifications_for_blocked_calls_summary">Afficher une notification après le blocage d\'un appel</string>
+    <string name="show_notifications_for_blocked_calls">Notifier les appels bloqués</string>
 </resources>
