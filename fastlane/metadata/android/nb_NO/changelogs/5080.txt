@@ -1,5 +1,5 @@
-* Fikset oppstartskræsj uten READ_CALL_LOG-tilgang.
-* Fikset kræsj i redigering av svarteliste på gamle Android-versjoner.
+* Fikset oppstartskrasj uten READ_CALL_LOG-tilgang.
+* Fikset krasj i redigering av svarteliste på gamle Android-versjoner.
 * Oppdaterte oversettelser takket være Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
 * Andre små endringer.
 
