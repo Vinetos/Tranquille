@@ -1,0 +1,33 @@
+Yksinkertainen puhelunestosovellus, jonka avulla voit välttää ei-toivottuihin puheluihin vastaamisen
+käyttämällä joukkoistettua puhelinnumerotietokantaa.
+
+<b>Ominaisuudet:</b>
+
+* Käyttää offline-tietokantaa.
+* Estää negatiivisen luokituksen puhelut automaattisesti (vaihtoehto).
+* Paikallinen musta lista, jossa jokerimerkkituki.
+* Näyttää ilmoituksen puhelinnumeron yhteenvedolla (luokitus, arvostelujen määrä, luokka) saapuvien puheluiden aikana (vaihtoehto).
+* Automaattiset inkrementaaliset / delta-tietokantapäivitykset (vaihtoehto).
+* Voit tarkastella soittajan numeron verkkoarvosteluja (kolmannen osapuolen palvelun tarjoama).
+* "Edistynyt puhelunestotila", jolla estetään puhelut Android 7+ -käyttöjärjestelmässä ennen kuin puhelin alkaa soida (se on otettava manuaalisesti käyttöön sovelluksen asetuksissa).
+
+<b>Kuinka käyttää:</b>
+
+* Asenna ja käynnistä sovellus.
+* Soittajan ilmoitusten näyttämisvaihtoehto on oletusarvoisesti käytössä, joten sovellus pyytää puhelimeen liittyviä käyttöoikeuksia.
+* Aluksi sovellus ehdottaa useimpiin toimintoihin tarvittavan päätietokannan lataamista. Vahvista lataus.
+* Valitse valikon "Päivitä tietokanta automaattisesti" -valintaruutu (suositus), jos haluat vastaanottaa päivittäin tietokantapäivityksiä (nämä ovat inkrementaalisia / delta-päivityksiä, joten ne kuluttavat hyvin vähän liikennettä).
+* Valitse "Estä luokituksella" -valintaruutu, jos haluat estää negatiivisen luokituksen puhelut automaattisesti.
+* Voit myös valita "Käytä yhteystietoja" -valintaruudun, jos haluat, että yhteistietojasi ei kohdella tuntemattomina soittajina.
+* Näiden vaiheiden jälkeen kaiken pitäisi vain toimia (mutta löydät aina lisää vaihtoehtoja Asetuksista). Nauti!
+
+Katso <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">Usein Kysytyt Kysymykset</a> oppiaksesi lisää.
+
+Pääpuhelintietokanta ladataan <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">gitlab-arkistosta</a>.
+<b>Tietokantapäivitykset ja yksityiskohtaiset tarkistuskyselyt suoritetaan kolmansien osapuolten palvelimilla.</b>
+Käyttäjien tunnistettavia tietoja ei lähetetä
+(paitsi puhelinnumero, jolle yksityiskohtaiset arvostelut ladataan).
+
+Yet Another Call Blocker on edelleen kehitteillä. Kaikki apu on tervetullutta.
+
+''NonFreeNet:'' kolmannen osapuolen palvelu ei ole avointa lähdekoodia.
