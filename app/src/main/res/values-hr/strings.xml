@@ -5,9 +5,9 @@
     <string name="sia_category_call_center">Call centar</string>
     <string name="lookup_query_db">Pretraži bazu podataka</string>
     <plurals name="blacklist_item_stats">
-        <item quantity="one">Poziva: %2$s</item>
-        <item quantity="few">Poziva: %1$d, zadnji: %2$s</item>
-        <item quantity="other">Poziva: %1$d, zadnji: %2$s</item>
+        <item quantity="one">Pozvan %2$s</item>
+        <item quantity="few">%1$d poziva, zadnji: %2$s</item>
+        <item quantity="other">%1$d poziva, zadnji: %2$s</item>
     </plurals>
     <string name="sia_category_dept_collector">Naplata potraživanja</string>
     <string name="notification_incoming_call_unknown">Nepoznat poziv</string>
@@ -199,4 +199,18 @@
     <string name="version_string">v%s</string>
     <string name="about_activity">Informacije</string>
     <string name="open_about_activity">Informacije</string>
+    <string name="selected_value_nothing">&lt;ništa&gt;</string>
+    <plurals name="selected_values">
+        <item quantity="one">Odabrano: %s</item>
+        <item quantity="few">Odabrano: %s</item>
+        <item quantity="other">Odabrano: %s</item>
+    </plurals>
+    <string name="block_in_limited_mode_blacklist">Nepoželjni</string>
+    <string name="block_in_limited_mode_rating">Po ocjeni</string>
+    <string name="block_in_limited_mode_summary">Dopuštene vrste blokiranja u modusu izravnog pokretanja (kontakti se u ovom modusu ne mogu pouzdano staviti na popis odobrenih)</string>
+    <string name="block_in_limited_mode">Blokiraj u modusu izravnog pokretanja</string>
+    <string name="blocked_call_notifications_disable_confirmation">Svejedno deaktiviraj</string>
+    <string name="blocked_call_notifications_disable_message">Ako se pozivi blokiraju bez obavještavanja, možda ćeš propustiti neke pozive</string>
+    <string name="show_notifications_for_blocked_calls_summary">Prikaži obavijest nakon blokiranja poziva</string>
+    <string name="show_notifications_for_blocked_calls">Obavijesti o blokiranim pozivima</string>
 </resources>

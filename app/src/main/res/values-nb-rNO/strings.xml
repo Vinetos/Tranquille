@@ -22,8 +22,8 @@
         <item quantity="other">%1$d anrop, siste: %2$s</item>
     </plurals>
     <string name="export_logcat_summary">Eksporter og del logcat-innhold med et program du velger (for eksempel en e-postklient). Rapportene kan inneholde sensitive data (telefonummer, kontaktnavn). Kun valgt program vil ha tilgang til denne dataen.</string>
-    <string name="save_logcat_on_crash_summary">Lagre logcat-utdata ved kræsj (i tillegg til enkel stabelsporing)</string>
-    <string name="save_logcat_on_crash">Lagre logcat ved kræsj</string>
+    <string name="save_logcat_on_crash_summary">Lagre logcat-utdata ved krasj (i tillegg til enkel stabelsporing)</string>
+    <string name="save_logcat_on_crash">Lagre logcat ved krasj</string>
     <string name="save_crashes_to_external_storage">Lagre rapporter til offentlig lager</string>
     <string name="country_codes_info_summary_addition">Oppdaget automatisk: %s</string>
     <string name="ui_mode_night">Mørk</string>
