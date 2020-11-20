@@ -81,10 +81,10 @@
     <string name="blacklist_delete">Excluir</string>
     <string name="blacklist_select_all">Selecionar tudo</string>
     <string name="blacklist_add">Adicionar</string>
-    <string name="blacklist_item_no_calls">Nunca chamado</string>
+    <string name="blacklist_item_no_calls">Nunca telefonou</string>
     <string name="blacklist_item_date_no_info">sem informação</string>
     <plurals name="blacklist_item_stats">
-        <item quantity="one">Chamado %2$s</item>
+        <item quantity="one">Telefonou %2$s</item>
         <item quantity="other">%1$d chamadas, última: %2$s</item>
     </plurals>
     <string name="title_blacklist_activity">Lista negra</string>
