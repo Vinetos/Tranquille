@@ -11,11 +11,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Partial Swedish translation thanks to Kristoffer Grundström (@Umeaboy).
 - Partial German translation thanks to Sebastian Kowalak ([@skowalak](https://hosted.weblate.org/user/skowalak/)) and J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
+- Finnish translation thanks to Jussi Timperi ([@Ban3](https://hosted.weblate.org/user/Ban3/)).
 
 ### Changed
 
 - Updated Greek translation thanks to Yannis T. (@azakosath).
 - Updated French translation thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
+- Updated Portuguese (Brazil) translation thanks to APL ([@APL](https://hosted.weblate.org/user/APL/)).
+- Updated Croatian translation thanks to Milo Ivir (@milotype).
 
 
 ## [0.5.11] - 2020-11-08
