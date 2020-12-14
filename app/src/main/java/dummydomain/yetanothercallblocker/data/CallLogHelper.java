@@ -2,6 +2,8 @@ package dummydomain.yetanothercallblocker.data;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
 import android.provider.CallLog;
 
 import java.util.ArrayList;
@@ -40,14 +42,23 @@ public class CallLogHelper {
             selectionArgs = null;
         }
 
+        Uri uri = CallLog.Calls.CONTENT_URI;
+
         String sortOrder = CallLog.Calls.DATE + " " + (reverseOrder ? "ASC" : "DESC");
 
-        sortOrder += " limit " + limit;
+        // should probably work since JELLY_BEAN_MR1
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
+            uri = uri.buildUpon()
+                    .appendQueryParameter(CallLog.Calls.LIMIT_PARAM_KEY, String.valueOf(limit))
+                    .build();
+        } else {
+            sortOrder += " limit " + limit;
+        }
 
         List<CallLogItem> items = new ArrayList<>(limit);
 
-        try (Cursor cursor = context.getContentResolver().query(CallLog.Calls.CONTENT_URI,
-                QUERY_PROJECTION, selection, selectionArgs, sortOrder)) {
+        try (Cursor cursor = context.getContentResolver()
+                .query(uri, QUERY_PROJECTION, selection, selectionArgs, sortOrder)) {
             if (cursor != null) {
                 int idIndex = cursor.getColumnIndex(CallLog.Calls._ID);
                 int typeIndex = cursor.getColumnIndex(CallLog.Calls.TYPE);

@@ -20,6 +20,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Updated Portuguese (Brazil) translation thanks to APL ([@APL](https://hosted.weblate.org/user/APL/)).
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
 
+### Fixed
+
+- Fixed a startup crash on Android 11+ (introduced in [0.5.7](#057-2020-10-02)).
+
 
 ## [0.5.11] - 2020-11-08
 
