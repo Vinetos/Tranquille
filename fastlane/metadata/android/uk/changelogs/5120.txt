@@ -1,0 +1,5 @@
+* Fixed a startup crash on Android 11+.
+* Added Finnish translation thanks to Jussi Timperi.
+* Added partial Swedish translation thanks to Kristoffer Grundström (@Umeaboy).
+* Added partial German translation thanks to Sebastian Kowalak and J. Lavoie.
+* Updated translations thanks to Yannis T, J. Lavoie, APL, Milo Ivir (@milotype).
