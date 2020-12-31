@@ -201,4 +201,19 @@
     <string name="db_version">Wersja bazy danych: %s</string>
     <string name="version_string">v%s</string>
     <string name="blacklist_select_all">Zaznacz wszystko</string>
+    <string name="block_in_limited_mode_summary">Dozwolone rodzaje blokowania w trybie bezpośredniego rozruchu (w tym trybie kontakty nie mogą być umieszczone na białej liście)</string>
+    <plurals name="selected_values">
+        <item quantity="one">Wybrano: %s</item>
+        <item quantity="few">Wybrano: %s</item>
+        <item quantity="many">Wybrano: %s</item>
+        <item quantity="other">Wybrano: %s</item>
+    </plurals>
+    <string name="block_in_limited_mode_blacklist">Z czarnej listy</string>
+    <string name="block_in_limited_mode">Blokuj w trybie bezpośredniego rozruchu</string>
+    <string name="blocked_call_notifications_disable_confirmation">Wyłącz mimo to</string>
+    <string name="blocked_call_notifications_disable_message">Możesz niechcący przeoczyć połączenie, jeśli zostanie ono zablokowane bez powiadomienia</string>
+    <string name="show_notifications_for_blocked_calls_summary">Wyświetl powiadomienie po zablokowaniu połączenia</string>
+    <string name="show_notifications_for_blocked_calls">Powiadamiaj o zablokowanych połączeniach</string>
+    <string name="selected_value_nothing">&lt;nic&gt;</string>
+    <string name="block_in_limited_mode_rating">Według oceny</string>
 </resources>
