@@ -170,7 +170,7 @@
     <string name="auto_updates">Aggiorna automaticamente il database</string>
     <string name="use_monitoring_service_summary">Attiva un servizio di monitoraggio sempre attivo che su alcuni telefoni aiuta a ricevere gli eventi telefonata. Attiva questa caratteristica solo se il blocco chiamate e le notifiche informative non funzionano. Questa caratteristica non ha effetto sulla batteria</string>
     <string name="use_monitoring_service">Usa un servizio di monitoraggio</string>
-    <string name="use_call_screening_service_summary">Permetti di bloccare le chiamate prima che il telefono squilli. E\' necessario che l\'app sia impostata come \"App telefono\" (Android 7-9) o come app \"Caller ID\" (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Permetti di bloccare le chiamate prima che il telefono squilli. E\' necessario che l\'app sia impostata come \"App telefono\" (Android 7–9) o come app \"Caller ID\" (Android 10+)</string>
     <string name="use_call_screening_service">Modalità blocco chiamate avanzata</string>
     <string name="block_blacklisted_summary">Blocca le chiamate dai numeri aggiunti alla lista nera</string>
     <string name="block_blacklisted">Blocca i numeri nella lista nera</string>
