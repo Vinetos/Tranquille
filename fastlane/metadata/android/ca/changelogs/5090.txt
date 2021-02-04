@@ -1,0 +1,5 @@
+* El "Nom" de la llista negra es mostra a més llocs.
+* S'han afegit dissenys horitzontals separats per a algunes pantalles.
+* UX millorat per habilitar / desactivar el «mode de bloqueig de trucades avançat».
+* Traduccions actualitzades gràcies a Oğuz Ersen (@ersen) i Evo (@verahawk).
+* Altres canvis menors.

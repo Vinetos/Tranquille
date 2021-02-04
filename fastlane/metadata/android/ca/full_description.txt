@@ -1,0 +1,33 @@
+Una senzilla aplicació de bloqueig de trucades que us ajudarà a evitar atendre trucades no desitjades
+mitjançant una base de dades de números de telèfon aportats per la comunitat (crowdsourced).
+
+<b> Funcions: </b>
+
+* Utilitza bases de dades fora de línia.
+* Bloca les trucades amb puntuació negativa automàticament (opció).
+* Llista negra local amb suport per a comodins.
+* Mostra una notificació amb un resum de número de telèfon (puntuació, recompte de ressenyes, categoria) durant les trucades entrants (opció).
+* Actualitzacions automàtiques de bases de dades incrementals (opció).
+* Podeu veure ressenyes en línia del número de la trucada (proporcionades pel servei de tercers).
+* «Mode de bloqueig de trucades avançat» per blocar trucades a Android 7+ abans que el telèfon comenci a sonar (cal habilitar-lo manualment a la configuració de l'aplicació).
+
+<b> Com s'utilitza: </b>
+
+* Instaŀleu i inicieu l'aplicació.
+* L'opció per mostrar notificacions d'informació de la trucada està habilitada de manera predeterminada, de manera que l'aplicació us demanarà permisos relacionats amb el telèfon.
+* Al principi, l'aplicació us suggerirà que descarregueu la base de dades principal que és necessària per a la majoria de les funcions. Simplement confirmeu la baixada.
+* Marqueu la casella de selecció «Actualitza automàticament la base de dades» al menú (recomanat) per rebre automàticament actualitzacions de base de dades diàries (són actualitzacions incrementals, de manera que consumeixen molt poc trànsit).
+* Marqueu la casella de selecció «Bloca per puntuació» per bloquejar automàticament les trucades amb puntuació negativa.
+* També podeu marcar la casella de selecció «Utilitza contactes» si voleu que els vostres contactes no es tractin com a trucades desconegudes.
+* Després d'aquests passos, tot hauria de funcionar (però sempre podeu trobar més opcions a Configuració). Gaudiu-ne!
+
+Consulteu <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md"> preguntes més freqüents </a> per obtenir més informació.
+
+La base de dades de números de telèfon principal es descarrega des de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data"> un dipòsit de gitlab </a>.
+<b> Les actualitzacions de la base de dades i les consultes de ressenyes detallades es realitzen mitjançant servidors de tercers. </b>
+No s’envia cap informació d’identificació de l’usuari (excepte el número de telèfon
+per al qual es carreguen les ressenyes detallades).
+
+Un Altre Blocador de Trucades encara està en desenvolupament. Qualsevol ajuda és benvinguda.
+
+'' NonFreeNet: '' el servei de tercers no és de codi obert.

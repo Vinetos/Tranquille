@@ -1,0 +1,2 @@
+* Afegit un permís del sistema per al bloqueig de trucades a Android 9.
+* Recrear canals de notificació en cada inici per millorar la localització.

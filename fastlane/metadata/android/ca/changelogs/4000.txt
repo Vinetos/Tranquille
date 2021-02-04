@@ -1,0 +1,3 @@
+* Mostra les trucades recents a la pantalla principal.
+* S'ha afegit una opció per al tractament especial dels contactes (mai bloquejat, es mostra el nom).
+* Moltes altres petites millores.

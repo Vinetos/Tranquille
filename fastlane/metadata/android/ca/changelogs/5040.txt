@@ -1,0 +1,10 @@
+* S'ha afegit suport per a números sense prefix internacional (només per a Android 5+).
+* Traducció al bokmål noruec i algunes correccions de corda gràcies a Allan Nordhøy (@kingu).
+* Actualització de la traducció a l’ucraïnès gràcies a Olexandr Nesterenko (@burunduk).
+* S'ha afegit la traducció al grec gràcies a Yannis T. (@azakosath).
+* Correccions i millores.
+
+0.5.3:
+
+* S'ha corregit un bloqueig a la llista negra d'Android 4.
+* S'ha afegit traducció croata gràcies a Milo Ivir (@milotype).

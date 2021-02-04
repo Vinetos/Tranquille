@@ -1,0 +1,10 @@
+* S'ha afegit un servei de control opcional (permet que YACB funcioni al MIUI de Xiaomi).
+* S'ha millorat la detecció de números ocults en mode "normal".
+* S'ha afegit traducció al polonès gràcies a Evo (@verahawk).
+* Correccions i millores.
+
+0.5.4:
+
+* S'ha afegit suport per a números sense prefix internacional (només per a Android 5+).
+* Gràcies per les traduccions a Allan Nordhøy (@kingu), Olexandr Nesterenko (@burunduk), Yannis T. (@azakosath).
+* Correccions i millores.

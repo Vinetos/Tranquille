@@ -1,0 +1,2 @@
+* Bloqueig de trucades adequat a Android 9.
+* Gestió fixa de les trucades noves durant les trucades actives.

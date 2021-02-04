@@ -1,0 +1,18 @@
+* Corregit la compatibilitat amb versions antigues d'Android.
+* Petites correccions.
+
+0.4.4:
+
+* Traducció al castellà per Diego Sanguinetti (@sguinetti).
+* Petites correccions.
+
+0.4.3:
+
+* Corregit les accions de notificació.
+
+0.4.2:
+
+* Traducció al neerlandès gràcies a Heimen Stoffels (@Vistaus).
+* Corregit les notificacions de trucades entrants que no s'eliminaven en alguns dispositius.
+* Opcions per desactivar algunes de les notificacions en dispositius antics.
+* Altres petites millores.

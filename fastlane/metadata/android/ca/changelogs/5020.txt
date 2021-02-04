@@ -1,0 +1,25 @@
+* Corregit un error durant la descàrrega inicial de la base de dades.
+* Actualització de traducció francesa per J. Lavoie.
+
+0.5.1:
+
+* Afegit una pantalla de cerca de números adequada.
+* Traducció a l'ucraïnès per AgeNT2k6.
+
+0.5.0:
+
+* Llista negra local amb suport per comodins (admesa la importació de còpies de seguretat de NoPhoneSpam).
+* Bloqueig de números ocults.
+* Altres correccions i millores.
+
+0.4.11:
+
+* Correccions i millores.
+
+0.4.10:
+
+* Tema fosc.
+
+0.4.9:
+
+* Corregit un accident rar.

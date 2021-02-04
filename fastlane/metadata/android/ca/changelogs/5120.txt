@@ -1,0 +1,5 @@
+* S'ha corregit un bloqueig d'inici a Android 11+.
+* S'ha afegit traducció al finès gràcies a Jussi Timperi.
+* S'ha afegit una traducció parcial al suec gràcies a Kristoffer Grundström (@Umeaboy).
+* S'ha afegit una traducció parcial a l'alemany gràcies a Sebastian Kowalak i J. Lavoie.
+* Traduccions actualitzades gràcies a Yannis T, J. Lavoie, APL, Milo Ivir (@milotype).

@@ -1,0 +1,17 @@
+* S'ha afegit el «mode de bloqueig de trucades avançat».
+* S'ha corregit la descàrrega inicial de bases de dades en algunes circumstàncies.
+* Correccions menors.
+
+0.4.5:
+
+* S'ha corregit la compatibilitat amb versions antigues d'Android.
+* Petites correccions.
+
+0.4.4:
+
+* S'ha afegit traducció al castellà gràcies a Diego Sanguinetti (@sguinetti).
+* Petites correccions.
+
+0.4.3:
+
+* S'han corregit les accions de notificació.

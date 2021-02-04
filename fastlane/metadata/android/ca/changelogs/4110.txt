@@ -1,0 +1,20 @@
+* Correccions i millores.
+
+0.4.10:
+
+* Afegit tema fosc.
+
+0.4.9:
+
+* S'ha corregit un accident rar.
+
+0.4.8:
+
+* Afegiu suport per a l'arrencada directa. La migració al primer inici pot trigar una mica.
+* Nombre configurable de trucades a la pantalla principal.
+* Altres correccions i millores.
+
+0.4.7:
+
+* S'ha afegit un botó per afegir una ressenya (mitjançant un navegador web).
+* Altres millores.
