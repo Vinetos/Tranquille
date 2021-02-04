@@ -57,7 +57,7 @@
     <string name="info_in_blacklist">Στη μαύρη λίστα</string>
     <string name="contacts_are_not_blocked_no_permission">Κλήσεις από τις επαφές ενδέχεται να αποκλειστούν επειδή δεν έχει παραχωρηθεί η άδεια \"Επαφές\"!</string>
     <string name="contacts_are_not_blocked_not_enabled">Κλήσεις από τις επαφές ενδέχεται να αποκλειστούν επειδή η επιλογή \"Χρήση επαφών\" δεν είναι ενεργοποιημένη!</string>
-    <string name="edit_blacklist_item_name">\'Ονομα</string>
+    <string name="edit_blacklist_item_name">Όνομα</string>
     <string name="title_edit_blacklist_item_activity">Επεξεργασία αριθμού</string>
     <string name="title_add_blacklist_item_activity">Προσθήκη αριθμού</string>
     <string name="blacklist_import">Εισαγωγή</string>
