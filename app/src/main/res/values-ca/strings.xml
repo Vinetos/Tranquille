@@ -122,7 +122,7 @@
     <string name="call_log_grouping_consecutive">Trucades consecutives</string>
     <string name="call_log_grouping_none">Sense agrupament</string>
     <string name="ui_mode_auto">El del sistema</string>
-    <string name="ui_mode_night">Obscur</string>
+    <string name="ui_mode_night">Fosc</string>
     <string name="ui_mode_day">Clar</string>
     <string name="ui_mode">Tema d\'interfície gràfica</string>
     <string name="use_contacts_summary">Els números presents en Contactes no es bloquen mai i el nom del contacte es mostra al costat de/en comptes d\'un número arreu de l\'aplicació</string>
