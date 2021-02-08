@@ -52,8 +52,8 @@
     <string name="title_lookup_number">Busca número</string>
     <string name="db_management_update_result">Actualització finalitzada; BD ver: %d</string>
     <string name="db_management_update_db">Actualitza BD</string>
-    <string name="db_management_reset_secondary">Reinicia actualitzacions</string>
-    <string name="db_management_reset_base">Reinicia BD</string>
+    <string name="db_management_reset_secondary">Restableix actualitzacions</string>
+    <string name="db_management_reset_base">Restableix BD</string>
     <string name="db_management_db_info">Informació de BD</string>
     <string name="db_management_activity_label">Gestió de BD</string>
     <string name="open_db_management_activity">Gestiona base de dades</string>
