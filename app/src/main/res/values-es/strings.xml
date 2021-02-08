@@ -119,8 +119,8 @@
     <string name="lookup_error_not_a_number">Se esperaba un número de teléfono</string>
     <string name="lookup_hint_input_number">Número de teléfono</string>
     <string name="title_lookup_number">Buscar número</string>
-    <string name="db_management_reset_secondary">Reiniciar actualizaciones</string>
-    <string name="db_management_reset_base">Reiniciar BD</string>
+    <string name="db_management_reset_secondary">Restablecer actualizaciones</string>
+    <string name="db_management_reset_base">Restablecer BD</string>
     <string name="db_management_activity_label">Gestión de BD</string>
     <string name="open_db_management_activity">Gestionar base de datos</string>
     <string name="add_to_blacklist">Añadir a la lista negra</string>
