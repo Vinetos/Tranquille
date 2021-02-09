@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- `targetSdkVersion` updated to 30 (Android 11).
 - Updated Polish translation thanks to Evo (@verahawk).
 - Updated Norwegian Bokmål translation thanks to Allan Nordhøy (@kingu).
 - Updated Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)).
@@ -87,7 +88,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 - Improved UX of enabling/disabling the "advanced call blocking mode".
-- `targetSdkVersion` updated to 29.
+- `targetSdkVersion` updated to 29 (Android 10).
 - Updated Turkish translation thanks to Oğuz Ersen (@ersen).
 - Updated Polish translation thanks to Evo (@verahawk).
 
