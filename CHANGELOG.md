@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Updated Polish translation thanks to Evo (@verahawk).
 - Updated Norwegian Bokmål translation thanks to Allan Nordhøy (@kingu).
 - Updated Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)).
+- Updated dependencies (recyclerview-selection, material, work-runtime).
 
 
 ## [0.5.12] - 2020-12-16
