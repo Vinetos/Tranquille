@@ -131,7 +131,7 @@
     <string name="auto_updates">Actualitza la base de dades automàticament</string>
     <string name="use_monitoring_service_summary">Activa un servei de vigilància sempre actiu que ajuda amb la recepció de events de telefonia en alguns telèfons. Activa aquesta característica només si el bloqueig de trucades i les notificacions informatives no funcionen. Aquesta característica no té cap efecte en la vida de la bateria</string>
     <string name="use_monitoring_service">Empra un servei de vigilància</string>
-    <string name="use_call_screening_service_summary">Permet blocar trucades abans de que el telèfon comenci a sonar. Requereix que l\'aplicació es configuri com «Aplicació de telèfon» (Android 7-9) o com a «Aplicació d\'identificació de trucades» (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Permet blocar trucades abans de que el telèfon comenci a sonar. Requereix que l\'aplicació es configuri com «Aplicació de telèfon» (Android 7–9) o com a «Aplicació d\'identificació de trucades» (Android 10+)</string>
     <string name="use_call_screening_service">Mode de bloqueig avançat</string>
     <string name="block_blacklisted_summary">Bloca les trucades de números afegits a la llista negra</string>
     <string name="block_blacklisted_short">Bloca la llista negra</string>

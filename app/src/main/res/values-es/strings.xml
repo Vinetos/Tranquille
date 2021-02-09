@@ -77,7 +77,7 @@
     <string name="lookup_number_not_found">No encontrado</string>
     <string name="db_management_update_result">Actualización terminada; DB ver: %d</string>
     <string name="notification_channel_group_name_services">Servicios</string>
-    <string name="use_call_screening_service_summary">Permite bloquear llamadas antes de que el teléfono empiece a sonar. Requiere que la aplicación sea la «Aplicación de teléfono» (Android 7-9) o la «Aplicación de identificación de llamadas» (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Permite bloquear llamadas antes de que el teléfono empiece a sonar. Requiere que la aplicación sea la «Aplicación de teléfono» (Android 7–9) o la «Aplicación de identificación de llamadas» (Android 10+)</string>
     <string name="notification_settings">Configuración de las notificaciones</string>
     <string name="open_system_settings">Abrir configuración</string>
     <string name="default_phone_app_unset">Selecciona una aplicación diferente como «Aplicación de teléfono» en «Aplicaciones predeterminadas» en configuración del sistema</string>
@@ -96,7 +96,7 @@
     <string name="monitoring_service_label">Servicio de vigilancia de llamadas</string>
     <string name="use_monitoring_service_summary">Activa un servicio de vigilancia siempre activo que ayuda en la recepción de eventos de telefonía en algunos teléfonos. Activa esta característica sólo si el bloqueo de llamadas y las notificaciones informativas no funcionan. Esta característica no tiene efecto en la vida de la batería</string>
     <string name="use_monitoring_service">Utiliza un servicio de vigilancia</string>
-    <string name="notification_channel_name_monitoring_service">Servicio de vigilancia</string>
+    <string name="notification_channel_name_monitoring_service">Servicio de monitoreo</string>
     <string name="license">Esta aplicación está licenciada bajo AGPL-3.0-only.</string>
     <string name="issues">Obtén soporte / informa de un problema</string>
     <string name="translate">Traducir la aplicación en Weblate</string>
