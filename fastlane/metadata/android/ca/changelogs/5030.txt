@@ -1,0 +1,17 @@
+* Corregit un bloqueig a la llista negra d'Android 4.
+* Traducció croata gràcies a Milo Ivir (@milotype).
+
+0.5.2:
+
+* Corregit un error durant la descàrrega inicial de la base de dades.
+* Actualització de la traducció al francès gràcies a J. Lavoie.
+
+0.5.1:
+
+* Afegit una pantalla de cerca de números adequada.
+* Traducció a l'ucraïnès gràcies a AgeNT2k6.
+
+0.5.0:
+
+* Llista negra local amb suport per comodins (ademsa la importació de còpies de seguretat de NoPhoneSpam).
+* Bloqueig de números ocults.

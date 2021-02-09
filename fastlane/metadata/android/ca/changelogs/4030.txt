@@ -1,0 +1,14 @@
+* Corregit les accions de notificació.
+
+0.4.2:
+
+* Afegit traducció al neerlandès gràcies a Heimen Stoffels (@Vistaus).
+* Corregit les notificacions de trucades entrants que no s'eliminaven en alguns dispositius.
+* Afegit opcions per desactivar algunes de les notificacions en dispositius antics.
+* Petites millores.
+
+0.4.1:
+
+* Icona d'aplicació nova.
+* Mostra la categoria de números a la pantalla d'informació del número.
+* Canviat la icona i el color de la notificació de trucada bloquejada.

@@ -1,0 +1,10 @@
+* Icona d'aplicació nova.
+* Mostra la categoria de números a la pantalla d'informació del número.
+* S'ha canviat la icona i el color de la notificació de trucada bloquejada.
+* Altres petites millores.
+
+0.4.0:
+
+* Mostra les trucades recents a la pantalla principal.
+* S'ha afegit una opció per al tractament especial dels contactes (mai bloquejat, es mostra el nom).
+* Moltes altres petites millores.

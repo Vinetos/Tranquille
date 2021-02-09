@@ -37,7 +37,7 @@
     <string name="sia_category_silent">Σιωπηλός</string>
     <string name="app_name">Yet Another Call Blocker</string>
     <string name="lookup_res_category">Κατηγορία: %d</string>
-    <string name="lookup_number_not_found">Δεν βρέθηκε</string>
+    <string name="lookup_number_not_found">Δε βρέθηκε</string>
     <string name="lookup_load_reviews">Φόρτωση κριτικών (διαδυκτιακά)</string>
     <string name="lookup_query_db">Αναζήτηση στη βάση δεδομένων</string>
     <string name="lookup_paste_number">Επικόλληση αριθμού</string>
@@ -57,7 +57,7 @@
     <string name="info_in_blacklist">Στη μαύρη λίστα</string>
     <string name="contacts_are_not_blocked_no_permission">Κλήσεις από τις επαφές ενδέχεται να αποκλειστούν επειδή δεν έχει παραχωρηθεί η άδεια \"Επαφές\"!</string>
     <string name="contacts_are_not_blocked_not_enabled">Κλήσεις από τις επαφές ενδέχεται να αποκλειστούν επειδή η επιλογή \"Χρήση επαφών\" δεν είναι ενεργοποιημένη!</string>
-    <string name="edit_blacklist_item_name">\'Ονομα</string>
+    <string name="edit_blacklist_item_name">Όνομα</string>
     <string name="title_edit_blacklist_item_activity">Επεξεργασία αριθμού</string>
     <string name="title_add_blacklist_item_activity">Προσθήκη αριθμού</string>
     <string name="blacklist_import">Εισαγωγή</string>

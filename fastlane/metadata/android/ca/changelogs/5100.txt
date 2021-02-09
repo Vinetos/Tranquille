@@ -1,0 +1,4 @@
+* S'ha corregit la importació de fitxers de llista negra de més de 4000 bytes.
+* S'ha corregit un bloqueig ocasional després de suprimir elements de la llista negra.
+* Format d'importació de llista negra simplificat (consulteu el registre de canvis per obtenir més informació).
+* Traduccions actualitzades gràcies a J. Lavoie, Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk), Oğuz Ersen (@ersen).

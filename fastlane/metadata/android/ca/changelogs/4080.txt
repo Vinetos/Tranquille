@@ -1,0 +1,19 @@
+* Suport per a l'arrencada directa. La migració al primer inici pot trigar una mica.
+* Nombre configurable de trucades a la pantalla principal.
+* Correccions i millores.
+
+0.4.7:
+
+* Botó per afegir una ressenya (mitjançant un navegador web).
+* Altres millores.
+
+0.4.6:
+
+* Afegit el «mode de bloqueig de trucades avançat».
+* Corregit la descàrrega inicial de bases de dades en algunes circumstàncies.
+* Correccions.
+
+0.4.5:
+
+* Corregit la compatibilitat amb versions antigues d'Android.
+* Correccions.

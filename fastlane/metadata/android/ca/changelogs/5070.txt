@@ -1,0 +1,9 @@
+* Millores del registre de trucades: aspecte nou, millor rendiment, desplaçament infinit, opcions d’agrupació.
+* Altres canvis menors.
+
+0.5.6:
+
+* Contingut de notificacions lleugerament millorat.
+* Botó afegit per afegir ressenyes des de la pantalla de cerca.
+* S'ha afegit traducció al turc gràcies a Oğuz Ersen (@ersen).
+* Actualització de les traduccions gràcies a Yannis T. (@azakosath) i Evo (@verahawk).

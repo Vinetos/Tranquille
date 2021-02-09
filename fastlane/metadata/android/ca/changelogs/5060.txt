@@ -1,0 +1,11 @@
+* Contingut de notificacions lleugerament millorat.
+* Botó afegit per afegir ressenyes des de la pantalla de cerca.
+* S'ha afegit traducció al turc gràcies a Oğuz Ersen (@ersen).
+* Actualització de les traduccions gràcies a Yannis T. (@azakosath) i Evo (@verahawk).
+
+0.5.5:
+
+* Afegit un servei de control opcional (permet que UABT funcioni al MIUI).
+* Millorada la detecció de números ocults en mode «normal».
+* Afegida traducció al polonès gràcies a Evo (@verahawk).
+* Correccions i millores.

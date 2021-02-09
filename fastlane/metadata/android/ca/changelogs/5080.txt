@@ -1,0 +1,9 @@
+* S'ha corregit un error d'inici sense permís READ_CALL_LOG.
+* S'ha corregit un bloqueig de l'editor de llistes negres en versions antigues d'Android.
+* Traduccions actualitzades gràcies a Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
+* Altres canvis menors.
+
+0.5.7:
+
+* Millores del registre de trucades: aspecte nou, millor rendiment, desplaçament infinit, opcions d’agrupació.
+* Altres canvis menors.

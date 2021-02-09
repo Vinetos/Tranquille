@@ -1,0 +1,4 @@
+* S'ha afegit una opció per desactivar les notificacions de trucades bloquejades en versions antigues d'Android.
+* Comportament de bloqueig canviat en mode d'arrencada directa: els números de la llista negra no estan bloquejats per defecte (vegeu informe d'error #22 per obtenir més informació).
+* S'ha afegit la traducció al portuguès (Brasil) gràcies a APL.
+* Traduccions actualitzades gràcies a Milo Ivir (@milotype), J. Lavoie, Oğuz Ersen (@ersen).
