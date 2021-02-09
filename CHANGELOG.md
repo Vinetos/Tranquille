@@ -9,11 +9,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- Catalan translation thanks to Raul ([@raulvo](https://hosted.weblate.org/user/raulvo/)).
 - Completed Italian translation thanks to Lucio Marinelli (@luciomarinelli).
+- Completed Spanish translation thanks to Raul ([@raulvo](https://hosted.weblate.org/user/raulvo/)).
 
 ### Changed
 
 - Updated Polish translation thanks to Evo (@verahawk).
+- Updated Norwegian Bokmål translation thanks to Allan Nordhøy (@kingu).
 
 
 ## [0.5.12] - 2020-12-16
