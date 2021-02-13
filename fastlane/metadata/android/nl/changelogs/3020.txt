@@ -1,0 +1,2 @@
+* Recht omtrent oproepblokkering toegevoegd op Android 9.
+* Meldingskanalen worden bij elke opstart opnieuw gemaakt om de vertaling ervan te verbeteren.

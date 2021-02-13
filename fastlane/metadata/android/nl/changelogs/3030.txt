@@ -1,0 +1,2 @@
+* Eindelijk goede oproepblokkering op Android 9.
+* Opgelost: inkomende oproepen tijdens actieve.
