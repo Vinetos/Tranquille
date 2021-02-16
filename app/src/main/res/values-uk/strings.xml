@@ -162,4 +162,5 @@
     <string name="blacklist_select_all">Вибрати все</string>
     <string name="blocked_call_notifications_disable_message">Ви можете випадково пропустити виклик, якщо виклики будуть заблоковані без сповіщень</string>
     <string name="blocked_call_notifications_disable_confirmation">Вимкнути всеодно</string>
+    <string name="notification_settings">Налаштування сповіщень</string>
 </resources>
