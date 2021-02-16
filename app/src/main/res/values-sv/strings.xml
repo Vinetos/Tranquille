@@ -66,4 +66,8 @@
     <string name="notification_channel_group_name_blocked_calls">Blockerade samtal</string>
     <string name="app_name">Ytterligare en samtalsblockerare</string>
     <string name="notification_channel_group_name_incoming_calls">Inkommande samtal</string>
+    <string name="add_web_review">Lägg till recension (internet)</string>
+    <string name="default_phone_app_set">Välj \"Ytterligare en till samtalsblockerare\" som en \"Telefon-app\" i \"Standard-appar\" i systeminställningar</string>
+    <string name="sia_category_dept_collector">Inkassoman</string>
+    <string name="sia_category_none">Inget</string>
 </resources>

@@ -1,9 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Oproepblokkering</string>
-
     <string name="notification_channel_group_name_incoming_calls">Inkomende oproepen</string>
     <string name="notification_channel_group_name_blocked_calls">Geblokkeerde oproepen</string>
-
     <string name="notification_channel_name_known">Bekende oproepen</string>
     <string name="notification_channel_name_positive">Gewenste oproepen</string>
     <string name="notification_channel_name_neutral">Neutrale oproepen</string>
@@ -11,19 +10,14 @@
     <string name="notification_channel_name_negative">Ongewenste oproepen</string>
     <string name="notification_channel_name_blocked_info">Blokkeringsinformatie</string>
     <string name="notification_channel_name_tasks">Taken</string>
-
     <string name="notification_incoming_call_contact">Contactpersoon</string>
     <string name="notification_incoming_call_positive">Gewenste oproep</string>
     <string name="notification_incoming_call_neutral">Neutrale oproep</string>
     <string name="notification_incoming_call_unknown">Onbekende oproep</string>
     <string name="notification_incoming_call_negative">Ongewenste oproep</string>
-
     <string name="notification_blocked_call">Geblokkeerde oproep</string>
-
     <string name="notification_incoming_call_text_description">Ongewenst: %1$d - Gewenst: %2$d - Neutraal: %3$d</string>
-
     <string name="notification_background_operation">Bezig met uitvoeren van achtergrondhandeling…</string>
-
     <string name="sia_category_none">Geen</string>
     <string name="sia_category_telemarketer">Telemarketeer</string>
     <string name="sia_category_dept_collector">Schuldeiser</string>
@@ -46,40 +40,174 @@
     <string name="sia_category_safe_personal">Vertrouwd persoon</string>
     <string name="sia_category_safe_company">Vertrouwd bedrijf</string>
     <string name="sia_category_safe_nonprofit">Vertrouwde vrijwilligersorg.</string>
-
     <string name="title_activity_reviews">Recensies</string>
     <string name="reviews_loading">Bezig met laden van recensies…</string>
-
-    <string name="denied_permissions_message">Wegens geweigerde machtigingen werken de volgende functies niet:</string>
+    <string name="denied_permissions_message">Wegens geweigerde rechten werken de volgende functies niet:</string>
     <string name="feature_info">meldingen</string>
     <string name="feature_call_blocking">oproepblokkering</string>
     <string name="feature_contacts">uitlezen van contactpersonen</string>
-
-    <string name="call_log_permission_message">Verleen de machtiging \'Telefoon\' om recente oproepen te tonen</string>
-
+    <string name="call_log_permission_message">Verleen het recht \'Telefoon\' om recente oproepen te tonen</string>
     <string name="no_main_db_title">Databank downloaden</string>
     <string name="no_main_db_text">Er is nog geen databank aanwezig. Om de app te laten werken moet je een databank downloaden. Dit kost 25 MB aan data.</string>
     <string name="download_main_db">Databank downloaden</string>
     <string name="main_db_downloading">Bezig met downloaden…</string>
-
     <string name="secondary_db_updating">Bezig met bijwerken…</string>
-
     <string name="online_reviews">Online-recensies</string>
     <string name="back">Terug</string>
     <string name="no">Nee</string>
-
     <string name="are_you_sure">Weet je het zeker?</string>
     <string name="load_reviews_confirmation_message">Door online-recensies te laden, lekt het nummer uit naar een externe dienst. Weet je zeker dat je dit wilt doen met een nummer uit je contactpersonenlijst?</string>
-
     <string name="incoming_call_notifications">Inkomende oproep-meldingen</string>
     <string name="auto_updates">Databank automatisch bijwerken</string>
     <string name="use_contacts">Contactpersonen uitlezen</string>
-
     <string name="lookup_query_db">Databank raadplegen</string>
     <string name="lookup_load_reviews">Online-recensies tonen</string>
-    <string name="db_management_db_info">Databankinformatie</string>
+    <string name="db_management_db_info">DB-informatie</string>
     <string name="db_management_update_db">Databank bijwerken</string>
     <string name="lookup_number_not_found">Niet gevonden</string>
     <string name="db_management_update_result">Bijwerken voltooid. Databankversie: %d</string>
-
+    <string name="license">Deze app is uitgebracht onder de AGPL-3.0-licentie.</string>
+    <string name="issues">Verkrijg ondersteuning/Meld een probleem</string>
+    <string name="translate">Vertaal de app op Weblate</string>
+    <string name="faq">Veelgestelde vragen</string>
+    <string name="homepage">Projectwebsite</string>
+    <string name="logo_description">Logo</string>
+    <string name="motto">Blokkeer moeiteloos ongewenste oproepen</string>
+    <string name="db_last_update_check_checking">bezig met controleren…</string>
+    <string name="db_last_update_check_never">nooit</string>
+    <string name="db_last_update_check">Recentste updatecontrole: %s</string>
+    <string name="db_version_not_available">n/b</string>
+    <string name="db_version">Databankversie: %s</string>
+    <string name="version_string">v%s</string>
+    <string name="about_activity">Over</string>
+    <string name="open_about_activity">Over</string>
+    <string name="duration_s">%ds</string>
+    <string name="duration_m_s">%1$dm %2$ds</string>
+    <string name="duration_h_m_s">%1$du %2$dm %3$ds</string>
+    <string name="monitoring_service_notification_title">Oproepen worden bijgehouden</string>
+    <string name="monitoring_service_description">Een achtergronddienst voor het monitoren van de telefoonstatus</string>
+    <string name="monitoring_service_label">Oproep-monitoringsdienst</string>
+    <string name="lookup_res_featured_name">Uitgelichte naam: %s</string>
+    <string name="lookup_res_category">Categorie: %d</string>
+    <string name="lookup_paste_number">Nummer plakken</string>
+    <string name="lookup_clear_number">Nummer wissen</string>
+    <string name="lookup_error_not_a_number">Voer een telefoonnummer in</string>
+    <string name="lookup_hint_input_number">Telefoonnummer</string>
+    <string name="title_lookup_number">Nummer opzoeken</string>
+    <string name="db_management_reset_secondary">Updates herstellen</string>
+    <string name="db_management_reset_base">DB herstellen</string>
+    <string name="db_management_activity_label">DB-beheer</string>
+    <string name="open_db_management_activity">Databank beheren</string>
+    <string name="add_to_blacklist">Toevoegen aan zwarte lijst</string>
+    <string name="info_in_blacklist_contact">Op zwarte lijst (contactpersonen worden niet geblokkeerd)</string>
+    <string name="info_in_blacklist">Op zwarte lijst</string>
+    <string name="contacts_are_not_blocked_no_permission">Oproepen van contactpersonen worden mogelijk geblokkeerd omdat het recht \'Contactpersonen\' niet is verleend!</string>
+    <string name="contacts_are_not_blocked_not_enabled">Oproepen van contactpersonen worden mogelijk geblokkeerd omdat de optie \'Contactpersonen uitlezen\' niet is ingeschakeld!</string>
+    <string name="contacts_are_not_blocked_blacklist_notice">Oproepen van contactpersonen worden nooit geblokkeerd (zelfs niet als een patroon overeenkomt)</string>
+    <string name="info_icon_description">Informatie</string>
+    <string name="number_pattern_hint">Voer het nummer in met voorafgaand +LANDCODE (zoals Android het toont in de telefoonapp). Gebruik \'*\' als jokerteken voor een nul of meerdere getallen en \'#\' voor precies één getal.</string>
+    <string name="number_pattern_empty">Blanco patroon</string>
+    <string name="number_pattern_incorrect">Onjuist patroon</string>
+    <string name="edit_blacklist_item_number_pattern">Nummerpatroon</string>
+    <string name="edit_blacklist_item_name">Naam</string>
+    <string name="title_edit_blacklist_item_activity">Nummer bewerken</string>
+    <string name="title_add_blacklist_item_activity">Nummer toevoegen</string>
+    <string name="blacklist_import">Importeren</string>
+    <string name="blacklist_export">Exporteren</string>
+    <string name="blacklist_delete_confirmation">Weet je zeker dat je de geselecteerde items wilt verwijderen\?</string>
+    <string name="blacklist_delete">Verwijderen</string>
+    <string name="blacklist_select_all">Alles selecteren</string>
+    <string name="blacklist_add">Toevoegen</string>
+    <string name="blacklist_item_no_calls">Nooit gebeld</string>
+    <string name="blacklist_item_date_no_info">geen informatie</string>
+    <plurals name="blacklist_item_stats">
+        <item quantity="one">%2$s oproep</item>
+        <item quantity="other">%1$d oproepen - recentste: %2$s</item>
+    </plurals>
+    <string name="title_blacklist_activity">Zwarte lijst</string>
+    <string name="open_blacklist_activity">Zwarte lijst</string>
+    <string name="selected_value_nothing">&lt;niets&gt;</string>
+    <plurals name="selected_values">
+        <item quantity="one">Geselecteerd: %s</item>
+        <item quantity="other">Geselecteerd: %s</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="one">%1$d geselecteerd</item>
+        <item quantity="other">%1$d geselecteerd</item>
+    </plurals>
+    <string name="save">Opslaan</string>
+    <string name="no_number">&lt;nummerloos&gt;</string>
+    <string name="export_logcat">Logboek exporteren</string>
+    <string name="save_logcat_on_crash_summary">Sla een logboek op na crashes (naast de standaard stacktrace)</string>
+    <string name="save_logcat_on_crash">Logboek opslaan na crash</string>
+    <string name="save_crashes_to_external_storage">Rapportages opslaan op openbare opslagruimte</string>
+    <string name="settings_category_debugging">Foutopsporing</string>
+    <string name="database_download_url">Primaire download-url van databank</string>
+    <string name="country_code_incorrect_format">Onjuiste landcode-opmaak - de waarde is niet bijgewerkt</string>
+    <string name="country_code_for_reviews_override_summary">De landcode die wordt gebruikt bij verzoeken aan online-recensies om het land van de beller te bepalen (laat leeg voor automatische herkenning)</string>
+    <string name="country_code_for_reviews_override">Landcode bij beoordelingen</string>
+    <string name="country_code_override_summary">De landcodes die worden gebruikt bij verzoeken (laat leeg voor automatische herkenning)</string>
+    <string name="country_code_override">Landcode</string>
+    <string name="country_codes_info_summary_addition">Automatisch herkend: %s</string>
+    <string name="country_codes_info">Uitleg</string>
+    <string name="settings_category_country_codes">Landcodes</string>
+    <string name="block_in_limited_mode_blacklist">Zwarte lijst</string>
+    <string name="block_in_limited_mode_rating">Op beoordeling</string>
+    <string name="block_in_limited_mode_summary">Dit stelt je in staat oproepen te blokken in directe opstartmodus (contactpersonen kunnen echter niet goed worden uitgezonderd)</string>
+    <string name="block_in_limited_mode">Blokkeren in directe opstartmodus</string>
+    <string name="settings_screen_advanced">Geavanceerde instellingen</string>
+    <string name="call_log_grouping_day">Per nummer en per dag groeperen</string>
+    <string name="call_log_grouping_consecutive">Per nummer groeperen</string>
+    <string name="call_log_grouping_none">Niet groeperen</string>
+    <string name="call_log_grouping">Oproeplijstgroepering</string>
+    <string name="ui_mode_auto">Systeemthema</string>
+    <string name="ui_mode_night">Donker</string>
+    <string name="ui_mode_day">Licht</string>
+    <string name="ui_mode">Thema</string>
+    <string name="use_contacts_summary">Nummers uit je contactpersonen worden nooit geblokkeerd en de naam van de contactpersoon wordt getoond naast of in plaats van het nummer</string>
+    <string name="auto_updates_summary">Ontvang automatisch databankupdates (dit zijn kleine updates, dus kosten ze niet veel data)</string>
+    <string name="use_monitoring_service">Monitoringsdienst gebruiken</string>
+    <string name="use_call_screening_service_summary">Hiermee blokkeer je oproepen voordat de beltoon klinkt. Om dit te gebruiken dien je de app in te stellen als \'telefoonapp\' (Android 7-9) of \'nummermelder-app\' (Android 10 en hoger).</string>
+    <string name="use_call_screening_service">Geavanceerde oproepblokkeringsmodus</string>
+    <string name="block_blacklisted_summary">Blokkeer oproepen van nummers op de zwarte lijst</string>
+    <string name="block_blacklisted">Nummers op zwarte lijst blokkeren</string>
+    <string name="block_blacklisted_short">Oproepen op zwarte lijst blokkeren</string>
+    <string name="block_hidden_number_summary">Blokkeer oproepen van verborgen nummers (dit kan slechter op beter werken in de modus \'Geavanceerde oproepblokkering\')</string>
+    <string name="block_hidden_number">Verborgen nummers blokkeren</string>
+    <string name="block_negative_sia_numbers_summary">Blokkeer nummers met een negatieve beoordeling (op basis van de gemeenschapsdatabank)</string>
+    <string name="block_negative_sia">Blokkeren op basis van beoordeling</string>
+    <string name="block_negative_sia_short">Blokkeren op basis van beoordeling</string>
+    <string name="incoming_call_notifications_summary">Toon een melding met telefoonnummer-samenvatting (beoordelingen, recensies, categorie) bij inkomende oproepen</string>
+    <string name="notification_settings">Meldingsinstellingen</string>
+    <string name="blocked_call_notifications_disable_confirmation">Tóch uitschakelen</string>
+    <string name="blocked_call_notifications_disable_message">Let op: als je oproepen blokkeert zonder meldingen te tonen, kun je gemiste oproepen hebben</string>
+    <string name="show_notifications_for_blocked_calls_summary">Toon meldingen na het blokkeren van oproepen</string>
+    <string name="show_notifications_for_blocked_calls">Meldingen bij geblokkeerde oproepen</string>
+    <string name="show_notifications_for_unknown_callers_summary">Toon meldingen bij onbekende oproepen (niet uit je contactpersonen en de databank)</string>
+    <string name="show_notifications_for_unknown_callers">Meldingen bij onbekende oproepen</string>
+    <string name="show_notifications_for_known_callers_summary">Toon meldingen bij bekende oproepen (nummers uit je contactpersonen)</string>
+    <string name="show_notifications_for_known_callers">Meldingen bij bekende oproepen</string>
+    <string name="settings_category_call_blocking">Oproepblokkering</string>
+    <string name="settings_category_main">Algemeen</string>
+    <string name="title_settings_activity">Instellingen</string>
+    <string name="open_settings_activity">Instellingen</string>
+    <string name="error">Foutmelding</string>
+    <string name="done">Klaar</string>
+    <string name="yes">Ja</string>
+    <string name="add_web_review">Recensie toevoegen (online)</string>
+    <string name="open_system_settings">Instellingen openen</string>
+    <string name="default_phone_app_unset">Kies een andere app als \'telefoonapp\' in de sectie \'Standaardapps\' in de systeeminstellingen</string>
+    <string name="default_phone_app_set">Stel deze app in als \'telefoonapp\' in de sectie \'Standaardapps\' in de systeeminstellingen</string>
+    <string name="default_phone_app">Standaard \'telefoonapp\'</string>
+    <string name="default_caller_id_app_unset">Kies een andere app als \'nummermelder-app\' in de sectie \'Standaardapps\' in de systeeminstellingen</string>
+    <string name="default_caller_id_app">Standaard \'nummermelder-app\'</string>
+    <string name="denied_call_screening_role_message">Geavanceerde oproepblokkering werkt niet omdat de app niet is ingesteld als \'nummermelder-app\'</string>
+    <string name="denied_default_dialer_message">Geavanceerde oproepblokkering werkt niet omdat de app niet is ingesteld als \'telefoonapp\'</string>
+    <string name="reviews_loading_error">De recensies kunnen niet worden geladen</string>
+    <string name="notification_channel_name_monitoring_service">Monitoringsdienst</string>
+    <string name="notification_channel_group_name_services">Diensten</string>
+    <string name="export_logcat_summary">Exporteer en deel de logboekinhoud met een app naar keuze (bijv. een e-mailapp). De rapportages kunnen gevoelige gegevens bevatten, zoals telefoonnummers en namen van contactpersonen. Alleen de gekozen app heeft toegang tot deze gegevens.</string>
+    <string name="save_crashes_to_external_storage_summary">Sla crashrapportages en logboeken op op de openbare opslagruimte van je apparaat in plaats van in een privémap. De rapportages kunnen gevoelige informatie bevatten, zoals telefoonnummers en namen van contactpersonen. Andere apps met toegang tot je opslag hebben mogelijk toegang tot deze gegevens</string>
+    <string name="country_codes_info_summary">Landcodes worden gebruikt in verzoeken aan externe servers. Deze codes proberen het gedrag van de officiële externe app na te bootsen. Als de codes overeenkomen met het land waarin je je bevindt (mogelijk op basis van je ip-adres), dan lijken je verzoeken niet verdacht. Standaard wordt automatische herkenning gebruikt (op basis van je mobielenetwerkinformatie of systeemtaal). Dit is bij de meeste mensen afdoende, maar je kunt de codes ook handmatig instellen. De codes dienen ISO 3166-codes met 2 letters te zijn (zoals in de VS)</string>
+    <string name="use_monitoring_service_summary">Schakelt een altijd actieve monitoringsdienst in die helpt telefoniegebeurtenissen te onderscheppen. Schakel dit alleen in als oproepblokkering en meldingen niet werken. Deze functie heeft geen invloed op de accuduur</string>
 </resources>

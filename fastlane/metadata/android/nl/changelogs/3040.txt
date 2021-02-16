@@ -1,0 +1,3 @@
+* Het recht 'oproepen beantwoorden' wordt niet gevraagd op Android-versies lager dan 9.
+* Meldingscategorie veranderd.
+* Bijgewerkt: afhankelijkheden.
