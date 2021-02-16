@@ -167,7 +167,7 @@
     <string name="use_contacts_summary">Nummers uit je contactpersonen worden nooit geblokkeerd en de naam van de contactpersoon wordt getoond naast of in plaats van het nummer</string>
     <string name="auto_updates_summary">Ontvang automatisch databankupdates (dit zijn kleine updates, dus kosten ze niet veel data)</string>
     <string name="use_monitoring_service">Monitoringsdienst gebruiken</string>
-    <string name="use_call_screening_service_summary">Hiermee blokkeer je oproepen voordat de beltoon klinkt. Om dit te gebruiken dien je de app in te stellen als \'telefoonapp\' (Android 7-9) of \'nummermelder-app\' (Android 10 en hoger).</string>
+    <string name="use_call_screening_service_summary">Hiermee blokkeer je oproepen voordat de beltoon klinkt. Om dit te gebruiken dien je de app in te stellen als \'telefoonapp\' (Android 7–9) of \'nummermelder-app\' (Android 10 en hoger).</string>
     <string name="use_call_screening_service">Geavanceerde oproepblokkeringsmodus</string>
     <string name="block_blacklisted_summary">Blokkeer oproepen van nummers op de zwarte lijst</string>
     <string name="block_blacklisted">Nummers op zwarte lijst blokkeren</string>
