@@ -12,11 +12,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Catalan translation thanks to Raul ([@raulvo](https://hosted.weblate.org/user/raulvo/)).
 - Completed Italian translation thanks to Lucio Marinelli (@luciomarinelli).
 - Completed Spanish translation thanks to Raul ([@raulvo](https://hosted.weblate.org/user/raulvo/)).
+- Completed Dutch translation thanks to Heimen Stoffels (@Vistaus).
 
 ### Changed
 
 - Updated Polish translation thanks to Evo (@verahawk).
 - Updated Norwegian Bokmål translation thanks to Allan Nordhøy (@kingu).
+- Updated Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)).
 
 
 ## [0.5.12] - 2020-12-16
