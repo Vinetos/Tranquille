@@ -1,0 +1,17 @@
+* Added "advanced call blocking mode".
+* Fixed initial DB downloading in some circumstances.
+* Minor fixes.
+
+0.4.5:
+
+* Fixed compatibility with older Android versions.
+* Small fixes.
+
+0.4.4:
+
+* Added Spanish translation thanks to Diego Sanguinetti (@sguinetti).
+* Small fixes.
+
+0.4.3:
+
+* Fixed notification actions.

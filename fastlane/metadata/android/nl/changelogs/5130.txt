@@ -1,0 +1,3 @@
+* Nieuw: Catalaanse vertaling, met dank aan Raul (@raulvo).
+* Bijgewerkt: diverse vertalingen, met dank aan Lucio Marinelli (@luciomarinelli), Raul (@raulvo), Heimen Stoffels (@Vistaus), Evo (@verahawk), Allan Nordhøy (@kingu) en z Z z (@ruslan.zeezu).
+* Enkele kleine verbeteringen.

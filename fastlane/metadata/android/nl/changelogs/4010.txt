@@ -1,0 +1,10 @@
+* Nieuw app-pictogram.
+* De telefoonnummercategorie wordt op het informatiescherm getoond.
+* Ander pictogram en kleur bij geblokkeerde oproepen.
+* Andere kleine verbeteringen.
+
+0.4.0:
+
+* Recente oproepen worden getoond op het hoofdscherm.
+* Toegevoegd: optie voor speciale behandeling van contactpersonen (nooit geblokkeerd, naam wordt getoond).
+* Enkele kleine verbeteringen.
