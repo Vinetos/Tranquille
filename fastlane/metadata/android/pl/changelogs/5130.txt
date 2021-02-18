@@ -1,0 +1,3 @@
+* Dodano katalońskie tłumaczenie dzięki Raul (@raulvo).
+* Zaktualizowano tłumaczenia dzięki Lucio Marinelli (@luciomarinelli), Raul (@raulvo), Heimen Stoffels (@Vistaus), Evo (@verahawk), Allan Nordhøy (@kingu), z Z z (@ruslan.zeezu).
+* Inne drobne zmiany.
