@@ -1,0 +1,10 @@
+* Added support for numbers without international prefix (Android 5+ only).
+* Norwegian Bokmål translation and some string corrections thanks to Allan Nordhøy (@kingu).
+* Updated Ukrainian translation thanks to Olexandr Nesterenko (@burunduk).
+* Added Greek translation thanks to Yannis T. (@azakosath).
+* Fixes and improvements.
+
+0.5.3:
+
+* Fixed crash in blacklist on Android 4.
+* Added Croatian translation thanks to Milo Ivir (@milotype).

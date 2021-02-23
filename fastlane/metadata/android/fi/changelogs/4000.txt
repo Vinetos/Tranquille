@@ -1,0 +1,3 @@
+* Display recent calls on the main screen.
+* Added an option for special treatment of contacts (never blocked, name is displayed).
+* A lot of other small improvements.
