@@ -3,10 +3,10 @@ Prosta aplikacja do blokowania połączeń, która pomoże ci uniknąć odbieran
 <b>Możliwości:</b>
 
 * Wykorzystuje bazę danych offline.
-* Automatycznie blokuje połączenia z negatywną oceną. (Opcjonalne)
+* Automatycznie blokuje połączenia z negatywną oceną. (Opcjonalne).
 * Lokalna czarna lista z obsługą wieloznacznika (ang. wildcard).
-* Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących. (Opcjonalne)
-* Automatyczne aktualizacje przyrostowe bazy danych. (Opcjonalne)
+* Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących. (Opcjonalne).
+* Automatyczne aktualizacje przyrostowe bazy danych. (Opcjonalne).
 * Możliwość przeglądania recenzji online dotyczących dzwoniącego numeru. (Dostarczane przez zewnętrzną usługę).
 * „Zaawansowany tryb blokowania” do blokowania połączeń na Androidzie 7+, zanim telefon zacznie dzwonić. (Należy ręcznie włączyć w ustawieniach aplikacji).
 
@@ -28,4 +28,4 @@ Nie są wysyłane żadne informacje umożliwiające identyfikację użytkownika 
 
 Yet Another Call Blocker jest nadal w fazie rozwoju. Każda pomoc jest mile widziana.
 
-„Ta aplikacja promuje niewolne usługi sieciowe (NonFreeNet)”: usługi dostarczane przez zewnętrzną firmę nie są wolne.
+„Ta aplikacja promuje niewolne usługi sieciowe (NonFreeNet)”: usługa dostarczana przez zewnętrzną firmę nie jest wolna.

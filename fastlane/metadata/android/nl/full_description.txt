@@ -1,0 +1,31 @@
+Een eenvoudige oproepblokkeringsapp om ongewenste oproepen mee te blokkeren. De app werkt op basis van een door de gemeenschap samengestelde databank.
+
+<b>Kenmerken:</b>
+
+* Maakt gebruik van een offline-databank.
+* Blokkeert automatisch oproepen met een negatieve beoordeling (optioneel).
+* Lokale zwarte lijst, met ondersteuning voor jokertekens.
+* Toont een melding met informatie over het telefoonnummer (beoordeling, aantal recensies, categorie) tijdens inkomende oproepen (optioneel).
+* Automatisch verhogende/delta-databankupdates (optioneel).
+* Bekijk online-recensies over telefoonnummers van inkomende oproepen (aangeboden door een externe dienst).
+* Geavanceerde blokkeermodus voor het blokkeren van oproepen op Android 7 en hoger voordat de telefoon overgaat (dit dient handmatig te worden ingeschakeld in de instellingen).
+
+<b>Uitleg:</b>
+
+* Installeer en open de app.
+* De optie om oproepinformatiemeldingen te tonen is standaard ingeschakeld, dus vraagt de app om telefoon-gerelateerde rechten.
+* Na de eerste keer opstarten vraagt de app om de hoofddatabank te downloaden zodat alle appfuncties kunnen worden gebruikt. Bevestig het downloaden.
+* Vink in het menu de optie 'Databank automatisch bijwerken' aan (aanbevolen) om dagelijkse databankupdates te installeren (dit zijn verhogende/delta-updates, dus kosten ze nauwelijks data).
+* Vink de optie 'Blokkeren op basis van beoordeling' aan om oproepen met een negatieve beoordeling automatisch te blokkeren.
+* Als je niet wilt dat je contactpersonen worden aangemerkt als onbekenden, kun je de optie 'Contactpersonen uitlezen' aanvinken.
+* Hierna zou alles moeten werken als een trein (maar vergeet niet de rest van de instellingen op het instellingenscherm te bekijken). Veel plezier!
+
+Bekijk voor meer informatie de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">veelgestelde vragen</a>.
+
+De hoofddatabank wordt opgehaald uit de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">GitLab-repo</a>.
+<b>Databankupdates en gedetailleerde recensies worden opgehaald van externe servers.</b>
+Er wordt geen herleidbare gebruikersinformatie verzonden (behalve informatie over telefoonnummers uit de databank).
+
+Yet Another Call Blocker is nog steeds in ontwikkeling - iedere hulp wordt gewaardeerd!
+
+''NonFreeNet:'' deze externe dienst is niet open source.
