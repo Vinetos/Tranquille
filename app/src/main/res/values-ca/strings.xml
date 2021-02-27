@@ -140,7 +140,7 @@
     <string name="block_negative_sia_numbers_summary">Bloca trucades de números amb puntuació negativa (basat en una base de dades comunitària)</string>
     <string name="block_negative_sia">Bloca basat en puntuació</string>
     <string name="block_negative_sia_short">Bloca segons puntuació</string>
-    <string name="incoming_call_notifications">Notificacions de trucades entrants</string>
+    <string name="incoming_call_notifications">Notificacions de trucada entrant</string>
     <string name="notification_settings">Configuració de notificacions</string>
     <string name="blocked_call_notifications_disable_confirmation">Desactiva igualment</string>
     <string name="blocked_call_notifications_disable_message">Pots perdre una trucada accidentalment si les trucades es bloquen sense notificació</string>
