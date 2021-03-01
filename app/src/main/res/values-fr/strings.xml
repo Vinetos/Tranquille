@@ -16,7 +16,7 @@
     <string name="notification_incoming_call_unknown">Appel inconnu</string>
     <string name="notification_incoming_call_negative">Appel négatif</string>
     <string name="notification_blocked_call">Appel bloqué</string>
-    <string name="notification_incoming_call_text_description">Négatif : %1$d, positif : %2$d, neutr : %3$d</string>
+    <string name="notification_incoming_call_text_description">Négatif : %1$d, positif : %2$d, neutre : %3$d</string>
     <string name="notification_background_operation">Opération en arrière-plan en cours…</string>
     <string name="sia_category_none">Aucune</string>
     <string name="sia_category_telemarketer">Télémarketing</string>
