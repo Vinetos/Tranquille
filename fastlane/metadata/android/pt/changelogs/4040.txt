@@ -1,0 +1,19 @@
+* Adicionada tradução espanhola.
+* Pequenas correcções.
+
+0.4.3:
+
+* Acções de notificação fixas.
+
+0.4.2:
+
+* Adicionada tradução holandesa.
+* Corrigido notificações de entrada de chamadas que não eram removidas em alguns dispositivos.
+* Adicionadas opções para desactivar notificações em dispositivos mais antigos.
+* Outras pequenas melhorias.
+
+0.4.1:
+
+* Novo ícone de aplicação.
+* Exibir categoria de número no ecrã de informação.
+* Alterado o ícone e cor da notificação de chamada bloqueada.

@@ -1,0 +1,2 @@
+* Dependências actualizadas.
+* Adicionados alguns metadados de fastlane.
