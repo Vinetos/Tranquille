@@ -1,2 +1,2 @@
-* Updated dependencies.
-* Added some fastlane metadata.
+* Dependências actualizadas.
+* Adicionados alguns metadados de fastlane.

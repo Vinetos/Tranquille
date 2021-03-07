@@ -1,11 +1,11 @@
-* Slightly improved notification content.
-* Added button to add review from the lookup screen.
-* Added Turkish translation thanks to Oğuz Ersen (@ersen).
-* Updated translations thanks to Yannis T. (@azakosath) and Evo (@verahawk).
+* Conteúdo de notificação ligeiramente melhorado.
+* Adicionado botão para adicionar revisão a partir do menu de pesquisa.
+* Adicionada tradução turca.
+* Traduções actualizadas, agradecimentos a Yannis T. (@azakosath) e Evo (@verahawk).
 
 0.5.5:
 
-* Added optional monitoring service (allows YACB to work on Xiaomi's MIUI).
-* Improved hidden number detection in "normal" mode.
-* Added Polish translation thanks to Evo (@verahawk).
-* Fixes and improvements.
+* Adicionado serviço de monitorização opcional (permite ao YACB trabalhar no MIUI da Xiaomi).
+* Melhoria da detecção de números ocultos no modo "normal".
+* Adicionada a tradução polaca.
+* Correcções e melhorias.

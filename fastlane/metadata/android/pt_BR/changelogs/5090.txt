@@ -1,5 +1,5 @@
-* "Name" from blacklist is displayed in more places.
-* Added separate horizontal layouts for some screens.
-* Improved UX of enabling/disabling the "advanced call blocking mode".
-* Updated translations thanks to Oğuz Ersen (@ersen) and Evo (@verahawk).
-* Other minor changes.
+* "Nome" da lista negra é mostrado em mais sítios.
+* Adicionados layouts horizontais separados em alguns menus.
+* Melhoria do UX de activação/desactivação do "modo de bloqueio avançado de chamadas".
+* Traduções actualizadas, agradecimentos a Oğuz Ersen (@ersen) e Evo (@verahawk).
+* Outras pequenas alterações.

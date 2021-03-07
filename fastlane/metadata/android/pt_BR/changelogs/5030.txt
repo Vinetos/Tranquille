@@ -1,17 +1,17 @@
-* Fixed crash in blacklist on Android 4.
-* Added Croatian translation thanks to Milo Ivir (@milotype).
+* Corrigido o erro na lista negra no Android 4.
+* Adicionada tradução croata.
 
 0.5.2:
 
-* Fixed crash during initial database download.
-* Updated French translation thanks to J. Lavoie.
+* Corrigido o erro durante o download inicial da base de dados.
+* Actualização da tradução francesa.
 
 0.5.1:
 
-* Added proper number lookup screen.
-* Added Ukrainian translation thanks to AgeNT2k6.
+* Adicionado um menu adequado de consulta de números.
+* Adicionada tradução ucraniana.
 
 0.5.0:
 
-* Added local blacklist with wildcard support (import of NoPhoneSpam backups is supported).
-* Added blocking of hidden numbers.
+* Adicionada lista negra local com suporte de asterisco (é suportada a importação de cópias de segurança do NoPhoneSpam).
+* Adicionado bloqueio de números ocultos.

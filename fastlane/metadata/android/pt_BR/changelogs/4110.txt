@@ -1,20 +1,20 @@
-* Fixes and improvements.
+* Correcções e melhorias.
 
 0.4.10:
 
-* Added dark theme.
+* Adicionado tema escuro.
 
 0.4.9:
 
-* Fixed a rare crash.
+* Corrigido um erro raro.
 
 0.4.8:
 
-* Add support for Direct Boot. Migration on first start may take some time.
-* Configurable number of calls on the main screen.
-* Other fixes and improvements.
+* Adicionado suporte para Direct Boot. A migração no primeiro arranque pode demorar algum tempo.
+* Número de chamadas configurável no ecrã principal.
+* Outras correcções e melhorias.
 
 0.4.7:
 
-* Added a button to add a review (via a web browser).
-* Other improvements.
+* Adicionado um botão para adicionar uma revisão (através de um web browser).
+* Outras melhorias.

@@ -1,22 +1,22 @@
-* Added a button to add a review (via a web browser).
-* Other improvements.
+* Adicionado um botão para adicionar uma avaliação (através de um web browser).
+* Outras melhorias.
 
 0.4.6:
 
-* Added "advanced call blocking mode".
-* Fixed initial DB downloading in some circumstances.
-* Minor fixes.
+* Acrescentado "modo de bloqueio avançado de chamadas".
+* Corrigido o descarregamento inicial de BD em algumas circunstâncias.
+* Correcções menores.
 
 0.4.5:
 
-* Fixed compatibility with older Android versions.
-* Small fixes.
+* Fixada a compatibilidade com versões mais antigas do Android.
+* Pequenas correcções.
 
 0.4.4:
 
-* Added Spanish translation thanks to Diego Sanguinetti (@sguinetti).
-* Small fixes.
+* Adicionada tradução espanhola.
+* Pequenas correcções.
 
 0.4.3:
 
-* Fixed notification actions.
+* Acções de notificação fixas.

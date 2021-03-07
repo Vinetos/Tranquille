@@ -1,2 +1,2 @@
-* Proper call blocking on Android 9.
-* Fixed handling of new calls during active calls.
+* Bloqueio adequado de chamadas no Android 9.
+* Tratamento fixo de novas chamadas durante as chamadas activas.
