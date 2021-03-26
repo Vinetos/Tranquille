@@ -207,7 +207,7 @@
     <string name="db_last_update_check">Последняя проверка: %s</string>
     <string name="db_last_update_check_never">никогда</string>
     <string name="db_last_update_check_checking">проверяем…</string>
-    <string name="motto">Легко блокируйте нежелательные звонки</string>
+    <string name="motto">Без труда блокируйте нежелательные вызовы</string>
     <string name="logo_description">Логотип</string>
     <string name="homepage">Домашняя страница проекта</string>
     <string name="faq">Часто задаваемые вопросы</string>
