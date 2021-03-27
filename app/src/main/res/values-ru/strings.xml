@@ -59,7 +59,7 @@
     <string name="notification_incoming_call_positive">Одобрено</string>
     <string name="denied_permissions_message">Из-за отсутствия разрешений следующие функции могут не работать:</string>
     <string name="feature_info">уведомления</string>
-    <string name="feature_call_blocking">блокировка звонков</string>
+    <string name="feature_call_blocking">блокировка вызовов</string>
     <string name="feature_contacts">использование контактов</string>
     <string name="denied_default_dialer_message">Продвинутый режим блокирования не сможет работать, поскольку приложение не назначено \"приложением для звонков\"</string>
     <string name="denied_call_screening_role_message">Продвинутый режим блокирования не сможет работать, поскольку приложение не назначено \"приложением для АОН и защиты от спама\"</string>
@@ -169,7 +169,7 @@
     <string name="number_pattern_hint">Введите номер в формате +СТРАНА-НОМЕР (как Android показал бы в списке вызовов). Используйте \"*\" как подстановку для нуля и более цифр и \"#\" для одной цифры.</string>
     <string name="info_icon_description">Инфо</string>
     <string name="contacts_are_not_blocked_blacklist_notice">Звонки от контактов никогда не блокируются (даже при совпадении с шаблоном)</string>
-    <string name="contacts_are_not_blocked_not_enabled">Звонки от контактов могут быть заблокированы, поскольку опция Доступ к контактам не включена!</string>
+    <string name="contacts_are_not_blocked_not_enabled">Звонки от контактов могут быть заблокированы, поскольку опция \"Доступ к контактам\" не включена!</string>
     <string name="contacts_are_not_blocked_no_permission">Звонки от контактов могут быть заблокированы, поскольку разрешение на доступ к контактам не предоставлено!</string>
     <string name="info_in_blacklist">В чёрном списке</string>
     <string name="info_in_blacklist_contact">В чёрном списке (контакты не блокируются)</string>
