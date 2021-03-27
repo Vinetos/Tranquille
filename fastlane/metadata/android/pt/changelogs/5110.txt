@@ -1,0 +1,4 @@
+* Adicionada uma opção para desactivar notificações para chamadas bloqueadas em versões antigas de Android.
+* Alterado o comportamento de bloqueio no modo Direct Boot: os números da lista negra não são bloqueados por defeito (consulte o problema #22 para detalhes).
+* Adicionada a tradução para português (Brasil).
+* Traduções atualizadas, agradecimentos a Milo Ivir (@milotype), J. Lavoie, Oğuz Ersen (@ersen).

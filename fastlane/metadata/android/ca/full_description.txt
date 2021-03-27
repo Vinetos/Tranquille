@@ -23,7 +23,7 @@ mitjançant una base de dades de números de telèfon aportats per la comunitat 
 
 Consulteu <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md"> preguntes més freqüents </a> per obtenir més informació.
 
-La base de dades de números de telèfon principal es descarrega des de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data"> un dipòsit de gitlab </a>.
+La base de dades de números de telèfon principal es descarrega des d'<a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">un dipòsit de gitlab </a>.
 <b> Les actualitzacions de la base de dades i les consultes de ressenyes detallades es realitzen mitjançant servidors de tercers. </b>
 No s’envia cap informació d’identificació de l’usuari (excepte el número de telèfon
 per al qual es carreguen les ressenyes detallades).

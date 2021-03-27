@@ -4,7 +4,7 @@
     <string name="call_log_grouping">Agrupa el registre de trucades</string>
     <string name="block_blacklisted">Bloca els números de la llista negra</string>
     <string name="incoming_call_notifications_summary">Mostra una notificació amb el resum del número de telèfon (puntuació, nombre de ressenyes, categoria) durant les trucades entrants</string>
-    <string name="show_notifications_for_blocked_calls_summary">Mostra la notificació desprès de blocar una trucada</string>
+    <string name="show_notifications_for_blocked_calls_summary">Mostra una notificació després de blocar una trucada</string>
     <string name="show_notifications_for_unknown_callers_summary">Mostra notificacions per trucades de desconeguts (ni en Contactes ni en la base de dades de números)</string>
     <string name="show_notifications_for_unknown_callers">Notificacions de trucades de desconeguts</string>
     <string name="show_notifications_for_known_callers_summary">Mostra notificacions per trucades de coneguts (números en Contactes)</string>
@@ -129,9 +129,9 @@
     <string name="use_contacts">Empra contactes</string>
     <string name="auto_updates_summary">Rep actualitzacions diàries de la BD automàticament (aquestes són actualitzacions incrementals, consumeixen poc tràfic)</string>
     <string name="auto_updates">Actualitza la base de dades automàticament</string>
-    <string name="use_monitoring_service_summary">Activa un servei de vigilància sempre actiu que ajuda amb la recepció de events de telefonia en alguns telèfons. Activa aquesta característica només si el bloqueig de trucades i les notificacions informatives no funcionen. Aquesta característica no té cap efecte en la vida de la bateria</string>
+    <string name="use_monitoring_service_summary">Activa un servei de vigilància sempre actiu que ajuda amb la recepció d\'esdeveniments de telefonia en alguns telèfons. Activa aquesta característica només si el bloqueig de trucades i les notificacions informatives no funcionen. Aquesta característica no té cap efecte en la vida de la bateria</string>
     <string name="use_monitoring_service">Empra un servei de vigilància</string>
-    <string name="use_call_screening_service_summary">Permet blocar trucades abans de que el telèfon comenci a sonar. Requereix que l\'aplicació es configuri com «Aplicació de telèfon» (Android 7–9) o com a «Aplicació d\'identificació de trucades» (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Permet blocar trucades abans que el telèfon comenci a sonar. Requereix que l\'aplicació es configuri com «Aplicació de telèfon» (Android 7–9) o com «Aplicació d\'identificació de trucades» (Android 10+)</string>
     <string name="use_call_screening_service">Mode de bloqueig avançat</string>
     <string name="block_blacklisted_summary">Bloca les trucades de números afegits a la llista negra</string>
     <string name="block_blacklisted_short">Bloca la llista negra</string>
@@ -140,7 +140,7 @@
     <string name="block_negative_sia_numbers_summary">Bloca trucades de números amb puntuació negativa (basat en una base de dades comunitària)</string>
     <string name="block_negative_sia">Bloca basat en puntuació</string>
     <string name="block_negative_sia_short">Bloca segons puntuació</string>
-    <string name="incoming_call_notifications">Notificacions de trucades entrants</string>
+    <string name="incoming_call_notifications">Notifica trucades entrants</string>
     <string name="notification_settings">Configuració de notificacions</string>
     <string name="blocked_call_notifications_disable_confirmation">Desactiva igualment</string>
     <string name="blocked_call_notifications_disable_message">Pots perdre una trucada accidentalment si les trucades es bloquen sense notificació</string>
