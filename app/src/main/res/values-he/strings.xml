@@ -77,7 +77,7 @@
     <string name="auto_updates">עדכון אוטומטי של מסד הנתונים</string>
     <string name="use_monitoring_service_summary">מתן אפשרות לשירות ניטור הפועל תמיד ומסייע בקבלת אירועי טלפוניה בטלפונים מסוימים. הפוך תכונה זו לזמינה רק אם חסימת שיחות והודעות מידע אינן פועלות. לתכונה זו אין השפעה על חיי הסוללה</string>
     <string name="use_monitoring_service">שימוש בשירות ניטור</string>
-    <string name="use_call_screening_service_summary">מאפשר לחסום שיחות לפני שהטלפון מתחיל לצלצל. נדרש להגדיר את היישום כ\"יישום הטלפון \"(Android 7-9) או כ\"יישום שיחה מזוהה\" (Android 10+)</string>
+    <string name="use_call_screening_service_summary">מאפשר לחסום שיחות לפני שהטלפון מתחיל לצלצל. נדרש להגדיר את היישום כ\"יישום הטלפון \"(Android 7–9) או כ\"יישום שיחה מזוהה\" (Android 10+)</string>
     <string name="use_call_screening_service">מצב חסימת שיחות מתקדם</string>
     <string name="block_blacklisted_summary">חסימת שיחות ממספרים שנוספו לרשימה השחורה</string>
     <string name="block_blacklisted">חסימת מספרים המופיעים ברשימה השחורה</string>

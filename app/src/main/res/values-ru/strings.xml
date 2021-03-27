@@ -31,7 +31,7 @@
     <string name="use_call_screening_service">Продвинутый режим блокировки вызовов</string>
     <string name="use_call_screening_service_summary">Позволяет блокировать вызовы до того, как телефон начнёт звонить. Это требует назначить приложение \"приложением для звонков\" (на Android 7–9) или \"приложением для АОН и защиты от спама\" (на Android 10+)</string>
     <string name="auto_updates">Автообновление базы номеров</string>
-    <string name="auto_updates_summary">Автоматическое получение ежедневных обновлений базы данных (это инкрементальные/дельта-обновления, поэтому они потребляют очень мало трафика)</string>
+    <string name="auto_updates_summary">Автоматическое получение ежедневных обновлений базы номеров (это инкрементальные/дельта-обновления, поэтому они потребляют очень мало трафика)</string>
     <string name="open_db_management_activity">Управление базой данных</string>
     <string name="db_management_activity_label">Управление базой данных</string>
     <string name="db_management_db_info">Информация о базе данных</string>
