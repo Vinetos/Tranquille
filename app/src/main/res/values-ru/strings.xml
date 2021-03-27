@@ -179,7 +179,7 @@
     <string name="lookup_error_not_a_number">Необходимо указать телефонный номер</string>
     <string name="lookup_clear_number">Очистить номер</string>
     <string name="lookup_paste_number">Вставить номер</string>
-    <string name="lookup_query_db">Искать в базе данных</string>
+    <string name="lookup_query_db">Искать (офлайн)</string>
     <string name="lookup_load_reviews">Показать online-отзывы</string>
     <string name="lookup_number_not_found">Не найдено</string>
     <string name="lookup_res_category">Категория: %d</string>
