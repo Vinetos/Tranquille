@@ -7,7 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-Nothing.
+### Added
+
+- Esperanto translation thanks to phlostically ([@phlostically](https://hosted.weblate.org/user/phlostically/)).
+- Portuguese translation thanks to José ([@lanegan](https://hosted.weblate.org/user/lanegan/)).
+- Completed Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)).
+- Hebrew translation thanks to Tzvika ([@shiloni](https://hosted.weblate.org/user/shiloni/)).
+
+### Changed
+
+- Updated Russian translation thanks to Andrey ([@anm](https://hosted.weblate.org/user/anm/)).
+- Updated Catalan translation thanks to Raul ([@raulvo](https://hosted.weblate.org/user/raulvo/)).
 
 
 ## [0.5.13] - 2021-02-23
