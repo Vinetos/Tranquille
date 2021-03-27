@@ -8,7 +8,7 @@
     <string name="lookup_res_category">Kategori: %d</string>
     <string name="lookup_number_not_found">Bulunamadı</string>
     <string name="lookup_load_reviews">Değerlendirmeleri yükle (çevrim içi)</string>
-    <string name="lookup_query_db">Veri tabanında ara</string>
+    <string name="lookup_query_db">Ara (çevrim dışı)</string>
     <string name="lookup_paste_number">Numarayı yapıştır</string>
     <string name="lookup_clear_number">Numarayı temizle</string>
     <string name="lookup_error_not_a_number">Telefon numarası bekleniyor</string>
@@ -77,7 +77,7 @@
     <string name="ui_mode">Kullanıcı arayüzü teması</string>
     <string name="use_contacts_summary">Kişilerde bulunan numaralar hiçbir zaman engellenmez ve kişi adı uygulama boyunca bir numara yerine/yanında görüntülenir</string>
     <string name="use_contacts">Kişileri kullan</string>
-    <string name="auto_updates_summary">Günlük veri tabanı güncellemelerini otomatik olarak al (bunlar artımlı/delta güncellemelerdir, bu nedenle çok az veri harcarlar)</string>
+    <string name="auto_updates_summary">Numara veri tabanının günlük güncellemelerini otomatik olarak al (bunlar artımlı/delta güncellemelerdir, bu nedenle çok az veri harcarlar)</string>
     <string name="use_monitoring_service_summary">Bazı telefonlarda telefon olaylarının alınmasına yardımcı olan, sürekli çalışan bir izleme hizmetini etkinleştirir. Bu özelliği sadece arama engelleme ve bilgilendirme bildirimleri çalışmıyorsa etkinleştirin. Bu özelliğin pil ömrü üzerinde hiçbir etkisi yoktur</string>
     <string name="use_monitoring_service">Bir izleme hizmeti kullan</string>
     <string name="use_call_screening_service_summary">Telefon çalmaya başlamadan önce aramaları engellemeye izin verir. Uygulamanın \"Telefon uygulaması\" (Android 7–9) veya \"Arayan kimliği uygulaması\" (Android 10+) olarak ayarlanması gerekir</string>
@@ -90,7 +90,7 @@
     <string name="block_negative_sia_numbers_summary">(Bir topluluk veri tabanına göre) olumsuz derecelendirmeye sahip numaralardan gelen aramaları engelle</string>
     <string name="block_negative_sia">Derecelendirmeye dayanarak engelle</string>
     <string name="block_negative_sia_short">Derecelendirmeye göre engelle</string>
-    <string name="incoming_call_notifications_summary">Gelen aramalar sırasında telefon numarası özetini (derecelendirme, değerlendirme sayısı, kategori) içeren bir bildirim görüntüler</string>
+    <string name="incoming_call_notifications_summary">Gelen aramalar sırasında telefon numarası özetini (derecelendirme, değerlendirme sayısı, kategori) içeren bir bildirim görüntüle</string>
     <string name="incoming_call_notifications">Gelen arama bildirimleri</string>
     <string name="show_notifications_for_unknown_callers_summary">Bilinmeyen arayanlar için bildirimleri görüntüle (ne Kişilerde ne de numara veri tabanında kayıtlı)</string>
     <string name="show_notifications_for_unknown_callers">Bilinmeyen arayanlar için bildirimler</string>
@@ -204,7 +204,7 @@
     </plurals>
     <string name="block_in_limited_mode_blacklist">Kara listeye göre</string>
     <string name="block_in_limited_mode_rating">Derecelendirmeye göre</string>
-    <string name="block_in_limited_mode_summary">Doğrudan Önyükleme modunda izin verilen engelleme türleri (Kişiler bu modda güvenilir bir şekilde beyaz listeye alınamaz)</string>
+    <string name="block_in_limited_mode_summary">Doğrudan Önyükleme modunda izin verilen engelleme türleri (Kişiler bu modda güvenilir bir şekilde beyaz liste olarak kullanılamaz)</string>
     <string name="block_in_limited_mode">Doğrudan Önyükleme modunda engelle</string>
     <string name="blocked_call_notifications_disable_confirmation">Yine de devre dışı bırak</string>
     <string name="blocked_call_notifications_disable_message">Aramalar bildirim olmadan engellenirse, yanlışlıkla bir aramayı kaçırabilirsiniz</string>
