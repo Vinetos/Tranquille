@@ -60,7 +60,7 @@
     <string name="incoming_call_notifications">Inkomende oproep-meldingen</string>
     <string name="auto_updates">Databank automatisch bijwerken</string>
     <string name="use_contacts">Contactpersonen uitlezen</string>
-    <string name="lookup_query_db">Databank raadplegen</string>
+    <string name="lookup_query_db">Zoeken (offline)</string>
     <string name="lookup_load_reviews">Online-recensies tonen</string>
     <string name="db_management_db_info">DB-informatie</string>
     <string name="db_management_update_db">Databank bijwerken</string>
@@ -140,7 +140,7 @@
     <string name="export_logcat">Logboek exporteren</string>
     <string name="save_logcat_on_crash_summary">Sla een logboek op na crashes (naast de standaard stacktrace)</string>
     <string name="save_logcat_on_crash">Logboek opslaan na crash</string>
-    <string name="save_crashes_to_external_storage">Rapportages opslaan op openbare opslagruimte</string>
+    <string name="save_crashes_to_external_storage">Verslagen opslaan op openbare opslagruimte</string>
     <string name="settings_category_debugging">Foutopsporing</string>
     <string name="database_download_url">Primaire download-url van databank</string>
     <string name="country_code_incorrect_format">Onjuiste landcode-opmaak - de waarde is niet bijgewerkt</string>
@@ -206,8 +206,8 @@
     <string name="reviews_loading_error">De recensies kunnen niet worden geladen</string>
     <string name="notification_channel_name_monitoring_service">Monitoringsdienst</string>
     <string name="notification_channel_group_name_services">Diensten</string>
-    <string name="export_logcat_summary">Exporteer en deel de logboekinhoud met een app naar keuze (bijv. een e-mailapp). De rapportages kunnen gevoelige gegevens bevatten, zoals telefoonnummers en namen van contactpersonen. Alleen de gekozen app heeft toegang tot deze gegevens.</string>
-    <string name="save_crashes_to_external_storage_summary">Sla crashrapportages en logboeken op op de openbare opslagruimte van je apparaat in plaats van in een privémap. De rapportages kunnen gevoelige informatie bevatten, zoals telefoonnummers en namen van contactpersonen. Andere apps met toegang tot je opslag hebben mogelijk toegang tot deze gegevens</string>
+    <string name="export_logcat_summary">Exporteer en deel de logboekinhoud met een app naar keuze (bijv. een e-mailapp). De verslagen kunnen gevoelige gegevens bevatten, zoals telefoonnummers en namen van contactpersonen. Alleen de gekozen app heeft toegang tot deze gegevens.</string>
+    <string name="save_crashes_to_external_storage_summary">Sla crashverslagen en logboeken op op de openbare opslagruimte van je apparaat in plaats van in een privémap. De verslagen kunnen gevoelige informatie bevatten, zoals telefoonnummers en namen van contactpersonen. Andere apps met toegang tot je opslag hebben mogelijk toegang tot deze gegevens</string>
     <string name="country_codes_info_summary">Landcodes worden gebruikt in verzoeken aan externe servers. Deze codes proberen het gedrag van de officiële externe app na te bootsen. Als de codes overeenkomen met het land waarin je je bevindt (mogelijk op basis van je ip-adres), dan lijken je verzoeken niet verdacht. Standaard wordt automatische herkenning gebruikt (op basis van je mobielenetwerkinformatie of systeemtaal). Dit is bij de meeste mensen afdoende, maar je kunt de codes ook handmatig instellen. De codes dienen ISO 3166-codes met 2 letters te zijn (zoals in de VS)</string>
     <string name="use_monitoring_service_summary">Schakelt een altijd actieve monitoringsdienst in die helpt telefoniegebeurtenissen te onderscheppen. Schakel dit alleen in als oproepblokkering en meldingen niet werken. Deze functie heeft geen invloed op de accuduur</string>
 </resources>
