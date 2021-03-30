@@ -51,7 +51,7 @@
     <string name="lookup_res_category">Categoria: %d</string>
     <string name="lookup_number_not_found">Não encontrado</string>
     <string name="lookup_load_reviews">Baixar as avaliações (online)</string>
-    <string name="lookup_query_db">Consultar o BD</string>
+    <string name="lookup_query_db">Pesquisar (offline)</string>
     <string name="lookup_paste_number">Colar o número</string>
     <string name="lookup_clear_number">Limpar o número</string>
     <string name="lookup_error_not_a_number">Espera-se um número de telefone</string>
@@ -205,7 +205,7 @@
     </plurals>
     <string name="block_in_limited_mode_blacklist">Lista negra</string>
     <string name="block_in_limited_mode_rating">Por avaliação</string>
-    <string name="block_in_limited_mode_summary">Tipos de bloqueio permitidos no modo Inicialização Direta (os Contatos não podem ser listados confiavelmente na lista branca neste modo)</string>
+    <string name="block_in_limited_mode_summary">Tipos de bloqueio permitidos no modo Inicialização Direta (os Contatos não podem ser usados confiavelmente como uma lista branca neste modo)</string>
     <string name="block_in_limited_mode">Bloquear no modo Inicialização Direta</string>
     <string name="blocked_call_notifications_disable_confirmation">Desativar mesmo assim</string>
     <string name="blocked_call_notifications_disable_message">Você pode acidentalmente perder uma chamada se as chamadas forem bloqueadas sem notificações</string>
