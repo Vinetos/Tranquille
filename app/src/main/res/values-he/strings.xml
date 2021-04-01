@@ -61,7 +61,7 @@
     <string name="settings_category_country_codes">קודי מדינה</string>
     <string name="block_in_limited_mode_blacklist">ברשימה השחורה</string>
     <string name="block_in_limited_mode_rating">לפי דירוג</string>
-    <string name="block_in_limited_mode_summary">סוגים מותרים של חסימה במצב אתחול ישיר (לא ניתן להשתמש באנשי קשר באופן אמין כרשימה לבנה במצב זה)</string>
+    <string name="block_in_limited_mode_summary">סוגי חסימה מותרים במצב אתחול ישיר (לא ניתן להזין אנשי קשר באופן מהימן במצב זה)</string>
     <string name="block_in_limited_mode">חסימה במצב אתחול ישיר</string>
     <string name="settings_screen_advanced">הגדרות מתקדמות</string>
     <string name="call_log_grouping_day">לא רצוף ביום</string>
