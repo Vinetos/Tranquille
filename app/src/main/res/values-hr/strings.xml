@@ -3,7 +3,7 @@
     <string name="sia_category_silent">Šutnja</string>
     <string name="export_logcat_summary">Izvezi i dijeli sadržaja logcata sa željenim programom (na primjer, s klijentom e-pošte). Izvještaji mogu sadržavati osjetljive podatke (telefonske brojeve, imena kontakata). Pristup ovim podacima imat će samo odabrani program</string>
     <string name="sia_category_call_center">Call centar</string>
-    <string name="lookup_query_db">Pretraži bazu podataka</string>
+    <string name="lookup_query_db">Traži (neumreženo)</string>
     <plurals name="blacklist_item_stats">
         <item quantity="one">Pozvan %2$s</item>
         <item quantity="few">%1$d poziva, zadnji: %2$s</item>
@@ -35,7 +35,7 @@
     <string name="notification_blocked_call">Blokirani poziv</string>
     <string name="block_blacklisted">Blokiraj brojeve u popisu nepoželjnih</string>
     <string name="sia_category_robocall">Robot</string>
-    <string name="auto_updates_summary">Automatski primaj dnevna aaktualiziranja baze podataka (to su inkrementalna/delta aaktualiziranja, tako da troši malo prometa)</string>
+    <string name="auto_updates_summary">Automatski primaj dnevna aktualiziranja baze podataka brojeva (inkrementalna/delta aktualiziranja, stoga troši malo prometa)</string>
     <string name="info_in_blacklist">U popisu nepoželjnih</string>
     <string name="sia_category_service">Usluga</string>
     <string name="load_reviews_confirmation_message">Učitavanjem mrežnih recenzija, taj će broj saznati strana usluga. Je li to stvarno želiš učiniti s brojem u kontaktima\?</string>
@@ -99,7 +99,7 @@
     <string name="notification_channel_name_neutral">Neutralni pozivi</string>
     <string name="info_in_blacklist_contact">U popisu nepoželjnih (kontakti se ne blokiraju)</string>
     <string name="lookup_res_category">Kategorija: %d</string>
-    <string name="incoming_call_notifications_summary">Prikazuje obavijest sa sažetkom telefonskog broja (ocjena, broj recenzija, kategorija) tijekom dolaznih poziva</string>
+    <string name="incoming_call_notifications_summary">Prikaži obavijest sa sažetkom telefonskog broja (ocjena, broj recenzija, kategorija) tijekom dolaznih poziva</string>
     <string name="notification_background_operation">Izvršavanje pozadinskih zadataka …</string>
     <string name="lookup_paste_number">Umetni broj</string>
     <string name="show_notifications_for_known_callers_summary">Prikaži obavijesti za poznate pozivače (brojevi se nalaze u kontaktima)</string>
@@ -130,7 +130,7 @@
     <string name="notification_channel_group_name_incoming_calls">Dolazni pozivi</string>
     <string name="title_lookup_number">Potraži broj</string>
     <string name="done">Gotovo</string>
-    <string name="lookup_load_reviews">Učitaj recenzije (mrežne)</string>
+    <string name="lookup_load_reviews">Učitaj recenzije (umreženo)</string>
     <string name="open_db_management_activity">Upravljaj bazom podataka</string>
     <string name="feature_info">obavijesti</string>
     <string name="settings_screen_advanced">Napredne postavke</string>
@@ -207,7 +207,7 @@
     </plurals>
     <string name="block_in_limited_mode_blacklist">Nepoželjni</string>
     <string name="block_in_limited_mode_rating">Po ocjeni</string>
-    <string name="block_in_limited_mode_summary">Dopuštene vrste blokiranja u modusu izravnog pokretanja (kontakti se u ovom modusu ne mogu pouzdano staviti na popis odobrenih)</string>
+    <string name="block_in_limited_mode_summary">Dopuštene vrste blokiranja u modusu izravnog pokretanja (kontakti se u ovom modusu ne mogu pouzdano koristiti kao popis odobrenih)</string>
     <string name="block_in_limited_mode">Blokiraj u modusu izravnog pokretanja</string>
     <string name="blocked_call_notifications_disable_confirmation">Svejedno deaktiviraj</string>
     <string name="blocked_call_notifications_disable_message">Ako se pozivi blokiraju bez obavještavanja, možda ćeš propustiti neke pozive</string>

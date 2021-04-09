@@ -30,7 +30,7 @@
     <string name="lookup_res_category">קטגוריה: %d</string>
     <string name="lookup_number_not_found">לא נמצא</string>
     <string name="lookup_load_reviews">טען ביקורות (באינטרנט)</string>
-    <string name="lookup_query_db">ביצוע שאילתה למסד נתונים</string>
+    <string name="lookup_query_db">חיפוש (מקומי)</string>
     <string name="lookup_paste_number">הדבק מספר</string>
     <string name="lookup_clear_number">נקה מספר</string>
     <string name="lookup_hint_input_number">מספר טלפון</string>
@@ -73,7 +73,7 @@
     <string name="ui_mode">ערכת נושא \'ממשק משתמש\'</string>
     <string name="use_contacts_summary">מספרים הנמצאים באנשי קשר לעולם אינם חסומים ושם איש הקשר מוצג ביישום לצד/במקום מספר</string>
     <string name="use_contacts">השתמש באנשי קשר</string>
-    <string name="auto_updates_summary">קבל באופן אוטומטי עדכוני מסד נתונים יומיים (אלה עדכונים מצטברים/דלתא, כך שהם צורכים מעט מאוד תעבורה)</string>
+    <string name="auto_updates_summary">קבל באופן אוטומטי עדכוני מסד נתונים מספריים יומיים (אלה עדכונים מצטברים/דלתא, כך שהם צורכים מעט מאוד תעבורה)</string>
     <string name="auto_updates">עדכון אוטומטי של מסד הנתונים</string>
     <string name="use_monitoring_service_summary">מתן אפשרות לשירות ניטור הפועל תמיד ומסייע בקבלת אירועי טלפוניה בטלפונים מסוימים. הפוך תכונה זו לזמינה רק אם חסימת שיחות והודעות מידע אינן פועלות. לתכונה זו אין השפעה על חיי הסוללה</string>
     <string name="use_monitoring_service">שימוש בשירות ניטור</string>
