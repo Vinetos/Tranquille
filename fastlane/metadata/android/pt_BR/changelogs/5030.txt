@@ -1,10 +1,10 @@
-* Corrigido o erro na lista negra no Android 4.
+* Corrigido o erro na lista restrita no Android 4.
 * Adicionada tradução croata.
 
 0.5.2:
 
 * Corrigido o erro durante o download inicial da base de dados.
-* Actualização da tradução francesa.
+* Atualização da tradução francesa.
 
 0.5.1:
 
@@ -13,5 +13,5 @@
 
 0.5.0:
 
-* Adicionada lista negra local com suporte de asterisco (é suportada a importação de cópias de segurança do NoPhoneSpam).
+* Adicionada lista restrita local com suporte de asterisco (é suportada a importação de cópias de segurança do NoPhoneSpam).
 * Adicionado bloqueio de números ocultos.

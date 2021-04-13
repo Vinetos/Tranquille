@@ -1,6 +1,6 @@
 * Corrigida a falha de arranque sem a permissão READ_CALL_LOG.
-* Corrigida a falha do editor da lista negra nas versões antigas do Android.
-* Traduções actualizadas, agradecimentos a Milo Ivir (@milótipo), Yannis T. (@azakosath), Evo (@verahawk).
+* Corrigida a falha do editor da lista restrita nas versões antigas do Android.
+* Traduções atualizadas, agradecimentos a Milo Ivir (@milótipo), Yannis T. (@azakosath), Evo (@verahawk).
 * Outras pequenas alterações.
 
 0.5.7:

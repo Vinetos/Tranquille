@@ -1,6 +1,6 @@
 * Adicionado suporte ao Direct Boot. A migração no primeiro arranque pode demorar algum tempo.
-* Número de chamadas configurável no ecrã principal.
-* Outras correcções e melhorias.
+* Número de chamadas configurável na tela principal.
+* Outras correções e melhorias.
 
 0.4.7:
 
@@ -11,4 +11,4 @@
 
 * Adicionado "modo de bloqueio avançado de chamadas".
 * Corrigido o descarregamento inicial de BD em algumas circunstâncias.
-* Correcções menores.
+* Correções menores.

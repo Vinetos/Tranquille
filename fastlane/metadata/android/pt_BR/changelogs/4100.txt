@@ -7,8 +7,8 @@
 0.4.8:
 
 * Adicionado suporte ao Direct Boot. A migração no primeiro arranque pode demorar algum tempo.
-* Número de chamadas configurável no ecrã principal.
-* Outras correcções e melhorias.
+* Número de chamadas configurável na tela principal.
+* Outras correções e melhorias.
 
 0.4.7:
 

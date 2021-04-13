@@ -5,18 +5,18 @@
 
 * Acrescentado "modo de bloqueio avançado de chamadas".
 * Corrigido o descarregamento inicial de BD em algumas circunstâncias.
-* Correcções menores.
+* Correções menores.
 
 0.4.5:
 
 * Fixada a compatibilidade com versões mais antigas do Android.
-* Pequenas correcções.
+* Pequenas correções.
 
 0.4.4:
 
 * Adicionada tradução espanhola.
-* Pequenas correcções.
+* Pequenas correções.
 
 0.4.3:
 
-* Acções de notificação fixas.
+* Ações de notificação fixas.
