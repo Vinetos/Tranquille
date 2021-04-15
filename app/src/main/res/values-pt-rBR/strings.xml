@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="no_main_db_text">O banco de dados não está disponível. Para que o aplicativo execute a maioria de suas funções, você precisa fazer o download do DB. O arquivo tem cerca de 25 MB.</string>
+    <string name="no_main_db_text">O banco de dados não está disponível. Para que o aplicativo execute a maioria de suas funções, você precisa fazer o download do BD. O arquivo tem cerca de 25 MB.</string>
     <string name="number_pattern_hint">Digite o número em formato nacional (como o Android mostraria em seu discador). Use \"*\" como curinga para zero ou mais dígitos, e \"#\" para exatamente um dígito.</string>
     <string name="save_logcat_on_crash_summary">Salva o logcat em caso de erro (além de um básico stacktrace (rastreamento de pilha) )</string>
     <string name="country_code_override_summary">Código do país utilizado em todos os pedidos. Deixar em branco para autodetecção</string>
@@ -20,10 +20,10 @@
     <string name="sia_category_silent">Silenciosa</string>
     <string name="sia_category_nuisance">Perturbação</string>
     <string name="sia_category_unsolicited">Não solicitada</string>
-    <string name="notification_background_operation">Executando operação em segundo plano…</string>
+    <string name="notification_background_operation">Operação de fundo em curso…</string>
     <string name="notification_channel_name_blocked_info">Informação de bloqueio</string>
     <string name="app_name">Yet Another Call Blocker</string>
-    <string name="db_management_reset_secondary">Reiniciar atualizações</string>
+    <string name="db_management_reset_secondary">Redefinir atualizações</string>
     <string name="edit_blacklist_item_number_pattern">Padrão numérico</string>
     <string name="sia_category_call_center">Call center</string>
     <string name="license">Este aplicativo é licenciado somente sob AGPL-3.0.</string>
@@ -57,15 +57,15 @@
     <string name="lookup_error_not_a_number">Espera-se um número de telefone</string>
     <string name="lookup_hint_input_number">Número de telefone</string>
     <string name="title_lookup_number">Pesquisar número</string>
-    <string name="db_management_update_result">Atualização terminada; DB ver: %d</string>
-    <string name="db_management_update_db">Atualizar o DB</string>
-    <string name="db_management_reset_base">Reiniciar o DB</string>
-    <string name="db_management_db_info">Informações do DB</string>
-    <string name="db_management_activity_label">Gestão do DB</string>
+    <string name="db_management_update_result">Atualização terminada; BD ver: %d</string>
+    <string name="db_management_update_db">Atualizar o BD</string>
+    <string name="db_management_reset_base">Redefinir o BD</string>
+    <string name="db_management_db_info">Informações do BD</string>
+    <string name="db_management_activity_label">Gestão do BD</string>
     <string name="open_db_management_activity">Gerenciar o banco de dados</string>
-    <string name="add_to_blacklist">Adicionar à lista restrita</string>
-    <string name="info_in_blacklist_contact">Na lista restrita (os Contatos não são bloqueados)</string>
-    <string name="info_in_blacklist">Na lista restrita</string>
+    <string name="add_to_blacklist">Adicionar à lista negra</string>
+    <string name="info_in_blacklist_contact">Na lista negra (os Contatos não são bloqueados)</string>
+    <string name="info_in_blacklist">Na lista negra</string>
     <string name="contacts_are_not_blocked_no_permission">Chamadas de contatos podem ser bloqueadas se a permissão de \"Contatos\" não foi concedida!</string>
     <string name="contacts_are_not_blocked_not_enabled">Chamadas de contatos podem ser bloqueadas se a opção \"Usar contatos\" não estiver habilitada!</string>
     <string name="contacts_are_not_blocked_blacklist_notice">Chamadas de contatos nunca são bloqueadas (mesmo se os padrões combinam)</string>
@@ -87,8 +87,8 @@
         <item quantity="one">Telefonou %2$s</item>
         <item quantity="other">%1$d chamadas, última: %2$s</item>
     </plurals>
-    <string name="title_blacklist_activity">Lista restrita</string>
-    <string name="open_blacklist_activity">Lista restrita</string>
+    <string name="title_blacklist_activity">Lista negra</string>
+    <string name="open_blacklist_activity">Lista negra</string>
     <plurals name="selected_count">
         <item quantity="one">%1$d selecionado</item>
         <item quantity="other">%1$d selecionados</item>
@@ -101,7 +101,7 @@
     <string name="save_crashes_to_external_storage_summary">Salva os relatórios de erros e registros para o armazenamento público, caso contrário, os relatórios de erros são salvos em uma pasta privada do aplicativo. Os relatórios podem conter dados sigilosos (números de telefone, nomes de contato). Outros aplicativos com permissão de armazenamento podem ter acesso a estes dados no armazenamento público</string>
     <string name="save_crashes_to_external_storage">Salvar relatórios para armazenamento público</string>
     <string name="settings_category_debugging">Depuração</string>
-    <string name="database_download_url">URL principal para download do DB</string>
+    <string name="database_download_url">URL principal para download do BD</string>
     <string name="country_code_incorrect_format">Formato incorreto do código do país. O valor não foi atualizado</string>
     <string name="country_code_for_reviews_override_summary">Código do país utilizado nos pedidos de avaliações online. Destina-se a representar o país do autor da chamada. Deixar em branco para autodetecção</string>
     <string name="country_code_for_reviews_override">Código do país para avaliações</string>
@@ -120,13 +120,13 @@
     <string name="use_contacts_summary">Os números presentes nos Contatos nunca são bloqueados e o nome do contato é exibido ao lado de/no lugar de um número em todo o aplicativo</string>
     <string name="use_contacts">Usar Contatos</string>
     <string name="auto_updates_summary">Recebe automaticamente atualizações diárias do banco de dados (estas são atualizações incrementais/delta, portanto consomem muito pouco tráfego)</string>
-    <string name="auto_updates">Auto-atualizar o DB</string>
+    <string name="auto_updates">Auto-atualizar o BD</string>
     <string name="use_monitoring_service">Usar o serviço de monitoramento</string>
     <string name="use_call_screening_service_summary">Permite bloquear chamadas antes que o telefone comece a tocar. Requer que o app seja configurado como o \"app de Telefone\" (Android 7–9) ou como o \"app Identificador de Chamadas\" (Android 10+)</string>
     <string name="use_call_screening_service">Modo avançado de bloqueio de chamada</string>
-    <string name="block_blacklisted_summary">Bloqueia chamadas de números adicionados à lista restrita</string>
-    <string name="block_blacklisted">Bloquear números da lista restrita</string>
-    <string name="block_blacklisted_short">Bloquear a lista restrita</string>
+    <string name="block_blacklisted_summary">Bloqueia chamadas de números adicionados à lista negra</string>
+    <string name="block_blacklisted">Bloquear números da lista negra</string>
+    <string name="block_blacklisted_short">Bloquear a lista negra</string>
     <string name="block_hidden_number_summary">Bloqueia chamadas de números ocultos. Pode funcionar de forma diferente (melhor ou pior) no \"Modo avançado de bloqueio de chamadas\"</string>
     <string name="block_hidden_number">Bloquear números ocultos</string>
     <string name="block_negative_sia_numbers_summary">Bloqueia chamadas de números com avaliação negativa (baseada em um banco de dados comunitário)</string>
@@ -134,7 +134,7 @@
     <string name="block_negative_sia">Bloquear baseado em avaliação</string>
     <string name="incoming_call_notifications">Notificações de chamadas recebidas</string>
     <string name="notification_settings">Configurações de notificação</string>
-    <string name="show_notifications_for_unknown_callers_summary">Exibir notificações para chamadas desconhecidas (nem nos Contatos nem nos números do DB)</string>
+    <string name="show_notifications_for_unknown_callers_summary">Exibir notificações para chamadas desconhecidas (nem nos Contatos nem nos números do BD)</string>
     <string name="show_notifications_for_unknown_callers">Notificações de chamadas desconhecidas</string>
     <string name="show_notifications_for_known_callers_summary">Exibir notificações para chamadas conhecidas (números de Contatos)</string>
     <string name="show_notifications_for_known_callers">Notificações de chamadas conhecidas</string>
@@ -149,8 +149,8 @@
     <string name="back">Voltar</string>
     <string name="add_web_review">Adicionar avaliação (web)</string>
     <string name="online_reviews">Avaliações online</string>
-    <string name="secondary_db_updating">Atualizando o DB…</string>
-    <string name="main_db_downloading">Baixando o DB…</string>
+    <string name="secondary_db_updating">Atualizando o BD…</string>
+    <string name="main_db_downloading">Baixando o BD…</string>
     <string name="download_main_db">Download do banco de dados</string>
     <string name="no_main_db_title">Download do banco de dados principal</string>
     <string name="call_log_permission_message">Conceder permissão de \"Telefone\" para ver as chamadas recentes</string>
@@ -203,7 +203,7 @@
         <item quantity="one">Selecionado: %s</item>
         <item quantity="other">Selecionados: %s</item>
     </plurals>
-    <string name="block_in_limited_mode_blacklist">Lista restrita</string>
+    <string name="block_in_limited_mode_blacklist">Lista negra</string>
     <string name="block_in_limited_mode_rating">Por avaliação</string>
     <string name="block_in_limited_mode_summary">Tipos de bloqueio permitidos no modo Inicialização Direta (os Contatos não podem ser usados confiavelmente como uma lista branca neste modo)</string>
     <string name="block_in_limited_mode">Bloquear no modo Inicialização Direta</string>
