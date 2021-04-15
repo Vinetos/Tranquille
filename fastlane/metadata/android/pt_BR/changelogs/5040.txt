@@ -1,10 +1,10 @@
-* Adicionado suporte para números sem prefixo internacional (apenas Android 5+).
-* Tradução norueguesa de Bokmål e algumas pequenas correções.
-* Atualização da tradução ucraniana
-* Adicionado tradução grega.
+* Incluído suporte para números sem prefixo internacional (apenas Android 5+).
+* Tradução norueguesa de Bokmål e algumas pequenas correções graças a Allan Nordhøy (@kingu).
+* Atualização da tradução ucraniana graças a Olexandr Nesterenko (@burunduk).
+* Incluída tradução grega graças a Yannis T. (@azakosath).
 * Correções e melhorias.
 
 0.5.3:
 
-* Corrigido o erro na lista restrita no Android 4.
-* Adicionada tradução croata.
+*Reparado o erro na lista negra do Android 4.
+*Incluída tradução croata graças a Milo Ivir (@milotype).

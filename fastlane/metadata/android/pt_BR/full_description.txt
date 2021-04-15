@@ -5,7 +5,7 @@
 
 * Usa banco de dados offline.
 * Bloqueia chamadas com avaliação negativa automaticamente (opcional).
-* Lista restrita local com suporte a curinga.
+* Lista negra local com suporte a curinga.
 * Exibe uma notificação com informações resumidas do número de telefone (avaliação, contagem de comentários, categoria) durante as chamadas recebidas (opcional).
 * Atualizações incrementais automáticas do banco de dados (opcional).
 * Você pode visualizar análises online para as chamadas recebidas (fornecido por um serviço de terceiros).

@@ -1,2 +1,2 @@
 * Bloqueio adequado de chamadas no Android 9.
-* Tratamento fixo de novas chamadas durante as chamadas ativas.
+* Reparado o processamento de novas chamadas durante as chamadas ativas.

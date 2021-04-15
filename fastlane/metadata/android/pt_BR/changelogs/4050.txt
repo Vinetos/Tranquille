@@ -1,18 +1,18 @@
-* Corrigida compatibilidade com versões mais antigas de Android.
-* Pequenas correções.
+*Corrigida compatibilidade com versões mais antigas de Android.
+*Pequenas correções.
 
 0.4.4:
 
-* Adicionada tradução em espanhol.
-* Pequenas correções.
+*Incluída tradução espanhola graças a D. Sanguinetti (@sguinetti).
+*Pequenas correções.
 
 0.4.3:
 
-* Ações de notificação fixas.
+*Reparadas as ações de notificação.
 
 0.4.2:
 
-* Adicionada tradução holandesa agradecimentos a Heimen Stoffels (@Vistaus).
-* Corrigido notificações de entrada de chamadas que não eram removidas em alguns dispositivos.
-* Adicionadas opções para desativar algumas das notificações em dispositivos mais antigos.
-* Outras pequenas melhorias.
+*Adicionada tradução holandesa graças a H. Stoffels (@Vistaus).
+*Reparadas notificações de chamadas recebidas que não eram removidas em alguns dispositivos.
+*Incluídas opções para desativar algumas das notificações em dispositivos mais antigos.
+*Outras melhorias.
