@@ -1,2 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="feature_call_blocking">blokiranje klicev</string>
+    <string name="feature_info">obvestila</string>
+    <string name="denied_permissions_message">Zaradi zavrnjenih dovoljenj naslednje funkcije morda ne bodo delovale:</string>
+    <string name="reviews_loading_error">Napaka pri nalaganju pregledov</string>
+    <string name="reviews_loading">Nalaganje pregledov…</string>
+    <string name="title_activity_reviews">Pregledi</string>
+    <string name="sia_category_safe_nonprofit">Varno neprofitno</string>
+    <string name="sia_category_safe_company">Varno podjetje</string>
+    <string name="sia_category_safe_personal">Osebno varno</string>
+    <string name="sia_category_robocall">Klicni robot</string>
+    <string name="sia_category_service">Storitev</string>
+    <string name="sia_category_company">Podjetje</string>
+    <string name="sia_category_financial_service">Finančne storitve</string>
+    <string name="sia_category_other">Ostalo</string>
+    <string name="sia_category_survey">Anketa</string>
+    <string name="sia_category_sms">SMS</string>
+    <string name="sia_category_prank">Potegavščina</string>
+    <string name="sia_category_scam">Prevara</string>
+    <string name="sia_category_political">Političen</string>
+    <string name="sia_category_nonprofit">Neprofitna org.</string>
+    <string name="sia_category_fax">FAX</string>
+    <string name="sia_category_call_center">Klicni center</string>
+    <string name="sia_category_unsolicited">Nezaželen</string>
+    <string name="sia_category_nuisance">Nadloga</string>
+    <string name="sia_category_silent">Tiho</string>
+    <string name="sia_category_dept_collector">Izterjevalec dolgov</string>
+    <string name="sia_category_telemarketer">Tržni prodajalec</string>
+    <string name="sia_category_none">Nobeden</string>
+    <string name="notification_background_operation">Izvajanje operacije v ozadju…</string>
+    <string name="notification_incoming_call_text_description">Negativno: %1$d,pozitivno: %2$d,nevtralno%3$d</string>
+    <string name="notification_blocked_call">Blokiran klic</string>
+    <string name="notification_incoming_call_negative">Negativni klic</string>
+    <string name="notification_incoming_call_unknown">Neznani klic</string>
+    <string name="notification_incoming_call_neutral">Neutralen klic</string>
+    <string name="notification_incoming_call_positive">Pozitivni klic</string>
+    <string name="notification_incoming_call_contact">Stik</string>
+    <string name="notification_channel_name_tasks">Naloge</string>
+    <string name="notification_channel_name_monitoring_service">Nadzor storitve</string>
+    <string name="notification_channel_name_blocked_info">Zavrnjene informacije</string>
+    <string name="notification_channel_name_negative">Negativni klici</string>
+    <string name="notification_channel_name_unknown">Neznani klici</string>
+    <string name="notification_channel_name_neutral">Nevtralni klici</string>
+    <string name="notification_channel_name_positive">Pozitivni klici</string>
+    <string name="notification_channel_name_known">Znani klici</string>
+    <string name="notification_channel_group_name_services">Storitve</string>
+    <string name="notification_channel_group_name_blocked_calls">Zavrnjeni klici</string>
+    <string name="notification_channel_group_name_incoming_calls">Dohodni klici</string>
+</resources>
