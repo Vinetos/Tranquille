@@ -12,7 +12,7 @@
     <string name="export_logcat_summary">Eksporti kaj sendi protokolon al programo elektebla de vi (ekzemple al retpoŝtilo). La raportoj povas enhavi konfidencajn datenojn (telefonnumerojn, kontaktonomojn). Nur la elektita programo atingos tiajn datenojn</string>
     <string name="country_code_for_reviews_override_summary">Landokodo uzata en petoj pri interretaj recenzoj, prezentanta la landon de la alvokanto. Lasu malplena por aŭtomate trovi</string>
     <string name="country_code_override_summary">Landokodo uzata en ĉiuj petoj. Lasu malplena por aŭtomate trovi</string>
-    <string name="auto_updates_summary">Aŭtomate ricevi ĉiutagajn datenbankajn ĝisdatigojn (tiuj estas alkrementaj ĝisdatigoj kaj tial uzas malmultege da trafiko)</string>
+    <string name="auto_updates_summary">Aŭtomate ricevi ĉiutagajn ĝisdatigojn de la datenbanko de telefonnumeroj (tiuj estas alkrementaj ĝisdatigoj kaj tial uzas malmultege da trafiko)</string>
     <string name="block_hidden_number_summary">Bloki alvokojn de kaŝitaj telefonnumeroj. Tio eble funkcios alie (pli aŭ malpli bone) en \"Altnivela reĝimo de blokado de alvokoj\"</string>
     <string name="block_negative_sia_numbers_summary">Bloki alvokojn de telefonnumeroj de negativa takso (laŭ komunuma datenbanko)</string>
     <string name="incoming_call_notifications_summary">Montri sciigon kun resumo pri telefonnumero (takso, recenzoj, kategorio) dum alvenantaj alvokoj</string>
@@ -133,7 +133,7 @@
     <string name="db_management_update_result">Ĝisdatigo finiĝis; datenbanka versio: %d</string>
     <string name="lookup_clear_number">Forviŝi telefonnumeron</string>
     <string name="title_lookup_number">Serĉi telefonnumeron</string>
-    <string name="lookup_query_db">Serĉi datenbankon</string>
+    <string name="lookup_query_db">Serĉi (senkonekte)</string>
     <string name="lookup_paste_number">Alglui telefonnumeron</string>
     <string name="title_edit_blacklist_item_activity">Redakti telefonnumeron</string>
     <string name="title_add_blacklist_item_activity">Aldoni telefonnumeron</string>
