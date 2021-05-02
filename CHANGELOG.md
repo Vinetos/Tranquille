@@ -13,11 +13,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Portuguese translation thanks to José ([@lanegan](https://hosted.weblate.org/user/lanegan/)).
 - Completed Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)).
 - Hebrew translation thanks to Tzvika ([@shiloni](https://hosted.weblate.org/user/shiloni/)).
+- Partial Slovenian translation thanks to @bojanopatje.
 
 ### Changed
 
 - Updated Russian translation thanks to Andrey ([@anm](https://hosted.weblate.org/user/anm/)).
 - Updated Catalan translation thanks to Raul ([@raulvo](https://hosted.weblate.org/user/raulvo/)).
+- Updated Portuguese translations thanks to APL ([@APL](https://hosted.weblate.org/user/APL/)) and Caetano Santos (@caeslucio).
+- Updated Italian translation thanks to Lucio Marinelli (@luciomarinelli).
 
 
 ## [0.5.13] - 2021-02-23
