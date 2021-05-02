@@ -91,12 +91,12 @@
     <string name="country_code_override_summary">Código do país utilizado em todos os pedidos. Deixar em branco para auto-detecção</string>
     <string name="country_code_override">Código do país</string>
     <string name="country_codes_info_summary_addition">Auto-detectado: %s</string>
-    <string name="country_codes_info_summary">Os códigos dos países são utilizados em pedidos a servidores de terceiros. Estes códigos são definidos para imitar o comportamento da aplicação oficial de terceiros. Se os códigos corresponderem ao seu país real (podem ser detectados pelo seu endereço IP), então os seus pedidos terão o aspecto mais discreto. A auto-detecção é utilizada por defeito (baseada na informação da rede móvel ou local do sistema), o que deve ser suficiente para a maioria dos utilizadores, mas pode definir os códigos manualmente. São esperados códigos ISO 3166 de 2 letras (como em EUA)</string>
+    <string name="country_codes_info_summary">Os códigos dos países são utilizados em pedidos a servidores de terceiros. Estes códigos são definidos para imitar o comportamento da aplicação oficial de terceiros. Se os códigos corresponderem ao seu país real (podem ser detectados pelo seu endereço IP), então os seus pedidos terão o aspecto mais discreto. A auto-detecção é utilizada por defeito (baseada na informação da rede móvel ou local do sistema), o que deve ser suficiente para a maioria dos utilizadores, mas pode definir os códigos manualmente. São esperados códigos ISO 3166 de 2 letras (como em US)</string>
     <string name="country_codes_info">Esclarecimento</string>
     <string name="settings_category_country_codes">Códigos de países</string>
     <string name="block_in_limited_mode_blacklist">Lista negra</string>
     <string name="block_in_limited_mode_rating">Por avaliação</string>
-    <string name="block_in_limited_mode_summary">Tipos de bloqueio permitidos no modo Direct Boot (os Contactos não podem ser listados de forma fiável neste modo)</string>
+    <string name="block_in_limited_mode_summary">Tipos de bloqueio permitidos no modo Direct Boot (os Contactos não podem ser usados de forma fiável como uma lista branca neste modo)</string>
     <string name="block_in_limited_mode">Bloquear no modo Direct Boot</string>
     <string name="settings_screen_advanced">Configurações avançadas</string>
     <string name="call_log_grouping_day">Não consecutivas num dia</string>

@@ -1,14 +1,15 @@
-* Adicionada tradução Holandesa.
-* Corrigido notificações de entrada de chamadas que não eram removidas em alguns dispositivos.
-* Adicionadas opções para desactivar notificações em dispositivos mais antigos.
+*Incluída tradução holandesa graças a H. Stoffels (@Vistaus).
+*Reparadas notificações de chamadas recebidas que não eram removidas.
+*Incluídas opções p/ desabilitar notificações em dispositivos antigos.
+*Outras melhorias.
 
 0.4.1:
 
-* Novo ícone.
-* Mostrar categoria de número no ecrã de informação.
-* Alterado o ícone e cor da notificação de chamada bloqueada.
+*Novo ícone de app.
+*Exibir categoria na tela de informações de nº.
+*Novo ícone e cor da notificação de chamada bloqueada.
 
 0.4.0:
 
-* Mostrar as chamadas recentes no ecrã principal.
-* Uma opção para tratamento especial de contactos (nunca bloqueado, o nome é mostrado).
+* Mostrar as chamadas recentes na tela principal.
+* Uma opção para tratamento especial de contatos (nunca bloqueado, o nome é mostrado).

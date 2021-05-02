@@ -1,21 +1,21 @@
-* Adicionada lista negra local com suporte de asterisco (é suportada a importação de cópias de segurança do NoPhoneSpam).
-* Adicionado bloqueio de números ocultos.
-* Outras correcções e melhorias.
+* Incluída lista negra local com suporte de curinga (é suportada a importação de cópias de segurança do NoPhoneSpam).
+* Incluído bloqueio de números ocultos.
+* Outras correções e melhorias.
 
 0.4.11:
 
-* Correcções e melhorias.
+* Correções e melhorias.
 
 0.4.10:
 
-* Adicionado tema escuro.
+* Incluído tema escuro.
 
 0.4.9:
 
-* Corrigido um erro raro.
+* Reparado um erro raro.
 
 0.4.8:
 
-* Adicionado suporte para Direct Boot. A migração no primeiro arranque pode demorar algum tempo.
-* Número de chamadas configurável no ecrã principal.
-* Outras correcções e melhorias.
+* Incluído o suporte a Inicialização Direta. A migração na primeira inicialização pode demorar algum tempo.
+* Número de chamadas configurável na tela principal.
+* Outras correções e melhorias.

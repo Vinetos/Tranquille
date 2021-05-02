@@ -1,22 +1,25 @@
-* Corrigido o erro durante o download inicial da base de dados.
-* Actualização da tradução francesa.
+*Reparado um erro durante a carga inicial do BD.
+*Atualização da tradução francesa graças a J. Lavoie.
 
 0.5.1:
 
-* Adicionado um menu adequado de consulta de números.
-* Adicionada tradução ucraniana.
+*Incluída uma tela adequada de consulta de números.
+*Incluída tradução ucraniana graças a AgeNT2k6.
 
 0.5.0:
 
-* Adicionada lista negra local com suporte de asterisco (é suportada a importação de cópias de segurança do NoPhoneSpam).
-* Adicionado bloqueio de números ocultos.
-* Outras correcções e melhorias.
-
+*Incluída lista negra local com suporte a curinga (é suportada a importação de cópias de segurança do NoPhoneSpam).
+*Incluído bloqueio de números ocultos.
+*Correções e melhorias.
 
 0.4.11:
 
-* Correcções e melhorias.
+*Correções e melhorias.
 
 0.4.10:
 
-* Adicionado tema escuro.
+*Incluído tema escuro.
+
+0.4.9:
+
+*Reparado um erro raro.
