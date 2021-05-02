@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Updated Catalan translation thanks to Raul ([@raulvo](https://hosted.weblate.org/user/raulvo/)).
 - Updated Portuguese translations thanks to APL ([@APL](https://hosted.weblate.org/user/APL/)) and Caetano Santos (@caeslucio).
 - Updated Italian translation thanks to Lucio Marinelli (@luciomarinelli).
+- Updated dependencies (okhttp, conscrypt).
 
 
 ## [0.5.13] - 2021-02-23
