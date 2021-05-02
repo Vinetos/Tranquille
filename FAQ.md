@@ -41,11 +41,9 @@ There's no whitelist feature and currently it's not planned since it would resul
 
 ## Can I block all numbers not present in Contacts?
 
-There's no dedicated option, but there is a way to achieve the effect: enable "Use contacts" option and create a blacklist pattern matching any number (`*`). The app [never blocks contacts](FAQ.md#how-do-blocking-options-work-exactly), but all unfamiliar numbers will be blocked by this pattern. You will also need to enable "Block hidden numbers" option to have hidden numbers blocked.
+There's no dedicated option [yet](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/31), but there is a way to achieve the effect: enable "Use contacts" option and create a blacklist pattern matching any number (`*`). The app [never blocks contacts](FAQ.md#how-do-blocking-options-work-exactly), but all unfamiliar numbers will be blocked by this pattern. You will also need to enable "Block hidden numbers" option to have hidden numbers blocked.
 
 Additionally, modern Android versions have "Do not disturb" mode which can be customized to block unfamiliar numbers.
-
-If you think Yet Another Call Blocker should have such an option, please [create an issue](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues).
 
 
 ## What's that "Advanced call blocking mode"?
@@ -107,7 +105,9 @@ If you receive a hidden call that wasn't blocked, [create a "crash report"](FAQ.
 
 ## Can I use the app with VPN/Tor?
 
-Sure! There's no proxy settings in the app, but system-wide tunnels should work fine. The initial database download (from gitlab) via Tor previously failed due to gitlab making extra checks, but I implemented a hack that should work for now. You can always perform the initial download (no identifiable information used) using normal internet connection. You can even avoid it by [embedding main DB](FAQ.md#the-app-takes-too-much-storage-space-what-can-i-do).
+Partially. There's no proxy settings in the app, but system-wide tunnels should work fine. The initial database download (from gitlab) via Tor previously failed due to gitlab making extra checks, but I implemented a hack that should work for now. You can always perform the initial download (no identifiable information used) using normal internet connection. You can even avoid it by [embedding main DB](FAQ.md#the-app-takes-too-much-storage-space-what-can-i-do).
+
+Unfortunately, the third-party servers block requests from Tor, so daily updates and online reviews are not available via Tor.
 
 
 ## The app takes too much storage space. What can I do?
