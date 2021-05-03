@@ -175,7 +175,7 @@
     <string name="sia_category_sms">SMS</string>
     <string name="sia_category_prank">Trote</string>
     <string name="sia_category_scam">Fraude (Golpe)</string>
-    <string name="sia_category_nonprofit">Org. sem fins lucrativos</string>
+    <string name="sia_category_nonprofit">Org. sem fins lucrativos.</string>
     <string name="sia_category_fax">FAX</string>
     <string name="sia_category_dept_collector">Cobrador de dívidas</string>
     <string name="sia_category_telemarketer">Telemarketing</string>
