@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+Nothing.
+
+
+## [0.5.14] - 2021-05-05
+
 ### Added
 
 - Esperanto translation thanks to phlostically ([@phlostically](https://hosted.weblate.org/user/phlostically/)).
@@ -479,7 +484,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Offline database with manual updates.
 
 
-[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.13...master
+[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.14...master
+[0.5.14]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.13...v0.5.14
 [0.5.13]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.12...v0.5.13
 [0.5.12]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.11...v0.5.12
 [0.5.11]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.10...v0.5.11
