@@ -103,7 +103,7 @@
     <string name="lookup_hint_input_number">Numer telefonu</string>
     <string name="lookup_clear_number">Wyczyść numer</string>
     <string name="lookup_paste_number">Wklej numer</string>
-    <string name="lookup_query_db">Odpytaj bazę danych</string>
+    <string name="lookup_query_db">Szukaj (offline)</string>
     <string name="lookup_load_reviews">Wczytaj opinie (online)</string>
     <string name="lookup_number_not_found">Nie znaleziono</string>
     <string name="lookup_res_category">Kategoria: %d</string>

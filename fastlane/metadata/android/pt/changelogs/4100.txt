@@ -1,16 +1,22 @@
-* Adicionado tema escuro.
+*Incluído tema escuro.
 
 0.4.9:
 
-* Corrigido um erro raro.
+*Corrigido um erro raro.
 
 0.4.8:
 
-* Adicionado suporte ao Direct Boot. A migração no primeiro arranque pode demorar algum tempo.
-* Número de chamadas configurável no ecrã principal.
-* Outras correcções e melhorias.
+*Adicionado suporte ao Direct Boot. A migração no primeiro arranque pode demorar algum tempo.
+*Número de chamadas configurável no ecrã principal.
+*Outras correcções e melhorias.
 
 0.4.7:
 
-* Adicionado um botão para adicionar uma revisão (através de um web browser).
-* Outras melhorias.
+*Novo botão para incluir uma revisão (através de um web browser).
+*Outras melhorias.
+
+0.4.6:
+
+*Incluído o "modo avançado de bloqueio de chamadas".
+*Reparado o descarregamento inicial de BD em alguns casos. 
+*Pequenas correcções.
