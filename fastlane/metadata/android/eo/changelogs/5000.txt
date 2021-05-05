@@ -1,0 +1,21 @@
+* Added local blacklist with wildcard support (import of NoPhoneSpam backups is supported).
+* Added blocking of hidden numbers.
+* Other fixes and improvements.
+
+0.4.11:
+
+* Fixes and improvements.
+
+0.4.10:
+
+* Added dark theme.
+
+0.4.9:
+
+* Fixed a rare crash.
+
+0.4.8:
+
+* Add support for Direct Boot. Migration on first start may take some time.
+* Configurable number of calls on the main screen.
+* Other fixes and improvements.

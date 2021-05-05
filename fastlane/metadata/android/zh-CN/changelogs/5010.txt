@@ -1,0 +1,20 @@
+* Added proper number lookup screen.
+* Added Ukrainian translation thanks to AgeNT2k6.
+
+0.5.0:
+
+* Added local blacklist with wildcard support (import of NoPhoneSpam backups is supported).
+* Added blocking of hidden numbers.
+* Other fixes and improvements.
+
+0.4.11:
+
+* Fixes and improvements.
+
+0.4.10:
+
+* Added dark theme.
+
+0.4.9:
+
+* Fixed a rare crash.

@@ -1,0 +1,9 @@
+* Fixed startup crash without READ_CALL_LOG permission.
+* Fixed blacklist editor crash on old Android versions.
+* Updated translations thanks to Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
+* Other minor changes.
+
+0.5.7:
+
+* Call log improvements: new look, better performance, infinite scrolling, grouping options.
+* Other minor changes.

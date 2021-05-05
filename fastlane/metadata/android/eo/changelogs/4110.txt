@@ -1,0 +1,20 @@
+* Fixes and improvements.
+
+0.4.10:
+
+* Added dark theme.
+
+0.4.9:
+
+* Fixed a rare crash.
+
+0.4.8:
+
+* Add support for Direct Boot. Migration on first start may take some time.
+* Configurable number of calls on the main screen.
+* Other fixes and improvements.
+
+0.4.7:
+
+* Added a button to add a review (via a web browser).
+* Other improvements.
