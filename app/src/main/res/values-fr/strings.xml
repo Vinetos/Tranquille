@@ -79,7 +79,7 @@
     <string name="use_call_screening_service">Mode de blocage d\'appel avancé</string>
     <string name="use_call_screening_service_summary">Permet de bloquer les appels avant que le téléphone ne commence à sonner. Nécessite que l\'application soit définie comme appli téléphone (Android 7–9) ou comme appli « reconnaissance d\'appel entrant » (Android 10+)</string>
     <string name="auto_updates">Mettre à jour automatiquement la base de données</string>
-    <string name="auto_updates_summary">Recevoir automatiquement les mises à jour quotidiennes de la BD (il s\'agit de mises à jour incrémentielles/delta, donc elles consomment très peu de données)</string>
+    <string name="auto_updates_summary">Recevoir automatiquement les mises à jour quotidiennes de la base de données de numéros (ce sont des mises à jour incrémentielles/delta, donc elles consomment très peu de trafic)</string>
     <string name="use_contacts">Utiliser les contacts</string>
     <string name="use_contacts_summary">Les numéros présents dans Contacts ne sont jamais bloqués et le nom du contact est affiché à côté/à la place du numéro dans toute l\'application</string>
     <string name="ui_mode">Thème de l\'interface</string>
@@ -109,7 +109,7 @@
     <string name="db_management_reset_secondary">Réinitialiser les mises à jour</string>
     <string name="db_management_update_db">Mise à jour de la BD</string>
     <string name="db_management_update_result">Mise à jour terminée ; BD ver : %d</string>
-    <string name="lookup_query_db">Interroger la base de données</string>
+    <string name="lookup_query_db">Rechercher (hors ligne)</string>
     <string name="lookup_load_reviews">Charger les évaluations (en ligne)</string>
     <string name="lookup_number_not_found">Non trouvé</string>
     <string name="lookup_res_featured_name">Nom inclus : %s</string>
@@ -204,7 +204,7 @@
         <item quantity="other">Sélectionnés : %s</item>
     </plurals>
     <string name="block_in_limited_mode_blacklist">En liste noire</string>
-    <string name="block_in_limited_mode_summary">Types de blocage autorisés en mode de démarrage direct (les contacts ne peuvent pas être mis en liste blanche de manière fiable dans ce mode)</string>
+    <string name="block_in_limited_mode_summary">Types de blocage autorisés en mode Démarrage direct (les contacts ne peuvent pas être utilisés de manière fiable comme liste blanche dans ce mode)</string>
     <string name="block_in_limited_mode">Bloquer en mode de démarrage direct</string>
     <string name="blocked_call_notifications_disable_confirmation">Désactiver quand même</string>
     <string name="blocked_call_notifications_disable_message">Ils se peut que vous manquiez un appel si les appels sont bloqués sans notification</string>
