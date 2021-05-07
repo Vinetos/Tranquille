@@ -1,6 +1,6 @@
 *Incluída tradução Holandesa.
 *Reparadas as notificações de chamadas recebidas que não eram removidas em alguns casos.
-*Incluídas opções para desactivar notificações em dispositivos antigos.
+*Incluídas opções para desativar notificações em aparelhos antigos.
 *Outras melhorias.
 
 0.4.1:
