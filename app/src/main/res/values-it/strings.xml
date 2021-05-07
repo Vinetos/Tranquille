@@ -175,7 +175,7 @@
     <string name="block_blacklisted_summary">Blocca le chiamate dai numeri aggiunti alla lista nera</string>
     <string name="block_blacklisted">Blocca i numeri nella lista nera</string>
     <string name="block_blacklisted_short">Blocca i numeri nella lista nera</string>
-    <string name="block_hidden_number_summary">Blocca chiamate da numeri nascosti. Potrebbe funzionare diversamente (meglio o peggio) in \"Modalità blocco chiamate avanzata\"</string>
+    <string name="block_hidden_number_summary">Blocca chiamate da numeri nascosti. Potrebbe funzionare diversamente (meglio o peggio) in «Modalità blocco chiamate avanzata»</string>
     <string name="block_hidden_number">Blocca numeri nascosti</string>
     <string name="block_negative_sia_numbers_summary">Blocca le chiamate provenienti da numero con giudizi negativi (basati su database della comunità)</string>
     <string name="block_negative_sia">Blocca in base al punteggio</string>
@@ -197,8 +197,8 @@
     <string name="open_settings_activity">Impostazioni</string>
     <string name="load_reviews_confirmation_message">Caricare una recensione renderà visibile il numero a servizi di terze parti. Sei sicuro di volerlo fare con un numero presente tra i tuoi Contatti\?</string>
     <string name="add_web_review">Aggiungi recensione (web)</string>
-    <string name="default_phone_app_unset">Seleziona una diversa app come \"App telefono\" in \"App predefinite\" nelle impostazioni di sistema</string>
-    <string name="default_phone_app_set">Seleziona \"Yet Another Call Blocker\" come \"App telefono\" in \"App predefinite\" nelle impostazioni di sistema</string>
+    <string name="default_phone_app_unset">Seleziona una diversa app come «App telefono» in «App predefinite» nelle impostazioni di sistema</string>
+    <string name="default_phone_app_set">Seleziona Yet Another Call Blocker come «App telefono» in «App predefinite» nelle impostazioni di sistema</string>
     <string name="default_phone_app">App telefono predefinita</string>
     <string name="default_caller_id_app_unset">Seleziona una diversa app \"Caller ID\" tra le app predefinite nelle impostazioni di sistema</string>
     <string name="default_caller_id_app">App \"Caller ID\" predefinita</string>
