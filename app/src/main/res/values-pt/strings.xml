@@ -84,7 +84,7 @@
     <string name="save_crashes_to_external_storage_summary">Guarda os relatórios de erros e registros para o armazenamento público, caso contrário, os relatórios de erros são guardados numa pasta privada da aplicação. Os relatórios podem conter dados sigilosos (números de telefone, nomes de contacto). Outras aplicações com permissão de armazenamento podem ter acesso a estes dados no armazenamento público</string>
     <string name="save_crashes_to_external_storage">Guardar relatórios para armazenamento público</string>
     <string name="settings_category_debugging">Depuração</string>
-    <string name="database_download_url">URL principal para download da BD</string>
+    <string name="database_download_url">URL principal para descarregar a BD</string>
     <string name="country_code_incorrect_format">Formato incorrecto do código do país. O valor não foi actualizado</string>
     <string name="country_code_for_reviews_override_summary">Código do país utilizado nos pedidos de avaliações online. Destina-se a representar o país do autor da chamada. Deixar em branco para auto-detecção</string>
     <string name="country_code_for_reviews_override">Código do país para avaliações</string>
@@ -120,7 +120,7 @@
     <string name="block_blacklisted_short">Bloquear a lista negra</string>
     <string name="block_hidden_number_summary">Bloqueia chamadas de números ocultos. Pode funcionar de forma diferente (melhor ou pior) no \"Modo avançado de bloqueio de chamadas\"</string>
     <string name="block_hidden_number">Bloquear números ocultos</string>
-    <string name="block_negative_sia_numbers_summary">Bloqueia chamadas de números com avaliação negativa (baseada em um banco de dados comunitário)</string>
+    <string name="block_negative_sia_numbers_summary">Bloqueia chamadas de números com avaliação negativa (baseada num banco de dados comunitário)</string>
     <string name="block_negative_sia">Bloquear baseado em avaliação</string>
     <string name="block_negative_sia_short">Bloquear por avaliação</string>
     <string name="incoming_call_notifications_summary">Mostra uma notificação com um resumo do número de telefone (avaliação, contagem de comentários, categoria) durante as chamadas recebidas</string>
@@ -149,9 +149,9 @@
     <string name="online_reviews">Avaliações online</string>
     <string name="secondary_db_updating">Actualizando BD…</string>
     <string name="main_db_downloading">A descarregar a BD…</string>
-    <string name="download_main_db">Download da base de dados</string>
-    <string name="no_main_db_text">O banco de dados não está disponível. Para que a aplicação realize a maioria de suas funções, precisa efectuar o download da BD. O arquivo tem cerca de 25 MB.</string>
-    <string name="no_main_db_title">Download da base de dados principal</string>
+    <string name="download_main_db">Descarregar a base de dados</string>
+    <string name="no_main_db_text">O banco de dados não está disponível. Para que a app realize a maioria das funções dela, precisa efetuar a descarrega da BD. O ficheiro tem cerca de 25 MB.</string>
+    <string name="no_main_db_title">Descarregar a base de dados principal</string>
     <string name="call_log_permission_message">Conceder permissão de \"Telefone\" para ver as chamadas recentes</string>
     <string name="open_system_settings">Abrir Configurações</string>
     <string name="default_phone_app_unset">Selecione uma aplicação diferente como \"Aplicação de Telefone\" em \"Aplicações predeterminadas\" nas configurações do sistema</string>
