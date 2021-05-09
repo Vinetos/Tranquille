@@ -3,8 +3,8 @@
 
 0.5.2:
 
-* Corrigido o erro durante o download inicial da base de dados.
-* Actualização da tradução francesa.
+* Corrigido o erro durante a descarrega inicial da base de dados.
+* Atualização da tradução francesa.
 
 0.5.1:
 
