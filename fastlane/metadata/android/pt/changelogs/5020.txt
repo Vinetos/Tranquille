@@ -1,5 +1,5 @@
-*Reparado o erro durante o download inicial da BD.
-*Actualização da tradução francesa graças a J. Lavoie.
+*Reparado o erro durante a descarrega inicial da BD.
+*Atualização da tradução francesa graças a J. Lavoie.
 
 0.5.1:
 

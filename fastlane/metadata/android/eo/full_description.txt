@@ -1,0 +1,33 @@
+Simpla programo por bloki alavokojn, kiu helpas vin eviti nedeziratajn alvokojn
+uzante amaskunlaboratan datenbankon de telefonnumeroj.
+
+<b>Trajtoj:</b>
+
+* Uzas senkonektan datenbankon.
+* Blokas alvokojn de negativa takso aŭtomate (opcie).
+* Loka bloklisto subtenanta ĵokerojn.
+* Montras sciigon kun resumo pri telefonnumero (takso, recenzoj, kategorio) dum alveno de alvokoj (opcie).
+* Aŭtomataj alkrementaj ĝisdatigoj de la datenbanko (opcio).
+* Vi povas vidi retajn recenzojn pri la telefonnumero de alvokanto (provizata de triapartia servo).
+* "Altnivela reĝimo de blokado de alvokoj" por bloki vokojn sur Android 7+ antaŭ ol la telefono eksonoras (devas esti permane ebligita en agordejo).
+
+<b>Kiel uzi:</b>
+
+* Instalu kaj lanĉu la programon.
+* La opcio por montri informojn pri alvokanto estas implicite ŝaltita; do la programo petos permesojn pri telefonado.
+* Dum unua lanĉo, la programo sugestos elŝuti la ĉefdatenbankon necesan por la plejmulto de funkcioj. Simple konfirmu la elŝuton.
+* Marku la markobutonon "Aŭtomate ĝisdatigi datenbankon" en la menuo (rekomendinda) por aŭtomate ricevi ĉiutagajn datenbankajn ĝisdatigojn (tiuj estas alkrementaj ĝisdatigoj kaj tial uzas malmultege da trafiko)
+* Marku la markobutonon "Bloki laŭ takso" por bloki aŭtomate alvokojn negative taksitajn.
+* Vi ankaŭ povas marki la markobutonon "Uzi kontaktojn" se vi volas, ke viaj kontaktoj ne estu traktataj kiel nekonataj alvokantoj.
+* Post ĉi tiuj paŝoj ĉio aŭtomate funkcios (sed vi ĉiam povas trovi pli da opcioj en Agordoj). Ĝuu!
+
+Vidu <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">oftajn demandojn</a> por lerni pli.
+
+La ĉefa telefonnumera datenbanko estas elŝutota el <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">deponejo ĉe GitHub</a>.
+<b>Datenbankaj ĝisdatigoj kaj detalaj reviziaj demandoj estas farataj per triapartiaj serviloj.</b>
+Neniu informo, kiu povas identigi uzanton, estas sendata (krom tiu telefonnumero,
+pri kiu la detalaj recenzoj estas ŝarĝataj).
+
+Yet Another Call Blocker ankoraŭ estas evoluigata. Ĉia helpo estas bonvena.
+
+''NonFreeNet:'' la triapartia servo ne estas malfermitfonta.

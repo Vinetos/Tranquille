@@ -13,6 +13,6 @@
 0.4.2:
 
 *Adicionada tradução holandesa graças a H. Stoffels (@Vistaus).
-*Reparadas notificações de chamadas recebidas que não eram removidas em alguns dispositivos.
-*Incluídas opções para desativar algumas das notificações em dispositivos mais antigos.
+*Reparadas notificações de chamadas recebidas que não eram removidas em alguns aparelhos.
+*Incluídas opções para desativar algumas das notificações em aparelhos mais antigos.
 *Outras melhorias.

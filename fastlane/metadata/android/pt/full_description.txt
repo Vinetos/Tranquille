@@ -7,27 +7,27 @@
 * Bloqueia chamadas com avaliação negativa automaticamente (opcional).
 * Lista negra local com suporte a asterisco.
 * Exibe uma notificação com informações resumidas do número de telefone (avaliação, contagem de comentários, categoria) durante as chamadas recebidas (opcional).
-* Actualizações incrementais automáticas da base de dados (opcional).
+* Atualizações incrementais automáticas da base de dados (opcional).
 * Pode visualizar análises online para as chamadas recebidas (fornecido por um serviço de terceiros).
-* "Modo de bloqueio avançado de chamadas" para bloquear chamadas no Android 7 ou superior antes do telefone começar a tocar (precisa ser activado manualmente nas configurações da aplicação).
+* "Modo de bloqueio avançado de chamadas" para bloquear chamadas no Android 7 ou superior antes do telefone começar a tocar (precisa ser ativado manualmente nas configurações da aplicação).
 
 <b>Como usar: </b>
 
-* Instale e inicie a aplicação.
+* Instale e inicie a app.
 * A opção de mostrar notificações de informações das chamadas recebidas é habilitada por defeito, portanto, a aplicação pedirá para conceder permissões relacionadas ao telefone.
-* Na primeira execução, a aplicação irá sugerir o download da base de dados principal que é necessário para a maioria das funções. Basta confirmar o download.
-* Selecione a opção "Auto-actualizar BD" no menu (recomendado) para receber automaticamente actualizações diárias da base de dados (essas são actualizações incrementais / delta, portanto, consomem muito pouco tráfego).
+* Na primeira execução, a aplicação irá sugerir a descarrega da base de dados principal que é necessário para a maioria das funções. Basta confirmar a descarrega.
+* Selecione a opção "Autoatualizar BD" no menu (recomendado) para receber automaticamente atualizações diárias da base de dados (essas são atualizações incrementais / delta, portanto, consomem muito pouco tráfego).
 * Selecione a opção "Bloquear por avaliação" para bloquear chamadas com avaliação negativa automaticamente.
-* Você também pode marcar a caixa de selecção "Usar contactos" se quiser que as chamadas de seus contactos não sejam tratadas como chamadas desconhecidas.
-* Após estas passos tudo deve funcionar (mas pode sempre encontrar mais opções em Definições). Aproveite!
+* Também pode marcar a caixa de seleção "Usar contactos" se quiser que as chamadas dos seus contactos não sejam tratadas como chamadas desconhecidas.
+* Após estes passos tudo deve funcionar (mas pode sempre encontrar mais opções em Definições). Aproveite!
 
 Consulte as <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">Perguntas Mais Frequentes</a> para saber mais.
 
 A base de dados principal de números de telefone é descarregada a partir de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">um repositório Gitlab</a>.
-<b>Actualizações da base de dados e consultas a análises detalhadas são realizadas usando servidores de terceiros.</b>
-Nenhuma informação identificável do utilizador é enviada (excepto o número de telefone para consultar
+<b>Atualizações da base de dados e consultas a análises detalhadas são realizadas a usar servidores de terceiros.</b>
+Nenhuma informação identificável do utilizador é enviada (exceto o número de telefone para consultar
 as análises detalhadas).
 
-Yet Another Call Blocker ainda está em desenvolvimento. Qualquer ajuda é bem vinda.
+Yet Another Call Blocker ainda está em desenvolvimento. Qualquer ajuda é bem-vinda.
 
-'' NonFreeNet: '' o serviço de terceiros não é de código aberto.
+'' NonFreeNet:'' o serviço de terceiros não é de código aberto.
