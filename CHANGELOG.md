@@ -7,7 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-Nothing.
+### Added
+
+- Esperanto translation of the app description thanks to phlostically ([@phlostically](https://hosted.weblate.org/user/phlostically/)).
+
+### Changed
+
+- Updated French and Italian translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
+- Updated Portuguese translation thanks to ssantos ([@ssantos](https://hosted.weblate.org/user/ssantos/)).
 
 
 ## [0.5.14] - 2021-05-05
