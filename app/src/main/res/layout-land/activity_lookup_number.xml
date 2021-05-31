@@ -35,7 +35,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="phone"
                         android:maxLength="50"
-                        android:text="@string/lookup_default_test_number" />
+                        tools:text="@string/lookup_default_test_number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +63,7 @@
                 android:layout_marginTop="6dp"
                 android:gravity="center_horizontal"
                 android:textSize="20sp"
-                tools:text="+74995861192" />
+                tools:text="@string/lookup_default_test_number" />
 
             <include
                 layout="@layout/reviews_summary"
