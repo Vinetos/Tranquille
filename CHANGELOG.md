@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+- The Lookup screen number field is prefilled from clipboard.
 - Updated French and Italian translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 - Updated Portuguese translation thanks to ssantos ([@ssantos](https://hosted.weblate.org/user/ssantos/)).
 

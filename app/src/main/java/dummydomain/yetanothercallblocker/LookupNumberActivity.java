@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
@@ -55,6 +56,30 @@ public class LookupNumberActivity extends AppCompatActivity {
         reviewsDetails = findViewById(R.id.reviews_details);
 
         hideReviewSummary();
+
+        if (savedInstanceState == null) {
+            String numberFromClipboard = getNumberFromClipboard();
+            if (!cleanNumber(numberFromClipboard).isEmpty()) {
+                phoneNumberInput.setText(numberFromClipboard);
+            }
+
+            postInit();
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        postInit();
+    }
+
+    private void postInit() {
+        if (!getPureNumber().isEmpty()) {
+            onQueryDbButtonClick(null);
+        }
+
+        phoneNumberInput.requestFocus();
     }
 
     @Override
@@ -65,7 +90,10 @@ public class LookupNumberActivity extends AppCompatActivity {
     }
 
     private String getPureNumber() {
-        String rawNumber = phoneNumberInput.getText().toString();
+        return cleanNumber(phoneNumberInput.getText().toString());
+    }
+
+    private String cleanNumber(String rawNumber) {
         if (!TextUtils.isEmpty(rawNumber)) {
             String pureNumber = rawNumber.replaceAll("[^\\d]", "");
             if (!TextUtils.isEmpty(pureNumber)) {
@@ -130,21 +158,32 @@ public class LookupNumberActivity extends AppCompatActivity {
     }
 
     public void onPasteNumberButtonClick(View view) {
+        if (pasteNumberFromClipboard()) {
+            onQueryDbButtonClick(null);
+        }
+    }
+
+    private boolean pasteNumberFromClipboard() {
+        String number = getNumberFromClipboard();
+        if (!TextUtils.isEmpty(number)) {
+            phoneNumberInput.setText(number);
+            return true;
+        }
+        return false;
+    }
+
+    private String getNumberFromClipboard() {
         if (clipboardManager.hasPrimaryClip()) {
             ClipDescription clipDescription = clipboardManager.getPrimaryClipDescription();
             if (clipDescription != null && hasMimeType(clipDescription, MIME_TYPES)) {
                 ClipData primaryClip = clipboardManager.getPrimaryClip();
                 if (primaryClip != null) {
                     ClipData.Item item = primaryClip.getItemAt(0);
-                    String pasteData = item.getText().toString();
-                    if (!TextUtils.isEmpty(pasteData)) {
-                        phoneNumberInput.setText(pasteData);
-
-                        onQueryDbButtonClick(null);
-                    }
+                    return item.getText().toString();
                 }
             }
         }
+        return "";
     }
 
     public void onQueryDbButtonClick(View view) {
