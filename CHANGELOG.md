@@ -15,12 +15,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 - The Lookup screen number field is prefilled from clipboard.
+- The database update procedure is optimized to require less RAM.
 - Updated French and Italian translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 - Updated Portuguese translation thanks to ssantos ([@ssantos](https://hosted.weblate.org/user/ssantos/)).
 
 ### Fixed
 
-- Fix Hebrew translation not being used by Android.
+- Fixed a rare bug where the app could stuck in an update loop.
+- Fixed Hebrew translation not being used by Android.
 
 
 ## [0.5.14] - 2021-05-05

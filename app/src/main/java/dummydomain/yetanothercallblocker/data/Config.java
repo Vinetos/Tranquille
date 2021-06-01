@@ -18,6 +18,7 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.network.DbDownloader;
+import dummydomain.yetanothercallblocker.sia.network.DbUpdateRequester;
 import dummydomain.yetanothercallblocker.sia.network.OkHttpClientFactory;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
 import dummydomain.yetanothercallblocker.sia.utils.Utils;
@@ -32,22 +33,17 @@ import static dummydomain.yetanothercallblocker.data.SiaConstants.SIA_SECONDARY_
 public class Config {
 
     private static class WSParameterProvider extends WebService.DefaultWSParameterProvider {
-        dummydomain.yetanothercallblocker.Settings settings;
-        SiaMetadata siaMetadata;
-        CommunityDatabase communityDatabase;
+        final dummydomain.yetanothercallblocker.Settings settings;
+        final SiaMetadata siaMetadata;
+        final CommunityDatabase communityDatabase;
 
         volatile String appId;
         volatile long appIdTimestamp;
 
-        void setSettings(dummydomain.yetanothercallblocker.Settings settings) {
+        WSParameterProvider(dummydomain.yetanothercallblocker.Settings settings,
+                            SiaMetadata siaMetadata, CommunityDatabase communityDatabase) {
             this.settings = settings;
-        }
-
-        void setSiaMetadata(SiaMetadata siaMetadata) {
             this.siaMetadata = siaMetadata;
-        }
-
-        void setCommunityDatabase(CommunityDatabase communityDatabase) {
             this.communityDatabase = communityDatabase;
         }
 
@@ -98,31 +94,28 @@ public class Config {
             return new OkHttpClient();
         };
 
-        WSParameterProvider wsParameterProvider = new WSParameterProvider();
-        wsParameterProvider.setSettings(settings);
-
-        WebService webService = new WebService(wsParameterProvider, okHttpClientFactory);
-        YacbHolder.setWebService(webService);
-
-        YacbHolder.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
-                new DbDownloader(okHttpClientFactory)));
-
         CommunityDatabase communityDatabase = new CommunityDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX,
-                SIA_SECONDARY_PATH_PREFIX, siaSettings, webService);
-
-        wsParameterProvider.setCommunityDatabase(communityDatabase);
+                SIA_SECONDARY_PATH_PREFIX, siaSettings);
         YacbHolder.setCommunityDatabase(communityDatabase);
 
         SiaMetadata siaMetadata = new SiaMetadata(storage, SIA_PATH_PREFIX,
                 communityDatabase::isUsingInternal);
-
-        wsParameterProvider.setSiaMetadata(siaMetadata);
         YacbHolder.setSiaMetadata(siaMetadata);
 
         FeaturedDatabase featuredDatabase = new FeaturedDatabase(
                 storage, AbstractDatabase.Source.ANY, SIA_PATH_PREFIX);
         YacbHolder.setFeaturedDatabase(featuredDatabase);
+
+        WSParameterProvider wsParameterProvider = new WSParameterProvider(
+                settings, siaMetadata, communityDatabase);
+
+        WebService webService = new WebService(wsParameterProvider, okHttpClientFactory);
+        YacbHolder.setWebService(webService);
+
+        YacbHolder.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
+                new DbDownloader(okHttpClientFactory), new DbUpdateRequester(webService),
+                communityDatabase));
 
         YacbHolder.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
 

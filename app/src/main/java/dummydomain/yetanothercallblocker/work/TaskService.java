@@ -16,12 +16,9 @@ import org.slf4j.LoggerFactory;
 import dummydomain.yetanothercallblocker.App;
 import dummydomain.yetanothercallblocker.NotificationHelper;
 import dummydomain.yetanothercallblocker.R;
-import dummydomain.yetanothercallblocker.Settings;
 import dummydomain.yetanothercallblocker.data.YacbHolder;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadFinishedEvent;
 import dummydomain.yetanothercallblocker.event.MainDbDownloadingEvent;
-import dummydomain.yetanothercallblocker.event.SecondaryDbUpdateFinished;
-import dummydomain.yetanothercallblocker.event.SecondaryDbUpdatingEvent;
 
 import static dummydomain.yetanothercallblocker.EventUtils.postEvent;
 import static dummydomain.yetanothercallblocker.EventUtils.postStickyEvent;
@@ -102,24 +99,7 @@ public class TaskService extends IntentService {
     }
 
     private void updateSecondaryDb() {
-        Settings settings = App.getSettings();
-
-        boolean updated = false;
-
-        SecondaryDbUpdatingEvent sticky = new SecondaryDbUpdatingEvent();
-
-        postStickyEvent(sticky);
-        try {
-            if (YacbHolder.getCommunityDatabase().updateSecondaryDb()) {
-                settings.setLastUpdateTime(System.currentTimeMillis());
-                updated = true;
-            }
-            settings.setLastUpdateCheckTime(System.currentTimeMillis());
-        } finally {
-            removeStickyEvent(sticky);
-        }
-
-        postEvent(new SecondaryDbUpdateFinished(updated));
+        new DbUpdater().update();
     }
 
 }
