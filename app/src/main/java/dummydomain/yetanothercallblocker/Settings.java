@@ -34,6 +34,11 @@ public class Settings extends GenericSettings {
     public static final String PREF_BLOCK_IN_LIMITED_MODE = "blockInLimitedMode";
     public static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
+    public static final String PREF_DB_FILTERING_ENABLED = "dbFilteringEnabled";
+    public static final String PREF_DB_FILTERING_PREFIXES_TO_KEEP = "dbFilteringPrefixesToKeep";
+    public static final String PREF_DB_FILTERING_THOROUGH = "dbFilteringThorough";
+    public static final String PREF_DB_FILTERING_KEEP_SHORT_NUMBERS = "dbFilteringKeepShortNumbers";
+    public static final String PREF_DB_FILTERING_KEEP_SHORT_NUMBERS_MAX_LENGTH = "dbFilteringKeepShortNumbersMaxLength";
     public static final String PREF_COUNTRY_CODE_OVERRIDE = "countryCodeOverride";
     public static final String PREF_COUNTRY_CODE_FOR_REVIEWS_OVERRIDE = "countryCodeForReviewsOverride";
     public static final String PREF_DATABASE_DOWNLOAD_URL = "databaseDownloadUrl";
@@ -240,6 +245,46 @@ public class Settings extends GenericSettings {
 
     public void setLastUpdateCheckTime(long timestamp) {
         setLong(PREF_LAST_UPDATE_CHECK_TIME, timestamp);
+    }
+
+    public boolean isDbFilteringEnabled() {
+        return getBoolean(PREF_DB_FILTERING_ENABLED);
+    }
+
+    public void setDbFilteringEnabled(boolean enabled) {
+        setBoolean(PREF_DB_FILTERING_ENABLED, enabled);
+    }
+
+    public String getDbFilteringPrefixesToKeep() {
+        return getString(PREF_DB_FILTERING_PREFIXES_TO_KEEP);
+    }
+
+    public void setDbFilteringPrefixesToKeep(String prefixes) {
+        setString(PREF_DB_FILTERING_PREFIXES_TO_KEEP, prefixes);
+    }
+
+    public boolean isDbFilteringThorough() {
+        return getBoolean(PREF_DB_FILTERING_THOROUGH, true);
+    }
+
+    public void setDbFilteringThorough(boolean thorough) {
+        setBoolean(PREF_DB_FILTERING_THOROUGH, thorough);
+    }
+
+    public boolean getDbFilteringKeepShortNumbers() {
+        return getBoolean(PREF_DB_FILTERING_KEEP_SHORT_NUMBERS, true);
+    }
+
+    public void setDbFilteringKeepShortNumbers(boolean keep) {
+        setBoolean(PREF_DB_FILTERING_KEEP_SHORT_NUMBERS, keep);
+    }
+
+    public int getDbFilteringKeepShortNumbersMaxLength() {
+        return getInt(PREF_DB_FILTERING_KEEP_SHORT_NUMBERS_MAX_LENGTH, 5);
+    }
+
+    public void setDbFilteringKeepShortNumbersMaxLength(int length) {
+        setInt(PREF_DB_FILTERING_KEEP_SHORT_NUMBERS_MAX_LENGTH, length);
     }
 
     public String getCountryCodeOverride() {

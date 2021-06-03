@@ -214,4 +214,21 @@
     <string name="translate">Перевести приложение на Weblate</string>
     <string name="issues">Получить поддержку / сообщить о проблеме</string>
     <string name="license">Это приложение распространяется под лицензией AGPL-3.0-only.</string>
+    <string name="settings_category_database">База данных</string>
+    <string name="settings_screen_db_filtering">Фильтрация базы данных</string>
+    <string name="db_filtering_info">Пояснение</string>
+    <string name="db_filtering_info_summary">Эта функция позволят сэкономить место в хранилище путём удаления неприменимых к вам данных (таких как номера из других регионов и стран). Она не влияет на общую скорость работы приложения (например, на блокировку вызовов). Фильтрация происходит во время начальной загрузки базы и во время её обновления. Существующие данные (загруженные до включения фильтрации) могут быть отфильтрованы с помощью опции \"Отфильтровать базу\" ниже. Отключение фильтрации или изменение её параметров не восстанавливает удалённые данные - для этого вам потребуется загрузить их заново</string>
+    <string name="db_filtering_enabled">Фильтрация включена</string>
+    <string name="db_filtering_enabled_summary">Включает фильтрацию во время загрузки и обновления базы</string>
+    <string name="db_filtering_prefixes_to_keep">Префиксы для сохранения</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Список (разделённый запятыми) префиксов номеров, которые нужно сохранить. Префиксы должны быть в международной формате (например, +7999). Например, если вам звонят только номера начинающиеся на +7, введите сюда +7</string>
+    <string name="db_filtering_thorough">Тщательная фильтрация</string>
+    <string name="db_filtering_thorough_summary">Если включена, фильтрация проходит по всем блокам данных и удаляет номера, не подходящие по префиксам. В противном случае удаляются только целые блоки (оставляя некоторые лишние номера в сохраняемых блоках). Рекомендуется оставить включённым. Требуется для сохранения коротких номеров</string>
+    <string name="db_filtering_keep_short_numbers">Сохранять короткие номера</string>
+    <string name="db_filtering_keep_short_numbers_summary">Сохранять номера, короче указанной длины, вне зависимости от префиксов</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Длина номеров для сохранения</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">Максимальная длина (включительная) коротких номеров, которые нужно сохранить вне зависимости от префиксов. Например, значение 5 сохранит номера длиной 5 цифр и короче</string>
+    <string name="db_filtering_filter_db">Отфильтровать базу</string>
+    <string name="db_filtering_filter_db_summary">Запустить фильтрацию базы сейчас (чтобы отфильтровать существующие данные)</string>
+    <string name="filtering_db">Фильтрация базы номеров…</string>
 </resources>

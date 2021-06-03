@@ -128,6 +128,7 @@
     <string name="call_log_grouping_day">Non-consecutive in a day</string>
 
     <string name="settings_screen_advanced">Advanced settings</string>
+    <string name="settings_category_database">Database</string>
     <string name="block_in_limited_mode">Block in Direct Boot mode</string>
     <string name="block_in_limited_mode_summary">Allowed kinds of blocking in Direct Boot mode (Contacts can\'t be reliably used as a whitelist in this mode)</string>
     <string name="block_in_limited_mode_rating">By rating</string>
@@ -149,6 +150,24 @@
     <string name="save_logcat_on_crash_summary">Save logcat output on crash (in addition to a basic stacktrace)</string>
     <string name="export_logcat">Export logcat</string>
     <string name="export_logcat_summary">Export and share logcat contents with an app of your choosing (for example with an email client). The reports may contain sensitive data (phone numbers, contact names). Only the chosen app will have access to this data</string>
+
+    <string name="settings_screen_db_filtering">Database filtering</string>
+    <string name="db_filtering_info">Explanation</string>
+    <string name="db_filtering_info_summary">This feature allows to save storage space by removing some data that is not applicable to you (like numbers belonging to different regions or countries). It doesn\'t affect general app performance (like call blocking). Filtering occurs during the initial database download and during database update. Existing data (downloaded prior to enabling the filtering) may be filtered using the \"Filter the database\" option below. Disabling the feature or changing its parameters doesn\'t restore removed data - you need to re-download the database for that</string>
+    <string name="db_filtering_enabled">Filtering enabled</string>
+    <string name="db_filtering_enabled_summary">Enables the filtering during the database download and update</string>
+    <string name="db_filtering_prefixes_to_keep">Prefixes to keep</string>
+    <string name="db_filtering_prefixes_to_keep_summary">A comma-separated list of prefixes of numbers to keep. The prefixes should be in the international format (like +1234). E.g., if you only receive calls from numbers starting with +1, put +1 here</string>
+    <string name="db_filtering_thorough">Thorough filtering</string>
+    <string name="db_filtering_thorough_summary">If enabled, it goes through every block of data and removes numbers not matching the prefixes. Otherwise, it only removes whole unwanted blocks (leaving some unwanted numbers in wanted blocks). It is recommended to leave this on. Required for keeping short numbers</string>
+    <string name="db_filtering_keep_short_numbers">Keep short numbers</string>
+    <string name="db_filtering_keep_short_numbers_summary">Keep numbers shorter than the specified length regardless of prefixes</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Length of numbers to keep</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">The maximum length (inclusive) of short numbers to keep regardless of prefixes. E.g. the value of 5 will keep numbers with length of 5 digits or shorter</string>
+    <string name="db_filtering_filter_db">Filter the database</string>
+    <string name="db_filtering_filter_db_summary">Run the database filtering now (to filter the existing data)</string>
+    <string name="filtering_db">Filtering DB…</string>
+
     <string name="no_number"><![CDATA[<no number>]]></string>
     <string name="save">Save</string>
     <plurals name="selected_count">

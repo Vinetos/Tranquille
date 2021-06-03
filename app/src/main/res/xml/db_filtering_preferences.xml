@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:key="dbFiltering"
+    app:title="@string/settings_screen_db_filtering">
+
+    <Preference
+        app:key="dbFilteringInfo"
+        app:persistent="false"
+        app:summary="@string/db_filtering_info_summary"
+        app:title="@string/db_filtering_info" />
+
+    <SwitchPreferenceCompat
+        app:key="dbFilteringEnabled"
+        app:summary="@string/db_filtering_enabled_summary"
+        app:title="@string/db_filtering_enabled" />
+
+    <EditTextPreference
+        app:key="dbFilteringPrefixesToKeep"
+        app:summary="@string/db_filtering_prefixes_to_keep_summary"
+        app:title="@string/db_filtering_prefixes_to_keep" />
+
+    <SwitchPreferenceCompat
+        app:defaultValue="true"
+        app:key="dbFilteringThorough"
+        app:summary="@string/db_filtering_thorough_summary"
+        app:title="@string/db_filtering_thorough" />
+
+    <SwitchPreferenceCompat
+        app:defaultValue="true"
+        app:key="dbFilteringKeepShortNumbers"
+        app:summary="@string/db_filtering_keep_short_numbers_summary"
+        app:title="@string/db_filtering_keep_short_numbers" />
+
+    <dummydomain.yetanothercallblocker.preference.IntEditTextPreference
+        app:defaultValue="5"
+        app:key="dbFilteringKeepShortNumbersMaxLength"
+        app:summary="@string/db_filtering_keep_short_numbers_max_length_summary"
+        app:title="@string/db_filtering_keep_short_numbers_max_length" />
+
+    <Preference
+        app:key="dbFilteringFilterDb"
+        app:persistent="false"
+        app:summary="@string/db_filtering_filter_db_summary"
+        app:title="@string/db_filtering_filter_db" />
+
+</PreferenceScreen>

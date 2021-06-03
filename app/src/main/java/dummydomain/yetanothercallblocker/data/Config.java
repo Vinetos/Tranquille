@@ -22,6 +22,7 @@ import dummydomain.yetanothercallblocker.sia.network.DbUpdateRequester;
 import dummydomain.yetanothercallblocker.sia.network.OkHttpClientFactory;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
 import dummydomain.yetanothercallblocker.sia.utils.Utils;
+import dummydomain.yetanothercallblocker.utils.DbFilteringUtils;
 import dummydomain.yetanothercallblocker.utils.DeferredInit;
 import dummydomain.yetanothercallblocker.utils.SystemUtils;
 import okhttp3.OkHttpClient;
@@ -116,6 +117,8 @@ public class Config {
         YacbHolder.setDbManager(new DbManager(storage, SIA_PATH_PREFIX,
                 new DbDownloader(okHttpClientFactory), new DbUpdateRequester(webService),
                 communityDatabase));
+
+        YacbHolder.getDbManager().setNumberFilter(DbFilteringUtils.getNumberFilter(settings));
 
         YacbHolder.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
 

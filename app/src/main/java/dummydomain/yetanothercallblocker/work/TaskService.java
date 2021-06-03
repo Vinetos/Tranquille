@@ -28,6 +28,7 @@ public class TaskService extends IntentService {
 
     public static final String TASK_DOWNLOAD_MAIN_DB = "download_main_db";
     public static final String TASK_UPDATE_SECONDARY_DB = "update_secondary_db";
+    public static final String TASK_FILTER_DB = "filter_db";
 
     private static final Logger LOG = LoggerFactory.getLogger(TaskService.class);
 
@@ -59,6 +60,11 @@ public class TaskService extends IntentService {
                     case TASK_UPDATE_SECONDARY_DB:
                         updateNotification(getString(R.string.secondary_db_updating));
                         updateSecondaryDb();
+                        break;
+
+                    case TASK_FILTER_DB:
+                        updateNotification(getString(R.string.filtering_db));
+                        filterDb();
                         break;
 
                     default:
@@ -100,6 +106,10 @@ public class TaskService extends IntentService {
 
     private void updateSecondaryDb() {
         new DbUpdater().update();
+    }
+
+    private void filterDb() {
+        YacbHolder.getDbManager().filterDb();
     }
 
 }
