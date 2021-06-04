@@ -115,7 +115,7 @@
     <string name="auto_updates">Tụ động cập nhật cơ sở dữ liệu</string>
     <string name="use_monitoring_service_summary">Bật một dịch vụ giám sát luôn chạy, nó giúp với việc nhận các sự kiện điện thoại trên một số điện thoại. Chỉ bật tính năng này nếu chặn cuộc gọi và thông báo có tính thông tin không hoạt động. Tính năng này không ảnh hưởng đến tuổi thọ pin</string>
     <string name="use_monitoring_service">Sử dụng một dịch vụ giám sát</string>
-    <string name="use_call_screening_service_summary">Cho phép chặn cuộc gọi trước khi điện thoại bắt đầu đổ chuông. Yêu cầu ứng dụng được đặt làm \"Ứng dụng điện thoại\" (Android 7-9) hoặc làm \"Ứng dụng ID người gọi\" (Android 10+)</string>
+    <string name="use_call_screening_service_summary">Cho phép chặn cuộc gọi trước khi điện thoại bắt đầu đổ chuông. Yêu cầu ứng dụng được đặt làm \"Ứng dụng điện thoại\" (Android 7–9) hoặc làm \"Ứng dụng ID người gọi\" (Android 10+)</string>
     <string name="use_call_screening_service">Chế độ chặn cuộc gọi nâng cao</string>
     <string name="block_blacklisted_summary">Chặn các cuộc gọi từ những số được thêm vào danh sách đen</string>
     <string name="block_blacklisted">Chặn các số trong danh sách đen</string>
