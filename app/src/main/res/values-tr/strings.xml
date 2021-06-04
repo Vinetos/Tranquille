@@ -210,4 +210,21 @@
     <string name="blocked_call_notifications_disable_message">Aramalar bildirim olmadan engellenirse, yanlışlıkla bir aramayı kaçırabilirsiniz</string>
     <string name="show_notifications_for_blocked_calls_summary">Bir arama engellendikten sonra bildirim görüntüle</string>
     <string name="show_notifications_for_blocked_calls">Engellenen aramaları bildir</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Tutulacak numaraların ön eklerinin virgülle ayrılmış listesi. Ön ekler uluslararası biçimde olmalıdır (+1234 gibi). Örneğin, yalnızca +1 ile başlayan numaralardan arama alıyorsanız, buraya +1 koyun</string>
+    <string name="filtering_db">Veri tabanı filtreleniyor…</string>
+    <string name="db_filtering_filter_db_summary">Veri tabanı filtrelemeyi şimdi çalıştır (var olan verileri filtrelemek için)</string>
+    <string name="db_filtering_filter_db">Veri tabanını filtrele</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">Ön eklerden bağımsız olarak tutulacak kısa numaraların (dahil olacak şekilde) azami uzunluğu. Örneğin; 5 değeri, 5 basamaklı veya daha kısa olan numaraları tutacaktır</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Tutulacak numaraların uzunluğu</string>
+    <string name="db_filtering_keep_short_numbers_summary">Ön eklerden bağımsız olarak belirtilen uzunluktan daha kısa numaraları tut</string>
+    <string name="db_filtering_keep_short_numbers">Kısa numaraları tut</string>
+    <string name="db_filtering_thorough_summary">Etkinleştirilirse, her veri bloğunu inceler ve ön eklerle eşleşmeyen numaraları kaldırır. Aksi takdirde, yalnızca bütün halinde istenmeyen blokları kaldırır (istenmeyen bloklarda bazı istenmeyen numaralar bırakır). Bunu açık bırakmanız önerilir. Kısa numaraları tutmak için gereklidir</string>
+    <string name="db_filtering_thorough">Kapsamlı filtreleme</string>
+    <string name="db_filtering_prefixes_to_keep">Tutulacak ön ekler</string>
+    <string name="db_filtering_enabled_summary">Veri tabanı indirme ve güncelleme sırasında filtrelemeyi etkinleştirir</string>
+    <string name="db_filtering_enabled">Filtreleme etkin</string>
+    <string name="db_filtering_info_summary">Bu özellik, sizin için geçerli olmayan bazı verileri (farklı bölgelere veya ülkelere ait numaralar gibi) kaldırarak depolama alanından tasarruf etmenizi sağlar. Genel uygulama performansını etkilemez (arama engelleme gibi). Filtreleme, ilk veri tabanı indirmesi sırasında ve veri tabanı güncellemesi sırasında gerçekleşir. Var olan veriler (filtreleme etkinleştirilmeden önce indirilenler), aşağıdaki \"Veri tabanını filtrele\" seçeneği kullanılarak filtrelenebilir. Özelliği devre dışı bırakmak veya parametrelerini değiştirmek, kaldırılan verileri geri yüklemez - bunun için veri tabanını yeniden indirmeniz gerekir</string>
+    <string name="db_filtering_info">Açıklama</string>
+    <string name="settings_screen_db_filtering">Veri tabanı filtreleme</string>
+    <string name="settings_category_database">Veri tabanı</string>
 </resources>
