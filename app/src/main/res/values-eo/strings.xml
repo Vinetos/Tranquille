@@ -210,4 +210,17 @@
     <string name="notification_channel_name_known">Konataj alvokoj</string>
     <string name="notification_channel_name_tasks">Taskoj</string>
     <string name="notification_channel_group_name_services">Servoj</string>
+    <string name="db_filtering_enabled_summary">Ŝalti la filtradon dum la elŝutado kaj ĝisdatigado de la datenbanko</string>
+    <string name="db_filtering_filter_db_summary">Ruli la datenbankan filtradon nun (por filtri la ekzistantajn datenojn)</string>
+    <string name="db_filtering_keep_short_numbers_summary">Teni numerojn pli mallongajn ol la specifita longo, sendepende de prefiksoj</string>
+    <string name="db_filtering_keep_short_numbers">Teni mallongajn telefonnumerojn</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Nombro de tenotaj ciferoj</string>
+    <string name="filtering_db">Filtrante la datenbankon…</string>
+    <string name="db_filtering_filter_db">Filtri la datenbankon</string>
+    <string name="db_filtering_thorough">Plena filtrado</string>
+    <string name="db_filtering_prefixes_to_keep">Tenotaj prefiksoj</string>
+    <string name="db_filtering_enabled">Filtrado ŝaltita</string>
+    <string name="db_filtering_info">Klarigo</string>
+    <string name="settings_screen_db_filtering">Datenbanka filtrado</string>
+    <string name="settings_category_database">Datenbanko</string>
 </resources>
