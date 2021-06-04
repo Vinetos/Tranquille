@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- Vietnamese translation thanks to bruh ([@quangtrung02hn16](https://hosted.weblate.org/user/quangtrung02hn16/)).
 - Esperanto translation of the app description thanks to phlostically ([@phlostically](https://hosted.weblate.org/user/phlostically/)).
 
 ### Changed
