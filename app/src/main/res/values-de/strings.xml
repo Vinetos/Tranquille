@@ -10,7 +10,7 @@
     <string name="ui_mode_night">Dunkel</string>
     <string name="ui_mode_day">Hell</string>
     <string name="ui_mode">Schnittstellendesign</string>
-    <string name="use_contacts_summary">Nummern, die in den Kontakten gespeichert sind, werden nie blockiert und der Name im Zusammenhang mit der Nummer in der App angezeigt</string>
+    <string name="use_contacts_summary">Nummern, die in den Kontakten gespeichert sind, werden nie blockiert und der Name im Zusammenhang mit der Nummer in der Anwendung angezeigt</string>
     <string name="use_contacts">Kontakte verwenden</string>
     <string name="notification_settings">Benachrichtigungseinstellungen</string>
     <string name="blocked_call_notifications_disable_confirmation">Trotzdem deaktivieren</string>
@@ -111,7 +111,7 @@
     <string name="settings_category_country_codes">Ländercodes</string>
     <string name="block_in_limited_mode_blacklist">Auf der schwarze Liste</string>
     <string name="block_in_limited_mode_rating">Nach Bewertung</string>
-    <string name="auto_updates_summary">Automatisch tägliche DB-Aktualisierungen empfangen (dies sind inkrementelle / Delta-Aktualisierungen, sodass sie nur sehr wenig Datenverkehr verbrauchen)</string>
+    <string name="auto_updates_summary">Automatische tägliche Aktualisierungen der Zahlendatenbank erhalten (dies sind inkrementelle/Delta-Aktualisierungen, so dass sie nur sehr wenig Datenverkehr verbrauchen)</string>
     <string name="auto_updates">Datenbank automatisch aktualisieren</string>
     <string name="use_call_screening_service_summary">Ermöglicht das Blockieren von Anrufen, bevor das Telefon zu klingeln beginnt. Erfordert, dass die Anwendung als „Telefonanwendung“ (Android 7–9) oder als „Anrufer-ID-Anwendung“ (Android 10+) eingestellt ist</string>
     <string name="use_call_screening_service">Erweiterter Anrufblockierungsmodus</string>
@@ -147,4 +147,29 @@
     <string name="denied_call_screening_role_message">Die erweiterte Anrufsblockade funktioniert nicht, da die Anwendung nicht als „Anrufer-ID-Anwendung“ festgelegt wurde</string>
     <string name="feature_contacts">Verwendung von Kontakten</string>
     <string name="feature_call_blocking">Anrufblockierung</string>
+    <string name="block_in_limited_mode_summary">Erlaubte Arten der Sperrung im Direct Boot-Modus (Kontakte können in diesem Modus nicht zuverlässig als Whitelist verwendet werden)</string>
+    <string name="block_in_limited_mode">Im Direct-Boot-Modus blockieren</string>
+    <string name="settings_category_database">Datenbank</string>
+    <string name="use_monitoring_service_summary">Aktiviert einen ständig laufenden Überwachungsdienst, der beim Empfang von Telefonieereignissen auf einigen Telefonen hilft. Aktivieren Sie diese Funktion nur, wenn die Anrufsperre und die Informationsbenachrichtigungen nicht funktionieren. Diese Funktion hat keinen Einfluss auf die Akkulaufzeit</string>
+    <string name="use_monitoring_service">Überwachungsdienst verwenden</string>
+    <string name="db_version_not_available">k.A.</string>
+    <string name="version_string">v%s</string>
+    <string name="about_activity">Über</string>
+    <string name="open_about_activity">Über</string>
+    <string name="duration_s">%d Sek.</string>
+    <string name="duration_m_s">%1$d Min. %2$d Sek.</string>
+    <string name="duration_h_m_s">%1$d St. %2$d Min. %3$d Sek.</string>
+    <string name="db_version">Datenbank-Version: %s</string>
+    <string name="db_last_update_check_checking">Überprüfung …</string>
+    <string name="db_last_update_check_never">nie</string>
+    <string name="db_last_update_check">Letzte Aktualisierungsprüfung: %s</string>
+    <string name="motto">Blockieren Sie unerwünschte Anrufe mühelos</string>
+    <string name="translate">Anwendung auf Weblate übersetzen</string>
+    <string name="faq">Häufig gestellte Fragen</string>
+    <string name="homepage">Projekt-Website</string>
+    <string name="logo_description">Logo</string>
+    <string name="issues">Hilfe anfordern / Problem melden</string>
+    <string name="contacts_are_not_blocked_no_permission">Anrufe von Kontakten können blockiert werden, weil die Berechtigung „Kontakte“ nicht erteilt ist!</string>
+    <string name="block_hidden_number_summary">Anrufe von versteckten Nummern blockieren. Kann im „Erweiterten Anrufblockierungsmodus“ anders (besser oder schlechter) funktionieren</string>
+    <string name="license">Diese Anwendung ist unter AGPL-3.0 lizenziert.</string>
 </resources>
