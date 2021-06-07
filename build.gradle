@@ -22,6 +22,6 @@ task clean(type: Delete) {
 }
 
 wrapper {
-    gradleVersion = "6.5"
+    gradleVersion = "6.9"
     distributionType = Wrapper.DistributionType.ALL
 }
