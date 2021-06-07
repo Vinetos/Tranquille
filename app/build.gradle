@@ -7,8 +7,8 @@ android {
         applicationId "dummydomain.yetanothercallblocker"
         minSdkVersion 14
         targetSdkVersion 30
-        versionCode 5140
-        versionName "0.5.14"
+        versionCode 5150
+        versionName "0.5.15"
 
         javaCompileOptions {
             annotationProcessorOptions {
