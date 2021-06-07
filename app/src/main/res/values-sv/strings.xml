@@ -70,4 +70,5 @@
     <string name="default_phone_app_set">Välj \"Ytterligare en till samtalsblockerare\" som en \"Telefon-app\" i \"Standard-appar\" i systeminställningar</string>
     <string name="sia_category_dept_collector">Inkassoman</string>
     <string name="sia_category_none">Inget</string>
+    <string name="sia_category_nuisance">Störande</string>
 </resources>

@@ -1,7 +1,7 @@
 Una simple aplicación de bloqueo de llamadas que le ayudará a evitar responder a llamadas no deseadas
 usando una base de datos de números de teléfono fuera de línea.
 
-Características:
+<b>Características:</b>
 
 * Utiliza una base de datos de números de teléfono sin conexión.
 * Bloquea automáticamente las llamadas no deseadas (opcional).
@@ -9,7 +9,7 @@ Características:
 * Actualizaciones automáticas de la base de datos incremental/delta (opcional).
 * Puede ver revisiones en línea del número de la persona que llama (proporcionado por un servicio de terceros).
 
-Cómo utilizarlo:
+<b>Cómo utilizarlo:</b>
 
 * Instale e inicie la aplicación.
 * La opción de mostrar notificaciones de información de la persona que llama está activada de forma predeterminada, por lo que la aplicación solicitará permisos relacionados con el teléfono.
@@ -19,8 +19,10 @@ Cómo utilizarlo:
 * También puede marcar la casilla de verificación «Usar contactos» si desea que sus contactos no sean tratados como llamadas desconocidas.
 * Después de estos pasos todo debería funcionar. ¡Disfrútalo!
 
-La base de datos de números telefónicos principales se descarga de un repositorio de Gitlab.
-Las actualizaciones delta y las consultas de revisión detallada se realizan utilizando servidores de terceros.
+See <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">frequently asked questions</a> to learn more.
+
+La base de datos de números telefónicos principales se descarga de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">un repositorio de Gitlab</a>.
+<b>Las actualizaciones delta y las consultas de revisión detallada se realizan utilizando servidores de terceros.</b>
 No se envía ninguna información identificable por el usuario (excepto el número de teléfono que será cargada para las reseñas).
 
 Otro bloqueador de llamadas está aún en desarrollo. Cualquier ayuda es muy bienvenida.

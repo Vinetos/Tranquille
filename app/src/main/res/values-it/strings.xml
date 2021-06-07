@@ -45,7 +45,7 @@
     <string name="db_last_update_check_never">mai</string>
     <string name="db_last_update_check">Ultimo controllo aggiornamento: %s</string>
     <string name="db_version_not_available">n/d</string>
-    <string name="db_version">Versione della base di dati: %s</string>
+    <string name="db_version">Versione della banca dati: %s</string>
     <string name="license">Questa applicazione è concessa in licenza solo con AGPL-3.0.</string>
     <string name="issues">Ottieni aiuto / segnala un problema</string>
     <string name="translate">Traduci l\'app su Weblate</string>
@@ -210,4 +210,21 @@
     <string name="sia_category_safe_company">Sicuro società</string>
     <string name="sia_category_safe_personal">Sicuro personale</string>
     <string name="sia_category_dept_collector">Esattore</string>
+    <string name="filtering_db">Filtraggio banca dati…</string>
+    <string name="db_filtering_filter_db_summary">Esegui ora il filtraggio della banca dati (per filtrare i dati esistenti)</string>
+    <string name="db_filtering_filter_db">Filtra la banca dati</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">La lunghezza massima (inclusa) dei numeri brevi da mantenere indipendentemente dai prefissi. Ad esempio, il valore 5 manterrà i numeri di lunghezza pari o inferiore a 5 cifre</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Lunghezza dei numeri da conservare</string>
+    <string name="db_filtering_keep_short_numbers_summary">Conserva i numeri più corti della lunghezza specificata indipendentemente dai prefissi</string>
+    <string name="db_filtering_keep_short_numbers">Conserva numeri brevi</string>
+    <string name="db_filtering_thorough_summary">Se abilitato, passa attraverso ogni blocco di dati e rimuove i numeri che non corrispondono ai prefissi. Altrimenti, rimuove solo interi blocchi indesiderati (lasciando alcuni numeri indesiderati nei blocchi desiderati). Si raccomanda di lasciarlo attivo. Richiesto per conservare i numeri brevi</string>
+    <string name="db_filtering_thorough">Filtraggio accurato</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Una lista separata da virgole di prefissi di numeri da conservare. I prefissi dovrebbero essere nel formato internazionale (come +1234). Ad esempio, se ricevi chiamate solo da numeri che iniziano con +1, metti +1 qui</string>
+    <string name="db_filtering_prefixes_to_keep">Prefissi da conservare</string>
+    <string name="db_filtering_enabled_summary">Abilita il filtraggio durante lo scaricamento e l\'aggiornamento della banca dati</string>
+    <string name="db_filtering_enabled">Filtraggio abilitato</string>
+    <string name="db_filtering_info_summary">Questa funzione permette di risparmiare spazio di archiviazione rimuovendo alcuni dati che non sono applicabili a voi (come i numeri appartenenti a diverse regioni o paesi). Non influisce sulle prestazioni generali dell\'app (come il blocco delle chiamate). Il filtraggio avviene durante lo scaricamento iniziale della banca dati e durante l\'aggiornamento della banca dati. I dati esistenti (scaricati prima di abilitare il filtraggio) possono essere filtrati usando l\'opzione «Filtra la banca dati» qui sotto. Disattivare la funzione o cambiare i suoi parametri non ripristina i dati rimossi – è necessario riscaricare la banca dati per farlo</string>
+    <string name="db_filtering_info">Spiegazione</string>
+    <string name="settings_screen_db_filtering">Filtraggio della banca dati</string>
+    <string name="settings_category_database">Banca dati</string>
 </resources>

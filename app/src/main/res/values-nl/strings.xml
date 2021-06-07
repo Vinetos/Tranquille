@@ -210,4 +210,21 @@
     <string name="save_crashes_to_external_storage_summary">Sla crashverslagen en logboeken op op de openbare opslagruimte van je apparaat in plaats van in een privémap. De verslagen kunnen gevoelige informatie bevatten, zoals telefoonnummers en namen van contactpersonen. Andere apps met toegang tot je opslag hebben mogelijk toegang tot deze gegevens</string>
     <string name="country_codes_info_summary">Landcodes worden gebruikt in verzoeken aan externe servers. Deze codes proberen het gedrag van de officiële externe app na te bootsen. Als de codes overeenkomen met het land waarin je je bevindt (mogelijk op basis van je ip-adres), dan lijken je verzoeken niet verdacht. Standaard wordt automatische herkenning gebruikt (op basis van je mobielenetwerkinformatie of systeemtaal). Dit is bij de meeste mensen afdoende, maar je kunt de codes ook handmatig instellen. De codes dienen ISO 3166-codes met 2 letters te zijn (zoals in de VS)</string>
     <string name="use_monitoring_service_summary">Schakelt een altijd actieve monitoringsdienst in die helpt telefoniegebeurtenissen te onderscheppen. Schakel dit alleen in als oproepblokkering en meldingen niet werken. Deze functie heeft geen invloed op de accuduur</string>
+    <string name="filtering_db">Bezig met filteren van databank…</string>
+    <string name="db_filtering_filter_db_summary">Databank nu filteren (om reeds aanwezige gegevens te filteren)</string>
+    <string name="db_filtering_filter_db">Databank filteren</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">De maximale lengte van korte nummers, landnummers niet meegeteld. Voorbeeld: een waarde van 5 bewaart nummers met 5 of minder getallen</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Lengte van te bewaren nummers</string>
+    <string name="db_filtering_keep_short_numbers_summary">Bewaar nummers die korter zijn dan de opgegeven lengte (landnummers niet meegeteld)</string>
+    <string name="db_filtering_keep_short_numbers">Korte nummers bewaren</string>
+    <string name="db_filtering_thorough_summary">Schakel in om elk gegevensblok grondig te doorlopen en nummers te wissen die niet overeenkomen met de landnummers. Schakel uit om gehele onnodige blokken te wissen, waardoor enkele ongewenste nummers kunnen achterblijven. Wij raden aan deze functie in te schakelen</string>
+    <string name="db_filtering_thorough">Grondig filteren</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Een kommagescheiden lijst met te bewaren landnummers. Deze dienen te worden ingevoerd met internationale opmaak (bijv. +1234). Als je bijv. alleen nummers ontvangt van landen met +1, voer hier dan +1 in</string>
+    <string name="db_filtering_prefixes_to_keep">Te bewaren landnummers</string>
+    <string name="db_filtering_enabled_summary">Schakel filteren in tijdens het ophalen en bijwerken van de databank</string>
+    <string name="db_filtering_enabled">Filteren is ingeschakeld</string>
+    <string name="db_filtering_info_summary">Met deze functie kun je opslagruimte besparen door onnodige gegevens te wissen (zoals buitenlands nummers). Dit is niet van invloed op de app-prestaties (zoals oproepblokkering). Het filteren wordt alleen uitgevoerd tijdens de eerste keer dat de databank wordt opgehaald en tijdens het bijwerken ervan. Reeds aanwezige gegevens worden gefilterd middels onderstaande optie ‘Databank filteren’. Uitschakelen of aanpassen van de functie herstelt geen gewiste gegevens - daarvoor dien je de databank opnieuw op te halen</string>
+    <string name="db_filtering_info">Uitleg</string>
+    <string name="settings_screen_db_filtering">Databank filteren</string>
+    <string name="settings_category_database">Databank</string>
 </resources>
