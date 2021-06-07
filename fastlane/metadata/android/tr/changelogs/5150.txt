@@ -3,5 +3,5 @@
 * Arama ekranı numara alanı panodan önden doldurulur.
 * Uygulamanın bir güncelleme döngüsünde takılabileceği nadir bir hata düzeltildi.
 * Vietnamca çeviri eklendi, teşekkürler bruh (@quangtrung02hn16).
-* Çeviriler güncellendi, teşekkürler J. Lavoie (@Edanas), ssantos (@ssantos).
+* Çeviriler güncellendi, teşekkürler J. Lavoie, ssantos, Heimen Stoffels, Oğuz Ersen, phlostically.
 * İbranice çeviri düzeltildi.

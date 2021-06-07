@@ -17,8 +17,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - The Lookup screen number field is prefilled from clipboard.
 - The database update procedure is optimized to require less RAM.
-- Updated French and Italian translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
+- Updated French, Italian and German translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 - Updated Portuguese translation thanks to ssantos ([@ssantos](https://hosted.weblate.org/user/ssantos/)).
+- Updated Dutch translation thanks to Heimen Stoffels (@Vistaus).
+- Updated Turkish translation thanks to Oğuz Ersen (@ersen).
+- Updated Esperanto translation thanks to phlostically ([@phlostically](https://hosted.weblate.org/user/phlostically/)).
 
 ### Fixed
 
