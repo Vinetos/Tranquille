@@ -207,4 +207,21 @@
     <string name="notification_channel_group_name_services">Dịch vụ</string>
     <string name="notification_channel_group_name_blocked_calls">Cuộc gọi bị chặn</string>
     <string name="notification_channel_group_name_incoming_calls">Cuộc gọi đến</string>
+    <string name="filtering_db">Đang lọc CSDL…</string>
+    <string name="db_filtering_filter_db_summary">Chạy việc lọc cơ sở dữ liệu ngay (để lọc dữ liệu hiện có)</string>
+    <string name="db_filtering_filter_db">Lọc cơ sở dữ liệu</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">Độ dài tối đa của các số ngắn để giữ lại mà không tính đến các tiền tố. Vd: giá trị 5 sẽ giữ lại các số có độ dài 5 chữ số hoặc ngắn hơn</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Độ dài các số để giữ lại</string>
+    <string name="db_filtering_keep_short_numbers_summary">Giữ các số ngắn hơn độ dài được chỉ định mà không tính đến các tiền tố</string>
+    <string name="db_filtering_keep_short_numbers">Giữ lại các số ngắn</string>
+    <string name="db_filtering_thorough_summary">Nếu được bật, nó đi qua mọi khối dữ liệu và xoá các số không khớp với các tiền tố. Nếu không, nó chỉ xoá toàn bộ các khối không mong muốn (để lại một số số không mong muốn trong các khối mong muốn). Chúng tôi khuyên bạn cứ để bật tuỳ chọn này. Được yêu cầu để giữ lại các số ngắn</string>
+    <string name="db_filtering_thorough">Lọc kỹ</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Một danh sách các tiền tố của số điện thoại được chia tách bởi dấu phẩy để giữ lại. Các tiền tố nên ở định dạng quốc tế (như +1234). Vd: nếu bạn chỉ nhận các cuộc gọi từ các số bắt đầu bằng +1, hãy đặt +1 ở đây</string>
+    <string name="db_filtering_prefixes_to_keep">Các tiền tố để giữ lại</string>
+    <string name="db_filtering_enabled_summary">Bật việc lọc trong khi tải xuống và cập nhật cơ sở dữ liệu</string>
+    <string name="db_filtering_enabled">Đã bật lọc</string>
+    <string name="db_filtering_info_summary">Tính năng này cho phép tiết kiệm dung lượng bộ nhớ bằng cách xoá một số dữ liệu không áp dụng với bạn (như các số thuộc về các khu vực hoặc quốc gia khác). Nó không ảnh hưởng hiệu năng chung của ứng dụng (như chặn cuộc gọi). Việc lọc xảy ra trong lần tải xuống cơ sở dữ liệu đầu tiên và trong khi cập nhật có sở dữ liệu. Dữ liệu hiện có (đã tải xuống trước khi bật việc lọc) có thể được lọc bằng tuỳ chọn \"Lọc cơ sở dữ liệu\" ở dưới. Việc tắt tính năng này hoặc thay đổi tuỳ chọn của nó sẽ không khôi phục dữ liệu đã xoá - bạn cần tải xuống lại cơ sở dữ liệu để làm việc đó</string>
+    <string name="db_filtering_info">Giải thích</string>
+    <string name="settings_screen_db_filtering">Lọc cơ sở dữ liệu</string>
+    <string name="settings_category_database">Cơ sở dữ liệu</string>
 </resources>
