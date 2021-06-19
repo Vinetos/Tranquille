@@ -22,6 +22,7 @@ Nothing.
 
 - The Lookup screen number field is prefilled from clipboard.
 - The database update procedure is optimized to require less RAM.
+- \[Internal\] Updated LibPhoneNumberInfo with some refactoring.
 - Updated French, Italian and German translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 - Updated Portuguese translation thanks to ssantos ([@ssantos](https://hosted.weblate.org/user/ssantos/)).
 - Updated Dutch translation thanks to Heimen Stoffels (@Vistaus).
