@@ -7,7 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-Nothing.
+### Changed
+
+- \[Advanced\] The "prefixes to keep" parameter (of database filtering) is prefilled (once) based on recent calls.
 
 
 ## [0.5.15] - 2021-06-07

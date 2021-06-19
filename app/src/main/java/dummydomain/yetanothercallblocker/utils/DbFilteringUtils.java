@@ -1,13 +1,20 @@
 package dummydomain.yetanothercallblocker.utils;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import dummydomain.yetanothercallblocker.Settings;
+import dummydomain.yetanothercallblocker.data.CallLogHelper;
+import dummydomain.yetanothercallblocker.data.CallLogItem;
 import dummydomain.yetanothercallblocker.data.NumberFilter;
+import dummydomain.yetanothercallblocker.data.NumberUtils;
 
 public class DbFilteringUtils {
 
@@ -33,6 +40,38 @@ public class DbFilteringUtils {
             prefix = prefix.replaceAll("[^0-9]", "");
             if (!prefix.isEmpty() && !prefixList.contains(prefix)) prefixList.add(prefix);
         }
+
+        return prefixList;
+    }
+
+    public static String formatPrefixes(Collection<String> prefixes) {
+        List<String> formattedPrefixes = new ArrayList<>(prefixes.size());
+
+        for (String prefix : prefixes) {
+            formattedPrefixes.add("+" + prefix);
+        }
+
+        return TextUtils.join(",", formattedPrefixes);
+    }
+
+    public static List<String> detectPrefixes(Context context, String countryCode) {
+        Set<String> prefixes = new HashSet<>();
+
+        List<CallLogItem> callLogItems = CallLogHelper.loadCalls(context, null, false, 100);
+
+        for (CallLogItem callLogItem : callLogItems) {
+            String number = NumberUtils.normalizeNumber(callLogItem.number, countryCode);
+
+            if (number != null && number.startsWith("+") && number.length() > 1) {
+                char firstDigit = number.charAt(1);
+                if (firstDigit >= '0' && firstDigit <= '9') {
+                    prefixes.add(String.valueOf(firstDigit));
+                }
+            }
+        }
+
+        List<String> prefixList = new ArrayList<>(prefixes);
+        Collections.sort(prefixList);
 
         return prefixList;
     }

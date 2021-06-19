@@ -1,11 +1,12 @@
 package dummydomain.yetanothercallblocker;
 
+import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.text.TextUtils;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.EditTextPreference;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import dummydomain.yetanothercallblocker.data.YacbHolder;
@@ -22,6 +23,8 @@ public class DbFilteringSettingsFragment extends BaseSettingsFragment {
 
     private final Settings settings = App.getSettings();
 
+    private AsyncTask<Void, Void, List<String>> prefillPrefixesTask;
+
     @Override
     protected String getScreenKey() {
         return PREF_SCREEN_DB_FILTERING;
@@ -34,6 +37,14 @@ public class DbFilteringSettingsFragment extends BaseSettingsFragment {
 
     @Override
     protected void initScreen() {
+        if (!settings.isDbFilteringPrefixesPrefilled()) {
+            settings.setDbFilteringPrefixesPrefilled(true);
+
+            if (TextUtils.isEmpty(settings.getDbFilteringPrefixesToKeep())) {
+                startPrefillPrefixesTask();
+            }
+        }
+
         requirePreference(PREF_INFO).setOnPreferenceClickListener(pref -> {
             new AlertDialog.Builder(requireActivity())
                     .setTitle(R.string.settings_screen_db_filtering)
@@ -46,11 +57,8 @@ public class DbFilteringSettingsFragment extends BaseSettingsFragment {
         setPrefChangeListener(PREF_DB_FILTERING_PREFIXES_TO_KEEP, (pref, newValue) -> {
             String value = (String) newValue;
 
-            List<String> prefixes = new ArrayList<>();
-            for (String prefix : DbFilteringUtils.parsePrefixes(value)) {
-                prefixes.add("+" + prefix);
-            }
-            String formattedPrefixes = TextUtils.join(",", prefixes);
+            String formattedPrefixes = DbFilteringUtils.formatPrefixes(
+                    DbFilteringUtils.parsePrefixes(value));
 
             if (!TextUtils.equals(formattedPrefixes, value)) {
                 ((EditTextPreference) pref).setText(formattedPrefixes);
@@ -69,9 +77,44 @@ public class DbFilteringSettingsFragment extends BaseSettingsFragment {
 
     @Override
     public void onStop() {
-        super.onStop();
+        cancelPrefillPrefixesTask();
 
         updateFilter();
+
+        super.onStop();
+    }
+
+    private void startPrefillPrefixesTask() {
+        cancelPrefillPrefixesTask();
+        @SuppressLint("StaticFieldLeak")
+        AsyncTask<Void, Void, List<String>> prefillPrefixesTask = this.prefillPrefixesTask
+                = new AsyncTask<Void, Void, List<String>>() {
+            @Override
+            protected List<String> doInBackground(Void... voids) {
+                return DbFilteringUtils.detectPrefixes(requireContext(),
+                        settings.getCachedAutoDetectedCountryCode());
+            }
+
+            @Override
+            protected void onPostExecute(List<String> prefixList) {
+                if (!prefixList.isEmpty()) {
+                    EditTextPreference preference = requirePreference(
+                            PREF_DB_FILTERING_PREFIXES_TO_KEEP);
+
+                    if (TextUtils.isEmpty(preference.getText())) {
+                        preference.setText(DbFilteringUtils.formatPrefixes(prefixList));
+                    }
+                }
+            }
+        };
+        prefillPrefixesTask.execute();
+    }
+
+    private void cancelPrefillPrefixesTask() {
+        if (prefillPrefixesTask != null) {
+            prefillPrefixesTask.cancel(true);
+            prefillPrefixesTask = null;
+        }
     }
 
     private void updateFilter() {

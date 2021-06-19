@@ -35,6 +35,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_LAST_UPDATE_TIME = "lastUpdateTime";
     public static final String PREF_LAST_UPDATE_CHECK_TIME = "lastUpdateCheckTime";
     public static final String PREF_DB_FILTERING_ENABLED = "dbFilteringEnabled";
+    public static final String PREF_DB_FILTERING_PREFIXES_PREFILLED = "dbFilteringPrefixesPrefilled";
     public static final String PREF_DB_FILTERING_PREFIXES_TO_KEEP = "dbFilteringPrefixesToKeep";
     public static final String PREF_DB_FILTERING_THOROUGH = "dbFilteringThorough";
     public static final String PREF_DB_FILTERING_KEEP_SHORT_NUMBERS = "dbFilteringKeepShortNumbers";
@@ -253,6 +254,14 @@ public class Settings extends GenericSettings {
 
     public void setDbFilteringEnabled(boolean enabled) {
         setBoolean(PREF_DB_FILTERING_ENABLED, enabled);
+    }
+
+    public boolean isDbFilteringPrefixesPrefilled() {
+        return getBoolean(PREF_DB_FILTERING_PREFIXES_PREFILLED);
+    }
+
+    public void setDbFilteringPrefixesPrefilled(boolean prefilled) {
+        setBoolean(PREF_DB_FILTERING_PREFIXES_PREFILLED, prefilled);
     }
 
     public String getDbFilteringPrefixesToKeep() {
