@@ -35,8 +35,8 @@ Yet Another Call Blocker doesn't have a permanent notification since it doesn't 
 
 ## Is there a whitelist? How can I allow a particular number with negative rating to call me?
 
-Since [contacts are never blocked](FAQ.md#how-do-blocking-options-work-exactly) (you need to enable "Use contacts" option), you can simply add that specific number to your contacts and it will be able to call you.  
-There's no whitelist feature and currently it's not planned since it would result in unnecessary complexity (vote for or leave a comment in [this issue](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/11) if you want to convince me otherwise).
+Since [contacts are never blocked](FAQ.md#how-do-blocking-options-work-exactly) (you need to enable "Use contacts" option), you can simply add that specific number to your contacts, and it will be able to call you.  
+Currently, there's no whitelist feature, but there are plans to eventually implement it. Vote for or discuss it in [#11](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/11) and [#26](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/26).
 
 
 ## Can I block all numbers not present in Contacts?
@@ -51,7 +51,7 @@ Additionally, modern Android versions have "Do not disturb" mode which can be cu
 "Advanced call blocking mode" is a mode that uses a modern call blocking method ([CallScreeningService](https://developer.android.com/reference/android/telecom/CallScreeningService)-based) which allows to block calls immediately before the phone starts ringing ("normal" mode can't handle incoming calls fast enough, so your phone may ring for a very short period of time before the call is finally blocked).  
 For this feature to work the app must be set as a "Phone app" (Android 7–9) or a "Caller ID app" (Android 10+). The feature is not available on older Android versions. This feature has no effect on battery life.  
 **Important**: the app doesn't provide/replace any in-call UI - call handling is delegated to your pre-installed Dialer app (or the "Phone app" selected by you on Android 10+), which is actually used to manage a call.  
-Obviously, on Android 7–9 you can't enable this feature **and** select some third-party Dialer app. This is a restriction of Android, I'm not aware of any way to work around it.
+Obviously, on Android 7–9 you can't enable this feature **and** select a third-party Dialer app. This is a restriction of Android, I'm not aware of any way to work around it.
 
 
 ## I don't want to see some of the informational notifications, can I disable them? Can I change notification priorities?
@@ -65,7 +65,7 @@ There's also an option to disable all the informational notifications at once.
 ## What countries are covered by the offline number database?
 
 I'm not sure to be honest. But I believe most of the world is covered.  
-You can install the app and look up some recent unwanted calls (if you have any) to see whether the app would have blocked them for you.
+You can install the app and look up some recent unwanted calls (if you had any) to see whether the app would have blocked them for you.
 
 
 ## How do wildcards in the blacklist work?
@@ -86,7 +86,7 @@ The number format *must* match the format that Android uses, that's why the lead
 1. If "Block hidden numbers" is enabled and the number is hidden, the call is **blocked**.  
   Theoretically, a failure to detect number may result in a call from a contact to be blocked, but I haven't heard about it ever happening.
 1. If "Block based on rating" is enabled and the number has a *negative rating*, the call is **blocked**.  
-  Currently "negative rating" means the number has more negative reviews than a sum of neutral and positive reviews.
+  Currently, "negative rating" means the number has more negative reviews than a sum of neutral and positive reviews.
 1. If "Block blacklisted numbers" is enabled and the number matches any valid blacklist pattern, the call is **blocked**.
 
 
@@ -100,7 +100,7 @@ Not yet. If you want this feature, vote for [this issue](https://gitlab.com/xynn
 Hidden number detection is not properly standardized in Android. It took quite some effort to implement the feature as it is, but it was mostly borrowed code and guesswork.  
 It probably works better in ["advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode).
 
-If you receive a hidden call that wasn't blocked, [create a "crash report"](FAQ.md#how-to-report-a-crash-get-app-logs) and send it to me so I can improve the feature. You can send a report even if you didn't have "block hidden numbers" enabled at the moment - the report should be just as useful.
+If you receive a hidden call that wasn't blocked, [create a "crash report"](FAQ.md#how-to-report-a-crash-get-app-logs) and send it to me, so I can improve the feature. You can send a report even if you didn't have "block hidden numbers" enabled at the moment - the report should be just as useful.
 
 
 ## Can I use the app with VPN/Tor?
@@ -112,9 +112,11 @@ Unfortunately, the third-party servers block requests from Tor, so daily updates
 
 ## The app takes too much storage space. What can I do?
 
-Normally the app takes a little under 130 MB in total: ~18 MB for the app and ~112 MB for data (the offline number rating database).
+Normally the app takes a little under 150 MB in total: ~20 MB for the app and ~130 MB for the data (the offline number rating database).
 
-If you really want to save space, you can build the app yourself with a primary DB embedded (see the optional step in [build instructions](BUILDING.md#clone-the-assets-repo-optional-step-allows-to-avoid-the-initial-db-downloading-after-installation)). The app will take less than 60 MB in total: ~38 MB for the app and ~18 MB for data. You won't need to perform that "initial DB downloading" on first start. The downside is that you'll eventually (once in a couple of months) have to rebuild the app with a fresh primary DB (and you won't be able to update via F-Droid).
+There are options for database filtering (in the Advanced settings) that allow to save a lot of storage space by removing data that is not applicable to your region. In many cases this feature can save around 100 MB of space without the app losing any efficiency. Carefully read the option descriptions.
+
+You can also build the app yourself embedding the primary DB (see the optional step in [build instructions](BUILDING.md#clone-the-assets-repo-optional-step-allows-to-avoid-the-initial-db-downloading-after-installation)). This will save around 70 MB (by increasing the APK size by ~25 MB, but decreasing the data size by ~95 MB). You won't need to perform the "initial DB downloading" on first start. The downsides are that you'll eventually (once in a couple of months) have to rebuild the app with a fresh primary DB and you won't be able to update via F-Droid.
 
 
 ## What's the source of that "third-party crowdsourced phone number database"?
@@ -132,7 +134,7 @@ Check [issues](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues). If the
 Sometimes reporting a sequence of steps to reproduce a problem is enough, but in most cases you need to provide extra information in the form of app logs.  
 You can get app logs ([logcat](https://developer.android.com/studio/debug/am-logcat) output) right inside the app by going to "Settings -> Advanced settings" and pressing "Export logcat".  
 As mentioned in the description, the logs may contain some personal information - don't post it publicly without checking.  
-If you redact personal data (which you should do), please *replace* numbers (with random numbers, preferably without changing format) instead of *removing* them completely. Otherwise it is hard to tell whether the number was missing in the app or you removed it. That is especially important when dealing with hidden numbers.
+If you redact personal data (which you should do), please *replace* numbers (with random numbers, preferably without changing format) instead of *removing* them completely. Otherwise, it is hard to tell whether the number was missing in the app or you removed it. That is especially important when dealing with hidden numbers.
 
 
 ## There's plenty of other \[better looking, with more features\] Android call blocking apps around. Why should I use yours?
@@ -140,4 +142,4 @@ If you redact personal data (which you should do), please *replace* numbers (wit
 You don't have to. If you're happy with some other app - good for you.  
 This project was started because I needed to help my non-techie relatives fight phone spam. Giving calls and contacts permissions to some proprietary app is just not an option for me.  
 There's only a few FOSS (free and open source) apps that provide call blocking and none of them has any kind of a crowdsourced blacklist. So I created Yet Another Call Blocker to solve this.  
-After a while the app got new features, some of which are unique on the FOSS scene (for example, I believe that the "advanced call blocking mode" is not present in any other FOSS app).
+After a while the app got new features, some of which are unique on the FOSS scene (for example, I believe that the "advanced call blocking mode" is not present in any other FOSS spam blocker).
