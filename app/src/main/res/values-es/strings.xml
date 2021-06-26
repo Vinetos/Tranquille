@@ -210,4 +210,21 @@
     <string name="done">Hecho</string>
     <string name="yes">Sí</string>
     <string name="add_web_review">Añadir reseña (web)</string>
+    <string name="db_filtering_thorough">Filtrado exhaustivo</string>
+    <string name="filtering_db">Filtrando la Base de datos…</string>
+    <string name="db_filtering_filter_db_summary">Ejecute ahora el filtrado de la base de datos (para filtrar los datos existentes)</string>
+    <string name="db_filtering_filter_db">Filtro la base de datos</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">La longitud máxima (inclusive) de los números cortos que se mantendrá sin tener en cuenta los prefijos. Por ejemplo, el valor de 5 mantendrá los números con una longitud de 5 dígitos o menos</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Longitud de los números a conservar</string>
+    <string name="db_filtering_keep_short_numbers_summary">Mantenga los números más cortos que la longitud especificada independientemente de los prefijos</string>
+    <string name="db_filtering_keep_short_numbers">Mantener los números cortos</string>
+    <string name="db_filtering_thorough_summary">Si se activa, recorre cada bloque de datos y elimina los números que no coinciden con los prefijos. Si no, sólo elimina los bloques enteros no deseados (dejando algunos números no deseados en los bloques deseados). Se recomienda dejar esta opción activada. Necesario para mantener los números cortos</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Una lista separada por comas de los prefijos de los números que hay que conservar. Los prefijos deben tener el formato internacional (como +1234). Por ejemplo, si sólo recibe llamadas de números que empiezan por +1, ponga aquí +1</string>
+    <string name="db_filtering_prefixes_to_keep">Prefijos que hay que conservar</string>
+    <string name="db_filtering_enabled_summary">Activa el filtrado durante la descarga y actualización de la base de datos</string>
+    <string name="db_filtering_enabled">Filtrado activado</string>
+    <string name="db_filtering_info_summary">Esta función permite ahorrar espacio de almacenamiento eliminando algunos datos que no te corresponden (como los números que pertenecen a diferentes regiones o países). No afecta al rendimiento general de la aplicación (como el bloqueo de llamadas). El filtrado se produce durante la descarga inicial de la base de datos y durante su actualización. Los datos existentes (descargados antes de activar el filtrado) pueden filtrarse utilizando la opción \"Filtrar la base de datos\" que aparece más abajo. La desactivación de la función o la modificación de sus parámetros no restablece los datos eliminados; para ello, es necesario volver a descargar la base de datos</string>
+    <string name="db_filtering_info">Explicación</string>
+    <string name="settings_screen_db_filtering">Filtrado de la Base de datos</string>
+    <string name="settings_category_database">Base de datos</string>
 </resources>
