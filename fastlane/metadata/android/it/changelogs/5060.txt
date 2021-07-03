@@ -1,0 +1,11 @@
+* Slightly improved notification content.
+* Added button to add review from the lookup screen.
+* Added Turkish translation thanks to Oğuz Ersen (@ersen).
+* Updated translations thanks to Yannis T. (@azakosath) and Evo (@verahawk).
+
+0.5.5:
+
+* Added optional monitoring service (allows YACB to work on Xiaomi's MIUI).
+* Improved hidden number detection in "normal" mode.
+* Added Polish translation thanks to Evo (@verahawk).
+* Fixes and improvements.

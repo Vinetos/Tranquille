@@ -1,0 +1,2 @@
+* Proper call blocking on Android 9.
+* Fixed handling of new calls during active calls.
