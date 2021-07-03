@@ -1,0 +1,15 @@
+Una semplice applicazione di blocco delle chiamate che ti aiuterà a evitare di rispondere alle chiamate indesiderate utilizzando un database dei numeri di telefono crowdsourced. 
+
+<b>Caratteristiche<b>
+
+* Utilizza un database offline.
+* Blocca le chiamate con valutazione negativa automaticamente (opzionale).
+* Blacklist locale con supporto wildcard.
+* Visualizza una notifica con il riepilogo del numero di telefono (valutazione, recensioni, chiamate, categoria) durante le chiamate in arrivo (opzionale).
+* Aggiornamenti automatici incrementali/delta  del database (opzionale).
+* È possibile visualizzare le recensioni online per il numero di chi chiama (fornito da servizio di terze parti).
+* "Modalità di blocco delle chiamate avanzate" per bloccare le chiamate su Android 7+ prima che il telefono inizia a squillare (deve essere abilitato manualmente nelle impostazioni di app). 
+
+Vedi <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">F.A.Q.</a> per saperne di più.
+
+Il database principale del numero di telefono viene scaricato da  <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">una repository di gitlab</a>

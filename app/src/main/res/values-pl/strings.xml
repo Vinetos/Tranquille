@@ -216,4 +216,21 @@
     <string name="show_notifications_for_blocked_calls">Powiadamiaj o zablokowanych połączeniach</string>
     <string name="selected_value_nothing">&lt;nic&gt;</string>
     <string name="block_in_limited_mode_rating">Według oceny</string>
+    <string name="db_filtering_thorough_summary">Jeśli włączone, przechodzi przez każdy blok danych i usuwa numery niepasujące do prefiksów. W przeciwnym razie usuwa całe niechciane bloki (pozostawiając niektóre niechciane numery w chcianych blokach). Zaleca się pozostawienie tej opcji włączonej. Wymagane do zachowania krótkich numerów</string>
+    <string name="filtering_db">Filtrowanie bazy danych…</string>
+    <string name="db_filtering_filter_db_summary">Uruchamia filtrowanie bazy danych (aby przefiltrować istniejące dane)</string>
+    <string name="db_filtering_keep_short_numbers_summary">Zachowuje numery krótsze niż określona długość, niezależnie od prefiksów</string>
+    <string name="db_filtering_info">Objaśnienie</string>
+    <string name="db_filtering_filter_db">Filtruj bazę danych</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">Maksymalna długość (włącznie) krótkich numerów do przechowania, niezależnie od prefiksów. Np. wartość 5 zachowa numery o długości 5 cyfr lub krótsze</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Długość numerów do zachowania</string>
+    <string name="db_filtering_keep_short_numbers">Zachowaj krótkie numery</string>
+    <string name="db_filtering_thorough">Dokładne filtrowanie</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Rozdzielona przecinkami lista prefiksów numerów do zachowania. Prefiksy powinny być w międzynarodowym formacie (jak +1234). Np. jeśli otrzymujesz połączenia tylko od numerów zaczynających się od +1, wpisz tutaj +1</string>
+    <string name="db_filtering_prefixes_to_keep">Prefiksy do zachowania</string>
+    <string name="db_filtering_enabled_summary">Włącza filtrowanie podczas pobierania i aktualizacji bazy danych</string>
+    <string name="db_filtering_enabled">Filtrowanie włączone</string>
+    <string name="db_filtering_info_summary">Ta funkcja pozwala zaoszczędzić miejsce w pamięci przez usuwanie niektórych danych, które Ciebie nie dotyczą (jak numery należące do innych regionów lub krajów). Nie wpływa to na ogólną wydajność aplikacji (jak blokowanie połączeń). Filtrowanie odbywa się podczas pierwszego pobierania bazy danych i w czasie jej aktualizacji. Istniejące dane (pobrane przed włączeniem filtrowania) można przefiltrować za pomocą poniższej opcji \"Filtruj bazę danych\". Wyłączenie funkcji lub zmiana jej parametrów nie przywraca usuniętych danych - w tym celu musisz ponownie pobrać bazę danych</string>
+    <string name="settings_screen_db_filtering">Filtrowanie bazy danych</string>
+    <string name="settings_category_database">Baza danych</string>
 </resources>

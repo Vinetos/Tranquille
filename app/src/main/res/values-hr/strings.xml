@@ -213,4 +213,21 @@
     <string name="blocked_call_notifications_disable_message">Ako se pozivi blokiraju bez obavještavanja, možda ćeš propustiti neke pozive</string>
     <string name="show_notifications_for_blocked_calls_summary">Prikaži obavijest nakon blokiranja poziva</string>
     <string name="show_notifications_for_blocked_calls">Obavijesti o blokiranim pozivima</string>
+    <string name="db_filtering_info_summary">Ova funkcija omogućuje uštedjeti prostor memorije uklanjanjem nekih podataka koji za tebe nisu primjenjivi (poput brojeva koji pripadaju različitim regijama ili zemljama). Ne utječe na opću izvedbu programa (poput blokiranja poziva). Filtriranje se događa tijekom početnog preuzimanja baze podataka i tijekom aktualiziranja baze podataka. Postojeći podaci (preuzeti prije aktiviranja filtriranja) mogu se filtrirati pomoću opcije „Filtriranje baze podataka”. Deaktiviranjem funkcije ili mijenjanjem njezinih parametara, uklonjeni podaci se ne vraćaju – za to moraš ponovo preuzeti bazu podataka</string>
+    <string name="db_filtering_filter_db_summary">Pokreni filtriranje baze podataka sada (za filtriranje postojećih podataka)</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">Maksimalni (uključujući) broj znamenaka kratkih brojeva koji se zadržavaju bez obzira na predznake. Npr. vrijednost 5 zadržat će brojeve s 5 znamenaka ili kraće</string>
+    <string name="db_filtering_keep_short_numbers_summary">Zadrži brojeve kraćima od određenog broja znamenaka, bez obzira na predznake</string>
+    <string name="db_filtering_thorough_summary">Ako je aktivirano, prolazi kroz svaki blok podataka i uklanja brojeve koji se ne podudaraju s predznacima. Inače, uklanja samo cijele neželjene blokove (ostavljajući neke neželjene brojeve u željenim blokovima). Preporučujemo da ovo ostaviš uključeno. Potrebno za čuvanje kratkih brojeva</string>
+    <string name="db_filtering_thorough">Temeljito filtriranje</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Zarezom odvojen popis predznakova brojeva koje treba zadržati. Predznaci bi trebali biti u međunarodnom formatu (poput +1234). Na primjer, ako primaš pozive samo s brojeva koji počinju s +1, ovdje stavi +1</string>
+    <string name="db_filtering_enabled_summary">Aktivira filtriranje tijekom preuzimanja i aktualiziranja baze podataka</string>
+    <string name="db_filtering_info">Objašnjenje</string>
+    <string name="filtering_db">Filtriranje baze podataka …</string>
+    <string name="db_filtering_filter_db">Filtriraj bazu podataka</string>
+    <string name="db_filtering_keep_short_numbers">Zadrži kratke brojeve</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Zadržani broj znamenaka broja</string>
+    <string name="db_filtering_prefixes_to_keep">Zadržani predznaci</string>
+    <string name="db_filtering_enabled">Filtriranje aktivirano</string>
+    <string name="settings_screen_db_filtering">Filtriranje baze podataka</string>
+    <string name="settings_category_database">Baza podataka</string>
 </resources>
