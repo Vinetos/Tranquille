@@ -10,6 +10,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 - \[Advanced\] The "prefixes to keep" parameter (of database filtering) is prefilled (once) based on recent calls.
+- Italian translation of the app description thanks to Minibus93 ([@Minibus93](https://hosted.weblate.org/user/Minibus93/)).
+
+### Changed
+
+- Updated Croatian translation thanks to Milo Ivir (@milotype).
+- Updated Vietnamese translation thanks to bruh ([@quangtrung02hn16](https://hosted.weblate.org/user/quangtrung02hn16/)).
+- Updated Polish translation thanks to Agnieszka C ([@Aga](https://hosted.weblate.org/user/Aga/)).
+- Updated Spanish translation thanks to hiking ([@hiking](https://hosted.weblate.org/user/hiking/)).
+- Updated Portuguese (Brazil) translation thanks to Havokdan ([@Havokdan](https://hosted.weblate.org/user/Havokdan/)).
 
 
 ## [0.5.15] - 2021-06-07
