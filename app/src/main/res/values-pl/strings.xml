@@ -111,10 +111,10 @@
     <string name="sia_category_survey">Ankieta</string>
     <string name="sia_category_sms">SMS</string>
     <string name="sia_category_fax">Faks</string>
-    <string name="sia_category_call_center">Centrum telefoniczne</string>
+    <string name="sia_category_call_center">Call center</string>
     <string name="sia_category_unsolicited">Niechciany</string>
     <string name="sia_category_silent">Głuchy telefon</string>
-    <string name="sia_category_dept_collector">Komornik</string>
+    <string name="sia_category_dept_collector">Windykator</string>
     <string name="sia_category_telemarketer">Telemarketer</string>
     <string name="notification_blocked_call">Zablokowane połączenie</string>
     <string name="notification_incoming_call_neutral">Neutralne połączenie</string>
@@ -171,7 +171,7 @@
     <string name="auto_updates_summary">Automatycznie aktualizuje bazę danych każdego dnia (są to aktualizacje przyrostowe, więc zużywają bardzo mało danych)</string>
     <string name="use_monitoring_service_summary">Włącza stale działającą usługę monitorowania, która pomaga w odbieraniu zdarzeń telefonicznych na niektórych telefonach. Włącz tę funkcję tylko wtedy, gdy blokowanie połączeń i powiadomienia informacyjne nie działają. Ta funkcja nie ma wpływu na żywotność baterii</string>
     <string name="call_log_grouping_day">Niekolejne w ciągu jednego dnia</string>
-    <string name="call_log_grouping">Grupowanie rejestrów połączeń</string>
+    <string name="call_log_grouping">Grupowanie rejestru połączeń</string>
     <string name="duration_s">%d sek.</string>
     <string name="duration_m_s">%1$d min. %2$d sek.</string>
     <string name="duration_h_m_s">%1$d godz. %2$d min. %3$d sek.</string>
@@ -201,7 +201,7 @@
     <string name="db_version">Wersja bazy danych: %s</string>
     <string name="version_string">v%s</string>
     <string name="blacklist_select_all">Zaznacz wszystko</string>
-    <string name="block_in_limited_mode_summary">Dozwolone rodzaje blokowania w trybie bezpośredniego rozruchu (w tym trybie kontakty nie mogą być umieszczone na białej liście)</string>
+    <string name="block_in_limited_mode_summary">Dozwolone rodzaje blokowania w trybie bezpośredniego rozruchu (w tym trybie kontakty nie mogą być używane jako biała lista)</string>
     <plurals name="selected_values">
         <item quantity="one">Wybrano: %s</item>
         <item quantity="few">Wybrano: %s</item>
@@ -212,7 +212,7 @@
     <string name="block_in_limited_mode">Blokuj w trybie bezpośredniego rozruchu</string>
     <string name="blocked_call_notifications_disable_confirmation">Wyłącz mimo to</string>
     <string name="blocked_call_notifications_disable_message">Możesz niechcący przeoczyć połączenie, jeśli zostanie ono zablokowane bez powiadomienia</string>
-    <string name="show_notifications_for_blocked_calls_summary">Wyświetl powiadomienie po zablokowaniu połączenia</string>
+    <string name="show_notifications_for_blocked_calls_summary">Wyświetla powiadomienie po zablokowaniu połączenia</string>
     <string name="show_notifications_for_blocked_calls">Powiadamiaj o zablokowanych połączeniach</string>
     <string name="selected_value_nothing">&lt;nic&gt;</string>
     <string name="block_in_limited_mode_rating">Według oceny</string>
