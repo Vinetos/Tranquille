@@ -210,10 +210,10 @@
     <string name="blocked_call_notifications_disable_confirmation">Desativar mesmo assim</string>
     <string name="blocked_call_notifications_disable_message">Você pode acidentalmente perder uma chamada se as chamadas forem bloqueadas sem notificações</string>
     <string name="show_notifications_for_blocked_calls">Notificar sobre chamadas bloqueadas</string>
-    <string name="filtering_db">Filtrando BD…</string>
+    <string name="filtering_db">Filtrando o BD…</string>
     <string name="db_filtering_filter_db_summary">Execute a filtragem do banco de dados agora (para filtrar os dados existentes)</string>
     <string name="db_filtering_filter_db">Filtrar o banco de dados</string>
-    <string name="db_filtering_keep_short_numbers_max_length_summary">O comprimento máximo (inclusive) de números curtos a serem mantidos, independentemente dos prefixos. Por exemplo. O valor de 5 manterá os números com comprimento de 5 dígitos ou menos</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">O comprimento máximo (inclusivo) de números curtos a serem mantidos, independentemente dos prefixos. Por exemplo. O valor de 5 manterá os números com comprimento de 5 dígitos ou menos</string>
     <string name="db_filtering_keep_short_numbers_max_length">Comprimento dos números para manter</string>
     <string name="db_filtering_keep_short_numbers_summary">Mantenha os números menores do que o comprimento especificado, independentemente dos prefixos</string>
     <string name="db_filtering_keep_short_numbers">Mantenha números curtos</string>
@@ -224,7 +224,7 @@
     <string name="db_filtering_enabled_summary">Habilita a filtragem durante o download e atualização do banco de dados</string>
     <string name="db_filtering_enabled">Filtragem habilitada</string>
     <string name="db_filtering_info_summary">Este recurso permite economizar espaço de armazenamento removendo alguns dados que não são aplicáveis a você (como números pertencentes a diferentes regiões ou países). Isso não afeta o desempenho geral do aplicativo (como o bloqueio de chamadas). A filtragem ocorre durante o download inicial do banco de dados e durante a atualização do banco de dados. Os dados existentes (baixados antes de habilitar a filtragem) podem ser filtrados usando a opção \'Filtrar o banco de dados\' abaixo. Desativar o recurso ou alterar seus parâmetros não restauram os dados removidos - você precisa baixar novamente o banco de dados para isso</string>
-    <string name="db_filtering_info">Explicação</string>
+    <string name="db_filtering_info">Esclarecimento</string>
     <string name="settings_screen_db_filtering">Filtragem do banco de dados</string>
     <string name="settings_category_database">Banco de dados</string>
 </resources>
