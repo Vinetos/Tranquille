@@ -216,4 +216,21 @@
     <string name="notification_channel_group_name_services">שירותים</string>
     <string name="notification_channel_group_name_blocked_calls">שיחות חסומות</string>
     <string name="notification_channel_group_name_incoming_calls">שיחות נכנסות</string>
+    <string name="filtering_db">מסנן מסד נתונים…</string>
+    <string name="db_filtering_filter_db_summary">הפעלת סינון מסד הנתונים כעת (לסינון הנתונים הקיימים)</string>
+    <string name="db_filtering_filter_db">סינון מסד הנתונים</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">האורך המרבי (כולל) של מספרים קצרים לשמירה ללא קשר לקידומות. למשל, הערך 5 ישמור מספרים באורך של 5 ספרות או פחות</string>
+    <string name="db_filtering_keep_short_numbers_max_length">אורך המספרים לשמירה</string>
+    <string name="db_filtering_keep_short_numbers">שמית מספרים קצרים</string>
+    <string name="db_filtering_keep_short_numbers_summary">שמירה על מספרים קצרים מהאורך שצוין ללא קשר לקידומות</string>
+    <string name="db_filtering_thorough_summary">אם אפשרות זו זמינה, היא עוברת על כל בלוק נתונים ומסירה מספרים שאינם תואמים לקידומות. אחרת, זה רק מסיר בלוקים לא רצויים שלמים (משאיר כמה מספרים לא רצויים בלוקים מבוקשים). מומלץ להשאיר את זה פועל. נדרש לשמירת מספרים קצרים</string>
+    <string name="db_filtering_thorough">סינון יסודי</string>
+    <string name="db_filtering_prefixes_to_keep_summary">רשימה מופרדת באמצעות פסיקים של קידומות מספרים לשמירה. הקידומת צריכה להיות בתבנית הבינלאומית (כמו +1234). למשל, אם מתקבלים אצלך שיחות רק ממספרים המתחילים ב- +1, יש להזין +1 כאן</string>
+    <string name="db_filtering_prefixes_to_keep">קידומות לשמירה</string>
+    <string name="db_filtering_enabled_summary">מאפשר סינון במהלך הורדת ועדכון מסד הנתונים</string>
+    <string name="db_filtering_enabled">סינון מופעל</string>
+    <string name="db_filtering_info_summary">תכונה זו מאפשרת לחסוך בשטח אחסון על ידי הסרת נתונים מסוימים שאינם ישימים עבורך (כגון מספרים השייכים לאזורים או למדינות שונים). היא אינה משפיעה על ביצועי אפליקציה כלליים (כגון חסימת שיחות). סינון מתרחש במהלך ההורדה הראשונית של מסד הנתונים ובמהלך עדכון מסד הנתונים. ניתן לסנן נתונים קיימים (שהורדו לפני הפיכת הסינון לזמין) באמצעות האפשרות \"סנן את מסד הנתונים\" להלן. השבתת התכונה או שינוי הפרמטרים שלה אינם משחזרים נתונים שהוסרו - עליך להוריד מחדש את מסד הנתונים לשם כך</string>
+    <string name="db_filtering_info">הסבר</string>
+    <string name="settings_screen_db_filtering">סינון מסד נתונים</string>
+    <string name="settings_category_database">מסד נתונים</string>
 </resources>
