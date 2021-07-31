@@ -27,9 +27,9 @@ public class ContactsHelper {
         try (Cursor cursor = resolver.query(uri, PROJECTION, null, null, null)) {
             if (cursor != null && cursor.moveToFirst()) {
                 ContactItem contact = new ContactItem(
-                        cursor.getLong(cursor.getColumnIndex(
+                        cursor.getLong(cursor.getColumnIndexOrThrow(
                                 ContactsContract.Contacts._ID)),
-                        cursor.getString(cursor.getColumnIndex(
+                        cursor.getString(cursor.getColumnIndexOrThrow(
                                 ContactsContract.Contacts.DISPLAY_NAME))
                 );
 

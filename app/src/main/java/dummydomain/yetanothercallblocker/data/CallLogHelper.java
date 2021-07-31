@@ -60,11 +60,11 @@ public class CallLogHelper {
         try (Cursor cursor = context.getContentResolver()
                 .query(uri, QUERY_PROJECTION, selection, selectionArgs, sortOrder)) {
             if (cursor != null) {
-                int idIndex = cursor.getColumnIndex(CallLog.Calls._ID);
-                int typeIndex = cursor.getColumnIndex(CallLog.Calls.TYPE);
-                int numberIndex = cursor.getColumnIndex(CallLog.Calls.NUMBER);
-                int dateIndex = cursor.getColumnIndex(CallLog.Calls.DATE);
-                int durationIndex = cursor.getColumnIndex(CallLog.Calls.DURATION);
+                int idIndex = cursor.getColumnIndexOrThrow(CallLog.Calls._ID);
+                int typeIndex = cursor.getColumnIndexOrThrow(CallLog.Calls.TYPE);
+                int numberIndex = cursor.getColumnIndexOrThrow(CallLog.Calls.NUMBER);
+                int dateIndex = cursor.getColumnIndexOrThrow(CallLog.Calls.DATE);
+                int durationIndex = cursor.getColumnIndexOrThrow(CallLog.Calls.DURATION);
 
                 while (cursor.moveToNext()) {
                     long id = cursor.getLong(idIndex);
