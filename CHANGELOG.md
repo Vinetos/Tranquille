@@ -22,6 +22,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Updated Hebrew translation thanks to Tzvika ([@shiloni](https://hosted.weblate.org/user/shiloni/)).
 - Updated Slovenian translation thanks to bojanopatje (@bojanopatje).
 
+### Fixed
+
+- Fixed a startup crash on [a recent update](https://review.lineageos.org/c/LineageOS/android_packages_providers_ContactsProvider/+/313438/) of LineageOS 15.1-17.1 (introduced in [0.5.7](#057-2020-10-02)).
+
 
 ## [0.5.15] - 2021-06-07
 

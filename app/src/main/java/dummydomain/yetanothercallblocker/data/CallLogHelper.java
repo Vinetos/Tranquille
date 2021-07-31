@@ -47,7 +47,7 @@ public class CallLogHelper {
         String sortOrder = CallLog.Calls.DATE + " " + (reverseOrder ? "ASC" : "DESC");
 
         // should probably work since JELLY_BEAN_MR1
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             uri = uri.buildUpon()
                     .appendQueryParameter(CallLog.Calls.LIMIT_PARAM_KEY, String.valueOf(limit))
                     .build();
