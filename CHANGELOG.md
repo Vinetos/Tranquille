@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Changed
+### Added
 
 - \[Advanced\] The "prefixes to keep" parameter (of database filtering) is prefilled (once) based on recent calls.
 - Italian translation of the app description thanks to Minibus93 ([@Minibus93](https://hosted.weblate.org/user/Minibus93/)).
@@ -16,9 +16,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
 - Updated Vietnamese translation thanks to bruh ([@quangtrung02hn16](https://hosted.weblate.org/user/quangtrung02hn16/)).
-- Updated Polish translation thanks to Agnieszka C ([@Aga](https://hosted.weblate.org/user/Aga/)).
+- Updated Polish translation thanks to Agnieszka C ([@Aga](https://hosted.weblate.org/user/Aga/)) and Evo (@verahawk).
 - Updated Spanish translation thanks to hiking ([@hiking](https://hosted.weblate.org/user/hiking/)).
 - Updated Portuguese (Brazil) translation thanks to Havokdan ([@Havokdan](https://hosted.weblate.org/user/Havokdan/)).
+- Updated Hebrew translation thanks to Tzvika ([@shiloni](https://hosted.weblate.org/user/shiloni/)).
+- Updated Slovenian translation thanks to bojanopatje (@bojanopatje).
 
 
 ## [0.5.15] - 2021-06-07
@@ -54,7 +56,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Portuguese translation thanks to José ([@lanegan](https://hosted.weblate.org/user/lanegan/)).
 - Completed Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)).
 - Hebrew translation thanks to Tzvika ([@shiloni](https://hosted.weblate.org/user/shiloni/)).
-- Partial Slovenian translation thanks to @bojanopatje.
+- Partial Slovenian translation thanks to bojanopatje (@bojanopatje).
 
 ### Changed
 
