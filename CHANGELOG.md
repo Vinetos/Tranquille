@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+Nothing.
+
+
+## [0.5.16] - 2021-07-31
+
 ### Added
 
 - \[Advanced\] The "prefixes to keep" parameter (of database filtering) is prefilled (once) based on recent calls.
@@ -526,7 +531,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Offline database with manual updates.
 
 
-[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.15...master
+[unreleased]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.16...master
+[0.5.16]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.15...v0.5.16
 [0.5.15]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.14...v0.5.15
 [0.5.14]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.13...v0.5.14
 [0.5.13]: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/compare/v0.5.12...v0.5.13
