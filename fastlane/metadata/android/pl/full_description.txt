@@ -5,9 +5,9 @@ Prosta aplikacja do blokowania połączeń, która pomoże ci uniknąć odbieran
 * Wykorzystuje bazę danych offline.
 * Automatycznie blokuje połączenia z negatywną oceną. (Opcjonalne).
 * Lokalna czarna lista z obsługą wieloznacznika (ang. wildcard).
-* Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba recenzji, kategoria) podczas połączeń przychodzących. (Opcjonalne).
+* Wyświetla powiadomienie z podsumowaniem informacji o numerze telefonu (ocena, liczba opinii, kategoria) podczas połączeń przychodzących. (Opcjonalne).
 * Automatyczne aktualizacje przyrostowe bazy danych. (Opcjonalne).
-* Możliwość przeglądania recenzji online dotyczących dzwoniącego numeru. (Dostarczane przez zewnętrzną usługę).
+* Możliwość przeglądania online opinii dotyczących dzwoniącego numeru. (Dostarczane przez zewnętrzną usługę).
 * „Zaawansowany tryb blokowania” do blokowania połączeń na Androidzie 7+, zanim telefon zacznie dzwonić. (Należy ręcznie włączyć w ustawieniach aplikacji).
 
 <b>Jak używać:</b>
@@ -20,7 +20,7 @@ Prosta aplikacja do blokowania połączeń, która pomoże ci uniknąć odbieran
 * Możesz także zaznaczyć pole wyboru „Użyj kontaktów”, jeśli nie chcesz, aby twoje kontakty były traktowane jako nieznani rozmówcy.
 * Po tych krokach wszystko powinno po prostu działać (ale zawsze możesz znaleźć więcej opcji w ustawieniach). Miłego używania aplikacji!
 
-Zobacz <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">FAQ</a> (w języku angielskim), aby dowiedzieć się wiecej.
+Zobacz <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">FAQ</a> (w języku angielskim), aby dowiedzieć się więcej.
 
 Główna baza numerów telefonów pobierana jest z <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">repozytorium GitLab</a>.
 <b>Aktualizacje bazy danych i szczegółowe opinie o danym numerze pobierane są z serwerów firm trzecich.</b>
