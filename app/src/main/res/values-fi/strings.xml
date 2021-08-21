@@ -128,7 +128,7 @@
     <string name="block_negative_sia_numbers_summary">Estä puhelut numeroista, joiden luokitus on negatiivinen (perustuu yhteisön tietokantaan)</string>
     <string name="block_negative_sia">Estä luokituksen perusteella</string>
     <string name="block_negative_sia_short">Estä luokituksen perusteella</string>
-    <string name="incoming_call_notifications_summary">Näyttää ilmoituksen puhelinnumeron yhteenvedolla (luokitus, arvostelujen määrä, luokka) saapuvien puheluiden aikana</string>
+    <string name="incoming_call_notifications_summary">Näytä ilmoitus puhelinnumeron yhteenvedolla (luokitus, arvostelujen määrä, luokka) saapuvien puheluiden aikana</string>
     <string name="incoming_call_notifications">Saapuvien puheluiden ilmoitukset</string>
     <string name="notification_settings">Ilmoitusasetukset</string>
     <string name="blocked_call_notifications_disable_confirmation">Poista käytöstä joka tapauksessa</string>
@@ -210,4 +210,5 @@
     <string name="notification_channel_name_known">Tunnetut puhelut</string>
     <string name="notification_channel_group_name_services">Palvelut</string>
     <string name="notification_channel_group_name_blocked_calls">Estetyt puhelut</string>
+    <string name="settings_category_database">Tietokanta</string>
 </resources>
