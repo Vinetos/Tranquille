@@ -45,7 +45,7 @@ public abstract class GenericRecyclerViewAdapter<T, V extends GenericRecyclerVie
         public GenericViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            itemView.setOnClickListener(v -> onClick(getAdapterPosition()));
+            itemView.setOnClickListener(v -> onClick(getBindingAdapterPosition()));
         }
 
         abstract void bind(T item);

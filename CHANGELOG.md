@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Partial Chinese (Simplified) translation thanks to Jane Kong ([@Myon](https://hosted.weblate.org/user/Myon/)).
 
+### Changed
+
+- Updated dependencies (appcompat, recyclerview, material, work-runtime).
+
 
 ## [0.5.16] - 2021-07-31
 
