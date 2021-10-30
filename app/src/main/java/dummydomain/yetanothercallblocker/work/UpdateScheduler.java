@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 
 import androidx.work.Constraints;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
@@ -19,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 public class UpdateScheduler {
 
     private static final String AUTO_UPDATE_WORK_TAG = "autoUpdateWork";
+    private static final String MAIN_AUTO_UPDATE_WORK_NAME = "mainAutoUpdateWork";
+    private static final String FREQUENT_AUTO_UPDATE_WORK_NAME = "frequentAutoUpdateWork";
 
     private static final Logger LOG = LoggerFactory.getLogger(UpdateScheduler.class);
 
@@ -46,7 +49,8 @@ public class UpdateScheduler {
                         .setConstraints(constraints)
                         .build();
 
-        getWorkManager().enqueue(updateRequest);
+        getWorkManager().enqueueUniquePeriodicWork(MAIN_AUTO_UPDATE_WORK_NAME,
+                ExistingPeriodicWorkPolicy.REPLACE, updateRequest);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             constraints = new Constraints.Builder()
@@ -62,7 +66,8 @@ public class UpdateScheduler {
                             .setConstraints(constraints)
                             .build();
 
-            getWorkManager().enqueue(updateRequest);
+            getWorkManager().enqueueUniquePeriodicWork(FREQUENT_AUTO_UPDATE_WORK_NAME,
+                    ExistingPeriodicWorkPolicy.REPLACE, updateRequest);
         }
     }
 
