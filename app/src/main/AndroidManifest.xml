@@ -33,6 +33,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,6 +93,7 @@
             android:autoRemoveFromRecents="true"
             android:directBootAware="true"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:noHistory="true"
             android:theme="@style/DialogBackgroundTheme">
             <intent-filter>
@@ -120,7 +122,8 @@
         <receiver
             android:name=".StartupReceiver"
             android:directBootAware="true"
-            android:enabled="false">
+            android:enabled="false"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -130,7 +133,8 @@
         </receiver>
         <receiver
             android:name=".PhoneStateBroadcastReceiver"
-            android:directBootAware="true">
+            android:directBootAware="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
@@ -146,6 +150,7 @@
         <service
             android:name=".CallScreeningServiceImpl"
             android:directBootAware="true"
+            android:exported="true"
             android:permission="android.permission.BIND_SCREENING_SERVICE">
             <intent-filter>
                 <action android:name="android.telecom.CallScreeningService" />
