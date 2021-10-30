@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0'
     }
 }
@@ -22,6 +22,6 @@ task clean(type: Delete) {
 }
 
 wrapper {
-    gradleVersion = "6.9"
+    gradleVersion = "7.2"
     distributionType = Wrapper.DistributionType.ALL
 }
