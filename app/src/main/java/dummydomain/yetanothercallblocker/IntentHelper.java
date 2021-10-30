@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 
 import org.slf4j.Logger;
@@ -18,7 +19,11 @@ public class IntentHelper {
     }
 
     public static PendingIntent pendingActivity(Context context, Intent intent) {
-        return PendingIntent.getActivity(context, 0, intent, 0);
+        int flags = 0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE;
+        }
+        return PendingIntent.getActivity(context, 0, intent, flags);
     }
 
     public static Intent clearTop(Intent intent) {
