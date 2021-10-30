@@ -7,7 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-Nothing.
+### Added
+
+- Partial Chinese (Simplified) translation thanks to Jane Kong ([@Myon](https://hosted.weblate.org/user/Myon/)).
 
 
 ## [0.5.16] - 2021-07-31
@@ -21,7 +23,7 @@ Nothing.
 
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
 - Updated Vietnamese translation thanks to bruh ([@quangtrung02hn16](https://hosted.weblate.org/user/quangtrung02hn16/)).
-- Updated Polish translation thanks to Agnieszka C ([@Aga](https://hosted.weblate.org/user/Aga/)) and Evo (@verahawk).
+- Updated Polish translation thanks to Agnieszka C (@Aga-C) and Evo (@verahawk).
 - Updated Spanish translation thanks to hiking ([@hiking](https://hosted.weblate.org/user/hiking/)).
 - Updated Portuguese (Brazil) translation thanks to Havokdan ([@Havokdan](https://hosted.weblate.org/user/Havokdan/)).
 - Updated Hebrew translation thanks to Tzvika ([@shiloni](https://hosted.weblate.org/user/shiloni/)).
