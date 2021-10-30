@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_category_call_blocking">来电拦截</string>
+    <string name="title_settings_activity">设置</string>
+    <string name="open_settings_activity">设置</string>
+    <string name="are_you_sure">您确定吗？</string>
+    <string name="error">错误</string>
+    <string name="done">已完成</string>
+    <string name="no">否</string>
+    <string name="yes">是</string>
+    <string name="back">退回</string>
+    <string name="add_web_review">在网上添加评论</string>
+    <string name="online_reviews">网上评价</string>
+    <string name="secondary_db_updating">正在更新数据库…</string>
+    <string name="main_db_downloading">正在下载数据库…</string>
+    <string name="download_main_db">下载数据库</string>
+    <string name="no_main_db_text">数据库不存在。为了让本应用程序执行其主要功能，你需要下载数据库。这将需要大约25MB的流量。</string>
+    <string name="no_main_db_title">下载主数据库</string>
+    <string name="call_log_permission_message">授予“电话”权限，以查看最近的通话</string>
+    <string name="open_system_settings">打开设置</string>
+    <string name="denied_default_dialer_message">由于本应用程序没有被设置为 “电话应用程序”，将无法使用高级呼叫拦截</string>
+    <string name="feature_contacts">使用联系人</string>
+    <string name="feature_info">通知</string>
+    <string name="denied_permissions_message">由于权限被拒绝，以下功能可能无法正常运行：</string>
+    <string name="sia_category_service">服务</string>
+    <string name="sia_category_company">公司</string>
+    <string name="sia_category_financial_service">金融服务</string>
+    <string name="sia_category_other">其他</string>
+    <string name="sia_category_survey">调查</string>
+    <string name="sia_category_sms">短信</string>
+    <string name="sia_category_prank">恶作剧</string>
+    <string name="sia_category_political">政治</string>
+    <string name="sia_category_scam">骗子</string>
+    <string name="sia_category_nonprofit">非营利组织。</string>
+    <string name="sia_category_fax">传真</string>
+    <string name="notification_background_operation">执行后台操作中…</string>
+    <string name="notification_channel_name_tasks">任务</string>
+    <string name="notification_channel_name_unknown">未知来电</string>
+    <string name="sia_category_none">无</string>
+    <string name="sia_category_telemarketer">电话推销员</string>
+    <string name="sia_category_dept_collector">收债人</string>
+    <string name="notification_channel_name_known">已知来电</string>
+    <string name="notification_channel_group_name_services">服务</string>
+    <string name="notification_channel_group_name_blocked_calls">拦截的电话</string>
+    <string name="notification_channel_group_name_incoming_calls">来电</string>
+    <string name="app_name">又一个电话拦截器</string>
+</resources>

@@ -1,3 +1,3 @@
-* Fixed a startup crash on a recent update of LineageOS 15.1-17.1.
-* Database filtering prefixes are now auto-prefilled based on recent calls (only if they weren't entered previously).
-* Updated translations thanks to Minibus93, Milo Ivir (@milotype), bruh (@quangtrung02hn16), Agnieszka C (@Aga), Evo (@verahawk), hiking, Havokdan, Tzvika (@shiloni), bojanopatje.
+* Reparada uma falha de inicialização em uma atualização recente do LineageOS 15.1-17.1.
+* Os prefixos de filtragem de banco de dados agora são preenchidos automaticamente com base nas chamadas recentes (apenas se não foram inseridos anteriormente).
+* Traduções atualizadas graças a Minibus93, Milo Ivir (@milotype), bruh (@ quangtrung02hn16), Agnieszka C (@Aga), Evo (@verahawk), hiking, Havokdan, Tzvika (@shiloni), bojanopatje.

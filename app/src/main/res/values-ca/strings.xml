@@ -127,7 +127,7 @@
     <string name="ui_mode">Tema d\'interfície gràfica</string>
     <string name="use_contacts_summary">Els números presents en Contactes no es bloquen mai i el nom del contacte es mostra al costat de/en comptes d\'un número arreu de l\'aplicació</string>
     <string name="use_contacts">Empra contactes</string>
-    <string name="auto_updates_summary">Rep actualitzacions diàries de la BD automàticament (aquestes són actualitzacions incrementals, consumeixen poc tràfic)</string>
+    <string name="auto_updates_summary">Rep actualitzacions diàries de la del número de base de dades automàticament (aquestes són actualitzacions incrementals, consumeixen poc tràfic)</string>
     <string name="auto_updates">Actualitza la base de dades automàticament</string>
     <string name="use_monitoring_service_summary">Activa un servei de vigilància sempre actiu que ajuda amb la recepció d\'esdeveniments de telefonia en alguns telèfons. Activa aquesta característica només si el bloqueig de trucades i les notificacions informatives no funcionen. Aquesta característica no té cap efecte en la vida de la bateria</string>
     <string name="use_monitoring_service">Empra un servei de vigilància</string>
@@ -210,4 +210,5 @@
     <string name="notification_channel_group_name_services">Serveis</string>
     <string name="notification_channel_group_name_blocked_calls">Trucades blocades</string>
     <string name="notification_channel_group_name_incoming_calls">Trucades entrants</string>
+    <string name="settings_category_database">Base de dades</string>
 </resources>
