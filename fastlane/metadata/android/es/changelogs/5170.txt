@@ -1,0 +1,2 @@
+* Added partial Chinese (Simplified) translation thanks to Jane Kong (@Myon).
+* Updated dependencies.
