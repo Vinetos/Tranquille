@@ -2,5 +2,5 @@
 <lint>
     <issue id="MissingTranslation" severity="ignore" />
 
-    <issue id="UsingOnClickInXml" severity="warning" />
+    <issue id="UsingOnClickInXml" severity="informational" />
 </lint>
