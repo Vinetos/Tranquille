@@ -1,0 +1,2 @@
+* Dodano częściowe tłumaczenie na chiński (uproszczony) dzięki Jane Kong (@Myon).
+* Zaktualizowano zależności.
