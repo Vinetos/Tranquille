@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         PermissionHelper.handlePermissionsResult(this, requestCode, permissions, grantResults,
                 settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
-                settings.getUseContacts());
+                settings.getUseContacts(), settings.getUseNotification());
 
         updateCallLogVisibility();
         reloadCallLog();
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkPermissions() {
         PermissionHelper.checkPermissions(this,
                 settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
-                settings.getUseContacts());
+                settings.getUseContacts(), settings.getUseNotification());
     }
 
     private void startCheckMainDbTask() {
