@@ -40,7 +40,7 @@ public class RootSettingsFragment extends BaseSettingsFragment {
         PermissionHelper.handlePermissionsResult(requireContext(),
                 requestCode, permissions, grantResults,
                 settings.getIncomingCallNotifications(), settings.getCallBlockingEnabled(),
-                settings.getUseContacts());
+                settings.getUseContacts(), settings.getUseNotification());
     }
 
     @Override
@@ -97,7 +97,7 @@ public class RootSettingsFragment extends BaseSettingsFragment {
         setPrefChangeListener(Settings.PREF_INCOMING_CALL_NOTIFICATIONS, (pref, newValue) -> {
             if (Boolean.TRUE.equals(newValue)) {
                 PermissionHelper.checkPermissions(requireContext(), this,
-                        true, false, false);
+                        true, false, false, false);
             }
             return true;
         });
@@ -105,7 +105,7 @@ public class RootSettingsFragment extends BaseSettingsFragment {
         Preference.OnPreferenceChangeListener callBlockingListener = (preference, newValue) -> {
             if (Boolean.TRUE.equals(newValue)) {
                 PermissionHelper.checkPermissions(requireContext(), this,
-                        false, true, false);
+                        false, true, false, false);
             }
             return true;
         };
@@ -159,7 +159,7 @@ public class RootSettingsFragment extends BaseSettingsFragment {
         setPrefChangeListener(Settings.PREF_USE_CONTACTS, (preference, newValue) -> {
             if (Boolean.TRUE.equals(newValue)) {
                 PermissionHelper.checkPermissions(requireContext(), this,
-                        false, false, true);
+                        false, false, true, false);
             }
             return true;
         });

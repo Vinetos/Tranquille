@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="dummydomain.yetanothercallblocker">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -10,7 +13,11 @@
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.READ_LOG" android:maxSdkVersion="15" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        android:maxSdkVersion="15" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <queries>
@@ -48,7 +55,8 @@
         <activity
             android:name=".LookupNumberActivity"
             android:label="@string/title_lookup_number"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -57,7 +65,8 @@
             android:name=".BlacklistActivity"
             android:label="@string/title_blacklist_activity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -65,7 +74,8 @@
         <activity
             android:name=".EditBlacklistItemActivity"
             android:label="@string/title_add_blacklist_item_activity"
-            android:parentActivityName=".BlacklistActivity">
+            android:parentActivityName=".BlacklistActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BlacklistActivity" />
@@ -73,7 +83,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_settings_activity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -91,7 +102,8 @@
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
             android:noHistory="true"
-            android:theme="@style/DialogBackgroundTheme" />
+            android:theme="@style/DialogBackgroundTheme"
+            tools:targetApi="lollipop" />
         <activity
             android:name=".DummyDialerActivity"
             android:autoRemoveFromRecents="true"
@@ -99,7 +111,8 @@
             android:excludeFromRecents="true"
             android:exported="true"
             android:noHistory="true"
-            android:theme="@style/DialogBackgroundTheme">
+            android:theme="@style/DialogBackgroundTheme"
+            tools:targetApi="n">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.DIAL" />
@@ -117,7 +130,8 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/about_activity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -127,7 +141,8 @@
             android:name=".StartupReceiver"
             android:directBootAware="true"
             android:enabled="false"
-            android:exported="true">
+            android:exported="true"
+            tools:targetApi="n">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -138,7 +153,8 @@
         <receiver
             android:name=".PhoneStateBroadcastReceiver"
             android:directBootAware="true"
-            android:exported="true">
+            android:exported="true"
+            tools:targetApi="n">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
@@ -150,12 +166,16 @@
             android:description="@string/monitoring_service_description"
             android:directBootAware="true"
             android:exported="false"
-            android:label="@string/monitoring_service_label" />
+            android:foregroundServiceType="phoneCall"
+            android:label="@string/monitoring_service_label"
+            tools:targetApi="n" />
         <service
             android:name=".CallScreeningServiceImpl"
             android:directBootAware="true"
             android:exported="true"
-            android:permission="android.permission.BIND_SCREENING_SERVICE">
+            android:foregroundServiceType="phoneCall"
+            android:permission="android.permission.BIND_SCREENING_SERVICE"
+            tools:targetApi="n">
             <intent-filter>
                 <action android:name="android.telecom.CallScreeningService" />
             </intent-filter>

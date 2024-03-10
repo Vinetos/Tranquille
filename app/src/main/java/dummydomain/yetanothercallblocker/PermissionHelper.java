@@ -49,6 +49,7 @@ public class PermissionHelper {
     private static final Set<String> INFO_PERMISSIONS = new HashSet<>();
     private static final Set<String> BLOCKING_PERMISSIONS = new HashSet<>();
     private static final Set<String> CONTACTS_PERMISSIONS = new HashSet<>();
+    private static final Set<String> NOTIFICATIONS_PERMISSIONS = new HashSet<>();
 
     static {
         INFO_PERMISSIONS.add(Manifest.permission.READ_PHONE_STATE);
@@ -64,15 +65,21 @@ public class PermissionHelper {
         }
 
         CONTACTS_PERMISSIONS.add(Manifest.permission.READ_CONTACTS);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            NOTIFICATIONS_PERMISSIONS.add(Manifest.permission.POST_NOTIFICATIONS);
+        }
+
     }
 
     public static List<String> getMissingPermissions(Context context, boolean info,
-                                                     boolean block, boolean contacts) {
+                                                     boolean block, boolean contacts, boolean notification) {
         Set<String> requiredPermissions = new HashSet<>();
 
         if (info) requiredPermissions.addAll(INFO_PERMISSIONS);
         if (block) requiredPermissions.addAll(BLOCKING_PERMISSIONS);
         if (contacts) requiredPermissions.addAll(CONTACTS_PERMISSIONS);
+        if (notification) requiredPermissions.addAll(NOTIFICATIONS_PERMISSIONS);
 
         List<String> missingPermissions = new ArrayList<>();
 
@@ -87,8 +94,8 @@ public class PermissionHelper {
     }
 
     public static void checkPermissions(Activity activity, boolean info,
-                                        boolean block, boolean contacts) {
-        List<String> missingPermissions = getMissingPermissions(activity, info, block, contacts);
+                                        boolean block, boolean contacts, boolean notification) {
+        List<String> missingPermissions = getMissingPermissions(activity, info, block, contacts, notification);
 
         if (!missingPermissions.isEmpty()) {
             ActivityCompat.requestPermissions(activity,
@@ -97,8 +104,8 @@ public class PermissionHelper {
     }
 
     public static void checkPermissions(Context context, Fragment fragment,
-                                        boolean info, boolean block, boolean contacts) {
-        List<String> missingPermissions = getMissingPermissions(context, info, block, contacts);
+                                        boolean info, boolean block, boolean contacts, boolean notification) {
+        List<String> missingPermissions = getMissingPermissions(context, info, block, contacts, notification);
 
         if (!missingPermissions.isEmpty()) {
             fragment.requestPermissions(
@@ -110,17 +117,19 @@ public class PermissionHelper {
                                                @NonNull String[] permissions,
                                                @NonNull int[] grantResults,
                                                boolean infoExpected, boolean blockingExpected,
-                                               boolean contactsExpected) {
+                                               boolean contactsExpected, boolean notificationExpected) {
         if (requestCode != REQUEST_CODE_PERMISSIONS) return;
 
         boolean infoDenied = false;
         boolean blockingDenied = false;
         boolean contactsDenied = false;
+        boolean notificationDenied = false;
 
         if (permissions.length == 0) {
             infoDenied = true;
             blockingDenied = true;
             contactsDenied = true;
+            notificationDenied = true;
         } else {
             for (int i = 0; i < permissions.length; i++) {
                 String permission = permissions[i];
@@ -134,22 +143,27 @@ public class PermissionHelper {
                     if (CONTACTS_PERMISSIONS.contains(permission)) {
                         contactsDenied = true;
                     }
+                    if (NOTIFICATIONS_PERMISSIONS.contains(permission)) {
+                        contactsDenied = true;
+                    }
                 }
             }
         }
 
-        LOG.debug("onRequestPermissionsResult() infoDenied={}, blockingDenied={}, contactsDenied={}",
-                infoDenied, blockingDenied, contactsDenied);
+        LOG.debug("onRequestPermissionsResult() infoDenied={}, blockingDenied={}, contactsDenied={}, notificationDenied={}",
+                infoDenied, blockingDenied, contactsDenied, notificationDenied);
 
         if (!infoExpected) infoDenied = false;
         if (!blockingExpected) blockingDenied = false;
         if (!contactsExpected) contactsDenied = false;
+        if (!notificationExpected) notificationDenied = false;
 
         List<String> features = new ArrayList<>(3);
 
         if (infoDenied) features.add(context.getString(R.string.feature_info));
         if (blockingDenied) features.add(context.getString(R.string.feature_call_blocking));
         if (contactsDenied) features.add(context.getString(R.string.feature_contacts));
+        if (notificationDenied) features.add(context.getString(R.string.feature_info));
 
         if (!features.isEmpty()) {
             String message = context.getString(R.string.denied_permissions_message) + " "

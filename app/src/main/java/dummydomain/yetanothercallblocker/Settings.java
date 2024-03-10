@@ -28,6 +28,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_UI_MODE = "uiMode";
     public static final String PREF_CALL_LOG_GROUPING = "callLogGrouping";
     public static final String PREF_USE_MONITORING_SERVICE = "useMonitoringService";
+    public static final String PREF_USE_NOTIFICATIONS = "useNotifications";
     public static final String PREF_NOTIFICATIONS_KNOWN = "showNotificationsForKnownCallers";
     public static final String PREF_NOTIFICATIONS_UNKNOWN = "showNotificationsForUnknownCallers";
     public static final String PREF_NOTIFICATIONS_BLOCKED = "showNotificationsForBlockedCalls";
@@ -112,6 +113,10 @@ public class Settings extends GenericSettings {
 
     public boolean getIncomingCallNotifications() {
         return getBoolean(PREF_INCOMING_CALL_NOTIFICATIONS, true);
+    }
+
+    public boolean getUseNotification() {
+        return getBoolean(PREF_USE_NOTIFICATIONS);
     }
 
     public void setIncomingCallNotifications(boolean show) {
