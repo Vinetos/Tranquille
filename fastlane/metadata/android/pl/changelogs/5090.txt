@@ -1,5 +1,0 @@
-* Nazwa z czarnej listy jest teraz wyświetlana w większej ilości miejsc.
-* Dodano oddzielne poziome układy dla niektórych ekranów.
-* Poprawiono UX włączania/wyłączania „Zaawansowanego trybu blokowania połączeń”.
-* Zaktualizowano tłumaczenia dzięki Oğuz Ersen (@ersen) i Evo (@verahawk).
-* Inne drobne zmiany.

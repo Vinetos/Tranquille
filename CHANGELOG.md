@@ -13,6 +13,7 @@ I am not an Android Expert but I will do my best !
 
 Cheers
 
+- Rename the app to Tranquille
 - Switch to Gradle Kotlin
 - Update Android Gradle Plugin to 8.3.0
 - Add support for Kotlin
@@ -299,7 +300,7 @@ Cheers
 
 ### Added
 
-- Yet Another Call Blocker [can be translated on Weblate](https://hosted.weblate.org/engage/yet-another-call-blocker/).
+- Tranquille [can be translated on Weblate](https://hosted.weblate.org/engage/yet-another-call-blocker/).
 
 ### Changed
 

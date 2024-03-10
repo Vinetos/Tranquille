@@ -1,3 +1,0 @@
-* Mostrar as chamadas recentes na tela principal.
-* Adicionada uma opção para tratamento especial de contatos (nunca bloqueado, o nome é mostrado).
-* Muitas outras pequenas melhorias.

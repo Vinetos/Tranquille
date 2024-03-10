@@ -26,6 +26,6 @@ Główna baza numerów telefonów pobierana jest z <a href="https://gitlab.com/x
 <b>Aktualizacje bazy danych i szczegółowe opinie o danym numerze pobierane są z serwerów firm trzecich.</b>
 Nie są wysyłane żadne informacje umożliwiające identyfikację użytkownika (z wyjątkiem numeru telefonu, dla którego wczytywane są szczegółowe opinie).
 
-Yet Another Call Blocker jest nadal w fazie rozwoju. Każda pomoc jest mile widziana.
+Tranquille jest nadal w fazie rozwoju. Każda pomoc jest mile widziana.
 
 „Ta aplikacja promuje niewolne usługi sieciowe (NonFreeNet)”: usługa dostarczana przez zewnętrzną firmę nie jest wolna.

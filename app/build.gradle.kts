@@ -5,20 +5,20 @@ plugins {
 }
 
 android {
-    namespace = "dummydomain.yetanothercallblocker"
+    namespace = "fr.vinetos.tranquille"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "dummydomain.yetanothercallblocker"
+        applicationId = "fr.vinetos.tranquille"
         minSdk = 14
         targetSdk = 34
-        versionCode = 10000
-        versionName = "1.0.0"
+        versionCode = 1
+        versionName = "0.0.1"
         multiDexEnabled = true
 
         javaCompileOptions {
             annotationProcessorOptions {
-                argument("eventBusIndex", "dummydomain.yetanothercallblocker.EventBusIndex")
+                argument("eventBusIndex", "fr.vinetos.tranquille.EventBusIndex")
             }
         }
     }

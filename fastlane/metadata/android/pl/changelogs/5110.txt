@@ -1,4 +1,0 @@
-* Dodano opcję wyłączenia powiadomień o zablokowanych połączeniach w starszych wersjach Androida.
-* Zmieniono sposób blokowania w trybie bezpośredniego rozruchu: numery na czarnej liście nie są domyślnie blokowane (szczegóły w zgłoszeniu #22).
-* Dodano portugalskie (brazylijskie) tłumaczenie dzięki APL.
-* Zaktualizowano tłumaczenia dzięki Milo Ivir (@milotype), J. Lavoie, Oğuz Ersen (@ersen).

@@ -1,5 +1,0 @@
-* Corrigida uma falha de inicialização no Android 11+.
-* Adicionada tradução em finlandês graças a Jussi Timperi.
-* Adicionada tradução parcial para o sueco graças a Kristoffer Grundström (@Umeaboy).
-* Adicionada tradução parcial para o alemão graças a Sebastian Kowalak e J. Lavoie.
-* Traduções atualizadas graças a Yannis T, J. Lavoie, APL, Milo Ivir (@milotype).

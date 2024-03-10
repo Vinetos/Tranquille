@@ -26,6 +26,6 @@ De hoofddatabank wordt opgehaald uit de <a href="https://gitlab.com/xynngh/YetAn
 <b>Databankupdates en gedetailleerde recensies worden opgehaald van externe servers.</b>
 Er wordt geen herleidbare gebruikersinformatie verzonden (behalve informatie over telefoonnummers uit de databank).
 
-Yet Another Call Blocker is nog steeds in ontwikkeling - iedere hulp wordt gewaardeerd!
+Tranquille is nog steeds in ontwikkeling - iedere hulp wordt gewaardeerd!
 
 ''NonFreeNet:'' deze externe dienst is niet open source.

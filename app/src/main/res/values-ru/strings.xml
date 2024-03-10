@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="notification_channel_group_name_incoming_calls">Входящие вызовы</string>
     <string name="notification_channel_name_neutral">С нейтральной оценкой</string>
     <string name="notification_channel_name_unknown">Неизвестные (без оценки)</string>
@@ -66,7 +66,7 @@
     <string name="default_caller_id_app">\"Приложение для АОН\" по умолчанию</string>
     <string name="default_caller_id_app_unset">Выберите другое \"приложение для АОН и защиты от спама\" в \"Приложениях по умолчанию\" в настройках системы</string>
     <string name="default_phone_app">\"Приложение для звонков\" по умолчанию</string>
-    <string name="default_phone_app_set">Выберите \"Yet Another Call Blocker\" в качестве \"приложения для звонков\" в \"Приложениях по умолчанию\" в настройках системы</string>
+    <string name="default_phone_app_set">Выберите \"Tranquille\" в качестве \"приложения для звонков\" в \"Приложениях по умолчанию\" в настройках системы</string>
     <string name="default_phone_app_unset">Выберите другое \"приложение для звонков\" в \"Приложениях по умолчанию\" в настройках системы</string>
     <string name="open_system_settings">Открыть Настройки</string>
     <string name="no_main_db_title">Скачать основную базу номеров</string>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
 
     <string name="notification_channel_group_name_incoming_calls">Incoming calls</string>
     <string name="notification_channel_group_name_blocked_calls">Blocked calls</string>
@@ -62,7 +62,7 @@
     <string name="default_caller_id_app">Default \"Caller ID app\"</string>
     <string name="default_caller_id_app_unset">Select a different app as the \"Caller ID app\" in \"Default apps\" in system settings</string>
     <string name="default_phone_app">Default \"Phone app\"</string>
-    <string name="default_phone_app_set">Select \"Yet Another Call Blocker\" as the \"Phone app\" in \"Default apps\" in system settings</string>
+    <string name="default_phone_app_set">Select \"Tranquille\" as the \"Phone app\" in \"Default apps\" in system settings</string>
     <string name="default_phone_app_unset">Select a different app as the \"Phone app\" in \"Default apps\" in system settings</string>
     <string name="open_system_settings">Open Settings</string>
 

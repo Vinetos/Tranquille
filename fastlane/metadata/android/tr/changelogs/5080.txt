@@ -1,9 +1,0 @@
-* Fixed startup crash without READ_CALL_LOG permission.
-* Fixed blacklist editor crash on old Android versions.
-* Çeviriler güncellendi, teşekkürler Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
-* Diğer küçük değişiklikler.
-
-0.5.7:
-
-* Arama kaydı iyileştirmeleri: yeni görünüm, daha iyi performans, sonsuz kaydırma, gruplama seçenekleri.
-* Diğer küçük değişiklikler.

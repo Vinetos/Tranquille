@@ -1,9 +1,0 @@
-* Naprawiono awarię przy uruchamianiu bez przyznanego uprawnienia READ_CALL_LOG.
-* Naprawiono awarię edytora czarnej listy na starszych wersjach Androida.
-* Zaktualizowano tłumaczenia dzięki Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
-* Inne drobne zmiany.
-
-0.5.7:
-
-* Ulepszenie dziennika połączeń: nowy wygląd, lepsza wydajność, nieskończone przewijanie, opcje grupowania.
-* Inne drobne zmiany.

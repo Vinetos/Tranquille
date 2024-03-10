@@ -20,6 +20,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "YetAnotherCallBlocker"
+rootProject.name = "Tranquille"
 include(":app")
  

@@ -1,2 +1,0 @@
-* Bijgewerkt: afhankelijkheden.
-* Nieuw: enkele fastlane-metagegevens.

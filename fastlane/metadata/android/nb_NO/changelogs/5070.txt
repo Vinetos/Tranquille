@@ -1,9 +1,0 @@
-* Anropsloggsforbedringer: nytt utseende, bedre ytelse, uendelig rulling, grupperingsalternativer.
-* Andre små endringer.
-
-0.5.6:
-
-* Små forbedringer i merknadsinnhold.
-* Knapp for å legge til vurdering fra oppslagsskjermen.
-* Tyrkisk oversettelse ved Oğuz Ersen (@ersen).
-* Oppdaterte oversettelser takket være Yannis T. (@azakosath) og Evo (@verahawk).

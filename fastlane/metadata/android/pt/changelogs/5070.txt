@@ -1,9 +1,0 @@
-* Melhorias no registo de chamadas: novo visual, melhor desempenho, scroll infinito, opções de agrupamento.
-* Outras pequenas alterações.
-
-0.5.6:
-
-* Conteúdo de notificação ligeiramente melhorado.
-* Adicionado botão para adicionar revisão a partir do menu de pesquisa.
-* Adicionada tradução turca.
-* Traduções actualizadas, agradecimentos a Yannis T. (@azakosath) e Evo (@verahawk).

@@ -1,4 +1,0 @@
-* Adicionada uma opção para desativar notificações para chamadas bloqueadas em versões antigas do Android.
-* Alterado o comportamento de bloqueio no modo Inicialização Direta: os números da lista negra não são bloqueados por padrão (consulte o problema #22 para detalhes).
-* Adicionada a tradução para português (Brasil) graças ao APL.
-* Traduções atualizadas graças a Milo Ivir (@milotype), J. Lavoie, Oğuz Ersen (@ersen).

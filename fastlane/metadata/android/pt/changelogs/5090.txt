@@ -1,5 +1,0 @@
-* "Nome" da lista negra é mostrado em mais sítios.
-* Adicionados layouts horizontais separados em alguns menus.
-* Melhoria do UX de activação/desactivação do "modo de bloqueio avançado de chamadas".
-* Traduções actualizadas, agradecimentos a Oğuz Ersen (@ersen) e Evo (@verahawk).
-* Outras pequenas alterações.
