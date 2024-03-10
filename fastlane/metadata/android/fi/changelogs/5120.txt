@@ -1,5 +1,0 @@
-* Korjattu käynnistyskaatuminen Android versioilla 11+.
-* Lisätty suomenkielinen käännös, kiitos Jussi Timperi.
-* Lisätty osittainen ruotsinkielinen käännös, kiitos Kristoffer Grundström (@Umeaboy).
-* Lisätty osittainen saksankielinen käännös, kiitos Sebastian Kowalak ja J. Lavoie.
-* Päivitetty käännökset, kiitos Yannis T, J. Lavoielle, APL, Milo Ivir (@milotype).

@@ -1,7 +1,0 @@
-* Dodano opcje filtrowania bazy danych w celu zaoszczędzenia miejsca na dysku (funkcja zaawansowana).
-* Procedura aktualizacji bazy danych została zoptymalizowana.
-* Pole wyszukiwania numeru jest teraz wstępnie wypełniane zawartością schowka.
-* Naprawiono rzadki błąd, gdy aplikacja mogła utknąć w pętli aktualizacji.
-* Dodano wietnamskie tłumaczenie dzięki bruh.
-* Zaktualizowano tłumaczenia dzięki J. Lavoie, ssantos, Heimen Stoffels, Oğuz Ersen, phlostically.
-* Naprawiono hebrajskie tłumaczenie.

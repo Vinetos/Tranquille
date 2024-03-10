@@ -1,9 +1,0 @@
-* Fikset oppstartskrasj uten READ_CALL_LOG-tilgang.
-* Fikset krasj i redigering av svarteliste på gamle Android-versjoner.
-* Oppdaterte oversettelser takket være Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
-* Andre små endringer.
-
-0.5.7:
-
-* Andropsloggsforbedringer: nytt utseende, bedre ytelse, uendelig rulling, grupperingslaternativer.
-* Andre små endringer.

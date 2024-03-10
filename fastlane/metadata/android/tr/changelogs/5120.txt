@@ -1,5 +1,0 @@
-* Android 11+ için başlangıçta çökme düzeltildi.
-* Fince çeviri eklendi, teşekkürler Jussi Timperi.
-* Kısmi İsveççe çeviri eklendi, teşekkürler Kristoffer Grundström (@Umeaboy).
-* Kısmi Almanca çeviri eklendi, teşekkürler Sebastian Kowalak ve J. Lavoie.
-* Çeviriler güncellendi, teşekkürler Yannis T, J. Lavoie, APL, Milo Ivir (@milotype).

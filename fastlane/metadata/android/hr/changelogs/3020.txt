@@ -1,2 +1,0 @@
-* Add a system permission for call blocking on Android 9.
-* Recreate notification channels on every startup to improve localization.

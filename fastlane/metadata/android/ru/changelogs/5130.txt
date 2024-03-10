@@ -1,3 +1,0 @@
-* Добавлен каталонский перевод, спасибо Raul (@raulvo).
-* Обновлены переводы, спасибо Lucio Marinelli (@luciomarinelli), Raul (@raulvo), Heimen Stoffels (@Vistaus), Evo (@verahawk), Allan Nordhøy (@kingu), z Z z (@ruslan.zeezu).
-* Другие небольшие изменения.

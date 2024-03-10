@@ -22,7 +22,7 @@
     <string name="sia_category_unsolicited">Não solicitada</string>
     <string name="notification_background_operation">Operação de fundo em curso…</string>
     <string name="notification_channel_name_blocked_info">Informação de bloqueio</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="db_management_reset_secondary">Redefinir atualizações</string>
     <string name="edit_blacklist_item_number_pattern">Padrão numérico</string>
     <string name="sia_category_call_center">Call center</string>
@@ -156,7 +156,7 @@
     <string name="call_log_permission_message">Conceder permissão de \"Telefone\" para ver as chamadas recentes</string>
     <string name="open_system_settings">Configurações</string>
     <string name="default_phone_app_unset">Selecione um aplicativo diferente como \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configurações do sistema</string>
-    <string name="default_phone_app_set">Selecione \"Yet Another Call Blocker\" como o \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configurações do sistema</string>
+    <string name="default_phone_app_set">Selecione \"Tranquille\" como o \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configurações do sistema</string>
     <string name="default_phone_app">\"Aplicativo de Telefone\" padrão</string>
     <string name="default_caller_id_app_unset">Selecione um aplicativo diferente como o \"aplicativo Identificador de Chamadas\" em \"aplicativos padrão\" nas configurações do sistema</string>
     <string name="feature_contacts">usando contatos</string>

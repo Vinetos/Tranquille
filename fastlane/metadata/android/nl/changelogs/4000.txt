@@ -1,3 +1,0 @@
-* Nieuw: lijst met recente oproepen op het hoofdscherm.
-* Nieuw: optie voor speciale behandeling van contactpersonen (zij worden nooit geblokkeerd).
-* Enkele kleine verbeteringen.

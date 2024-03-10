@@ -1,5 +1,0 @@
-* Kara listedeki "Ad" daha fazla yerde görüntülenir.
-* Bazı ekranlar için ayrı yatay düzenler eklendi.
-* "Gelişmiş arama engelleme modu"nu etkinleştirme/devre dışı bırakma deneyimi iyileştirildi.
-* Çeviriler güncellendi, teşekkürler Oğuz Ersen (@ersen) ve Evo (@verahawk).
-* Diğer küçük değişiklikler.

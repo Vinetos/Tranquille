@@ -1,7 +1,7 @@
 **Disclaimer:** This is a free and open source project, but it relies on third-party web-services for some functions to work. This project is not affiliated with any third-party entities in any other sense.
 
 
-# Yet Another Call Blocker
+# Tranquille
 
 A free and open source application that can block unwanted calls or warn about probable intentions of callers using a third-party crowdsourced phone number database (from some other proprietary app).
 

@@ -16,7 +16,7 @@
             app:key="useContacts"
             app:summary="@string/use_contacts_summary"
             app:title="@string/use_contacts" />
-        <dummydomain.yetanothercallblocker.preference.IntListPreference
+        <fr.vinetos.tranquille.preference.IntListPreference
             app:defaultValue="-1"
             app:entries="@array/ui_mode_entries"
             app:entryValues="@array/ui_mode_entry_values"

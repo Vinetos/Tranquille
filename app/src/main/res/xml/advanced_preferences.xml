@@ -13,7 +13,7 @@
             app:persistent="false"
             app:title="@string/open_db_management_activity">
             <intent
-                android:targetClass="dummydomain.yetanothercallblocker.DbManagementActivity"
+                android:targetClass="tranquille.DbManagementActivity"
                 android:targetPackage="@string/app_id" />
         </Preference>
 

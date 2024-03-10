@@ -52,7 +52,7 @@
     <string name="call_log_permission_message">Dovolite »Telefon« za ogled nedavnih klicev</string>
     <string name="open_system_settings">Odpri Nastavitve</string>
     <string name="default_phone_app_unset">Izberite drugo aplikacijo kot »Telefonska aplikacija« v razdelku »Privzete aplikacije« v sistemskih nastavitvah</string>
-    <string name="default_phone_app_set">V razdelku »Privzete aplikacije« v sistemskih nastavitvah v razdelku »Privzete aplikacije« izberite »Yet Another Call Blocker«</string>
+    <string name="default_phone_app_set">V razdelku »Privzete aplikacije« v sistemskih nastavitvah v razdelku »Privzete aplikacije« izberite »Tranquille«</string>
     <string name="default_phone_app">Privzeta \"Telefonska aplikacija\"</string>
     <string name="default_caller_id_app_unset">V razdelku \"Privzete aplikacije\" v sistemskih nastavitvah izberite \"drugo aplikacijo za ID klicatelja\"</string>
     <string name="default_caller_id_app">Privzeta \"aplikacija za identifikacijo klicatelja\"</string>

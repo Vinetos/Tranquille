@@ -1,2 +1,0 @@
-* Adicionada uma permissão do sistema para bloqueio de chamadas no Android 9.
-* Recriados os canais de notificação em cada inicialização para melhorar a localização.

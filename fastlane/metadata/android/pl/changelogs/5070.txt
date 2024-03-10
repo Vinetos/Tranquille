@@ -1,9 +1,0 @@
-* Ulepszenie dziennika połączeń: nowy wygląd, lepsza wydajność, nieskończone przewijanie, opcje grupowania.
-* Inne drobne zmiany.
-
-0.5.6:
-
-* Poprawiono treść powiadomień.
-* Dodano przycisk dodawania opinii z ekranu wyszukiwania.
-* Dodano tureckie tłumaczenie dzięki Oğuz Ersen (@ersen).
-* Zaktualizowano tłumaczenia dzięki Yannis T. (@azakosath) i Evo (@verahawk).

@@ -28,6 +28,6 @@ Ana telefon numarası veri tabanı from <a href="https://gitlab.com/xynngh/YetAn
 Kullanıcıyı tanımlayabilecek bir bilgi gönderilmez (hakkında ayrıntılı
 değerlendirmelerin yüklendiği telefon numarası dışında).
 
-Yet Another Call Blocker hala geliştirme aşamasındadır. Her türlü yardıma açığız.
+Tranquille hala geliştirme aşamasındadır. Her türlü yardıma açığız.
 
 ''NonFreeNet:'' 3. taraf hizmeti açık kaynaklı değildir.

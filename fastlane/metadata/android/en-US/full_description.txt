@@ -28,6 +28,6 @@ The main phone number database is downloaded from <a href="https://gitlab.com/xy
 No user-identifiable information is sent (except for the phone number
 the detailed reviews are loaded for).
 
-Yet Another Call Blocker is still under development. Any help is welcome.
+Tranquille is still under development. Any help is welcome.
 
 ''NonFreeNet:'' the 3rd-party service is not open source.
