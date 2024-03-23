@@ -1,6 +1,0 @@
-* Добавлен перевод на эсперанто, спасибо phlostically.
-* Добавлен португальский перевод, спасибо José (@lanegan).
-* Добавлен перевод на иврит, спасибо Tzvika (@shiloni).
-* Добавлен частичный словенский перевод, спасибо bojanopatje.
-* Обновлены переводы, спасибо z Z z (@ruslan.zeezu), Andrey (@anm), Raul (@raulvo), APL, Caetano Santos (@caeslucio), Lucio Marinelli (@luciomarinelli).
-* Обновлены зависимости.

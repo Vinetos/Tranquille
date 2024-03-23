@@ -165,7 +165,7 @@
     <string name="notification_channel_group_name_services">Hizmetler</string>
     <string name="notification_channel_group_name_blocked_calls">Engellenen aramalar</string>
     <string name="notification_channel_group_name_incoming_calls">Gelen aramalar</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="duration_s">%dsn</string>
     <string name="duration_m_s">%1$ddk %2$dsn</string>
     <string name="duration_h_m_s">%1$dsa %2$ddk %3$dsn</string>
@@ -192,7 +192,7 @@
     <string name="open_about_activity">Hakkında</string>
     <string name="open_system_settings">Ayarları Aç</string>
     <string name="default_phone_app_unset">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Telefon uygulaması\" olarak farklı bir uygulama seçin</string>
-    <string name="default_phone_app_set">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Telefon uygulaması\" olarak \"Yet Another Call Blocker\" seçin</string>
+    <string name="default_phone_app_set">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Telefon uygulaması\" olarak \"Tranquille\" seçin</string>
     <string name="default_phone_app">Öntanımlı \"Telefon uygulaması\"</string>
     <string name="default_caller_id_app_unset">Sistem ayarlarındaki \"Öntanımlı uygulamalar\" bölümünde \"Arayan kimliği uygulaması\" olarak farklı bir uygulama seçin</string>
     <string name="default_caller_id_app">Öntanımlı \"Arayan kimliği uygulaması\"</string>

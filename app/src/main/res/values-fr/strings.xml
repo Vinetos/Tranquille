@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="notification_channel_group_name_incoming_calls">Appels entrants</string>
     <string name="notification_channel_group_name_blocked_calls">Appels bloqués</string>
     <string name="notification_channel_name_known">Appels identifiés</string>
@@ -186,7 +186,7 @@
     <string name="notification_settings">Paramètres de notification</string>
     <string name="open_system_settings">Ouvrir les paramètres</string>
     <string name="default_phone_app_unset">Sélectionnez une autre application comme « Application téléphonique » dans « Applications par défaut » dans les paramètres système</string>
-    <string name="default_phone_app_set">Sélectionnez Yet Another Call Blocker comme « Application téléphonique » dans « Applications par défaut » dans les paramètres système</string>
+    <string name="default_phone_app_set">Sélectionnez Tranquille comme « Application téléphonique » dans « Applications par défaut » dans les paramètres système</string>
     <string name="default_phone_app">« Application téléphonique » par défaut</string>
     <string name="default_caller_id_app">« Application d\'identification de l\'appelant » par défaut</string>
     <string name="default_caller_id_app_unset">Sélectionnez une autre application comme « Application d\'identification de l\'appelant » dans « Applications par défaut » dans les paramètres système</string>

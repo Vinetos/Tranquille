@@ -1,2 +1,0 @@
-* Kısmi Çince (Basitleştirilmiş) çeviri eklendi, teşekkürler Jane Kong (@Myon).
-* Bağımlılıklar güncellendi.

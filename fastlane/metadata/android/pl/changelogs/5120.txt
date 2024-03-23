@@ -1,5 +1,0 @@
-* Naprawiono awarię podczas uruchamiania na Androidzie 11+.
-* Dodano fińskie tłumaczenie dzięki Jussi Timperi.
-* Dodano częściowe szwedzkie tłumaczenie dzięki Kristoffer Grundström (@Umeaboy).
-* Dodano częściowe niemieckie tłumaczenie dzięki Sebastian Kowalak i J. Lavoie.
-* Zaktualizowano tłumaczenia dzięki Yannis T, J. Lavoie, APL i Milo Ivir (@milotype).

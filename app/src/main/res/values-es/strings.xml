@@ -82,7 +82,7 @@
     <string name="open_system_settings">Abrir configuración</string>
     <string name="default_phone_app_unset">Selecciona una aplicación diferente como «Aplicación de teléfono» en «Aplicaciones predeterminadas» en configuración del sistema</string>
     <string name="default_caller_id_app_unset">Selecciona una aplicación diferente como «Aplicación de identificación de llamadas» en «Aplicaciones predeterminadas» en configuración del sistema</string>
-    <string name="default_phone_app_set">Selecciona «Yet Another Call Blocker» como la «Aplicación de teléfono» en «Aplicaciones predeterminadas» en configuración del sistema</string>
+    <string name="default_phone_app_set">Selecciona «Tranquille» como la «Aplicación de teléfono» en «Aplicaciones predeterminadas» en configuración del sistema</string>
     <string name="default_phone_app">«Aplicación de teléfono» predeterminada</string>
     <string name="default_caller_id_app">«Aplicación de identificación de llamadas» predeterminada</string>
     <string name="denied_call_screening_role_message">El bloqueo de llamadas avanzado no funcionara porque la aplicación no es la «Aplicación de identificación de llamadas»</string>

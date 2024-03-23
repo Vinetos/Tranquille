@@ -155,7 +155,7 @@
     <string name="call_log_permission_message">Conceder permissão de \"Telefone\" para ver as chamadas recentes</string>
     <string name="open_system_settings">Abrir Configurações</string>
     <string name="default_phone_app_unset">Selecione uma aplicação diferente como \"Aplicação de Telefone\" em \"Aplicações predeterminadas\" nas configurações do sistema</string>
-    <string name="default_phone_app_set">Selecione \"Yet Another Call Blocker\" como \"Aplicação de Telefone\" em \"Aplicações predeterminadas\" nas configurações do sistema</string>
+    <string name="default_phone_app_set">Selecione \"Tranquille\" como \"Aplicação de Telefone\" em \"Aplicações predeterminadas\" nas configurações do sistema</string>
     <string name="default_phone_app">«Aplicação de telefone» predeterminada</string>
     <string name="denied_call_screening_role_message">O bloqueio avançado de chamadas não funcionará devido à aplicação não estar definida como o \"Aplicação Identificadora de Chamadas\"</string>
     <string name="default_caller_id_app_unset">Selecione uma aplicação diferente como \"Aplicação Identificadora de Chamadas\" em \"Aplicações predeterminadas\" nas configurações do sistema</string>
@@ -209,5 +209,5 @@
     <string name="notification_channel_group_name_services">Serviços</string>
     <string name="notification_channel_group_name_blocked_calls">Chamadas bloqueadas</string>
     <string name="notification_channel_group_name_incoming_calls">Chamadas recebidas</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
 </resources>

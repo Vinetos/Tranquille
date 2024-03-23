@@ -5,9 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
-## [Unreleased]
+## [0.0.1] - 2024-03-25
 
-Nothing.
+The project has not been updated from the previous maintainer since 2021.
+As I use this app a lot, I will continue to update and distribute this app.
+I am not an Android Expert but I will do my best !
+
+Cheers
+
+- Rename the app to Tranquille
+- Switch to Gradle Kotlin
+- Update Android Gradle Plugin to 8.3.0
+- Add support for Kotlin
+- Add .gitlab-ci.yml
+- Fix some warnings and Manifest
+- Update core dependencies to latest version
+- Update all libs to latest version
+- Do the upgrade path to target Android 14 and do very basic tests
+- Bump version
 
 
 ## [0.5.17] - 2021-11-13
@@ -285,7 +300,7 @@ Nothing.
 
 ### Added
 
-- Yet Another Call Blocker [can be translated on Weblate](https://hosted.weblate.org/engage/yet-another-call-blocker/).
+- Tranquille [can be translated on Weblate](https://hosted.weblate.org/engage/yet-another-call-blocker/).
 
 ### Changed
 

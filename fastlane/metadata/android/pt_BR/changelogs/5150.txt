@@ -1,7 +1,0 @@
-*Incluídas opções de filtragem de BD para poupar espaço (recurso avançado).
-*O processo de atualização do BD exige menos RAM agora.
-*O campo do número da tela de pesquisa é pré-preenchido a partir da área de transferência.
-*Reparado um bug raro em que o aplicativo poderia travar numa atualização.
-*Tradução vietnamita graças a bruh (@ quangtrung02hn16).
-*Traduções atualizadas graças a J. Lavoie, ssantos, Heimen Stoffels, Oğuz Ersen, phlostically.
-*Reparada tradução hebraica.

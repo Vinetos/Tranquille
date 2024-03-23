@@ -123,7 +123,7 @@
     <string name="notification_channel_name_tasks">Zadania</string>
     <string name="notification_channel_group_name_blocked_calls">Zablokowane połączenia</string>
     <string name="notification_channel_group_name_incoming_calls">Połączenia przychodzące</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="block_negative_sia_numbers_summary">Blokuje połączenia z numerów z negatywną oceną (na podstawie bazy danych tworzonej przez społeczność)</string>
     <string name="show_notifications_for_unknown_callers_summary">Wyświetla powiadomienia dla nieznanych połączeń (ani w kontaktach, ani w bazie danych numerów)</string>
     <string name="show_notifications_for_known_callers_summary">Wyświetla powiadomienia dla znanych połączeń (numery w kontaktach)</string>
@@ -184,7 +184,7 @@
     <string name="logo_description">Logo</string>
     <string name="db_last_update_check">Ostatnie sprawdzenie aktualizacji: %s</string>
     <string name="default_phone_app_unset">Wybierz inną aplikację jako „Aplikacja do obsługi telefonu” w ustawieniach systemowych „Aplikacje domyślne”</string>
-    <string name="default_phone_app_set">Wybierz „Yet Another Call Blocker” jako „Aplikacja do obsługi telefonu” w ustawieniach systemowych „Aplikacje domyślne”</string>
+    <string name="default_phone_app_set">Wybierz „Tranquille” jako „Aplikacja do obsługi telefonu” w ustawieniach systemowych „Aplikacje domyślne”</string>
     <string name="default_caller_id_app_unset">Wybierz inną aplikację jako „Aplikacja do identyfikacji rozmówcy i spamu” w ustawieniach systemowych „Aplikacje domyślne”</string>
     <string name="about_activity">O aplikacji</string>
     <string name="open_about_activity">O aplikacji</string>

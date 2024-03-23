@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-If you didn't find an answer to your question, ask [in issues](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues).
+If you didn't find an answer to your question, ask [in issues](https://github.com/Vinetos/Tranquille/-/issues).
 
 
 ## The app doesn't prevent a short sound before a call is blocked.
@@ -10,7 +10,7 @@ If you didn't find an answer to your question, ask [in issues](https://gitlab.co
 Enabling "monitoring service" also seems to help with this.
 
 
-## Do I have to set Yet Another Call Blocker as the default "Phone app"?
+## Do I have to set Tranquille as the default "Phone app"?
 
 Not necessarily. See ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode).
 
@@ -22,15 +22,15 @@ Check that you've granted all the requested permissions (the app asks for missin
 The app may encounter troubles providing its features on stock firmwares by some manufacturers (like MIUI from Xiaomi). There are two known issues so far:
 
 * [Call blocking and informational notifications don't work on MIUI (stock firmware on Xiaomi phones)](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/12).  
-  This problem can be solved by enabling an always-running "monitoring service" (in Yet Another Call Blocker settings). Android requires to display a notification for a service like that, but on Android 8+ you may disable the notification using "notification channels". This feature has no effect on battery life.  
-  Alternatively (or additionally) you may enable the ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) (in Yet Another Call Blocker settings). The feature should help to fix call blocking, though still won't help to provide the informational notifications (except "Call blocked" notifications - these will work fine).
+  This problem can be solved by enabling an always-running "monitoring service" (in Tranquille settings). Android requires to display a notification for a service like that, but on Android 8+ you may disable the notification using "notification channels". This feature has no effect on battery life.  
+  Alternatively (or additionally) you may enable the ["Advanced call blocking mode"](FAQ.md#whats-that-advanced-call-blocking-mode) (in Tranquille settings). The feature should help to fix call blocking, though still won't help to provide the informational notifications (except "Call blocked" notifications - these will work fine).
 * [No informational notifications on some modern Samsung phones](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/13).  
   The cause of this problem is unknown (so far) and there's no workaround. Provide system logs (not app logs - these show no anomalies) if you want this fixed.
 
 
 ## The app doesn't have a persistent notification. Does it work?
 
-Yet Another Call Blocker doesn't have a permanent notification since it doesn't have any always-running services. The only actions it may do in background are optional auto-updates and incoming call handling (which are limited to the duration of corresponding events). So yeah, it does work ([unless it doesn't](FAQ.md#calls-arent-blocked-i-dont-get-any-informational-notifications)).
+Tranquille doesn't have a permanent notification since it doesn't have any always-running services. The only actions it may do in background are optional auto-updates and incoming call handling (which are limited to the duration of corresponding events). So yeah, it does work ([unless it doesn't](FAQ.md#calls-arent-blocked-i-dont-get-any-informational-notifications)).
 
 
 ## Is there a whitelist? How can I allow a particular number with negative rating to call me?
@@ -56,7 +56,7 @@ Obviously, on Android 7–9 you can't enable this feature **and** select a third
 
 ## I don't want to see some of the informational notifications, can I disable them? Can I change notification priorities?
 
-If you don't want to receive some notifications (like notifications for calls from your contacts), you should use Android's [notification channels](https://www.androidcentral.com/notification-channels) feature to disable particular notification types or change their priorities. Yet Another Call Blocker provides plenty of notification channels for you to customize.  
+If you don't want to receive some notifications (like notifications for calls from your contacts), you should use Android's [notification channels](https://www.androidcentral.com/notification-channels) feature to disable particular notification types or change their priorities. Tranquille provides plenty of notification channels for you to customize.  
 On pre-Android 8 devices there's a couple of notification-related options in the settings.
 
 There's also an option to disable all the informational notifications at once.
@@ -90,10 +90,6 @@ The number format *must* match the format that Android uses, that's why the lead
 1. If "Block blacklisted numbers" is enabled and the number matches any valid blacklist pattern, the call is **blocked**.
 
 
-## Is there a way to display an overlay/pop-up screen with caller information?
-
-Not yet. If you want this feature, vote for [this issue](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/3).
-
 
 ## I have "block hidden numbers" enabled, but some hidden/"private" numbers are still not blocked.
 
@@ -126,7 +122,7 @@ I'm not sure disclosing the source is a great idea, I didn't ask for a permissio
 
 ## Are there any plans for X feature?
 
-Check [issues](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues). If there's nothing about it, create a new one and ask there.
+Check [issues](https://github.com/Vinetos/Tranquille/-/issues). If there's nothing about it, create a new one and ask there.
 
 
 ## How to report a crash / get app logs?
@@ -141,5 +137,5 @@ If you redact personal data (which you should do), please *replace* numbers (wit
 
 You don't have to. If you're happy with some other app - good for you.  
 This project was started because I needed to help my non-techie relatives fight phone spam. Giving calls and contacts permissions to some proprietary app is just not an option for me.  
-There's only a few FOSS (free and open source) apps that provide call blocking and none of them has any kind of a crowdsourced blacklist. So I created Yet Another Call Blocker to solve this.  
+There's only a few FOSS (free and open source) apps that provide call blocking and none of them has any kind of a crowdsourced blacklist. So I created Tranquille to solve this.  
 After a while the app got new features, some of which are unique on the FOSS scene (for example, I believe that the "advanced call blocking mode" is not present in any other FOSS spam blocker).

@@ -1,9 +1,0 @@
-* Arama kaydı iyileştirmeleri: yeni görünüm, daha iyi performans, sonsuz kaydırma, gruplama seçenekleri.
-* Diğer küçük değişiklikler.
-
-0.5.6:
-
-* Bildirim içeriği biraz iyileştirildi.
-* Arama ekranından değerlendirme eklemek için düğme eklendi.
-* Türkçe çeviri eklendi, teşekkürler Oğuz Ersen (@ersen).
-* Çeviriler güncellendi, teşekkürler Yannis T. (@azakosath) ve Evo (@verahawk).

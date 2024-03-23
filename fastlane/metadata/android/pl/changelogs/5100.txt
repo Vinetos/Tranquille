@@ -1,4 +1,0 @@
-* Naprawiono importowanie plików czarnej listy większych niż 4000 bajtów.
-* Naprawiono sporadyczne awarie występujące po usunięciu elementu z czarnej listy.
-* Uproszczono format importu czarnej listy (szczegóły w dzienniku zmian).
-* Zaktualizowano tłumaczenia dzięki J. Lavoie, Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk), Oğuz Ersen (@ersen).

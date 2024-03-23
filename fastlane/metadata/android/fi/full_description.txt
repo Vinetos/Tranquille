@@ -28,6 +28,6 @@ Pääpuhelintietokanta ladataan <a href="https://gitlab.com/xynngh/YetAnotherCal
 Käyttäjien tunnistettavia tietoja ei lähetetä
 (paitsi puhelinnumero, jolle yksityiskohtaiset arvostelut ladataan).
 
-Yet Another Call Blocker on edelleen kehitteillä. Kaikki apu on tervetullutta.
+Tranquille on edelleen kehitteillä. Kaikki apu on tervetullutta.
 
 ''NonFreeNet:'' kolmannen osapuolen palvelu ei ole avointa lähdekoodia.

@@ -39,7 +39,7 @@
     <string name="no_main_db_title">Hauptdatenbank herunterladen</string>
     <string name="open_system_settings">Einstellungen öffnen</string>
     <string name="default_phone_app_unset">Wählen Sie eine andere Anwendung als „Telefonanwendung“ in den Systemeinstellungen</string>
-    <string name="default_phone_app_set">Wählen Sie Yet Another Call Blocker als „Telefonanwendung“ in den Systemeinstellungen</string>
+    <string name="default_phone_app_set">Wählen Sie Tranquille als „Telefonanwendung“ in den Systemeinstellungen</string>
     <string name="default_phone_app">Standard „Telefonanwendung“</string>
     <string name="default_caller_id_app_unset">Wählen Sie eine andere Anwendung als „Anrufer-ID-Anwendung“ in den Systemeinstellungen</string>
     <string name="default_caller_id_app">Standard „Anrufer-ID-Anwendung“</string>
@@ -72,7 +72,7 @@
     <string name="notification_channel_group_name_services">Dienste</string>
     <string name="notification_channel_group_name_blocked_calls">Blockierte Anrufe</string>
     <string name="notification_channel_group_name_incoming_calls">Eingehende Anrufe</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="info_in_blacklist">Auf der schwarze Liste</string>
     <string name="info_icon_description">Infos</string>
     <string name="edit_blacklist_item_name">Name</string>

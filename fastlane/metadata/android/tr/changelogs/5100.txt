@@ -1,4 +1,0 @@
-* 4000 bayttan büyük kara liste dosyalarının içe aktarılması düzeltildi.
-* Kara liste ögelerini sildikten sonra ara sıra meydana gelen çökme düzeltildi.
-* Kara liste içe aktarma biçimi basitleştirildi (ayrıntılar için değişiklik günlüğüne bakın).
-* Çeviriler güncellendi, teşekkürler J. Lavoie, Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk), Oğuz Ersen (@ersen).

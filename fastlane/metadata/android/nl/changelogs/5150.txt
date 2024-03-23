@@ -1,7 +1,0 @@
-* [NIEUW] Opties voor het filteren van de databank (geavanceerd);
-* [NIEUW] Het opzoekscherm wordt automatisch gevuld met klembordinformatie;
-* [NIEUW] Vietnamese vertaling, met dank aan bruh (@quangtrung02hn16);
-* [OPGELOST] Zeldzame bug die de app deed vastlopen tijdens het bijwerken;
-* [VERBETERD] De databank-bijwerkprocedure is geoptimaliseerd;
-* [BIJGEWERKT] Vertalingen, met dank aan J. Lavoie (@Edanas), ssantos, Heimen Stoffels (@Vistaus), Oğuz Ersen (@ersen), phlostically.
-* [VERBETERD] Hebreeuwse vertaling;

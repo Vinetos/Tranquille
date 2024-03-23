@@ -157,7 +157,7 @@
     <string name="call_log_permission_message">Cấp quyền \"Điện thoại\" để xem các cuộc gọi gần đây</string>
     <string name="open_system_settings">Mở Cài đặt</string>
     <string name="default_phone_app_unset">Chọn một ứng dụng khác làm \"Ứng dụng điện thoại\" trong \"Ứng dụng mặc định\" trong cài đặt hệ thống</string>
-    <string name="default_phone_app_set">Chọn \"Yet Another Call Blocker\" làm \"Ứng dụng điện thoại\" trong \"Ứng dụng mặc định\" trong cài đặt hệ thống</string>
+    <string name="default_phone_app_set">Chọn \"Tranquille\" làm \"Ứng dụng điện thoại\" trong \"Ứng dụng mặc định\" trong cài đặt hệ thống</string>
     <string name="default_phone_app">\"Ứng dụng điện thoại\" mặc định</string>
     <string name="default_caller_id_app_unset">Chọn một ứng dụng khác làm \"Ứng dụng ID người gọi\" trong \"Ứng dụng mặc định\" trong cài đặt hệ thống</string>
     <string name="default_caller_id_app">\"Ứng dụng ID người gọi\" mặc định</string>
@@ -184,7 +184,7 @@
     <string name="sia_category_unsolicited">Không mong muốn</string>
     <string name="sia_category_nuisance">Phiền nhiễu</string>
     <string name="sia_category_dept_collector">Người đòi nợ</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="sia_category_sms">SMS</string>
     <string name="sia_category_scam">Lừa đảo</string>
     <string name="sia_category_political">Chính trị</string>

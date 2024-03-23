@@ -28,6 +28,6 @@ A base de dados principal de números de telefone é descarregada a partir de <a
 Nenhuma informação identificável do utilizador é enviada (exceto o número de telefone para consultar
 as análises detalhadas).
 
-Yet Another Call Blocker ainda está em desenvolvimento. Qualquer ajuda é bem-vinda.
+Tranquille ainda está em desenvolvimento. Qualquer ajuda é bem-vinda.
 
 '' NonFreeNet:'' o serviço de terceiros não é de código aberto.

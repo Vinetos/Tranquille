@@ -1,6 +1,0 @@
-[NIEUW] Esperanto-vertaling, met dank aan @phlostically;
-[NIEUW] Portugese vertaling, met dank aan José (@lanegan);
-[NIEUW] Hebreeuwse vertaling, met dank aan Tzvika (@shiloni);
-[NIEUW] Gedeeltelijke Sloveense vertaling, met dank aan @bojanopatje;
-[VERBETERD] Diverse vertalingen, met dank aan z Z z (@ruslan.zeezu), Andrey (@anm), Raul (@raulvo), APL, Caetano Santos (@caeslucio) en Lucio Marinelli (@luciomarinelli);
-[BIJGEWERKT] Afhankelijkheden.

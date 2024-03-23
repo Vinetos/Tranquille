@@ -1,9 +1,0 @@
-* Fixed startup crash without READ_CALL_LOG permission.
-* Fixed blacklist editor crash on old Android versions.
-* Επικαιροποιημένες μεταφράσεις χάρη στους/ις Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk).
-* Άλλες μικρές αλλαγές.
-
-0.5.7:
-
-* Βελτιώσεις καταγραφής κλήσεων: νέα εμφάνιση, καλύτερες επιδόσεις, αέναη κύλιση, επιλογές ομαδοποίησης.
-* Άλλες μικρές αλλαγές.

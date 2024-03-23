@@ -28,6 +28,6 @@ La ĉefa telefonnumera datenbanko estas elŝutota el <a href="https://gitlab.com
 Neniu informo, kiu povas identigi uzanton, estas sendata (krom tiu telefonnumero,
 pri kiu la detalaj recenzoj estas ŝarĝataj).
 
-Yet Another Call Blocker ankoraŭ estas evoluigata. Ĉia helpo estas bonvena.
+Tranquille ankoraŭ estas evoluigata. Ĉia helpo estas bonvena.
 
 ''NonFreeNet:'' la triapartia servo ne estas malfermitfonta.

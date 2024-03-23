@@ -1,13 +1,18 @@
+<p align="center">
+      <img src="other/ic_launcher-playstore.png" height=200 />
+      <img src="other/playstore-banner.png" height=200 />
+</p>
+
+<hr />
+
+# Tranquille
 **Disclaimer:** This is a free and open source project, but it relies on third-party web-services for some functions to work. This project is not affiliated with any third-party entities in any other sense.
-
-
-# Yet Another Call Blocker
 
 A free and open source application that can block unwanted calls or warn about probable intentions of callers using a third-party crowdsourced phone number database (from some other proprietary app).
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
       alt="Get it on F-Droid"
-      height="80">](https://f-droid.org/app/dummydomain.yetanothercallblocker)
+      height="80">](https://f-droid.org/app/)
 
 
 ## Key features
@@ -114,7 +119,7 @@ Also, this project is meant to be non-commercial. So, there's that.
 
 Any contributions are welcome.
 
-[Translate the app on Weblate](https://hosted.weblate.org/engage/yet-another-call-blocker/).
+[Translate the app on Weblate](https://hosted.weblate.org/engage/tranquille).
 
 [More on contributing](CONTRIBUTING.md).
 

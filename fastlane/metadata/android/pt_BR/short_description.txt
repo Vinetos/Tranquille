@@ -1,1 +1,0 @@
-Bloqueia chamadas indesejadas sem esforço

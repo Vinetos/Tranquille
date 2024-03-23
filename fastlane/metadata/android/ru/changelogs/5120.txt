@@ -1,5 +1,0 @@
-* Исправлена ошибка при запуске на Android 11+.
-* Добавлен финский перевод, спасибо Jussi Timperi.
-* Добавлен частичный шведский перевод, спасибо Kristoffer Grundström (@Umeaboy).
-* Добавлен частичный немецкий перевод, спасибо Sebastian Kowalak и J. Lavoie.
-* Обновлены переводы, спасибо Yannis T, J. Lavoie, APL, Milo Ivir (@milotype).

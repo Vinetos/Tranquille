@@ -16,7 +16,7 @@
     <string name="notification_channel_name_known">Chiamate conosciute</string>
     <string name="notification_channel_group_name_blocked_calls">Chiamate bloccate</string>
     <string name="notification_channel_group_name_incoming_calls">Chiamate in entrata</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="notification_channel_name_monitoring_service">Servizio di monitoraggio</string>
     <string name="notification_channel_group_name_services">Servizi</string>
     <string name="are_you_sure">Sei sicuro/a\?</string>
@@ -198,7 +198,7 @@
     <string name="load_reviews_confirmation_message">Caricare una recensione renderà visibile il numero a servizi di terze parti. Sei sicuro di volerlo fare con un numero presente tra i tuoi Contatti\?</string>
     <string name="add_web_review">Aggiungi recensione (web)</string>
     <string name="default_phone_app_unset">Seleziona una diversa app come «App telefono» in «App predefinite» nelle impostazioni di sistema</string>
-    <string name="default_phone_app_set">Seleziona Yet Another Call Blocker come «App telefono» in «App predefinite» nelle impostazioni di sistema</string>
+    <string name="default_phone_app_set">Seleziona Tranquille come «App telefono» in «App predefinite» nelle impostazioni di sistema</string>
     <string name="default_phone_app">App telefono predefinita</string>
     <string name="default_caller_id_app_unset">Seleziona una diversa app \"Caller ID\" tra le app predefinite nelle impostazioni di sistema</string>
     <string name="default_caller_id_app">App \"Caller ID\" predefinita</string>

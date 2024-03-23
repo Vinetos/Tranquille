@@ -33,7 +33,7 @@
     <string name="call_log_permission_message">Donu permeson \"Telefonon\" por vidi lastajn alvokojn</string>
     <string name="default_caller_id_app_unset">Elektu alian programon kiel la \"Programon por Identigi Alvokanton\" en \"Implicitaj programoj\" en sistemaj agordoj</string>
     <string name="default_phone_app_unset">Elektu alian programon kiel la \"Telefonan programon\" en \"Implicitaj programoj\" en sistemaj agordoj</string>
-    <string name="default_phone_app_set">Elektu \"Yet Another Call Blocker\" kiel la \"Telefonan programon\" en \"Implicitaj programoj\" en sistemaj agordoj</string>
+    <string name="default_phone_app_set">Elektu \"Tranquille\" kiel la \"Telefonan programon\" en \"Implicitaj programoj\" en sistemaj agordoj</string>
     <string name="denied_permissions_message">Pro manko de permesoj, la jenaj funkcioj eble ne funkcios:</string>
     <string name="number_pattern_hint">Tajpu la telefonnumeron laŭ la aranĝo +LANDO-TELEFONNUMERO (kiel Android montras en via telefonilo). Uzu \"*\" kiel ĵokeron por nul aŭ pli da ciferoj, kaj \"#\" por ekzakte unu cifero.</string>
     <string name="number_pattern_empty">Malplena ŝablono</string>
@@ -126,7 +126,7 @@
     <string name="sia_category_financial_service">Financa servo</string>
     <string name="sia_category_dept_collector">Ŝuldopagigisto</string>
     <string name="notification_incoming_call_contact">Kontakto</string>
-    <string name="app_name">Yet Another Call Blocker</string>
+    <string name="app_name">Tranquille</string>
     <string name="settings_category_debugging">Sencimigo</string>
     <string name="block_in_limited_mode_rating">Laŭ takso</string>
     <string name="country_code_for_reviews_override">Landokodo de recenzoj</string>
