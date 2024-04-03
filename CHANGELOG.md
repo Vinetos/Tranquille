@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed fastlane folder names for language pt-BR
 - Fixed gradle-wrapper version mismatch
 - Pinned gradle to `8.4-all` with related SHA256 Sum
+- Update Android Gradle Plugin to 8.3.1
+- Fixed deprecated `android.defaults.buildfeatures.buildconfig=true` build option
 
 
 ## [0.0.1] - 2024-03-25
