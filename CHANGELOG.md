@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
+## [UNRELEASED]
+
+- Added icon to en-US fastlane metadata
+- Fixed fastlane folder names for language nb-NO
+- Fixed fastlane folder names for language pt-BR
+- Fixed gradle-wrapper version mismatch
+- Pinned gradle to `8.4-all` with related SHA256 Sum
+
+
 ## [0.0.1] - 2024-03-25
 
 The project has not been updated from the previous maintainer since 2021.
@@ -149,7 +158,7 @@ Cheers
 
 ### Changed
 
-- Changed blocking behavior in Direct Boot mode: blacklisted numbers are not blocked by default.  
+- Changed blocking behavior in Direct Boot mode: blacklisted numbers are not blocked by default.
   See #22 for details.
 - \[Internal\] Settings refactoring.
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
@@ -161,7 +170,7 @@ Cheers
 
 ### Changed
 
-- `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).  
+- `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).
   Fields after `pattern` may be omitted.
 - Updated French and Italian translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
@@ -253,7 +262,7 @@ Cheers
 
 ### Changed
 
-- Improved hidden number detection in "normal" (non-"advanced") mode (#2).  
+- Improved hidden number detection in "normal" (non-"advanced") mode (#2).
   The feature is no longer considered experimental.
 - Auto-hide "blocked call" notifications (when tapped).
 - Fallback to standard TLS-stack if Conscrypt can't be loaded.
