@@ -43,6 +43,9 @@ android {
         abortOnError = false
         lintConfig = file("lint.xml")
     }
+    buildFeatures {
+        buildConfig = true
+    }
 
     applicationVariants.all {
         val variant = this
