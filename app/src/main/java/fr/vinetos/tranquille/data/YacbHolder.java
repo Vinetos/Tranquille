@@ -4,13 +4,13 @@ import android.annotation.SuppressLint;
 
 import fr.vinetos.tranquille.NotificationService;
 import fr.vinetos.tranquille.PhoneStateHandler;
-import fr.vinetos.tranquille.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
 import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
+import fr.vinetos.tranquille.data.db.DenylistDataSource;
 
 public class YacbHolder {
 
@@ -21,7 +21,7 @@ public class YacbHolder {
     private static FeaturedDatabase featuredDatabase;
     private static CommunityReviewsLoader communityReviewsLoader;
 
-    private static BlacklistDao blacklistDao;
+    private static DenylistDataSource denylistDataSource;
     private static BlacklistService blacklistService;
 
     private static NumberInfoService numberInfoService;
@@ -56,8 +56,8 @@ public class YacbHolder {
         YacbHolder.communityReviewsLoader = communityReviewsLoader;
     }
 
-    static void setBlacklistDao(BlacklistDao blacklistDao) {
-        YacbHolder.blacklistDao = blacklistDao;
+    static void setBlacklistDao(DenylistDataSource denylistDataSource) {
+        YacbHolder.denylistDataSource = denylistDataSource;
     }
 
     static void setBlacklistService(BlacklistService blacklistService) {
@@ -100,8 +100,8 @@ public class YacbHolder {
         return communityReviewsLoader;
     }
 
-    public static BlacklistDao getBlacklistDao() {
-        return blacklistDao;
+    public static DenylistDataSource getBlacklistDao() {
+        return denylistDataSource;
     }
 
     public static BlacklistService getBlacklistService() {

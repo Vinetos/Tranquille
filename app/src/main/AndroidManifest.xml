@@ -66,8 +66,7 @@
             android:name=".BlacklistActivity"
             android:label="@string/title_blacklist_activity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -75,8 +74,7 @@
         <activity
             android:name=".EditBlacklistItemActivity"
             android:label="@string/title_add_blacklist_item_activity"
-            android:parentActivityName=".BlacklistActivity"
-            tools:targetApi="jelly_bean">
+            android:parentActivityName=".BlacklistActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BlacklistActivity" />
@@ -84,8 +82,7 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_settings_activity"
-            android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

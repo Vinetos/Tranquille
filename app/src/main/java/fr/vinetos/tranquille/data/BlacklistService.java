@@ -3,13 +3,16 @@ package fr.vinetos.tranquille.data;
 import android.text.TextUtils;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import fr.vinetos.tranquille.EventUtils;
-import fr.vinetos.tranquille.data.db.BlacklistDao;
-import fr.vinetos.tranquille.data.db.BlacklistItem;
+import fr.vinetos.tranquille.data.db.DenylistDataSource;
 import fr.vinetos.tranquille.event.BlacklistChangedEvent;
 import fr.vinetos.tranquille.event.BlacklistItemChangedEvent;
+import kotlin.coroutines.EmptyCoroutineContext;
+import kotlin.coroutines.jvm.internal.ContinuationImpl;
+import kotlinx.coroutines.BuildersKt;
 
 public class BlacklistService {
 
@@ -18,62 +21,91 @@ public class BlacklistService {
     }
 
     private final Callback callback;
-    private final BlacklistDao blacklistDao;
+    private final DenylistDataSource denylistDataSource;
 
-    public BlacklistService(Callback callback, BlacklistDao blacklistDao) {
+    public BlacklistService(Callback callback, DenylistDataSource denylistDataSource) {
         this.callback = callback;
-        this.blacklistDao = blacklistDao;
+        this.denylistDataSource = denylistDataSource;
     }
 
-    public BlacklistItem getBlacklistItemForNumber(String number) {
+    public DenylistItem getDenylistItemForNumber(String number) {
         if (TextUtils.isEmpty(number)) return null;
 
         number = BlacklistUtils.cleanNumber(number);
 
-        return blacklistDao.getFirstMatch(number);
+        return denylistDataSource.getFirstMatch(number);
     }
 
-    public void save(BlacklistItem blacklistItem) {
-        boolean newItem = blacklistItem.getId() == null;
-
-        sanitize(blacklistItem);
-        blacklistDao.save(blacklistItem);
-
-        blacklistChanged(!newItem);
+    public void insert(DenylistItem denylistItem) {
+        sanitize(denylistItem);
+        try {
+            BuildersKt.runBlocking(
+                    EmptyCoroutineContext.INSTANCE,
+                    (scope, continuation) -> denylistDataSource.save(denylistItem, continuation)
+            );
+            blacklistChanged(false);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void insert(BlacklistItem blacklistItem) {
-        sanitize(blacklistItem);
-        blacklistDao.insert(blacklistItem);
-
-        blacklistChanged(false);
+    public void update(DenylistItem denylistItem) {
+        sanitize(denylistItem);
+        try {
+            BuildersKt.runBlocking(
+                    EmptyCoroutineContext.INSTANCE,
+                    (scope, continuation) -> denylistDataSource.update(denylistItem, continuation)
+            );
+            blacklistChanged(true);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void addCall(BlacklistItem blacklistItem, Date date) {
-        sanitize(blacklistItem);
+    public void addCall(DenylistItem denylistItem, Date date) {
+        sanitize(denylistItem);
 
-        blacklistItem.setLastCallDate(Objects.requireNonNull(date));
-        blacklistItem.setNumberOfCalls(blacklistItem.getNumberOfCalls() + 1);
+        try {
+            BuildersKt.runBlocking(
+                    EmptyCoroutineContext.INSTANCE,
+                    (scope, continuation) -> denylistDataSource.addCall(denylistItem, date.toString(), continuation)
+            );
 
-        blacklistDao.save(blacklistItem);
+            EventUtils.postEvent(new BlacklistItemChangedEvent());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
-        EventUtils.postEvent(new BlacklistItemChangedEvent());
     }
 
     public void delete(Iterable<Long> keys) {
-        blacklistDao.delete(keys);
+        try {
+            BuildersKt.runBlocking(
+                    EmptyCoroutineContext.INSTANCE,
+                    (scope, continuation) -> denylistDataSource.delete(keys.iterator(), continuation)
+            );
 
-        blacklistChanged(false);
+            blacklistChanged(false);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void sanitize(BlacklistItem blacklistItem) {
-        blacklistItem.setInvalid(!BlacklistUtils.isValidPattern(blacklistItem.getPattern()));
-        if (blacklistItem.getCreationDate() == null) blacklistItem.setCreationDate(new Date());
-        if (blacklistItem.getNumberOfCalls() < 0) blacklistItem.setNumberOfCalls(0);
+    private void sanitize(DenylistItem denylistItem) {
+        final String creationDate = denylistItem.getCreationDate().isEmpty() ? new Date().toString() : denylistItem.getCreationDate();
+        final long numberOfCalls = denylistItem.getNumberOfCalls() < 0 ? 0 : denylistItem.getNumberOfCalls();
+        try {
+            BuildersKt.runBlocking(
+                    EmptyCoroutineContext.INSTANCE,
+                    (scope, continuation) -> denylistDataSource.sanitize(denylistItem, !BlacklistUtils.isValidPattern(denylistItem.getPattern()), creationDate, numberOfCalls, continuation)
+            );
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void blacklistChanged(boolean itemUpdate) {
-        callback.changed(blacklistDao.countValid() != 0);
+        callback.changed(denylistDataSource.countValid() != 0);
 
         EventUtils.postEvent(itemUpdate ? new BlacklistItemChangedEvent() : new BlacklistChangedEvent());
     }

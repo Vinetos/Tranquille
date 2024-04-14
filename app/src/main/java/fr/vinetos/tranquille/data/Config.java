@@ -4,10 +4,11 @@ import android.content.Context;
 
 import java.util.concurrent.TimeUnit;
 
+import app.cash.sqldelight.db.SqlDriver;
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver;
 import fr.vinetos.tranquille.NotificationService;
 import fr.vinetos.tranquille.PhoneStateHandler;
-import fr.vinetos.tranquille.data.db.BlacklistDao;
-import fr.vinetos.tranquille.data.db.YacbDaoSessionFactory;
+import fr.vinetos.tranquille.data.db.DenylistDataSource;
 import fr.vinetos.tranquille.utils.DbFilteringUtils;
 import fr.vinetos.tranquille.utils.DeferredInit;
 import fr.vinetos.tranquille.utils.SystemUtils;
@@ -122,13 +123,12 @@ public class Config {
 
         YacbHolder.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
 
-        YacbDaoSessionFactory daoSessionFactory = new YacbDaoSessionFactory(context, "YACB");
-
-        BlacklistDao blacklistDao = new BlacklistDao(daoSessionFactory::getDaoSession);
-        YacbHolder.setBlacklistDao(blacklistDao);
+        SqlDriver driver = new AndroidSqliteDriver(Database.Companion.getSchema(), context, "tranquille.db");
+        DenylistDataSource denylistDataSource = new DenylistDataSource(Database.Companion.invoke(driver));
+        YacbHolder.setBlacklistDao(denylistDataSource);
 
         BlacklistService blacklistService = new BlacklistService(
-                settings::setBlacklistIsNotEmpty, blacklistDao);
+                settings::setBlacklistIsNotEmpty, denylistDataSource);
         YacbHolder.setBlacklistService(blacklistService);
 
         ContactsProvider contactsProvider = new ContactsProvider() {

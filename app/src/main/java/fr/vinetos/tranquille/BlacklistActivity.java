@@ -37,9 +37,9 @@ import java.util.Objects;
 
 import fr.vinetos.tranquille.data.BlacklistImporterExporter;
 import fr.vinetos.tranquille.data.BlacklistService;
+import fr.vinetos.tranquille.data.DenylistItem;
 import fr.vinetos.tranquille.data.YacbHolder;
-import fr.vinetos.tranquille.data.db.BlacklistDao;
-import fr.vinetos.tranquille.data.db.BlacklistItem;
+import fr.vinetos.tranquille.data.db.DenylistDataSource;
 import fr.vinetos.tranquille.event.BlacklistChangedEvent;
 import fr.vinetos.tranquille.utils.FileUtils;
 
@@ -53,7 +53,7 @@ public class BlacklistActivity extends AppCompatActivity {
     private static final Logger LOG = LoggerFactory.getLogger(BlacklistActivity.class);
 
     private final Settings settings = App.getSettings();
-    private final BlacklistDao blacklistDao = YacbHolder.getBlacklistDao();
+    private final DenylistDataSource denylistDataSource = YacbHolder.getBlacklistDao();
     private final BlacklistService blacklistService = YacbHolder.getBlacklistService();
 
     private RecyclerView recyclerView;
@@ -165,7 +165,7 @@ public class BlacklistActivity extends AppCompatActivity {
                     .getParcelable(STATE_LIST_LAYOUT_MANAGER);
         }
 
-        blacklistDataSourceFactory = blacklistDao.dataSourceFactory();
+        blacklistDataSourceFactory = denylistDataSource.dataSourceFactory();
 
         PagedList.Config config = new PagedList.Config.Builder()
                 .setPageSize(30)
@@ -273,7 +273,8 @@ public class BlacklistActivity extends AppCompatActivity {
                 if (pfd != null) {
                     try {
                         pfd.close();
-                    } catch (IOException ignored) {}
+                    } catch (IOException ignored) {
+                    }
                 }
             }
 
@@ -300,7 +301,7 @@ public class BlacklistActivity extends AppCompatActivity {
         startActivity(EditBlacklistItemActivity.getIntent(this, null, null));
     }
 
-    private void onItemClicked(BlacklistItem blacklistItem) {
+    private void onItemClicked(DenylistItem blacklistItem) {
         startActivity(EditBlacklistItemActivity.getIntent(this, blacklistItem.getId()));
     }
 
@@ -314,20 +315,21 @@ public class BlacklistActivity extends AppCompatActivity {
     }
 
     private File exportBlacklist() {
-        File file = new File(getCacheDir(), "YetAnotherCallBlocker_backup.csv");
-        try {
-            if (!file.exists() && !file.createNewFile()) return null;
-
-            try (FileWriter writer = new FileWriter(file)) {
-                if (new BlacklistImporterExporter().writeBackup(blacklistDao.loadAll(), writer)) {
-                    return file;
-                }
-            }
-        } catch (IOException e) {
-            LOG.warn("exportBlacklist()", e);
-        }
-
-        return null;
+        throw new UnsupportedOperationException("Method not implemented");
+//        File file = new File(getCacheDir(), "YetAnotherCallBlocker_backup.csv");
+//        try {
+//            if (!file.exists() && !file.createNewFile()) return null;
+//
+//            try (FileWriter writer = new FileWriter(file)) {
+//                if (new BlacklistImporterExporter().writeBackup(denylistDataSource.loadAll(), writer)) {
+//                    return file;
+//                }
+//            }
+//        } catch (IOException e) {
+//            LOG.warn("exportBlacklist()", e);
+//        }
+//
+//        return null;
     }
 
     public void onImportBlacklistClicked(MenuItem item) {

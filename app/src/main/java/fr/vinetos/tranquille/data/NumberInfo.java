@@ -1,6 +1,5 @@
 package fr.vinetos.tranquille.data;
 
-import fr.vinetos.tranquille.data.db.BlacklistItem;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
@@ -23,7 +22,7 @@ public class NumberInfo {
     public ContactItem contactItem;
     public CommunityDatabaseItem communityDatabaseItem;
     public FeaturedDatabaseItem featuredDatabaseItem;
-    public BlacklistItem blacklistItem;
+    public DenylistItem blacklistItem;
 
     // computed rating
     public Rating rating = Rating.UNKNOWN;

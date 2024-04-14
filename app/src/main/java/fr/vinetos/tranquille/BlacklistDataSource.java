@@ -4,27 +4,27 @@ import androidx.annotation.NonNull;
 import androidx.paging.DataSource;
 import androidx.paging.PositionalDataSource;
 
-import org.greenrobot.greendao.query.QueryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
-import fr.vinetos.tranquille.data.db.BlacklistDao;
-import fr.vinetos.tranquille.data.db.BlacklistItem;
+import fr.vinetos.tranquille.data.DenylistItem;
+import fr.vinetos.tranquille.data.db.DenylistDataSource;
 
-public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
+public class BlacklistDataSource extends PositionalDataSource<DenylistItem> {
 
     private static final Logger LOG = LoggerFactory.getLogger(BlacklistDataSource.class);
 
-    public static class Factory extends DataSource.Factory<Integer, BlacklistItem> {
-        private final BlacklistDao blacklistDao;
+    public static class Factory extends DataSource.Factory<Integer, DenylistItem> {
+        private final DenylistDataSource denylistDataSource;
 
         private volatile BlacklistDataSource ds;
 
-        public Factory(BlacklistDao blacklistDao) {
-            this.blacklistDao = blacklistDao;
+        public Factory(DenylistDataSource denylistDataSource) {
+            this.denylistDataSource = denylistDataSource;
         }
 
         public BlacklistDataSource getCurrentDataSource() {
@@ -40,15 +40,15 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
 
         @NonNull
         @Override
-        public DataSource<Integer, BlacklistItem> create() {
-            return ds = new BlacklistDataSource(blacklistDao);
+        public DataSource<Integer, DenylistItem> create() {
+            return ds = new BlacklistDataSource(denylistDataSource);
         }
     }
 
-    private final BlacklistDao blacklistDao;
+    private final DenylistDataSource denylistDataSource;
 
-    public BlacklistDataSource(BlacklistDao blacklistDao) {
-        this.blacklistDao = blacklistDao;
+    public BlacklistDataSource(DenylistDataSource denylistDataSource) {
+        this.denylistDataSource = denylistDataSource;
     }
 
     /**
@@ -58,7 +58,7 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
      * @return an iterable containing ids of all items this DS would load
      */
     public Iterable<Long> getAllIds() {
-        Iterator<BlacklistItem> iterator = getQueryBuilder().listIterator();
+        Iterator<DenylistItem> iterator = getQueryBuilder().listIterator();
         return () -> new Iterator<Long>() {
             @Override
             public boolean hasNext() {
@@ -74,12 +74,12 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
 
     @Override
     public void loadInitial(@NonNull LoadInitialParams params,
-                            @NonNull LoadInitialCallback<BlacklistItem> callback) {
+                            @NonNull LoadInitialCallback<DenylistItem> callback) {
         LOG.debug("loadInitial({}, {})", params.requestedStartPosition, params.requestedLoadSize);
 
         int offset = params.requestedStartPosition;
 
-        List<BlacklistItem> items = loadItems(offset, params.requestedLoadSize);
+        List<DenylistItem> items = loadItems(offset, params.requestedLoadSize);
 
         Integer totalCount = null;
 
@@ -112,27 +112,24 @@ public class BlacklistDataSource extends PositionalDataSource<BlacklistItem> {
 
     @Override
     public void loadRange(@NonNull LoadRangeParams params,
-                          @NonNull LoadRangeCallback<BlacklistItem> callback) {
+                          @NonNull LoadRangeCallback<DenylistItem> callback) {
         LOG.debug("loadRange({}, {})", params.startPosition, params.loadSize);
 
         callback.onResult(loadItems(params.startPosition, params.loadSize));
     }
 
-    private List<BlacklistItem> loadItems(int offset, int limit) {
-        List<BlacklistItem> items = getQueryBuilder()
+    private List<DenylistItem> loadItems(int offset, int limit) {
+
+        List<DenylistItem> items = getQueryBuilder()
                 .offset(offset)
                 .limit(limit)
                 .list();
 
-        return blacklistDao.detach(items); // for DiffUtil to work
+        return denylistDataSource.detach(items); // for DiffUtil to work
     }
 
     private long countAll() {
-        return getQueryBuilder().count();
-    }
-
-    private QueryBuilder<BlacklistItem> getQueryBuilder() {
-        return blacklistDao.getDefaultQueryBuilder();
+        return denylistDataSource.countAll();
     }
 
 }

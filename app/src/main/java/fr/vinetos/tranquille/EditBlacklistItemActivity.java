@@ -28,9 +28,9 @@ import java.util.Objects;
 
 import fr.vinetos.tranquille.data.BlacklistService;
 import fr.vinetos.tranquille.data.BlacklistUtils;
+import fr.vinetos.tranquille.data.DenylistItem;
 import fr.vinetos.tranquille.data.YacbHolder;
-import fr.vinetos.tranquille.data.db.BlacklistDao;
-import fr.vinetos.tranquille.data.db.BlacklistItem;
+import fr.vinetos.tranquille.data.db.DenylistDataSource;
 
 import static fr.vinetos.tranquille.data.BlacklistUtils.cleanPattern;
 import static fr.vinetos.tranquille.data.BlacklistUtils.patternFromHumanReadable;
@@ -43,13 +43,12 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
 
     private static final Logger LOG = LoggerFactory.getLogger(EditBlacklistItemActivity.class);
 
-    private BlacklistDao blacklistDao = YacbHolder.getBlacklistDao();
+    private DenylistDataSource denylistDataSource = YacbHolder.getBlacklistDao();
     private BlacklistService blacklistService = YacbHolder.getBlacklistService();
 
     private TextInputLayout nameTextField;
     private TextInputLayout patternTextField;
-
-    private BlacklistItem blacklistItem;
+    private DenylistItem denylistItem;
 
     public static Intent getIntent(Context context, long itemId) {
         Intent intent = new Intent(context, EditBlacklistItemActivity.class);
@@ -101,7 +100,7 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
 
         long itemIdFromParams = getIntent().getLongExtra(PARAM_ITEM_ID, -1);
         if (itemIdFromParams != -1) {
-            blacklistItem = blacklistDao.findById(itemIdFromParams);
+            denylistItem = denylistDataSource.(itemIdFromParams);
             if (blacklistItem == null) {
                 LOG.warn("onCreate() no item with id={}", itemIdFromParams);
                 finish();
@@ -235,7 +234,7 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
                 return;
             }
 
-            if (blacklistDao.findByNameAndPattern(name, pattern) != null) {
+            if (denylistDataSource.findByNameAndPattern(name, pattern) != null) {
                 LOG.info("save() not creating a new item because" +
                         " an item with the same name and pattern exists");
                 return;

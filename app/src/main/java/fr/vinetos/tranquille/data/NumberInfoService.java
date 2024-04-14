@@ -116,7 +116,7 @@ public class NumberInfoService {
         if (blacklistService != null && settings.getBlacklistIsNotEmpty()) {
             // avoid loading blacklist if blocking for other reason
             if (full || getBlockingReason(numberInfo) == null) {
-                numberInfo.blacklistItem = blacklistService.getBlacklistItemForNumber(number);
+                numberInfo.blacklistItem = blacklistService.getDenylistItemForNumber(number);
             }
         }
         LOG.trace("getNumberInfo() blacklistItem={}", numberInfo.blacklistItem);

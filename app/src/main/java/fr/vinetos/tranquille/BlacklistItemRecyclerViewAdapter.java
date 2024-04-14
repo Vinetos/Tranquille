@@ -21,15 +21,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Date;
 
-import fr.vinetos.tranquille.data.db.BlacklistItem;
+import fr.vinetos.tranquille.data.DenylistItem;
 
 public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
-        <BlacklistItem, BlacklistItemRecyclerViewAdapter.ViewHolder> {
+        <DenylistItem, BlacklistItemRecyclerViewAdapter.ViewHolder> {
 
     private SelectionTracker<Long> selectionTracker;
 
     public BlacklistItemRecyclerViewAdapter(
-            @Nullable ListInteractionListener<BlacklistItem> listener) {
+            @Nullable ListInteractionListener<DenylistItem> listener) {
         super(new DiffUtilCallback(), listener);
     }
 
@@ -42,14 +42,14 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
             @Nullable
             @Override
             public Long getKey(int position) {
-                BlacklistItem item = getItem(position);
+                DenylistItem item = getItem(position);
                 return item != null ? item.getId() : null;
             }
 
             @Override
             public int getPosition(@NonNull Long key) {
                 for (int i = 0; i < getItemCount(); i++) {
-                    BlacklistItem item = getItem(i);
+                    DenylistItem item = getItem(i);
                     if (item != null && key.equals(item.getId())) return i;
                 }
                 return RecyclerView.NO_POSITION;
@@ -83,7 +83,7 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
     }
 
     class ViewHolder extends GenericRecyclerViewAdapter
-            <BlacklistItem, BlacklistItemRecyclerViewAdapter.ViewHolder>.GenericViewHolder {
+            <DenylistItem, BlacklistItemRecyclerViewAdapter.ViewHolder>.GenericViewHolder {
 
         final TextView name, pattern, stats;
         final AppCompatImageView errorIcon;
@@ -100,7 +100,7 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
         }
 
         @Override
-        void bind(BlacklistItem item) {
+        void bind(DenylistItem item) {
             if (item == null) { // placeholder
                 name.setVisibility(View.INVISIBLE);
                 pattern.setVisibility(View.INVISIBLE);
@@ -122,19 +122,19 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
                 Context context = stats.getContext();
 
-                Date lastCallDate = item.getLastCallDate();
+                Date lastCallDate = new Date(item.getLastCallDate());
                 String dateString = lastCallDate != null
                         ? DateUtils.getRelativeTimeSpanString(lastCallDate.getTime()).toString()
                         : context.getString(R.string.blacklist_item_date_no_info);
 
                 stats.setText(context.getResources().getQuantityString(
-                        R.plurals.blacklist_item_stats, item.getNumberOfCalls(),
+                        R.plurals.blacklist_item_stats, (int) item.getNumberOfCalls(),
                         item.getNumberOfCalls(), dateString));
             } else {
                 stats.setVisibility(View.GONE);
             }
 
-            errorIcon.setVisibility(item.getInvalid() ? View.VISIBLE : View.GONE);
+            errorIcon.setVisibility(item.getInvalid() == 1 ? View.VISIBLE : View.GONE);
 
             itemView.setActivated(selectionTracker != null
                     && selectionTracker.isSelected(item.getId()));
@@ -152,7 +152,7 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
                     @Override
                     public Long getSelectionKey() {
                         int position = getAdapterPosition();
-                        BlacklistItem item = position != RecyclerView.NO_POSITION
+                        DenylistItem item = position != RecyclerView.NO_POSITION
                                 ? getItem(position) : null;
                         return item != null ? item.getId() : null;
                     }
@@ -169,21 +169,17 @@ public class BlacklistItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
     }
 
-    static class DiffUtilCallback extends DiffUtil.ItemCallback<BlacklistItem> {
+    static class DiffUtilCallback extends DiffUtil.ItemCallback<DenylistItem> {
 
         @Override
-        public boolean areItemsTheSame(@NonNull BlacklistItem oldItem,
-                                       @NonNull BlacklistItem newItem) {
-            if (oldItem.getId() != null || newItem.getId() != null) {
-                return ObjectsCompat.equals(oldItem.getId(), newItem.getId());
-            }
-
+        public boolean areItemsTheSame(@NonNull DenylistItem oldItem,
+                                       @NonNull DenylistItem newItem) {
             return ObjectsCompat.equals(oldItem.getPattern(), newItem.getPattern());
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull BlacklistItem oldItem,
-                                          @NonNull BlacklistItem newItem) {
+        public boolean areContentsTheSame(@NonNull DenylistItem oldItem,
+                                          @NonNull DenylistItem newItem) {
             return ObjectsCompat.equals(oldItem.getPattern(), newItem.getPattern())
                     && ObjectsCompat.equals(oldItem.getName(), newItem.getName())
                     && oldItem.getNumberOfCalls() == newItem.getNumberOfCalls()

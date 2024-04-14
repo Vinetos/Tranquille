@@ -24,9 +24,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import fr.vinetos.tranquille.data.db.BlacklistDao;
-import fr.vinetos.tranquille.data.db.BlacklistItem;
-
 import static fr.vinetos.tranquille.data.BlacklistUtils.cleanPattern;
 import static fr.vinetos.tranquille.data.BlacklistUtils.isValidPattern;
 import static fr.vinetos.tranquille.data.BlacklistUtils.patternFromHumanReadable;
@@ -66,7 +63,7 @@ public class BlacklistImporterExporter {
         return true;
     }
 
-    public boolean importBlacklist(BlacklistDao blacklistDao, BlacklistService blacklistService,
+    public boolean importBlacklist(DenylistDataSource denylistDataSource, BlacklistService blacklistService,
                                    FileDescriptor fileDescriptor) {
         List<BlacklistItem> items = null;
 
@@ -82,7 +79,7 @@ public class BlacklistImporterExporter {
             BlacklistItem existingItem = null;
 
             if (item.getId() != null) {
-                existingItem = blacklistDao.findById(item.getId());
+                existingItem = denylistDataSource.findById(item.getId());
 
                 if (existingItem != null && !ObjectsCompat
                         .equals(item.getPattern(), existingItem.getPattern())) {
@@ -92,7 +89,7 @@ public class BlacklistImporterExporter {
             }
 
             if (existingItem == null) {
-                existingItem = blacklistDao.findByPattern(item.getPattern());
+                existingItem = denylistDataSource.findByPattern(item.getPattern());
             }
 
             if (existingItem != null) {
