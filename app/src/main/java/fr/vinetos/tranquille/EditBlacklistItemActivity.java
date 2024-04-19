@@ -100,7 +100,7 @@ public class EditBlacklistItemActivity extends AppCompatActivity {
 
         long itemIdFromParams = getIntent().getLongExtra(PARAM_ITEM_ID, -1);
         if (itemIdFromParams != -1) {
-            denylistItem = denylistDataSource.(itemIdFromParams);
+            denylistItem = denylistDataSource.findById(itemIdFromParams);
             if (blacklistItem == null) {
                 LOG.warn("onCreate() no item with id={}", itemIdFromParams);
                 finish();

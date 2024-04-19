@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+//    alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.sqlite)
+    kotlin("android")
 }
 
 android {
@@ -62,7 +63,6 @@ sqldelight {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.preference)
@@ -83,6 +83,7 @@ dependencies {
 
     // todo add kotlin coriutines dependency
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 
     annotationProcessor(libs.eventbus.annotation.processor)

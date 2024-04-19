@@ -1,0 +1,45 @@
+package fr.vinetos.tranquille.presentation.denylist;
+
+import android.view.LayoutInflater
+import android.view.View;
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.RecyclerView;
+import fr.vinetos.tranquille.R
+
+class DenylistItemAdapter(
+    private val denylist: MutableList<DenylistItem>
+) : RecyclerView.Adapter<DenylistItemAdapter.DenylistItemViewHolder>() {
+
+    class DenylistItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DenylistItemViewHolder {
+        return DenylistItemViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.blacklist_item, parent, false)
+        )
+    }
+
+    private fun toggleVisibility(invalidImage: AppCompatImageView, valid: Boolean) {
+        if (valid) {
+            invalidImage.visibility = View.GONE
+        } else {
+            invalidImage.visibility = View.VISIBLE
+        }
+    }
+
+    override fun onBindViewHolder(holder: DenylistItemViewHolder, position: Int) {
+        // When a new item is visible
+        val currentDenylistItem = denylist[position]
+        holder.itemView.apply {
+            findViewById<TextView>(R.id.name).text = currentDenylistItem.name
+            findViewById<TextView>(R.id.pattern).text = currentDenylistItem.pattern
+            findViewById<TextView>(R.id.stats).text = "No stats available"
+            toggleVisibility(findViewById(R.id.errorIcon), currentDenylistItem.valid);
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return denylist.size
+    }
+}
