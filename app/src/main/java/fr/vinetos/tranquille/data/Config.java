@@ -125,7 +125,8 @@ public class Config {
 
         SqlDriver driver = new AndroidSqliteDriver(Database.Companion.getSchema(), context, "tranquille.db");
         DenylistDataSource denylistDataSource = new DenylistDataSource(Database.Companion.invoke(driver));
-        YacbHolder.setBlacklistDao(denylistDataSource);
+
+        YacbHolder.setDenylistDataSource(denylistDataSource);
 
         BlacklistService blacklistService = new BlacklistService(
                 settings::setBlacklistIsNotEmpty, denylistDataSource);

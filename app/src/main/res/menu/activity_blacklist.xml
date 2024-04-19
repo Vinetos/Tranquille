@@ -4,15 +4,10 @@
     <item
         android:id="@+id/menu_block_blacklisted"
         android:checkable="true"
-        android:onClick="onBlockBlacklistedChanged"
         android:title="@string/block_blacklisted_short" />
 
-    <item
-        android:onClick="onExportBlacklistClicked"
-        android:title="@string/blacklist_export" />
+    <item android:title="@string/blacklist_export" />
 
-    <item
-        android:onClick="onImportBlacklistClicked"
-        android:title="@string/blacklist_import" />
+    <item android:title="@string/blacklist_import" />
 
 </menu>

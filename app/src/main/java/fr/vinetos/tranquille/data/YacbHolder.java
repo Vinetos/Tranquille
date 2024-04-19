@@ -56,7 +56,7 @@ public class YacbHolder {
         YacbHolder.communityReviewsLoader = communityReviewsLoader;
     }
 
-    static void setBlacklistDao(DenylistDataSource denylistDataSource) {
+    static void setDenylistDataSource(DenylistDataSource denylistDataSource) {
         YacbHolder.denylistDataSource = denylistDataSource;
     }
 
@@ -100,7 +100,7 @@ public class YacbHolder {
         return communityReviewsLoader;
     }
 
-    public static DenylistDataSource getBlacklistDao() {
+    public static DenylistDataSource getDenylistDataSource() {
         return denylistDataSource;
     }
 

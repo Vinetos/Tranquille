@@ -2,18 +2,61 @@ package fr.vinetos.tranquille.presentation.denylist
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import fr.vinetos.tranquille.App
+import fr.vinetos.tranquille.CustomVerticalDivider
 import fr.vinetos.tranquille.R
+import fr.vinetos.tranquille.data.YacbHolder
+import fr.vinetos.tranquille.data.db.DenylistDataSource
 
 class DenylistActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    private lateinit var denylistItemAdapter: DenylistItemAdapter
+    private lateinit var denylistItemListView: RecyclerView
+    private lateinit var denylistDataSource: DenylistDataSource
+
+    private val settings = App.getSettings()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blacklist)
 
-        // Load the adapter with the denylist items
-        // Remove the dataclass DenylistItem and use the data from the database
-        TODO("Not implemented")
+        denylistDataSource = YacbHolder.getDenylistDataSource()
+        denylistItemAdapter = DenylistItemAdapter(denylistDataSource.getAll())
+
+        denylistItemListView = findViewById(R.id.blacklistItemsList)
+        denylistItemListView.apply {
+            adapter = denylistItemAdapter
+            layoutManager = LinearLayoutManager(this@DenylistActivity)
+            addItemDecoration(CustomVerticalDivider(this@DenylistActivity))
+        }
+
+        findViewById<FloatingActionButton>(R.id.fab).apply {
+            visibility = FloatingActionButton.VISIBLE
+            setOnClickListener {
+                println("TODO: Add denylist item")
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // TODO: The menu is disabled until import / export is implemented
+        // menuInflater.inflate(R.menu.activity_blacklist, menu)
+        // return true
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        // TODO: The menu is disabled until import / export is implemented
+        // menu?.findItem(R.id.menu_block_blacklisted)?.setChecked(
+        //   settings.blockBlacklisted
+        // )
+        return super.onPrepareOptionsMenu(menu)
     }
 
 }

@@ -20,7 +20,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/blacklist_add"
-        android:onClick="onAddClicked"
         android:src="@drawable/ic_plus_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

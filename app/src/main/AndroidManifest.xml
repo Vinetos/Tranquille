@@ -63,7 +63,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".BlacklistActivity"
+            android:name=".presentation.denylist.DenylistActivity"
             android:label="@string/title_blacklist_activity"
             android:launchMode="singleTop"
             android:parentActivityName=".MainActivity">

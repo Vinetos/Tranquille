@@ -32,8 +32,8 @@ class DenylistDataSource(
         }
     }
 
-    fun getAll(): Flow<List<DenylistItem>> {
-        return queries.selectAll().asFlow().mapToList(Dispatchers.IO)
+    fun getAll(): List<DenylistItem> {
+        return queries.selectAll().executeAsList()
     }
 
     fun getFirstMatch(number: String): DenylistItem {
