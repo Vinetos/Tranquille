@@ -102,7 +102,6 @@
     <string name="show_notifications_for_blocked_calls_summary">Prikažite obvestilo po blokiranem klicu</string>
     <string name="show_notifications_for_blocked_calls">Obvestilo o blokiranih klicih</string>
     <string name="show_notifications_for_unknown_callers_summary">Prikaži obvestila za neznane klicatelje (niti v imeniku niti v podatkovni bazi številk)</string>
-    <string name="app_name">Še en blokator klicev</string>
     <string name="save_logcat_on_crash">Shranite logcat ob zrušitvi</string>
     <string name="save_crashes_to_external_storage_summary">Poročila o zrušitvah shranite v javni pomnilnik, sicer se poročila o zrušitvah shranijo v zasebno mapo aplikacije. Poročila lahko vsebujejo občutljive podatke (telefonske številke, imena stikov). Druge aplikacije z dovoljenjem za shranjevanje imajo lahko dostop do teh podatkov v javnem pomnilniku</string>
     <string name="save_crashes_to_external_storage">Shranite poročila v javno shrambo</string>

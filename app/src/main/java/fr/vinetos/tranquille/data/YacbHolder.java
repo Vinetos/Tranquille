@@ -10,7 +10,8 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
-import fr.vinetos.tranquille.data.db.DenylistDataSource;
+import fr.vinetos.tranquille.data.datasource.DenylistDataSource;
+import fr.vinetos.tranquille.domain.service.DenylistService;
 
 public class YacbHolder {
 
@@ -22,7 +23,7 @@ public class YacbHolder {
     private static CommunityReviewsLoader communityReviewsLoader;
 
     private static DenylistDataSource denylistDataSource;
-    private static BlacklistService blacklistService;
+    private static DenylistService denylistService;
 
     private static NumberInfoService numberInfoService;
 
@@ -60,8 +61,8 @@ public class YacbHolder {
         YacbHolder.denylistDataSource = denylistDataSource;
     }
 
-    static void setBlacklistService(BlacklistService blacklistService) {
-        YacbHolder.blacklistService = blacklistService;
+    static void setBlacklistService(DenylistService denylistService) {
+        YacbHolder.denylistService = denylistService;
     }
 
     static void setNumberInfoService(NumberInfoService numberInfoService) {
@@ -104,8 +105,8 @@ public class YacbHolder {
         return denylistDataSource;
     }
 
-    public static BlacklistService getBlacklistService() {
-        return blacklistService;
+    public static DenylistService getBlacklistService() {
+        return denylistService;
     }
 
     public static NumberInfoService getNumberInfoService() {

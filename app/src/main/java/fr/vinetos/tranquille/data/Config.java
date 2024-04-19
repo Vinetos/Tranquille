@@ -8,7 +8,8 @@ import app.cash.sqldelight.db.SqlDriver;
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver;
 import fr.vinetos.tranquille.NotificationService;
 import fr.vinetos.tranquille.PhoneStateHandler;
-import fr.vinetos.tranquille.data.db.DenylistDataSource;
+import fr.vinetos.tranquille.data.datasource.DenylistDataSource;
+import fr.vinetos.tranquille.domain.service.DenylistService;
 import fr.vinetos.tranquille.utils.DbFilteringUtils;
 import fr.vinetos.tranquille.utils.DeferredInit;
 import fr.vinetos.tranquille.utils.SystemUtils;
@@ -128,9 +129,9 @@ public class Config {
 
         YacbHolder.setDenylistDataSource(denylistDataSource);
 
-        BlacklistService blacklistService = new BlacklistService(
+        DenylistService denylistService = new DenylistService(
                 settings::setBlacklistIsNotEmpty, denylistDataSource);
-        YacbHolder.setBlacklistService(blacklistService);
+        YacbHolder.setBlacklistService(denylistService);
 
         ContactsProvider contactsProvider = new ContactsProvider() {
             @Override
@@ -146,7 +147,7 @@ public class Config {
 
         NumberInfoService numberInfoService = new NumberInfoService(
                 settings, NumberUtils::isHiddenNumber, NumberUtils::normalizeNumber,
-                communityDatabase, featuredDatabase, contactsProvider, blacklistService);
+                communityDatabase, featuredDatabase, contactsProvider, denylistService);
         YacbHolder.setNumberInfoService(numberInfoService);
 
         NotificationService notificationService = new NotificationService(context);

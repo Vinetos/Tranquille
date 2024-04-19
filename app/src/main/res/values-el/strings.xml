@@ -35,7 +35,6 @@
     <string name="sia_category_safe_nonprofit">Ασφαλής ΜΚΟ</string>
     <string name="sia_category_unsolicited">Ανεπιθύμητος</string>
     <string name="sia_category_silent">Σιωπηλός</string>
-    <string name="app_name">Tranquille</string>
     <string name="lookup_res_category">Κατηγορία: %d</string>
     <string name="lookup_number_not_found">Δε βρέθηκε</string>
     <string name="lookup_load_reviews">Φόρτωση κριτικών (διαδυκτιακά)</string>

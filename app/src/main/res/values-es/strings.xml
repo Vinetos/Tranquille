@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Otro Bloqueador de Llamadas</string>
     <string name="notification_channel_group_name_incoming_calls">Llamadas entrantes</string>
     <string name="notification_channel_group_name_blocked_calls">Llamadas bloqueadas</string>
     <string name="notification_channel_name_known">Llamadas conocidas</string>

@@ -22,7 +22,6 @@
     <string name="sia_category_unsolicited">Não solicitada</string>
     <string name="notification_background_operation">Operação de fundo em curso…</string>
     <string name="notification_channel_name_blocked_info">Informação de bloqueio</string>
-    <string name="app_name">Tranquille</string>
     <string name="db_management_reset_secondary">Redefinir atualizações</string>
     <string name="edit_blacklist_item_number_pattern">Padrão numérico</string>
     <string name="sia_category_call_center">Call center</string>

@@ -209,5 +209,4 @@
     <string name="notification_channel_group_name_services">Serviços</string>
     <string name="notification_channel_group_name_blocked_calls">Chamadas bloqueadas</string>
     <string name="notification_channel_group_name_incoming_calls">Chamadas recebidas</string>
-    <string name="app_name">Tranquille</string>
 </resources>

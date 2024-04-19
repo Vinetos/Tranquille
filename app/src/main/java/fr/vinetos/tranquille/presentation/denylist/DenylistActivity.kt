@@ -1,9 +1,8 @@
 package fr.vinetos.tranquille.presentation.denylist
 
+import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +11,7 @@ import fr.vinetos.tranquille.App
 import fr.vinetos.tranquille.CustomVerticalDivider
 import fr.vinetos.tranquille.R
 import fr.vinetos.tranquille.data.YacbHolder
-import fr.vinetos.tranquille.data.db.DenylistDataSource
+import fr.vinetos.tranquille.data.datasource.DenylistDataSource
 
 class DenylistActivity : AppCompatActivity() {
 
@@ -39,7 +38,7 @@ class DenylistActivity : AppCompatActivity() {
         findViewById<FloatingActionButton>(R.id.fab).apply {
             visibility = FloatingActionButton.VISIBLE
             setOnClickListener {
-                println("TODO: Add denylist item")
+                startActivity(Intent(this@DenylistActivity, EditDenylistItemActivity::class.java))
             }
         }
     }

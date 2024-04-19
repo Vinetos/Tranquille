@@ -43,5 +43,4 @@
     <string name="notification_channel_group_name_services">服务</string>
     <string name="notification_channel_group_name_blocked_calls">拦截的电话</string>
     <string name="notification_channel_group_name_incoming_calls">来电</string>
-    <string name="app_name">又一个电话拦截器</string>
 </resources>

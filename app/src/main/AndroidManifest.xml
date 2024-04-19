@@ -57,7 +57,7 @@
             android:name=".LookupNumberActivity"
             android:label="@string/title_lookup_number"
             android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -72,12 +72,12 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".EditBlacklistItemActivity"
+            android:name=".presentation.denylist.EditDenylistItemActivity"
             android:label="@string/title_add_blacklist_item_activity"
-            android:parentActivityName=".BlacklistActivity">
+            android:parentActivityName=".presentation.denylist.DenylistActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".BlacklistActivity" />
+                android:value=".presentation.denylist.DenylistActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"

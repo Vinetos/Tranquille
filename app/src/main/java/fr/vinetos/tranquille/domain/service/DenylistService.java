@@ -1,20 +1,19 @@
-package fr.vinetos.tranquille.data;
+package fr.vinetos.tranquille.domain.service;
 
 import android.text.TextUtils;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
 
 import fr.vinetos.tranquille.EventUtils;
-import fr.vinetos.tranquille.data.db.DenylistDataSource;
+import fr.vinetos.tranquille.data.BlacklistUtils;
+import fr.vinetos.tranquille.data.DenylistItem;
+import fr.vinetos.tranquille.data.datasource.DenylistDataSource;
 import fr.vinetos.tranquille.event.BlacklistChangedEvent;
 import fr.vinetos.tranquille.event.BlacklistItemChangedEvent;
 import kotlin.coroutines.EmptyCoroutineContext;
-import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlinx.coroutines.BuildersKt;
 
-public class BlacklistService {
+public class DenylistService {
 
     public interface Callback {
         void changed(boolean notEmpty);
@@ -23,7 +22,7 @@ public class BlacklistService {
     private final Callback callback;
     private final DenylistDataSource denylistDataSource;
 
-    public BlacklistService(Callback callback, DenylistDataSource denylistDataSource) {
+    public DenylistService(Callback callback, DenylistDataSource denylistDataSource) {
         this.callback = callback;
         this.denylistDataSource = denylistDataSource;
     }
