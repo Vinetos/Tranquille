@@ -36,23 +36,7 @@ class EditDenylistItemActivity : AppCompatActivity() {
 
         nameTextLayout = findViewById(R.id.nameTextField)
         nameTextLayout.markRequired()
-        nameEditText = findViewById<TextInputEditText?>(R.id.nameEditText).apply {
-            addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-                override fun afterTextChanged(s: Editable?) {
-                    validateName(s)
-                }
-            })
-        }
+        nameEditText = findViewById(R.id.nameEditText)
 
         patternTextLayout = findViewById(R.id.patternTextField)
         patternTextLayout.markRequired()
@@ -76,7 +60,6 @@ class EditDenylistItemActivity : AppCompatActivity() {
         }
 
         validatePattern(null)
-        validateName(null)
 
         actionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -90,25 +73,14 @@ class EditDenylistItemActivity : AppCompatActivity() {
 
         // Hide save menu item if the pattern or the name is not valid
         menuSaveItem = menu?.findItem(R.id.menu_save)
-        val pattern = validatePattern(null)
-        val name = validateName(null)
-        menuSaveItem?.isVisible = pattern && name
+        menuSaveItem?.isVisible = validatePattern(null)
         menuSaveItem?.setOnMenuItemClickListener {
             // We are creating an item
-            if(denylistItem == null) {
-                // TODO: Make the service does all the inputs checks
-                // and find a way to not build a DenylistItem object
-                // Probably an entity ?
-                denylistService.insert(DenylistItem(
-                    0,
+            if (denylistItem == null) {
+                denylistService.insert(
                     nameEditText.text.toString(),
                     patternEditText.text.toString(),
-                    "why it exists",
-                    Date().toString(),
-                    0,
-                    0,
-                    Date().toString()
-                ))
+                )
             }
 
             // Consume the click
@@ -138,32 +110,12 @@ class EditDenylistItemActivity : AppCompatActivity() {
     }
 
     /**
-     * Validate the name and show an error if it's not valid
-     */
-    fun validateName(s: Editable?): Boolean {
-        val name = s?.toString() ?: nameEditText.text.toString()
-
-        if (name.isEmpty())
-            nameTextLayout.error = getString(R.string.denylist_item_name_empty)
-        else
-            nameTextLayout.error = null
-
-        // Hide save menu item if the pattern or the name is not valid
-        updateSaveButton()
-
-        return nameTextLayout.error == null
-    }
-
-    /**
      * Update the visibility of the save button in the menu
      * depending on the validity of the name and the pattern
      */
     private fun updateSaveButton() {
-        // Hide save menu item if the name or pattern is not valid
-        // Var are defined to call both methods
-        val pattern = patternTextLayout.error == null
-        val name = patternTextLayout.error == null
-        menuSaveItem?.isVisible = pattern && name
+        // Hide save menu item if the pattern is not valid
+        menuSaveItem?.isVisible = patternTextLayout.error == null
     }
 
 

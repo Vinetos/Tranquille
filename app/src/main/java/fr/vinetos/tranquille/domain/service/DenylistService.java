@@ -35,12 +35,32 @@ public class DenylistService {
         return denylistDataSource.getFirstMatch(number);
     }
 
-    public void insert(DenylistItem denylistItem) {
-        sanitize(denylistItem);
+    public void insert(String name, String pattern) {
+        // Name is optional
+        if(name == null)
+            name = "";
+
+        if(TextUtils.isEmpty(pattern))
+            throw new NullPointerException("Pattern cannot be null or empty");
+        pattern = BlacklistUtils.cleanPattern(pattern);
+
+        if(!BlacklistUtils.isValidPattern(pattern))
+            throw new IllegalArgumentException("Pattern is not valid");
+
         try {
+            String finalName = name;
+            String cleanedPattern = pattern;
             BuildersKt.runBlocking(
                     EmptyCoroutineContext.INSTANCE,
-                    (scope, continuation) -> denylistDataSource.save(denylistItem, continuation)
+                    (scope, continuation) -> denylistDataSource.save(new DenylistItem(
+                            -1,
+                            finalName,
+                            cleanedPattern,
+                            new Date().toString(),
+                            0,
+                            0,
+                            null
+                    ), continuation)
             );
             blacklistChanged(false);
         } catch (InterruptedException e) {

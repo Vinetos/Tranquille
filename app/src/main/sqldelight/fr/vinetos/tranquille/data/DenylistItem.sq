@@ -1,12 +1,11 @@
 CREATE TABLE DenylistItem (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
+  name TEXT,
   pattern TEXT NOT NULL,
-  humanReadablePattern TEXT NOT NULL,
   creationDate TEXT NOT NULL,
   invalid INTEGER NOT NULL,
   numberOfCalls INTEGER NOT NULL,
-  lastCallDate TEXT NOT NULL
+  lastCallDate TEXT
 );
 
 selectAll:
@@ -37,12 +36,12 @@ FROM DenylistItem
 WHERE invalid = 0;
 
 insertItem:
-INSERT INTO DenylistItem (name, pattern, humanReadablePattern, creationDate, invalid, numberOfCalls, lastCallDate)
-VALUES (?, ?, ?, ?, ?, ?, ?);
+INSERT INTO DenylistItem (name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
+VALUES (?, ?, ?, ?, ?, ?);
 
 updateItem:
-INSERT OR REPLACE INTO DenylistItem (id, name, pattern, humanReadablePattern, creationDate, invalid, numberOfCalls, lastCallDate)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+INSERT OR REPLACE INTO DenylistItem (id, name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
+VALUES (?,  ?, ?, ?, ?, ?, ?);
 
 addCall:
 UPDATE DenylistItem SET numberOfCalls = numberOfCalls + 1, lastCallDate = ?

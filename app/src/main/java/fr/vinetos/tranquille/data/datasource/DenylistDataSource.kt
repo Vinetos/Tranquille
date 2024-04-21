@@ -45,7 +45,6 @@ class DenylistDataSource(
             queries.insertItem(
                 denylistItem.name,
                 denylistItem.pattern,
-                denylistItem.humanReadablePattern,
                 denylistItem.creationDate,
                 denylistItem.invalid,
                 denylistItem.numberOfCalls,
@@ -60,7 +59,6 @@ class DenylistDataSource(
                 denylistItem.id,
                 denylistItem.name,
                 denylistItem.pattern,
-                denylistItem.humanReadablePattern,
                 denylistItem.creationDate,
                 denylistItem.invalid,
                 denylistItem.numberOfCalls,
