@@ -77,10 +77,12 @@ class EditDenylistItemActivity : AppCompatActivity() {
         menuSaveItem?.setOnMenuItemClickListener {
             // We are creating an item
             if (denylistItem == null) {
-                denylistService.insert(
+                val res = denylistService.insert(
                     nameEditText.text.toString(),
                     patternEditText.text.toString(),
                 )
+                if (res)
+                    finish()
             }
 
             // Consume the click

@@ -35,7 +35,7 @@ public class DenylistService {
         return denylistDataSource.getFirstMatch(number);
     }
 
-    public void insert(String name, String pattern) {
+    public boolean insert(String name, String pattern) {
         // Name is optional
         if(name == null)
             name = "";
@@ -64,8 +64,10 @@ public class DenylistService {
             );
             blacklistChanged(false);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            // throw new RuntimeException(e);
+            return false;
         }
+        return true;
     }
 
     public void update(DenylistItem denylistItem) {
