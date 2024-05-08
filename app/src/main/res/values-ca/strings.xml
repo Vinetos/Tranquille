@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Un Altre Blocador de Trucades</string>
     <string name="call_log_grouping">Agrupa el registre de trucades</string>
     <string name="block_blacklisted">Bloca els números de la llista negra</string>
     <string name="incoming_call_notifications_summary">Mostra una notificació amb el resum del número de telèfon (puntuació, nombre de ressenyes, categoria) durant les trucades entrants</string>

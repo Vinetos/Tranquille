@@ -4,13 +4,14 @@ import android.annotation.SuppressLint;
 
 import fr.vinetos.tranquille.NotificationService;
 import fr.vinetos.tranquille.PhoneStateHandler;
-import fr.vinetos.tranquille.data.db.BlacklistDao;
 import dummydomain.yetanothercallblocker.sia.model.CommunityReviewsLoader;
 import dummydomain.yetanothercallblocker.sia.model.SiaMetadata;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
+import fr.vinetos.tranquille.data.datasource.DenylistDataSource;
+import fr.vinetos.tranquille.domain.service.DenylistService;
 
 public class YacbHolder {
 
@@ -21,8 +22,8 @@ public class YacbHolder {
     private static FeaturedDatabase featuredDatabase;
     private static CommunityReviewsLoader communityReviewsLoader;
 
-    private static BlacklistDao blacklistDao;
-    private static BlacklistService blacklistService;
+    private static DenylistDataSource denylistDataSource;
+    private static DenylistService denylistService;
 
     private static NumberInfoService numberInfoService;
 
@@ -56,12 +57,12 @@ public class YacbHolder {
         YacbHolder.communityReviewsLoader = communityReviewsLoader;
     }
 
-    static void setBlacklistDao(BlacklistDao blacklistDao) {
-        YacbHolder.blacklistDao = blacklistDao;
+    static void setDenylistDataSource(DenylistDataSource denylistDataSource) {
+        YacbHolder.denylistDataSource = denylistDataSource;
     }
 
-    static void setBlacklistService(BlacklistService blacklistService) {
-        YacbHolder.blacklistService = blacklistService;
+    static void setBlacklistService(DenylistService denylistService) {
+        YacbHolder.denylistService = denylistService;
     }
 
     static void setNumberInfoService(NumberInfoService numberInfoService) {
@@ -100,12 +101,12 @@ public class YacbHolder {
         return communityReviewsLoader;
     }
 
-    public static BlacklistDao getBlacklistDao() {
-        return blacklistDao;
+    public static DenylistDataSource getDenylistDataSource() {
+        return denylistDataSource;
     }
 
-    public static BlacklistService getBlacklistService() {
-        return blacklistService;
+    public static DenylistService getBlacklistService() {
+        return denylistService;
     }
 
     public static NumberInfoService getNumberInfoService() {

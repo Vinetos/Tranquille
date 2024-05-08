@@ -1,0 +1,60 @@
+CREATE TABLE DenylistItem (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  pattern TEXT NOT NULL,
+  creationDate TEXT NOT NULL,
+  invalid INTEGER NOT NULL,
+  numberOfCalls INTEGER NOT NULL,
+  lastCallDate TEXT
+);
+
+selectAll:
+SELECT *
+FROM DenylistItem;
+
+findById:
+SELECT *
+FROM DenylistItem
+WHERE id = ?;
+
+findByPattern:
+SELECT *
+FROM DenylistItem
+WHERE pattern = ?
+ORDER BY pattern ASC;
+
+findByNameAndPattern:
+SELECT *
+FROM DenylistItem
+WHERE name = ?
+AND pattern = ?
+ORDER BY pattern ASC;
+
+countValid:
+SELECT COUNT(*)
+FROM DenylistItem
+WHERE invalid = 0;
+
+insertItem:
+INSERT INTO DenylistItem (name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
+VALUES (?, ?, ?, ?, ?, ?);
+
+updateItem:
+INSERT OR REPLACE INTO DenylistItem (id, name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
+VALUES (?,  ?, ?, ?, ?, ?, ?);
+
+addCall:
+UPDATE DenylistItem SET numberOfCalls = numberOfCalls + 1, lastCallDate = ?
+WHERE id = ?;
+
+delete:
+DELETE FROM DenylistItem
+WHERE id = ?;
+
+sanitize:
+UPDATE DenylistItem SET invalid = ?, creationDate = ?, numberOfCalls = ?
+WHERE id = ?;
+
+countAll:
+SELECT COUNT(*)
+FROM DenylistItem;

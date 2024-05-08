@@ -72,7 +72,6 @@
     <string name="notification_channel_group_name_services">Dienste</string>
     <string name="notification_channel_group_name_blocked_calls">Blockierte Anrufe</string>
     <string name="notification_channel_group_name_incoming_calls">Eingehende Anrufe</string>
-    <string name="app_name">Tranquille</string>
     <string name="info_in_blacklist">Auf der schwarze Liste</string>
     <string name="info_icon_description">Infos</string>
     <string name="edit_blacklist_item_name">Name</string>

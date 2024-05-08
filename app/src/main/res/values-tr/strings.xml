@@ -165,7 +165,6 @@
     <string name="notification_channel_group_name_services">Hizmetler</string>
     <string name="notification_channel_group_name_blocked_calls">Engellenen aramalar</string>
     <string name="notification_channel_group_name_incoming_calls">Gelen aramalar</string>
-    <string name="app_name">Tranquille</string>
     <string name="duration_s">%dsn</string>
     <string name="duration_m_s">%1$ddk %2$dsn</string>
     <string name="duration_h_m_s">%1$dsa %2$ddk %3$dsn</string>

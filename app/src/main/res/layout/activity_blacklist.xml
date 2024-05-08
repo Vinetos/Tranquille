@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BlacklistActivity">
+    tools:context=".presentation.denylist.DenylistActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/blacklistItemsList"
@@ -20,7 +20,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/blacklist_add"
-        android:onClick="onAddClicked"
         android:src="@drawable/ic_plus_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

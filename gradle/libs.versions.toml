@@ -19,9 +19,8 @@ paging-runtime = "3.2.1"
 google-material = "1.11.0"
 preference = "1.2.1"
 work-runtime = "2.9.0"
-greendao = "3.3.0"
-greendaoPlugin = "3.3.1"
 eventbus = "3.3.1"
+sqlite = "2.0.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,13 +45,14 @@ commons-csv = { group = "org.apache.commons", name = "commons-csv", version.ref 
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 lib-phone-number-info = { group = "com.gitlab.xynngh", name = "LibPhoneNumberInfo", version.ref = "lib-phone-number-info" }
 
+sqlite-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqlite" }
+sqlite-coroutines = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqlite" }
 
-greendao = { group = "org.greenrobot", name = "greendao", version.ref = "greendao" }
-greendaoPlugin = { group = "org.greenrobot", name = "greendao-gradle-plugin", version.ref = "greendaoPlugin" }
 eventbus = { group = "org.greenrobot", name = "eventbus", version.ref = "eventbus" }
 eventbus-annotation-processor = { group = "org.greenrobot", name = "eventbus-annotation-processor", version.ref = "eventbus" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+sqlite = { id = "app.cash.sqldelight", version.ref = "sqlite" }
 

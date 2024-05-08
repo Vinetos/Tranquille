@@ -104,8 +104,8 @@ public class InfoDialogHelper {
         Runnable addToBlacklistAction = () -> {
             FeaturedDatabaseItem featuredDatabaseItem = numberInfo.featuredDatabaseItem;
             String name = featuredDatabaseItem != null ? featuredDatabaseItem.getName() : null;
-            context.startActivity(EditBlacklistItemActivity
-                    .getIntent(context, name, numberInfo.number));
+//            context.startActivity(EditBlacklistItemActivity
+//                    .getIntent(context, name, numberInfo.number));
         };
 
         builder.setPositiveButton(R.string.add_web_review, null)

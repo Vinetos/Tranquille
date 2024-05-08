@@ -48,7 +48,6 @@
     <string name="sia_category_unsolicited">Netraženo</string>
     <string name="yes">Da</string>
     <string name="export_logcat">Izvezi logcat</string>
-    <string name="app_name">Još jedan bloker poziva</string>
     <string name="sia_category_prank">Zajebancija</string>
     <string name="save_logcat_on_crash">Spremi logcat pri rušenju</string>
     <string name="sia_category_scam">Prevara</string>

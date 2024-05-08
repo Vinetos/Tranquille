@@ -9,6 +9,7 @@ import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -33,6 +34,7 @@ import fr.vinetos.tranquille.event.CallEndedEvent;
 import fr.vinetos.tranquille.event.MainDbDownloadFinishedEvent;
 import fr.vinetos.tranquille.event.MainDbDownloadingEvent;
 import fr.vinetos.tranquille.event.SecondaryDbUpdateFinished;
+import fr.vinetos.tranquille.presentation.denylist.DenylistActivity;
 import fr.vinetos.tranquille.work.TaskService;
 import fr.vinetos.tranquille.work.UpdateScheduler;
 
@@ -273,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onOpenBlacklist(MenuItem item) {
-        startActivity(BlacklistActivity.getIntent(this));
+        startActivity(new Intent(this, DenylistActivity.class));
     }
 
     public void onOpenSettings(MenuItem item) {

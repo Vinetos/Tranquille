@@ -60,7 +60,6 @@
     <string name="sia_category_nuisance">Irritasjon</string>
     <string name="sia_category_dept_collector">Fogd</string>
     <string name="notification_incoming_call_text_description">Negativ: %1$d, positiv: %2$d, nøytral: %3$d</string>
-    <string name="app_name">Enda en ringe -antiterrorist</string>
     <string name="lookup_res_category">Kategori: %d</string>
     <string name="lookup_number_not_found">Ikke funnet</string>
     <string name="lookup_load_reviews">Last inn vurderinger (nettbasert)</string>

@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_save"
         android:icon="@drawable/ic_check_24dp"
-        android:onClick="onSaveClicked"
         android:title="@string/save"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_delete"
-        android:onClick="onDeleteClicked"
         android:title="@string/blacklist_delete" />
 
 </menu>

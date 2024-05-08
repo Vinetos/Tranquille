@@ -4,10 +4,12 @@ import android.content.Context;
 
 import java.util.concurrent.TimeUnit;
 
+import app.cash.sqldelight.db.SqlDriver;
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver;
 import fr.vinetos.tranquille.NotificationService;
 import fr.vinetos.tranquille.PhoneStateHandler;
-import fr.vinetos.tranquille.data.db.BlacklistDao;
-import fr.vinetos.tranquille.data.db.YacbDaoSessionFactory;
+import fr.vinetos.tranquille.data.datasource.DenylistDataSource;
+import fr.vinetos.tranquille.domain.service.DenylistService;
 import fr.vinetos.tranquille.utils.DbFilteringUtils;
 import fr.vinetos.tranquille.utils.DeferredInit;
 import fr.vinetos.tranquille.utils.SystemUtils;
@@ -122,14 +124,14 @@ public class Config {
 
         YacbHolder.setCommunityReviewsLoader(new CommunityReviewsLoader(webService));
 
-        YacbDaoSessionFactory daoSessionFactory = new YacbDaoSessionFactory(context, "YACB");
+        SqlDriver driver = new AndroidSqliteDriver(Database.Companion.getSchema(), context, "tranquille.db");
+        DenylistDataSource denylistDataSource = new DenylistDataSource(Database.Companion.invoke(driver));
 
-        BlacklistDao blacklistDao = new BlacklistDao(daoSessionFactory::getDaoSession);
-        YacbHolder.setBlacklistDao(blacklistDao);
+        YacbHolder.setDenylistDataSource(denylistDataSource);
 
-        BlacklistService blacklistService = new BlacklistService(
-                settings::setBlacklistIsNotEmpty, blacklistDao);
-        YacbHolder.setBlacklistService(blacklistService);
+        DenylistService denylistService = new DenylistService(
+                settings::setBlacklistIsNotEmpty, denylistDataSource);
+        YacbHolder.setBlacklistService(denylistService);
 
         ContactsProvider contactsProvider = new ContactsProvider() {
             @Override
@@ -145,7 +147,7 @@ public class Config {
 
         NumberInfoService numberInfoService = new NumberInfoService(
                 settings, NumberUtils::isHiddenNumber, NumberUtils::normalizeNumber,
-                communityDatabase, featuredDatabase, contactsProvider, blacklistService);
+                communityDatabase, featuredDatabase, contactsProvider, denylistService);
         YacbHolder.setNumberInfoService(numberInfoService);
 
         NotificationService notificationService = new NotificationService(context);

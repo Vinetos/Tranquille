@@ -57,35 +57,32 @@
             android:name=".LookupNumberActivity"
             android:label="@string/title_lookup_number"
             android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".BlacklistActivity"
+            android:name=".presentation.denylist.DenylistActivity"
             android:label="@string/title_blacklist_activity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".EditBlacklistItemActivity"
+            android:name=".presentation.denylist.EditDenylistItemActivity"
             android:label="@string/title_add_blacklist_item_activity"
-            android:parentActivityName=".BlacklistActivity"
-            tools:targetApi="jelly_bean">
+            android:parentActivityName=".presentation.denylist.DenylistActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".BlacklistActivity" />
+                android:value=".presentation.denylist.DenylistActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_settings_activity"
-            android:parentActivityName=".MainActivity"
-            tools:targetApi="jelly_bean">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
