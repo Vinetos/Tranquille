@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "fr.vinetos.tranquille"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "fr.vinetos.tranquille"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "0.0.1"
         multiDexEnabled = true
@@ -82,9 +82,9 @@ dependencies {
     implementation(libs.eventbus)
 
     // todo add kotlin coriutines dependency
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
     annotationProcessor(libs.eventbus.annotation.processor)
 

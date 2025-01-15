@@ -1,11 +1,12 @@
 [versions]
-agp = "8.3.1"
-kotlin = "1.9.0"
-coreKtx = "1.12.0"
+agp = "8.8.0"
+kotlin = "2.1.0"
+coreKtx = "1.15.0"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-appcompat = "1.6.1"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+kotlinxCoroutines = "1.10.1"
 multidex = "2.0.1"
 slf4j = "2.0.12"
 logback = "3.0.0"
@@ -15,10 +16,10 @@ lib-phone-number-info = "c77bdd2b69"
 commons-csv = "1.10.0"
 recyclerview = "1.3.2"
 recyclerview-selection = "1.1.0"
-paging-runtime = "3.2.1"
-google-material = "1.11.0"
+paging-runtime = "3.3.5"
+google-material = "1.12.0"
 preference = "1.2.1"
-work-runtime = "2.9.0"
+work-runtime = "2.10.0"
 eventbus = "3.3.1"
 sqlite = "2.0.2"
 
@@ -38,6 +39,9 @@ google-material = { group = "com.google.android.material", name = "material", ve
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4j" }
 logback = { group = "com.github.tony19", name = "logback-android", version.ref = "logback" }
 conscrypt = { group = "org.conscrypt", name = "conscrypt-android", version.ref = "conscrypt" }

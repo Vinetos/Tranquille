@@ -87,7 +87,7 @@
 
     <PreferenceCategory app:title="@string/settings_screen_advanced">
         <Preference
-            app:fragment="dummydomain.yetanothercallblocker.AdvancedSettingsFragment"
+            app:fragment="fr.vinetos.tranquille.AdvancedSettingsFragment"
             app:key="screenAdvanced"
             app:title="@string/settings_screen_advanced" />
     </PreferenceCategory>
