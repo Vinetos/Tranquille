@@ -15,6 +15,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Update Android Gradle Plugin to 8.3.1
 - Fixed deprecated `android.defaults.buildfeatures.buildconfig=true` build option
 
+### Added
+
+- Galician translation thanks to josé m. ([@ghose](https://hosted.weblate.org/user/ghose/)).
+- Partial Tamil translation thanks to GobinathAL ([@GobinathAL](https://hosted.weblate.org/user/GobinathAL/)).
+- Partial Arabic translation thanks to DJEBBARI.ABDELHAMID ([@dxing96](https://hosted.weblate.org/user/dxing96/)).
+- Partial Chinese (Traditional) translation thanks to hugoalh ([@hugoalh](https://hosted.weblate.org/user/hugoalh/)).
+
+### Changed
+
+- Updated Chinese (Simplified) translation thanks to @haygcao and Jane Kong ([@Myon](https://hosted.weblate.org/user/Myon/)).
+- Updated Portuguese translation thanks to ssantos ([@ssantos](https://hosted.weblate.org/user/ssantos/)) and SC ([@larcansal](https://hosted.weblate.org/user/larcansal/)).
+- Updated Catalan translation thanks to Maite Guix ([@maite.guix](https://hosted.weblate.org/user/maite.guix/)).
+- Updated Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)), DankXylese ([@dankxylese](https://hosted.weblate.org/user/dankxylese/)), and Skrripy.
+- Updated Spanish translation thanks to Alexandre Díaz ([@Tardo](https://hosted.weblate.org/user/Tardo/)) and gallegonovato ([@gallegonovato](https://hosted.weblate.org/user/gallegonovato/)).
+- Updated Russian translation of the app description thanks to AHOHNMYC ([@AHOHNMYC](https://hosted.weblate.org/user/AHOHNMYC/)).
+- Updated Italian translation of the app description thanks to Translator-3000.
+- Updated Italian translation thanks to Iginio Massari ([@darthmassari](https://hosted.weblate.org/user/darthmassari/)).
+- Updated German translation thanks to Ettore Atalan ([@Atalanttore](https://hosted.weblate.org/user/Atalanttore/)).
+
 
 ## [0.0.1] - 2024-03-25
 

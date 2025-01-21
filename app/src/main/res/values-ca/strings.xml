@@ -43,7 +43,7 @@
     <string name="lookup_res_category">Categoria: %d</string>
     <string name="lookup_number_not_found">No trobat</string>
     <string name="lookup_load_reviews">Carrega ressenyes (en línia)</string>
-    <string name="lookup_query_db">Consulta la BD</string>
+    <string name="lookup_query_db">Cercar (fora de línia)</string>
     <string name="lookup_paste_number">Enganxa el número</string>
     <string name="lookup_clear_number">Esborra el número</string>
     <string name="lookup_error_not_a_number">S\'esperava un número de telèfon</string>
@@ -114,7 +114,7 @@
     <string name="settings_category_country_codes">Codis de país</string>
     <string name="block_in_limited_mode_blacklist">En llista negra</string>
     <string name="block_in_limited_mode_rating">Per puntuació</string>
-    <string name="block_in_limited_mode_summary">Tipus de bloqueig permesos en el mode d\'Arrencada Directa (els Contactes no es poden permetre de forma fiable en aquest mode)</string>
+    <string name="block_in_limited_mode_summary">Tipus de bloqueig permesos en mode d\'arrencada directa (els contactes no es poden utilitzar de manera fiable com a llista blanca en aquest mode)</string>
     <string name="block_in_limited_mode">Bloca en mode Arrencada Directa</string>
     <string name="settings_screen_advanced">Configuració avançada</string>
     <string name="call_log_grouping_day">No consecutives en un dia</string>
@@ -210,4 +210,20 @@
     <string name="notification_channel_group_name_blocked_calls">Trucades blocades</string>
     <string name="notification_channel_group_name_incoming_calls">Trucades entrants</string>
     <string name="settings_category_database">Base de dades</string>
+    <string name="db_filtering_info">Explicació</string>
+    <string name="db_filtering_prefixes_to_keep">Prefixos a mantenir</string>
+    <string name="settings_screen_db_filtering">Filtrat de bases de dades</string>
+    <string name="db_filtering_enabled">S\'ha activat el filtratge</string>
+    <string name="db_filtering_enabled_summary">Habilita el filtratge durant la descàrrega i actualització de la base de dades</string>
+    <string name="db_filtering_thorough">Filtratge exhaustiu</string>
+    <string name="db_filtering_keep_short_numbers">Mantenir números curts</string>
+    <string name="db_filtering_keep_short_numbers_summary">Mantenir els números més curts que la longitud especificada, independentment dels prefixos</string>
+    <string name="db_filtering_keep_short_numbers_max_length">Longitud dels números a mantenir</string>
+    <string name="db_filtering_keep_short_numbers_max_length_summary">La longitud màxima (inclosa) dels nombres curts que cal mantenir independentment dels prefixos. Per exemple el valor de 5 mantindrà els números amb una longitud de 5 dígits o menys</string>
+    <string name="db_filtering_filter_db">Filtrar la base de dades</string>
+    <string name="filtering_db">Filtrant la base de dades…</string>
+    <string name="db_filtering_filter_db_summary">Executar el filtratge de la base de dades ara (per a filtrar les dades existents)</string>
+    <string name="db_filtering_prefixes_to_keep_summary">Una llista separada per comes de prefixos de números que cal mantenir. Els prefixos haurien d\'estar en format internacional (com ara +1234). Per exemple, si només rebeu trucades de números que comencen per +1, poseu +1 aquí</string>
+    <string name="db_filtering_info_summary">Aquesta funció permet estalviar espai d\'emmagatzematge eliminant algunes dades que no us són aplicables (com ara números que pertanyen a diferents regions o països). No afecta el rendiment general de l\'aplicació (com el bloqueig de trucades). El filtratge es produeix durant la descàrrega inicial de la base de dades i durant l\'actualització de la base de dades. Les dades existents (descarregades abans d\'activar el filtratge) es poden filtrar mitjançant l\'opció «Filtrar la base de dades» a continuació. Desactivar la funció o canviar-ne els paràmetres no restauren les dades eliminades; cal que torneu a descarregar la base de dades per a això</string>
+    <string name="db_filtering_thorough_summary">Si està activat, passa per a cada bloc de dades i elimina els números que no coincideixen amb els prefixos. En cas contrari, només elimina blocs sencers no desitjats (deixant alguns números no desitjats en blocs desitjats). Es recomana deixar-ho activat. Necessari per a mantenir números curts</string>
 </resources>

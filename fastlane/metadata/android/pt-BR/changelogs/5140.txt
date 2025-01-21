@@ -1,6 +1,0 @@
-* Adicionada tradução para o Esperanto graças ao phlostically.
-* Adicionada tradução para o português graças a José (@lanegan).
-* Adicionada tradução em hebraico graças a Tzvika (@shiloni).
-* Adicionada tradução parcial em esloveno graças ao bojanopatje.
-* Traduções atualizadas graças a z Z z (@ ruslan.zeezu), Andrey (@anm), Raul (@raulvo), APL, Caetano Santos (@caeslucio), Lucio Marinelli (@luciomarinelli).
-* Dependências atualizadas.

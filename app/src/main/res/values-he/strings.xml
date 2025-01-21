@@ -149,10 +149,10 @@
     <string name="blacklist_item_no_calls">לא התקשר מעולם</string>
     <string name="blacklist_item_date_no_info">אין מידע</string>
     <plurals name="blacklist_item_stats">
-        <item quantity="one">שיחה אחת</item>
-        <item quantity="two">שתי שיחות</item>
-        <item quantity="many">%2$s שיחות</item>
-        <item quantity="other">%2$s שיחות</item>
+        <item quantity="one">שיחה ב־%2$s</item>
+        <item quantity="two">שתי שיחות, אחרונה: %2$s</item>
+        <item quantity="many">%1$d שיחות, אחרונה: %2$s</item>
+        <item quantity="other">%1$d שיחות, אחרונה: %2$s</item>
     </plurals>
     <string name="title_blacklist_activity">רשימה שחורה</string>
     <string name="open_blacklist_activity">רשימה שחורה</string>

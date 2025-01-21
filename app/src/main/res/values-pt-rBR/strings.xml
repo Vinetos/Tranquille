@@ -153,7 +153,7 @@
     <string name="download_main_db">Download do banco de dados</string>
     <string name="no_main_db_title">Download do banco de dados principal</string>
     <string name="call_log_permission_message">Conceder permissão de \"Telefone\" para ver as chamadas recentes</string>
-    <string name="open_system_settings">Configurações</string>
+    <string name="open_system_settings">Abrir as Configurações</string>
     <string name="default_phone_app_unset">Selecione um aplicativo diferente como \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configurações do sistema</string>
     <string name="default_phone_app_set">Selecione \"Tranquille\" como o \"aplicativo de Telefone\" em \"aplicativos Padrão\" nas configurações do sistema</string>
     <string name="default_phone_app">\"Aplicativo de Telefone\" padrão</string>
@@ -166,7 +166,7 @@
     <string name="title_activity_reviews">Avaliações</string>
     <string name="sia_category_safe_nonprofit">Org. sem fins lucrativos segura</string>
     <string name="sia_category_robocall">Automática (gravação)</string>
-    <string name="sia_category_service">Serviços</string>
+    <string name="sia_category_service">Serviço</string>
     <string name="sia_category_company">Empresa</string>
     <string name="sia_category_financial_service">Serviços financeiros</string>
     <string name="sia_category_other">Outras</string>
@@ -202,7 +202,7 @@
         <item quantity="one">Selecionado: %s</item>
         <item quantity="other">Selecionados: %s</item>
     </plurals>
-    <string name="block_in_limited_mode_blacklist">Lista negra</string>
+    <string name="block_in_limited_mode_blacklist">Na lista negra</string>
     <string name="block_in_limited_mode_rating">Por avaliação</string>
     <string name="block_in_limited_mode_summary">Tipos de bloqueio permitidos no modo Inicialização Direta (os Contatos não podem ser usados confiavelmente como uma lista branca neste modo)</string>
     <string name="block_in_limited_mode">Bloquear no modo Inicialização Direta</string>

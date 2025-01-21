@@ -70,4 +70,6 @@
     <string name="sia_category_dept_collector">Inkassoman</string>
     <string name="sia_category_none">Inget</string>
     <string name="sia_category_nuisance">Störande</string>
+    <string name="sia_category_safe_personal">Trygg personlig</string>
+    <string name="sia_category_safe_company">Säkert sällskap</string>
 </resources>

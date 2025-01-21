@@ -1,2 +1,0 @@
-* Updated dependencies.
-* Added some fastlane metadata.

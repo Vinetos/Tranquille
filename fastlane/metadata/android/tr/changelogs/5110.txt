@@ -1,4 +1,0 @@
-* Eski Android sürümlerinde engellenen aramalar için bildirimleri devre dışı bırakma seçeneği eklendi.
-* Doğrudan Önyükleme modunda engelleme davranışı değiştirildi: kara listeye alınan numaralar öntanımlı olarak engellenmez (ayrıntılar için sorun #22'ye bakın).
-* Portekizce (Brezilya) çeviri eklendi, teşekkürler APL.
-* Çeviriler güncellendi, teşekkürler Milo Ivir (@milotype), J. Lavoie, Oğuz Ersen (@ersen).

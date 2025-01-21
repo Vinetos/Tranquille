@@ -75,13 +75,13 @@
     <string name="lookup_res_featured_name">Predstavljeno ime: %s</string>
     <string name="lookup_hint_input_number">Broj telefona</string>
     <string name="sia_category_fax">FAX</string>
-    <string name="block_negative_sia_numbers_summary">Blokiraj pozive brojeva s negativnim ocjenama (bazirano na bazi podataka zajednice)</string>
+    <string name="block_negative_sia_numbers_summary">Blokiraj pozive brojeva s negativnim ocjenama (osnovano na bazi podataka zajednice)</string>
     <string name="number_pattern_incorrect">Neispravan format</string>
     <string name="notification_channel_name_positive">Pozitivni pozivi</string>
     <string name="use_call_screening_service">Napredni modus blokiranja poziva</string>
     <string name="no_main_db_text">Baza podataka nije prisutna. Da bi program obavio većinu svojih funkcija, moraš preuzeti bazu podataka. Trebat će oko 25 MB prometa.</string>
     <string name="notification_channel_group_name_blocked_calls">Blokirani pozivi</string>
-    <string name="block_negative_sia">Blokiraj prema ocjeni</string>
+    <string name="block_negative_sia">Blokiraj na osnovi ocjene</string>
     <string name="show_notifications_for_unknown_callers_summary">Prikaži obavijesti za nepoznate pozivače (ne nalaze se u kontaktima, niti u bazi podataka brojeva)</string>
     <string name="notification_channel_name_tasks">Zadaci</string>
     <string name="notification_incoming_call_text_description">Negativni: %1$d, pozitivni: %2$d, neutralni: %3$d</string>
