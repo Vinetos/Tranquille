@@ -24,11 +24,11 @@
 
     <string-array name="block_in_limited_mode_entries">
         <item>@string/block_in_limited_mode_rating</item>
-        <item>@string/block_in_limited_mode_blacklist</item>
+        <item>@string/block_in_limited_mode_denylist</item>
     </string-array>
     <string-array name="block_in_limited_mode_values">
         <item>rating</item>
-        <item>blacklist</item>
+        <item>denylist</item>
     </string-array>
     <string-array name="block_in_limited_mode_default_values">
         <item>rating</item>

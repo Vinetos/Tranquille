@@ -24,9 +24,9 @@
     <string name="feature_contacts">使用聯絡人</string>
     <string name="denied_default_dialer_message">由於應用程式未設定為「電話應用程式」，因此進階通話阻止將會無法運作</string>
     <string name="block_negative_sia_numbers_summary">封鎖具有負面評分的電話號碼（基於社區資料庫）</string>
-    <string name="block_blacklisted_short">封鎖已被列入黑名單的通話</string>
-    <string name="block_blacklisted">封鎖已被列入黑名單的號碼</string>
-    <string name="block_blacklisted_summary">封鎖來自黑名單號碼的通話</string>
+    <string name="block_denylisted_short">封鎖已被列入黑名單的通話</string>
+    <string name="block_denylisted">封鎖已被列入黑名單的號碼</string>
+    <string name="block_denylisted_summary">封鎖來自黑名單號碼的通話</string>
     <string name="app_name">Tranquille</string>
     <string name="notification_channel_group_name_services">服務</string>
     <string name="notification_channel_name_known">已知通話</string>

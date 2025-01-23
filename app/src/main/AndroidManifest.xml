@@ -65,7 +65,7 @@
         </activity>
         <activity
             android:name=".presentation.denylist.DenylistActivity"
-            android:label="@string/title_blacklist_activity"
+            android:label="@string/title_denylist_activity"
             android:launchMode="singleTop"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -74,7 +74,7 @@
         </activity>
         <activity
             android:name=".presentation.denylist.EditDenylistItemActivity"
-            android:label="@string/title_add_blacklist_item_activity"
+            android:label="@string/title_add_denylist_item_activity"
             android:parentActivityName=".presentation.denylist.DenylistActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

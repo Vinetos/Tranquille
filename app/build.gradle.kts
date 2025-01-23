@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
 //    alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.sqlite)
+    alias(libs.plugins.sqldelight)
     kotlin("android")
 }
 
@@ -58,6 +58,7 @@ sqldelight {
     databases {
         create("Database") {
             packageName.set("fr.vinetos.tranquille.data")
+            dialect(libs.sqldelight.dialects.sql)
         }
     }
 }
@@ -77,8 +78,9 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.lib.phone.number.info)
     implementation(libs.commons.csv)
-    implementation(libs.sqlite.driver)
-    implementation(libs.sqlite.coroutines)
+    implementation(libs.sqldelight.driver)
+    implementation(libs.sqldelight.coroutines)
+    implementation(libs.bundles.sqlite)
     implementation(libs.eventbus)
 
     // todo add kotlin coriutines dependency

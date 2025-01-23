@@ -14,14 +14,16 @@ conscrypt = "2.5.2"
 okhttp = "4.12.0"
 lib-phone-number-info = "c77bdd2b69"
 commons-csv = "1.10.0"
-recyclerview = "1.3.2"
+recyclerview = "1.4.0"
 recyclerview-selection = "1.1.0"
 paging-runtime = "3.3.5"
 google-material = "1.12.0"
 preference = "1.2.1"
 work-runtime = "2.10.0"
 eventbus = "3.3.1"
-sqlite = "2.0.2"
+sqldelight = "2.0.2"
+sqlite = "3.45.0"
+sqlite-android = "2.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,8 +51,13 @@ commons-csv = { group = "org.apache.commons", name = "commons-csv", version.ref 
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 lib-phone-number-info = { group = "com.gitlab.xynngh", name = "LibPhoneNumberInfo", version.ref = "lib-phone-number-info" }
 
-sqlite-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqlite" }
-sqlite-coroutines = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqlite" }
+sqldelight-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
+sqldelight-coroutines = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
+sqldelight-dialects-sql = { group = "app.cash.sqldelight", name = "sqlite-3-38-dialect", version.ref = "sqldelight" }
+
+sqlite-android = { group = "com.github.requery", name = "sqlite-android", version.ref = "sqlite" }
+sqlite-framework = { group = "androidx.sqlite", name = "sqlite-framework", version.ref = "sqlite-android" }
+sqlite-ktx = { group = "androidx.sqlite", name = "sqlite-ktx", version.ref = "sqlite-android" }
 
 eventbus = { group = "org.greenrobot", name = "eventbus", version.ref = "eventbus" }
 eventbus-annotation-processor = { group = "org.greenrobot", name = "eventbus-annotation-processor", version.ref = "eventbus" }
@@ -58,5 +65,7 @@ eventbus-annotation-processor = { group = "org.greenrobot", name = "eventbus-ann
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-sqlite = { id = "app.cash.sqldelight", version.ref = "sqlite" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 
+[bundles]
+sqlite = ["sqlite-framework", "sqlite-ktx", "sqlite-android"]

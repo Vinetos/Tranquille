@@ -17,7 +17,7 @@
             android:id="@+id/nameTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/edit_blacklist_item_name">
+            android:hint="@string/edit_denylist_item_name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameEditText"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_padding"
-            android:hint="@string/edit_blacklist_item_number_pattern">
+            android:hint="@string/edit_denylist_item_number_pattern">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/patternEditText"
@@ -76,7 +76,7 @@
                 android:id="@+id/contactsNotBlockedNotice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/contacts_are_not_blocked_blacklist_notice"
+                android:text="@string/contacts_are_not_blocked_denylist_notice"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 

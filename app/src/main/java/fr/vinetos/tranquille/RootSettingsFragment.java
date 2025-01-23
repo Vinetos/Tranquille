@@ -111,7 +111,7 @@ public class RootSettingsFragment extends BaseSettingsFragment {
         };
         setPrefChangeListener(Settings.PREF_BLOCK_NEGATIVE_SIA_NUMBERS, callBlockingListener);
         setPrefChangeListener(Settings.PREF_BLOCK_HIDDEN_NUMBERS, callBlockingListener);
-        setPrefChangeListener(Settings.PREF_BLOCK_BLACKLISTED, callBlockingListener);
+        setPrefChangeListener(Settings.PREF_BLOCK_DENYLISTED, callBlockingListener);
 
         SwitchPreferenceCompat callScreeningPref =
                 requirePreference(PREF_USE_CALL_SCREENING_SERVICE);

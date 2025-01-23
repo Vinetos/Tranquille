@@ -9,7 +9,6 @@ import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -274,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
         reloadCallLog();
     }
 
-    public void onOpenBlacklist(MenuItem item) {
+    public void onOpenDenylist(MenuItem item) {
         startActivity(new Intent(this, DenylistActivity.class));
     }
 

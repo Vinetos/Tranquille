@@ -1,13 +1,19 @@
 package fr.vinetos.tranquille.data.datasource
 
+import fr.vinetos.tranquille.DenylistDataSource
 import fr.vinetos.tranquille.data.Database
 import fr.vinetos.tranquille.data.DenylistItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.util.Date
 
-class DenylistDataSource(
+class DenylistDao(
     db: Database
 ) {
+
+    fun dataSourceFactory(): DenylistDataSource.Factory {
+        return DenylistDataSource.Factory(this)
+    }
 
     private val queries = db.denylistItemQueries;
     suspend fun findById(id: Long): DenylistItem? {
@@ -32,17 +38,34 @@ class DenylistDataSource(
         return queries.selectAll().executeAsList()
     }
 
-    fun getFirstMatch(number: String): DenylistItem {
-        throw NotImplementedError("Not implemented")
+    fun getAll(offset: Int, limit: Int): List<DenylistItem> {
+        return queries.selectAllLimitOffset(limit.toLong(), offset.toLong()).executeAsList()
+    }
+
+    fun getFirstMatch(number: String): DenylistItem? {
+        return queries.getMatches(number).executeAsList().getOrNull(0)
     }
 
     fun countValid(): Int {
         return queries.countValid().executeAsOne().toInt()
     }
 
+    fun countAll(): Int {
+        return queries.countAll().executeAsOne().toInt()
+    }
+
     suspend fun save(denylistItem: DenylistItem) {
+        if (denylistItem.id < 1) {
+            insert(denylistItem)
+        } else {
+            update(denylistItem)
+        }
+    }
+
+    suspend fun insert(denylistItem: DenylistItem) {
         withContext(Dispatchers.IO) {
-            queries.insertItem(
+            queries.updateItem(
+                denylistItem.id,
                 denylistItem.name,
                 denylistItem.pattern,
                 denylistItem.creationDate,
@@ -67,7 +90,7 @@ class DenylistDataSource(
         }
     }
 
-    suspend fun addCall(denylistItem: DenylistItem, lastCallDate: String) {
+    suspend fun addCall(denylistItem: DenylistItem, lastCallDate: Date) {
         withContext(Dispatchers.IO) {
             queries.addCall(
                 lastCallDate, denylistItem.id
@@ -84,17 +107,12 @@ class DenylistDataSource(
     }
 
     suspend fun sanitize(
-        denylistItem: DenylistItem, invalid: Boolean, creationDate: String, numberOfCalls: Long
+        denylistItem: DenylistItem, invalid: Boolean, creationDate: Date, numberOfCalls: Long
     ) {
         withContext(Dispatchers.IO) {
             queries.sanitize(
-                if (invalid) 1 else 0, creationDate, numberOfCalls, denylistItem.id
+                invalid, creationDate, numberOfCalls, denylistItem.id
             )
         }
     }
-
-    fun countAll(): Long {
-        return queries.countAll().executeAsOne()
-    }
-
 }

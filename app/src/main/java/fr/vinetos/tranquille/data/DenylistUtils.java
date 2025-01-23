@@ -2,11 +2,19 @@ package fr.vinetos.tranquille.data;
 
 import java.util.regex.Pattern;
 
-public class BlacklistUtils {
+public class DenylistUtils {
 
-    private static final Pattern BLACKLIST_ITEM_VALID_PATTERN = Pattern.compile("\\+?[0-9%_]+");
+    private static final Pattern DENYLIST_ITEM_VALID_PATTERN = Pattern.compile("\\+?[0-9%_]+");
     private static final Pattern PATTERN_CLEANING_PATTERN = Pattern.compile("[^+0-9%_*#]");
     private static final Pattern NUMBER_CLEANING_PATTERN = Pattern.compile("[^+0-9]");
+
+    public static String patternToHumanReadable(String pattern) {
+        return pattern.replace('%', '*').replace('_', '#');
+    }
+
+    public static String patternFromHumanReadable(String pattern) {
+        return pattern.replace('*', '%').replace('#', '_');
+    }
 
     public static String cleanPattern(String pattern) {
         return PATTERN_CLEANING_PATTERN.matcher(pattern).replaceAll("");
@@ -17,7 +25,7 @@ public class BlacklistUtils {
     }
 
     public static boolean isValidPattern(String pattern) {
-        return BLACKLIST_ITEM_VALID_PATTERN.matcher(pattern).matches();
+        return DENYLIST_ITEM_VALID_PATTERN.matcher(pattern).matches();
     }
 
 }
