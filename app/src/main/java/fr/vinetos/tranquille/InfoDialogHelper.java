@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import fr.vinetos.tranquille.data.NumberInfo;
 import fr.vinetos.tranquille.data.SiaNumberCategoryUtils;
 import fr.vinetos.tranquille.data.YacbHolder;
+import fr.vinetos.tranquille.presentation.denylist.EditDenylistItemActivity;
 import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
 
@@ -64,23 +65,23 @@ public class InfoDialogHelper {
             featuredNameView.setVisibility(View.GONE);
         }
 
-        String blacklistName = null;
+        String denylistName = null;
 
-        TextView inBlacklistView = view.findViewById(R.id.in_blacklist);
-        if (numberInfo.blacklistItem != null) {
-            blacklistName = numberInfo.blacklistItem.getName();
+        TextView inDenylistView = view.findViewById(R.id.in_denylist);
+        if (numberInfo.denylistItem != null) {
+            denylistName = numberInfo.denylistItem.getName();
             if (numberInfo.contactItem != null) {
-                inBlacklistView.setText(R.string.info_in_blacklist_contact);
+                inDenylistView.setText(R.string.info_in_denylist_contact);
             }
         } else {
-            inBlacklistView.setVisibility(View.GONE);
+            inDenylistView.setVisibility(View.GONE);
         }
 
-        TextView blacklistNameView = view.findViewById(R.id.blacklist_name);
-        if (!TextUtils.isEmpty(blacklistName)) {
-            blacklistNameView.setText(blacklistName);
+        TextView denylistNameView = view.findViewById(R.id.denylist_name);
+        if (!TextUtils.isEmpty(denylistName)) {
+            denylistNameView.setText(denylistName);
         } else {
-            blacklistNameView.setVisibility(View.GONE);
+            denylistNameView.setVisibility(View.GONE);
         }
 
         ReviewsSummaryHelper.populateSummary(view.findViewById(R.id.reviews_summary),
@@ -101,17 +102,18 @@ public class InfoDialogHelper {
             IntentHelper.startActivity(context, new Intent(Intent.ACTION_VIEW, uri));
         };
 
-        Runnable addToBlacklistAction = () -> {
+        Runnable addToDenylistAction = () -> {
             FeaturedDatabaseItem featuredDatabaseItem = numberInfo.featuredDatabaseItem;
             String name = featuredDatabaseItem != null ? featuredDatabaseItem.getName() : null;
-//            context.startActivity(EditBlacklistItemActivity
-//                    .getIntent(context, name, numberInfo.number));
+            context.startActivity(
+                EditDenylistItemActivity.getIntent(context, name, numberInfo.number)
+            );
         };
 
         builder.setPositiveButton(R.string.add_web_review, null)
                 .setNeutralButton(R.string.online_reviews, null)
-                .setNegativeButton(R.string.add_to_blacklist, (dialog, which)
-                        -> addToBlacklistAction.run());
+                .setNegativeButton(R.string.add_to_denylist, (dialog, which)
+                        -> addToDenylistAction.run());
 
         AlertDialog dialog = builder.create();
 
@@ -121,14 +123,14 @@ public class InfoDialogHelper {
             dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(v -> {
                 if (numberInfo.contactItem != null) {
                     new AlertDialog.Builder(context)
-                            .setTitle(R.string.are_you_sure)
-                            .setMessage(R.string.load_reviews_confirmation_message)
-                            .setPositiveButton(R.string.yes, (d1, w) -> {
-                                reviewsAction.run();
-                                dialog.dismiss();
-                            })
-                            .setNegativeButton(R.string.no, null)
-                            .show();
+                        .setTitle(R.string.are_you_sure)
+                        .setMessage(R.string.load_reviews_confirmation_message)
+                        .setPositiveButton(R.string.yes, (d1, w) -> {
+                            reviewsAction.run();
+                            dialog.dismiss();
+                        })
+                        .setNegativeButton(R.string.no, null)
+                        .show();
                 } else {
                     reviewsAction.run();
                     dialog.dismiss();
@@ -138,14 +140,14 @@ public class InfoDialogHelper {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
                 if (numberInfo.contactItem != null) {
                     new AlertDialog.Builder(context)
-                            .setTitle(R.string.are_you_sure)
-                            .setMessage(R.string.load_reviews_confirmation_message)
-                            .setPositiveButton(R.string.yes, (d1, w) -> {
-                                webReviewAction.run();
-                                dialog.dismiss();
-                            })
-                            .setNegativeButton(R.string.no, null)
-                            .show();
+                        .setTitle(R.string.are_you_sure)
+                        .setMessage(R.string.load_reviews_confirmation_message)
+                        .setPositiveButton(R.string.yes, (d1, w) -> {
+                            webReviewAction.run();
+                            dialog.dismiss();
+                        })
+                        .setNegativeButton(R.string.no, null)
+                        .show();
                 } else {
                     webReviewAction.run();
                     dialog.dismiss();

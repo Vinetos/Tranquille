@@ -6,7 +6,7 @@ import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem
 public class NumberInfo {
 
     public enum BlockingReason {
-        HIDDEN_NUMBER, SIA_RATING, BLACKLISTED
+        HIDDEN_NUMBER, SIA_RATING, DENYLISTED
     }
 
     public enum Rating {
@@ -22,7 +22,7 @@ public class NumberInfo {
     public ContactItem contactItem;
     public CommunityDatabaseItem communityDatabaseItem;
     public FeaturedDatabaseItem featuredDatabaseItem;
-    public DenylistItem blacklistItem;
+    public DenylistItem denylistItem;
 
     // computed rating
     public Rating rating = Rating.UNKNOWN;

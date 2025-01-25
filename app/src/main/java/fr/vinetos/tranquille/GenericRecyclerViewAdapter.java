@@ -50,5 +50,4 @@ public abstract class GenericRecyclerViewAdapter<T, V extends GenericRecyclerVie
 
         abstract void bind(T item);
     }
-
 }

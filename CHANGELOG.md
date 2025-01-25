@@ -179,7 +179,7 @@ Cheers
 
 ### Changed
 
-- Changed blocking behavior in Direct Boot mode: blacklisted numbers are not blocked by default.
+- Changed blocking behavior in Direct Boot mode: denylisted numbers are not blocked by default.
   See #22 for details.
 - \[Internal\] Settings refactoring.
 - Updated Croatian translation thanks to Milo Ivir (@milotype).

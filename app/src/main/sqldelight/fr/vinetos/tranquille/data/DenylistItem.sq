@@ -2,14 +2,24 @@ CREATE TABLE DenylistItem (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   pattern TEXT NOT NULL,
-  creationDate TEXT NOT NULL,
-  invalid INTEGER NOT NULL,
+  creationDate INTEGER AS java.util.Date NOT NULL,
+  invalid INTEGER AS kotlin.Boolean NOT NULL,
   numberOfCalls INTEGER NOT NULL,
-  lastCallDate TEXT
+  lastCallDate INTEGER AS java.util.Date
 );
 
 selectAll:
 SELECT *
+FROM DenylistItem;
+
+selectAllLimitOffset:
+SELECT *
+FROM DenylistItem
+LIMIT :limit
+OFFSET :offset;
+
+selectAllIds:
+SELECT id
 FROM DenylistItem;
 
 findById:
@@ -30,10 +40,17 @@ WHERE name = ?
 AND pattern = ?
 ORDER BY pattern ASC;
 
+getMatches:
+SELECT *
+FROM DenylistItem
+WHERE invalid != 1
+AND ? LIKE pattern
+ORDER BY creationDate ASC;
+
 countValid:
 SELECT COUNT(*)
 FROM DenylistItem
-WHERE invalid = 0;
+WHERE invalid != 1;
 
 insertItem:
 INSERT INTO DenylistItem (name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
@@ -41,7 +58,7 @@ VALUES (?, ?, ?, ?, ?, ?);
 
 updateItem:
 INSERT OR REPLACE INTO DenylistItem (id, name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
-VALUES (?,  ?, ?, ?, ?, ?, ?);
+VALUES (?, ?, ?, ?, ?, ?, ?);
 
 addCall:
 UPDATE DenylistItem SET numberOfCalls = numberOfCalls + 1, lastCallDate = ?

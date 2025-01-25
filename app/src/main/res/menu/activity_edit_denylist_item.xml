@@ -5,11 +5,13 @@
     <item
         android:id="@+id/menu_save"
         android:icon="@drawable/ic_check_24dp"
+        android:onClick="onSaveClicked"
         android:title="@string/save"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_delete"
-        android:title="@string/blacklist_delete" />
+        android:onClick="onDeleteClicked"
+        android:title="@string/denylist_delete" />
 
 </menu>

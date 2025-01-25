@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".presentation.denylist.DenylistActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/blacklistItemsList"
+        android:id="@+id/denylistItemsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/blacklist_item" />
+        tools:listitem="@layout/denylist_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -19,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:contentDescription="@string/blacklist_add"
+        android:contentDescription="@string/denylist_add"
+        android:onClick="onAddClicked"
         android:src="@drawable/ic_plus_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

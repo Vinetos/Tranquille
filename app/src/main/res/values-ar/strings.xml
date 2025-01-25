@@ -69,9 +69,9 @@
     <string name="incoming_call_notifications_summary">عرض إشعار يتضمن ملخص رقم الهاتف (التقييم، وعدد المراجعات، والفئة) أثناء المكالمات الواردة</string>
     <string name="blocked_call_notifications_disable_message">قد تفوتك مكالمة عن طريق الخطأ إذا تم حظر المكالمات بدون إشعارات</string>
     <string name="show_notifications_for_blocked_calls">الإخطار بالمكالمات المحظورة</string>
-    <string name="block_blacklisted">حظر الأرقام المدرجة في القائمة السوداء</string>
+    <string name="block_denylisted">حظر الأرقام المدرجة في القائمة السوداء</string>
     <string name="save_crashes_to_external_storage">حفظ التقارير في وحدة التخزين العامة</string>
-    <string name="block_blacklisted_summary">حظر المكالمات من الأرقام المضافة إلى القائمة السوداء</string>
+    <string name="block_denylisted_summary">حظر المكالمات من الأرقام المضافة إلى القائمة السوداء</string>
     <string name="call_log_grouping">تجميع سجل المكالمات</string>
     <string name="settings_category_debugging">تصحيح</string>
     <string name="show_notifications_for_known_callers_summary">عرض الإشعارات للمتصلين المعروفين (الأرقام في جهات الاتصال)</string>
@@ -81,7 +81,7 @@
     <string name="settings_category_database">قاعدة بيانات</string>
     <string name="use_contacts_summary">لا يتم حظر الأرقام الموجودة في جهات الاتصال مطلقا ويتم عرض اسم جهة الاتصال بجوار / بدلا من رقم في جميع أنحاء التطبيق</string>
     <string name="block_in_limited_mode_summary">أنواع الحظر المسموح بها في وضع التمهيد المباشر (لا يمكن استخدام جهات الاتصال بشكل موثوق كقائمة بيضاء في هذا الوضع)</string>
-    <string name="block_in_limited_mode_blacklist">مدرج على القائمة السوداء</string>
+    <string name="block_in_limited_mode_denylist">مدرج على القائمة السوداء</string>
     <string name="database_download_url">عنوان URL الأساسي لتنزيل قاعدة البيانات</string>
     <string name="country_codes_info_summary">يتم استخدام رموز الدول في الطلبات المرسلة إلى خوادم الطرف الثالث. تم تعيين هذه الرموز لتقليد سلوك تطبيق الجهة الخارجية الرسمي. إذا كانت الرموز تتطابق مع بلدك الحقيقي (قد يتم اكتشافها من خلال عنوان IP الخاص بك) ، فستبدو طلباتك أكثر غموضًا. يتم استخدام الاكتشاف التلقائي افتراضيًا (استنادًا إلى معلومات شبكة الهاتف المحمول أو لغة النظام) ، والتي يجب أن تكون مناسبة لمعظم المستخدمين ، ولكن يمكنك تعيين الرموز يدويًا. من المتوقع ظهور رموز ISO 3166 المكونة من حرفين (مثل الولايات المتحدة)</string>
     <string name="country_code_override">رموز البلدان</string>
@@ -114,7 +114,7 @@
     <string name="block_negative_sia_numbers_summary">حظر المكالمات من الأرقام ذات التقييم السلبي (استنادا إلى قاعدة بيانات المجتمع)</string>
     <string name="block_hidden_number">حظر الأرقام المخفية</string>
     <string name="block_hidden_number_summary">حظر المكالمات من الأرقام المخفية. قد يعمل بشكل مختلف (أفضل أو أسوأ) في \"الوضع المتقدم لحظر المكالمات\"</string>
-    <string name="block_blacklisted_short">حظر القائمة السوداء</string>
+    <string name="block_denylisted_short">حظر القائمة السوداء</string>
     <string name="use_call_screening_service">الوضع المتقدم لحظر المكالمات</string>
     <string name="use_call_screening_service_summary">يسمح بحظر المكالمات قبل أن يبدأ الهاتف في الرنين. يتطلب تعيين التطبيق ك \"تطبيق الهاتف\" (Android 7–9) أو \"تطبيق معرف المتصل\" (Android 10+)</string>
     <string name="use_monitoring_service">استخدم خدمة المراقبة</string>

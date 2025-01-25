@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="use_call_screening_service">Avancerat läge för samtalsblockering</string>
-    <string name="block_blacklisted_summary">Blockera samtal från nummer som har lagts till i svartlistan</string>
-    <string name="block_blacklisted">Blockera svartlistade nummer</string>
+    <string name="block_denylisted_summary">Blockera samtal från nummer som har lagts till i svartlistan</string>
+    <string name="block_denylisted">Blockera svartlistade nummer</string>
     <string name="block_hidden_number">Blockera dolda nummer</string>
     <string name="incoming_call_notifications">Aviseringar för inkommande samtal</string>
     <string name="notification_settings">Aviseringsinställningar</string>

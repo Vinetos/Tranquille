@@ -10,7 +10,7 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.DbManager;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.network.WebService;
-import fr.vinetos.tranquille.data.datasource.DenylistDataSource;
+import fr.vinetos.tranquille.data.datasource.DenylistDao;
 import fr.vinetos.tranquille.domain.service.DenylistService;
 
 public class YacbHolder {
@@ -22,7 +22,7 @@ public class YacbHolder {
     private static FeaturedDatabase featuredDatabase;
     private static CommunityReviewsLoader communityReviewsLoader;
 
-    private static DenylistDataSource denylistDataSource;
+    private static DenylistDao denylistDao;
     private static DenylistService denylistService;
 
     private static NumberInfoService numberInfoService;
@@ -57,11 +57,11 @@ public class YacbHolder {
         YacbHolder.communityReviewsLoader = communityReviewsLoader;
     }
 
-    static void setDenylistDataSource(DenylistDataSource denylistDataSource) {
-        YacbHolder.denylistDataSource = denylistDataSource;
+    static void setDenylistDao(DenylistDao denylistDao) {
+        YacbHolder.denylistDao = denylistDao;
     }
 
-    static void setBlacklistService(DenylistService denylistService) {
+    static void setDenylistService(DenylistService denylistService) {
         YacbHolder.denylistService = denylistService;
     }
 
@@ -101,11 +101,11 @@ public class YacbHolder {
         return communityReviewsLoader;
     }
 
-    public static DenylistDataSource getDenylistDataSource() {
-        return denylistDataSource;
+    public static DenylistDao getDenylistDao() {
+        return denylistDao;
     }
 
-    public static DenylistService getBlacklistService() {
+    public static DenylistService getDenylistService() {
         return denylistService;
     }
 
