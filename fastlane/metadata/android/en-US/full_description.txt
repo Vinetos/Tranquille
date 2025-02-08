@@ -5,7 +5,7 @@ using a crowdsourced phone number database.
 
 * Uses offline database.
 * Blocks calls with negative rating automatically (option).
-* Local blacklist with wildcard support.
+* Local denylist with wildcard support.
 * Displays a notification with phone number summary (rating, reviews count, category) during incoming calls (option).
 * Automatic incremental/delta database updates (option).
 * You can view online reviews for caller's number (provided by 3rd party service).

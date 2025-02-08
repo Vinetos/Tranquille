@@ -43,9 +43,9 @@
             app:title="@string/block_hidden_number" />
         <SwitchPreferenceCompat
             app:defaultValue="true"
-            app:key="blockBlacklisted"
-            app:summary="@string/block_blacklisted_summary"
-            app:title="@string/block_blacklisted" />
+            app:key="blockDenylisted"
+            app:summary="@string/block_denylisted_summary"
+            app:title="@string/block_denylisted" />
         <SwitchPreferenceCompat
             app:key="useCallScreeningService"
             app:persistent="false"
@@ -87,7 +87,7 @@
 
     <PreferenceCategory app:title="@string/settings_screen_advanced">
         <Preference
-            app:fragment="dummydomain.yetanothercallblocker.AdvancedSettingsFragment"
+            app:fragment="fr.vinetos.tranquille.AdvancedSettingsFragment"
             app:key="screenAdvanced"
             app:title="@string/settings_screen_advanced" />
     </PreferenceCategory>

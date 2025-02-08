@@ -18,8 +18,8 @@ public class NumberInfoUtils {
             }
         }
 
-        if (numberInfo.blacklistItem != null && numberInfo.contactItem == null) {
-            return context.getString(R.string.info_in_blacklist);
+        if (numberInfo.denylistItem != null && numberInfo.contactItem == null) {
+            return context.getString(R.string.info_in_denylist);
         }
 
         return null;

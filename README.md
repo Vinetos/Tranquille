@@ -19,7 +19,7 @@ A free and open source application that can block unwanted calls or warn about p
 
 * Uses offline database.
 * Blocks calls with negative rating automatically (option).
-* Local blacklist with wildcard support.
+* Local denylist with wildcard support.
 * Displays a notification with phone number summary (rating, reviews count, category) during incoming calls (option).
 * Automatic incremental/delta database updates (option).
 * You can view online reviews for caller's number (provided by 3rd party service).
@@ -51,10 +51,10 @@ See [frequently asked questions](FAQ.md) to learn more.
 
 At this point most of the essential features (one would expect from a call blocking app) are implemented. Here's an overview:
 
-* Automatic blocking of calls with negative rating, calls from hidden or locally blacklisted numbers. *Works offline.*  
+* Automatic blocking of calls with negative rating, calls from hidden or locally denylisted numbers. *Works offline.*  
   Call blocking should work on most Android versions (including Android 10).  
   Some phones (like some Xiaomi) [require](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/12) to enable "Advanced call blocking mode" or a monitoring service.
-* Local blacklist with wildcard support.  
+* Local denylist with wildcard support.  
   Import of NoPhoneSpam backup is supported.
 * Showing a notification with some caller info (positive/negative rating, category, number of negative reviews and such) when the phone's ringing. *Works offline.*
 * Loading and displaying a list of reviews for a number (accessed from the notification or the info view). *Requires internet.*

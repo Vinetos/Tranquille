@@ -1,2 +1,0 @@
-* Adicionado tradução parcial para chinês (Simplificado), obrigado a Jane Kong (@Myon).
-* Dependências atualizadas.

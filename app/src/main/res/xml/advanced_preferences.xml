@@ -13,12 +13,12 @@
             app:persistent="false"
             app:title="@string/open_db_management_activity">
             <intent
-                android:targetClass="tranquille.DbManagementActivity"
+                android:targetClass="fr.vinetos.tranquille.DbManagementActivity"
                 android:targetPackage="@string/app_id" />
         </Preference>
 
         <Preference
-            app:fragment="dummydomain.yetanothercallblocker.DbFilteringSettingsFragment"
+            app:fragment="fr.vinetos.tranquille.DbFilteringSettingsFragment"
             app:key="dbFiltering"
             app:title="@string/settings_screen_db_filtering" />
 

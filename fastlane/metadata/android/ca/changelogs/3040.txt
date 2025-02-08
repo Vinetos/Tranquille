@@ -1,3 +1,0 @@
-* El permís ANSWER_PHONE_CALLS no es soŀlicita abans d'Android 9.
-* S'ha canviat la categoria de notificacions.
-* Actualització de les dependències.

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tranquille</string>
     <string name="notification_channel_group_name_incoming_calls">Входящие вызовы</string>
     <string name="notification_channel_name_neutral">С нейтральной оценкой</string>
     <string name="notification_channel_name_unknown">Неизвестные (без оценки)</string>
@@ -25,9 +24,9 @@
     <string name="block_negative_sia_numbers_summary">Блокировать звонки с номеров с отрицательным рейтингом (на основе базы данных сообщества)</string>
     <string name="block_hidden_number">Блокировать скрытые номера</string>
     <string name="block_hidden_number_summary">Блокировать звонки со скрытых номеров. Может работать по-разному (лучше или хуже) в \"Продвинутом режиме блокировки вызовов\"</string>
-    <string name="block_blacklisted_short">Блокировать из ЧС</string>
-    <string name="block_blacklisted">Блокировать из чёрного списка</string>
-    <string name="block_blacklisted_summary">Блокировать звонки с номеров добавленных в чёрный список</string>
+    <string name="block_denylisted_short">Блокировать из ЧС</string>
+    <string name="block_denylisted">Блокировать из чёрного списка</string>
+    <string name="block_denylisted_summary">Блокировать звонки с номеров добавленных в чёрный список</string>
     <string name="use_call_screening_service">Продвинутый режим блокировки вызовов</string>
     <string name="use_call_screening_service_summary">Позволяет блокировать вызовы до того, как телефон начнёт звонить. Это требует назначить приложение \"приложением для звонков\" (на Android 7–9) или \"приложением для АОН и защиты от спама\" (на Android 10+)</string>
     <string name="auto_updates">Автообновление базы номеров</string>
@@ -113,7 +112,7 @@
     <string name="block_in_limited_mode">Блокировать в режиме Direct Boot</string>
     <string name="block_in_limited_mode_summary">Типы блокировки, разрешённые в режиме Direct Boot (контакты не могут надёжно выполнять роль белого списка в этом режиме)</string>
     <string name="block_in_limited_mode_rating">По рейтингу</string>
-    <string name="block_in_limited_mode_blacklist">Из чёрного списка</string>
+    <string name="block_in_limited_mode_denylist">Из чёрного списка</string>
     <string name="settings_category_country_codes">Коды стран</string>
     <string name="country_codes_info">Пояснение</string>
     <string name="country_codes_info_summary">Коды стран используются в запросах к сторонним серверам. Эти коды отправляются, для того чтобы имитировать поведение официального приложения. Если коды соответствуют вашей настоящей стране (которая может быть определена по вашему IP-адресу), то запросы будут выглядеть наиболее неприметными. По умолчанию используется автоопределение (по информации мобильной сети или выбранной локали), которое должно устраивать большинство пользователей, но вы можете задать эти коды вручную. Ожидаются двухбуквенные ISO 3166 коды (такие как RU)</string>
@@ -145,35 +144,35 @@
         <item quantity="other">Выбрано: %s</item>
     </plurals>
     <string name="selected_value_nothing">&lt;ничего&gt;</string>
-    <string name="open_blacklist_activity">Чёрный список</string>
-    <string name="title_blacklist_activity">Чёрный список</string>
-    <plurals name="blacklist_item_stats">
+    <string name="open_denylist_activity">Чёрный список</string>
+    <string name="title_denylist_activity">Чёрный список</string>
+    <plurals name="denylist_item_stats">
         <item quantity="one">Звонил %2$s</item>
         <item quantity="few">%1$d звонка, последний: %2$s</item>
         <item quantity="many">%1$d звонков, последний: %2$s</item>
     </plurals>
-    <string name="blacklist_item_date_no_info">нет информации</string>
-    <string name="blacklist_item_no_calls">Никогда не звонил</string>
-    <string name="blacklist_add">Добавить</string>
-    <string name="blacklist_select_all">Выделить все</string>
-    <string name="blacklist_delete">Удалить</string>
-    <string name="blacklist_delete_confirmation">Удалить выбранные элементы?</string>
-    <string name="blacklist_export">Экспортировать</string>
-    <string name="blacklist_import">Импортировать</string>
-    <string name="title_add_blacklist_item_activity">Добавить номер</string>
-    <string name="title_edit_blacklist_item_activity">Редактировать номер</string>
-    <string name="edit_blacklist_item_name">Имя</string>
-    <string name="edit_blacklist_item_number_pattern">Шаблон номера</string>
+    <string name="denylist_item_date_no_info">нет информации</string>
+    <string name="denylist_item_no_calls">Никогда не звонил</string>
+    <string name="denylist_add">Добавить</string>
+    <string name="denylist_select_all">Выделить все</string>
+    <string name="denylist_delete">Удалить</string>
+    <string name="denylist_delete_confirmation">Удалить выбранные элементы?</string>
+    <string name="denylist_export">Экспортировать</string>
+    <string name="denylist_import">Импортировать</string>
+    <string name="title_add_denylist_item_activity">Добавить номер</string>
+    <string name="title_edit_denylist_item_activity">Редактировать номер</string>
+    <string name="edit_denylist_item_name">Имя</string>
+    <string name="edit_denylist_item_number_pattern">Шаблон номера</string>
     <string name="number_pattern_incorrect">Некорректный шаблон</string>
     <string name="number_pattern_empty">Пустой шаблон</string>
     <string name="number_pattern_hint">Введите номер в формате +СТРАНА-НОМЕР (как Android показал бы в списке вызовов). Используйте \"*\" как подстановку для нуля и более цифр и \"#\" для одной цифры.</string>
     <string name="info_icon_description">Инфо</string>
-    <string name="contacts_are_not_blocked_blacklist_notice">Звонки от контактов никогда не блокируются (даже при совпадении с шаблоном)</string>
+    <string name="contacts_are_not_blocked_denylist_notice">Звонки от контактов никогда не блокируются (даже при совпадении с шаблоном)</string>
     <string name="contacts_are_not_blocked_not_enabled">Звонки от контактов могут быть заблокированы, поскольку опция \"Доступ к контактам\" не включена!</string>
     <string name="contacts_are_not_blocked_no_permission">Звонки от контактов могут быть заблокированы, поскольку разрешение на доступ к контактам не предоставлено!</string>
-    <string name="info_in_blacklist">В чёрном списке</string>
-    <string name="info_in_blacklist_contact">В чёрном списке (контакты не блокируются)</string>
-    <string name="add_to_blacklist">Добавить в чёрный список</string>
+    <string name="info_in_denylist">В чёрном списке</string>
+    <string name="info_in_denylist_contact">В чёрном списке (контакты не блокируются)</string>
+    <string name="add_to_denylist">Добавить в чёрный список</string>
     <string name="title_lookup_number">Поиск номера</string>
     <string name="lookup_hint_input_number">Номер телефона</string>
     <string name="lookup_error_not_a_number">Необходимо указать телефонный номер</string>

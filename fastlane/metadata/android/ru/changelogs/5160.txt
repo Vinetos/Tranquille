@@ -1,3 +1,0 @@
-* Исправлена ошибка при запуске на недавнем обновлении LineageOS 15.1-17.1.
-* Префиксы фильтрации базы теперь автоматически предзаполняются на основе недавних вызовов (только если они не были введены ранее).
-* Обновлены переводы, спасибо Minibus93, Milo Ivir (@milotype), bruh (@quangtrung02hn16), Agnieszka C (@Aga), Evo (@verahawk), hiking, Havokdan, Tzvika (@shiloni), bojanopatje.

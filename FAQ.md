@@ -41,7 +41,7 @@ Currently, there's no whitelist feature, but there are plans to eventually imple
 
 ## Can I block all numbers not present in Contacts?
 
-There's no dedicated option [yet](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/31), but there is a way to achieve the effect: enable "Use contacts" option and create a blacklist pattern matching any number (`*`). The app [never blocks contacts](FAQ.md#how-do-blocking-options-work-exactly), but all unfamiliar numbers will be blocked by this pattern. You will also need to enable "Block hidden numbers" option to have hidden numbers blocked.
+There's no dedicated option [yet](https://gitlab.com/xynngh/YetAnotherCallBlocker/-/issues/31), but there is a way to achieve the effect: enable "Use contacts" option and create a denylist pattern matching any number (`*`). The app [never blocks contacts](FAQ.md#how-do-blocking-options-work-exactly), but all unfamiliar numbers will be blocked by this pattern. You will also need to enable "Block hidden numbers" option to have hidden numbers blocked.
 
 Additionally, modern Android versions have "Do not disturb" mode which can be customized to block unfamiliar numbers.
 
@@ -68,7 +68,7 @@ I'm not sure to be honest. But I believe most of the world is covered.
 You can install the app and look up some recent unwanted calls (if you had any) to see whether the app would have blocked them for you.
 
 
-## How do wildcards in the blacklist work?
+## How do wildcards in the denylist work?
 
 `*` matches zero or more digits, `#` matches exactly one digit.  
 So a pattern `+123*` will match any number starting with `+123`.  
@@ -87,7 +87,7 @@ The number format *must* match the format that Android uses, that's why the lead
   Theoretically, a failure to detect number may result in a call from a contact to be blocked, but I haven't heard about it ever happening.
 1. If "Block based on rating" is enabled and the number has a *negative rating*, the call is **blocked**.  
   Currently, "negative rating" means the number has more negative reviews than a sum of neutral and positive reviews.
-1. If "Block blacklisted numbers" is enabled and the number matches any valid blacklist pattern, the call is **blocked**.
+1. If "Block denylisted numbers" is enabled and the number matches any valid denylist pattern, the call is **blocked**.
 
 
 
@@ -137,5 +137,5 @@ If you redact personal data (which you should do), please *replace* numbers (wit
 
 You don't have to. If you're happy with some other app - good for you.  
 This project was started because I needed to help my non-techie relatives fight phone spam. Giving calls and contacts permissions to some proprietary app is just not an option for me.  
-There's only a few FOSS (free and open source) apps that provide call blocking and none of them has any kind of a crowdsourced blacklist. So I created Tranquille to solve this.  
+There's only a few FOSS (free and open source) apps that provide call blocking and none of them has any kind of a crowdsourced denylist. So I created Tranquille to solve this.  
 After a while the app got new features, some of which are unique on the FOSS scene (for example, I believe that the "advanced call blocking mode" is not present in any other FOSS spam blocker).
