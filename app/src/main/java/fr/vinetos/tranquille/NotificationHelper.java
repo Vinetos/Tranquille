@@ -224,11 +224,20 @@ public class NotificationHelper {
     private static String getBlockedDescription(Context context, NumberInfo numberInfo) {
         String text = numberInfo.name;
 
+        text = concat(text, "\n", getFailedVerificationDescriptionPart(context, numberInfo));
         text = concat(text, "\n", getCommunityDescriptionPart(context, numberInfo));
         text = concat(text, "\n", getDenylistDescriptionPart(context, numberInfo));
         text = concat(text, "\n", getNumberDescriptionPart(context, numberInfo));
 
         return text;
+    }
+
+    private static String getFailedVerificationDescriptionPart(Context context, NumberInfo numberInfo) {
+        if (numberInfo.isFailedVerification) {
+            return context.getString(R.string.info_failed_verification);
+        }
+
+        return null;
     }
 
     private static String getNumberDescriptionPart(Context context, NumberInfo numberInfo) {

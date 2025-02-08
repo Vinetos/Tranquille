@@ -9,6 +9,10 @@ import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
 public class NumberInfoUtils {
 
     public static String getShortDescription(Context context, NumberInfo numberInfo) {
+        if (numberInfo.isFailedVerification) {
+            return context.getString(R.string.info_failed_verification);
+        }
+
         if (numberInfo.communityDatabaseItem != null) {
             NumberCategory category = NumberCategory.getById(
                     numberInfo.communityDatabaseItem.getCategory());

@@ -110,6 +110,7 @@ public class RootSettingsFragment extends BaseSettingsFragment {
             return true;
         };
         setPrefChangeListener(Settings.PREF_BLOCK_NEGATIVE_SIA_NUMBERS, callBlockingListener);
+        setPrefChangeListener(Settings.PREF_BLOCK_FAILED_VERIFICATION, callBlockingListener);
         setPrefChangeListener(Settings.PREF_BLOCK_HIDDEN_NUMBERS, callBlockingListener);
         setPrefChangeListener(Settings.PREF_BLOCK_DENYLISTED, callBlockingListener);
 
@@ -128,6 +129,11 @@ public class RootSettingsFragment extends BaseSettingsFragment {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             callScreeningPref.setVisible(false);
         }
+
+        SwitchPreferenceCompat blockFailedVerificationPref =
+            requirePreference(Settings.PREF_BLOCK_FAILED_VERIFICATION);
+        blockFailedVerificationPref.setVisible(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R);
+        blockFailedVerificationPref.setEnabled(callScreeningPref.isChecked());
 
         setPrefChangeListener(Settings.PREF_USE_MONITORING_SERVICE, (pref, newValue) -> {
             boolean enabled = Boolean.TRUE.equals(newValue);
@@ -211,8 +217,17 @@ public class RootSettingsFragment extends BaseSettingsFragment {
     private void updateCallScreeningPreference() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return;
 
+        boolean isCallScreeningHeld = PermissionHelper.isCallScreeningHeld(requireContext());
         this.<SwitchPreferenceCompat>requirePreference(PREF_USE_CALL_SCREENING_SERVICE)
-                .setChecked(PermissionHelper.isCallScreeningHeld(requireContext()));
+            .setChecked(isCallScreeningHeld);
+
+        this.<SwitchPreferenceCompat>requirePreference(Settings.PREF_BLOCK_FAILED_VERIFICATION)
+            .setEnabled(isCallScreeningHeld);
+
+        this.<SwitchPreferenceCompat>requirePreference(Settings.PREF_BLOCK_FAILED_VERIFICATION)
+            .setChecked(
+                isCallScreeningHeld && App.getSettings().getBlockFailedVerificationEnabled()
+            );
     }
 
     private void updateBlockedCallNotificationsPreference() {
