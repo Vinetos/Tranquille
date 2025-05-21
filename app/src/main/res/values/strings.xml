@@ -105,6 +105,8 @@
     <string name="block_negative_sia_short">Block by rating</string>
     <string name="block_negative_sia">Block based on rating</string>
     <string name="block_negative_sia_numbers_summary">Block calls from numbers with negative rating (based on a community database)</string>
+    <string name="block_failed_verification">Block failed verification</string>
+    <string name="block_failed_verification_summary">Block calls failing the STIR verification, indicating that the incoming call may not actually be from the indicated number. This could occur if, for example, the caller is using an impersonated phone number. Requires “Advanced call blocking mode”.</string>
     <string name="block_hidden_number">Block hidden numbers</string>
     <string name="block_hidden_number_summary">Block calls from hidden numbers. May work differently (better or worse) in \"Advanced call blocking mode\"</string>
     <string name="block_denylisted_short">Enable denylist</string>
@@ -205,6 +207,7 @@
     <string name="contacts_are_not_blocked_denylist_notice">Calls from contacts are never blocked (even on pattern match)</string>
     <string name="contacts_are_not_blocked_not_enabled">Calls from contacts may be blocked because the \"Use contacts\" option is not enabled!</string>
     <string name="contacts_are_not_blocked_no_permission">Calls from contacts may be blocked because the \"Contacts\" permission is not granted!</string>
+    <string name="info_failed_verification">Failed verification</string>
     <string name="info_in_denylist">In denylist</string>
     <string name="info_in_denylist_contact">In denylist (contacts are not blocked)</string>
     <string name="add_to_denylist">Add to denylist</string>

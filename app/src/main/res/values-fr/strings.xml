@@ -73,6 +73,8 @@
     <string name="block_negative_sia_short">Bloquer selon la notation</string>
     <string name="block_negative_sia">Blocage en fonction de la notation</string>
     <string name="block_negative_sia_numbers_summary">Bloquer les appels provenant de numéros ayant une note négative (sur la base d\'une base de données communautaire))</string>
+    <string name="block_failed_verification">Bloquer en cas d’échec de vérification</string>
+    <string name="block_failed_verification_summary">Bloquer les appels échouant la vérification STIR, indiquant que l’appel entrant pourrait ne pas être véritablement du numéro indiqué. Cela peut se produire si, par exemple, l’appelant utilise un numéro usurpé. Nécessite le mode de blocage d’appel avancé.</string>
     <string name="block_hidden_number">Bloquer les numéros masqués</string>
     <string name="block_hidden_number_summary">Bloquer les appels provenant de numéros masqués. Peut fonctionner différemment (meilleur ou pire) en « Mode de blocage d\'appel avancé »</string>
     <string name="use_call_screening_service">Mode de blocage d\'appel avancé</string>
@@ -122,6 +124,7 @@
     <string name="open_db_management_activity">Gérer la base de données</string>
     <string name="add_to_denylist">Ajouter à la liste de blocage</string>
     <string name="info_in_denylist_contact">Sur la liste de blocage (les contacts ne sont pas bloqués)</string>
+    <string name="info_failed_verification">Vérification échouée</string>
     <string name="info_in_denylist">Sur la liste de blocage</string>
     <string name="number_pattern_hint">Entrez le numéro au format +INDICATIF-PAYS (comme Android l’indique dans votre clavier). Utilisez « * » comme caractère générique pour zéro ou plus de chiffres, et « # » pour exactement un chiffre.</string>
     <string name="number_pattern_empty">Modèle vide</string>

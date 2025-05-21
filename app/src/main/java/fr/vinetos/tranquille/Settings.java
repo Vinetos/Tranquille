@@ -1,6 +1,7 @@
 package fr.vinetos.tranquille;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -21,6 +22,7 @@ public class Settings extends GenericSettings {
 
     public static final String PREF_INCOMING_CALL_NOTIFICATIONS = "incomingCallNotifications";
     public static final String PREF_BLOCK_NEGATIVE_SIA_NUMBERS = "blockNegativeSiaNumbers";
+    public static final String PREF_BLOCK_FAILED_VERIFICATION = "blockFailedVerification";
     public static final String PREF_BLOCK_HIDDEN_NUMBERS = "blockHiddenNumbers";
     public static final String PREF_BLOCK_DENYLISTED = "blockDenylisted";
     public static final String PREF_DENYLIST_IS_NOT_EMPTY = "denylistIsNotEmpty";
@@ -124,7 +126,10 @@ public class Settings extends GenericSettings {
     }
 
     public boolean getCallBlockingEnabled() {
-        return getBlockNegativeSiaNumbers() || getBlockHiddenNumbers() || getDenylistEnabled();
+        return getBlockNegativeSiaNumbers() ||
+            getBlockHiddenNumbers() ||
+            getDenylistEnabled() ||
+            getBlockFailedVerificationEnabled();
     }
 
     public boolean getBlockNegativeSiaNumbers() {
@@ -133,6 +138,19 @@ public class Settings extends GenericSettings {
 
     public void setBlockNegativeSiaNumbers(boolean block) {
         setBoolean(PREF_BLOCK_NEGATIVE_SIA_NUMBERS, block);
+    }
+
+    /**
+     * STIR verification is only available from Android 11
+     */
+    public boolean getBlockFailedVerificationEnabled() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+            PermissionHelper.isCallScreeningHeld(context) &&
+            getBoolean(PREF_BLOCK_FAILED_VERIFICATION);
+    }
+
+    public void setBlockFailedVerificationEnabled(boolean block) {
+        setBoolean(PREF_BLOCK_FAILED_VERIFICATION, block);
     }
 
     public boolean getBlockHiddenNumbers() {

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [UNRELEASED]
 
+- Added ability to block calls with failed verification (requires Android >= 11 and advanced blocking mode)
 - Added icon to en-US fastlane metadata
 - Fixed fastlane folder names for language nb-NO
 - Fixed fastlane folder names for language pt-BR

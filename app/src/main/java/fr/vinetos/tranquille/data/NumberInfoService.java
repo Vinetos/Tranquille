@@ -48,11 +48,25 @@ public class NumberInfoService {
         this.denylistService = denylistService;
     }
 
-    public NumberInfo getNumberInfo(String number, String countryCode, boolean full) {
+    public NumberInfo getNumberInfo(
+        String number,
+        String countryCode,
+        boolean full
+    ) {
+        return getNumberInfo(number, countryCode, full, false);
+    }
+
+    public NumberInfo getNumberInfo(
+        String number,
+        String countryCode,
+        boolean full,
+        boolean isFailedVerification
+    ) {
         LOG.debug("getNumberInfo({}, {}, {}) started", number, countryCode, full);
 
         NumberInfo numberInfo = new NumberInfo();
         numberInfo.number = number;
+        numberInfo.isFailedVerification = isFailedVerification;
 
         if (hiddenNumberDetector != null) {
             numberInfo.isHiddenNumber = hiddenNumberDetector.isHiddenNumber(number);
@@ -130,6 +144,12 @@ public class NumberInfoService {
     }
 
     protected NumberInfo.BlockingReason getBlockingReason(NumberInfo numberInfo) {
+        // We must do that prior to contact checking as we don't want someone to impersonate a
+        // contact
+        if (numberInfo.isFailedVerification && settings.getBlockFailedVerificationEnabled()) {
+            return NumberInfo.BlockingReason.FAILED_VERIFICATION;
+        }
+
         if (numberInfo.contactItem != null) return null;
 
         if (numberInfo.isHiddenNumber && settings.getBlockHiddenNumbers()) {
