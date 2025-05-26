@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "fr.vinetos.tranquille"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "fr.vinetos.tranquille"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "0.0.1"
         multiDexEnabled = true
