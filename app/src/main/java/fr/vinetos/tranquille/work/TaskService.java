@@ -4,6 +4,8 @@ import android.app.IntentService;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
+import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 
@@ -45,7 +47,16 @@ public class TaskService extends IntentService {
 
         String action = intent != null ? intent.getAction() : null;
 
-        startForeground(NotificationHelper.NOTIFICATION_ID_TASKS, createNotification(null));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(
+                NotificationHelper.NOTIFICATION_ID_TASKS, createNotification(null),
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
+            );
+        } else {
+            startForeground(
+                NotificationHelper.NOTIFICATION_ID_TASKS, createNotification(null)
+            );
+        }
         try {
             if (!TextUtils.isEmpty(action)) {
                 switch (action) {

@@ -1,15 +1,33 @@
-Una semplice applicazione di blocco delle chiamate che ti aiuterà a evitare di rispondere alle chiamate indesiderate utilizzando un database dei numeri di telefono crowdsourced. 
+Una semplice applicazione di blocco delle chiamate che ti aiuterà a evitare di rispondere alle chiamate indesiderate
+utilizzando un database dei numeri di telefono crowdsourced.
 
-<b>Caratteristiche<b>
+<b>Caratteristiche</b>
 
 * Utilizza un database offline.
 * Blocca le chiamate con valutazione negativa automaticamente (opzionale).
-* Blacklist locale con supporto wildcard.
+* Denylist locale con supporto wildcard.
 * Visualizza una notifica con il riepilogo del numero di telefono (valutazione, recensioni, chiamate, categoria) durante le chiamate in arrivo (opzionale).
-* Aggiornamenti automatici incrementali/delta  del database (opzionale).
+* Aggiornamenti automatici incrementali/delta del database (opzionale).
 * È possibile visualizzare le recensioni online per il numero di chi chiama (fornito da servizio di terze parti).
-* "Modalità di blocco delle chiamate avanzate" per bloccare le chiamate su Android 7+ prima che il telefono inizia a squillare (deve essere abilitato manualmente nelle impostazioni di app). 
+* "Modalità di blocco delle chiamate avanzate" per bloccare le chiamate su Android 7+ prima che il telefono inizia a squillare (deve essere abilitato manualmente nelle impostazioni di app).
+
+<b>Come utilizzare:</b>
+
+* Installare e avviare l'app.
+* L'opzione per visualizzare le notifiche delle informazioni del chiamante è attivata per impostazione predefinita, quindi l'app richiederà autorizzazioni relative al telefono.
+* Al primo avvio, l'app suggerirà di scaricare il database principale necessario per la maggior parte delle funzioni. Confermare semplicemente il download.
+* Selezionare la casella di controllo "Aggiornamento automatico database" nel menu (consigliato) per ricevere automaticamente gli aggiornamenti DB giornalieri (si tratta di aggiornamenti incrementali/delta, quindi consumano pochissimo traffico).
+* Selezionare la casella "Blocca per valutazione" per bloccare automaticamente le chiamate con valutazione negativa.
+* È inoltre possibile selezionare la casella "Usa contatti" se si desidera che i contatti non vengano trattati come chiamanti sconosciuti.
+* Dopo questi passaggi tutto dovrebbe funzionare (ma puoi sempre trovare altre opzioni in Impostazioni). Divertiti!
 
 Vedi <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">F.A.Q.</a> per saperne di più.
 
-Il database principale del numero di telefono viene scaricato da  <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">una repository di gitlab</a>
+Il database principale dei numeri di telefono viene scaricato una<a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">repository gitlab</a>.
+<b>Gli aggiornamenti del database e le query di revisione dettagliate vengono eseguite utilizzando server di terze parti. </b>
+Non vengono inviate informazioni di identificazione utente (ad eccezione del numero di telefono
+le recensioni dettagliate sono caricate).
+
+Tranquille è ancora in fase di sviluppo. Qualsiasi aiuto è benvenuto.
+
+''NonFreeNet:'' il servizio di terze parti non è open source.

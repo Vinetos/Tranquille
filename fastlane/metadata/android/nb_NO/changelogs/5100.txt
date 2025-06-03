@@ -1,4 +1,0 @@
-* Fikset importering av svartelistefiler større enn 4000 byte.
-* Fikset krasj som inntraff nå og da ved sletting av svartelistede elementer.
-* Forenklet format for svartelisteformat (se endringslogg for detaljer).
-* Oppdaterte oversettelser takket være J. Lavoie, Milo Ivir (@milotype), Yannis T. (@azakosath), Evo (@verahawk), Oğuz Ersen (@ersen).

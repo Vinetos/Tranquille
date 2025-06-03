@@ -1,2 +1,0 @@
-* Actualització de les dependències.
-* S'han afegit algunes metadades de fastlane.

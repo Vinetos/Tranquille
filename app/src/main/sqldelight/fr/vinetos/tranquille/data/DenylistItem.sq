@@ -1,0 +1,77 @@
+CREATE TABLE DenylistItem (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  pattern TEXT NOT NULL,
+  creationDate INTEGER AS java.util.Date NOT NULL,
+  invalid INTEGER AS kotlin.Boolean NOT NULL,
+  numberOfCalls INTEGER NOT NULL,
+  lastCallDate INTEGER AS java.util.Date
+);
+
+selectAll:
+SELECT *
+FROM DenylistItem;
+
+selectAllLimitOffset:
+SELECT *
+FROM DenylistItem
+LIMIT :limit
+OFFSET :offset;
+
+selectAllIds:
+SELECT id
+FROM DenylistItem;
+
+findById:
+SELECT *
+FROM DenylistItem
+WHERE id = ?;
+
+findByPattern:
+SELECT *
+FROM DenylistItem
+WHERE pattern = ?
+ORDER BY pattern ASC;
+
+findByNameAndPattern:
+SELECT *
+FROM DenylistItem
+WHERE name = ?
+AND pattern = ?
+ORDER BY pattern ASC;
+
+getMatches:
+SELECT *
+FROM DenylistItem
+WHERE invalid != 1
+AND ? LIKE pattern
+ORDER BY creationDate ASC;
+
+countValid:
+SELECT COUNT(*)
+FROM DenylistItem
+WHERE invalid != 1;
+
+insertItem:
+INSERT INTO DenylistItem (name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
+VALUES (?, ?, ?, ?, ?, ?);
+
+updateItem:
+INSERT OR REPLACE INTO DenylistItem (id, name, pattern, creationDate, invalid, numberOfCalls, lastCallDate)
+VALUES (?, ?, ?, ?, ?, ?, ?);
+
+addCall:
+UPDATE DenylistItem SET numberOfCalls = numberOfCalls + 1, lastCallDate = ?
+WHERE id = ?;
+
+delete:
+DELETE FROM DenylistItem
+WHERE id = ?;
+
+sanitize:
+UPDATE DenylistItem SET invalid = ?, creationDate = ?, numberOfCalls = ?
+WHERE id = ?;
+
+countAll:
+SELECT COUNT(*)
+FROM DenylistItem;

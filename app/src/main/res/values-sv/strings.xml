@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="use_call_screening_service">Avancerat läge för samtalsblockering</string>
-    <string name="block_blacklisted_summary">Blockera samtal från nummer som har lagts till i svartlistan</string>
-    <string name="block_blacklisted">Blockera svartlistade nummer</string>
+    <string name="block_denylisted_summary">Blockera samtal från nummer som har lagts till i svartlistan</string>
+    <string name="block_denylisted">Blockera svartlistade nummer</string>
     <string name="block_hidden_number">Blockera dolda nummer</string>
     <string name="incoming_call_notifications">Aviseringar för inkommande samtal</string>
     <string name="notification_settings">Aviseringsinställningar</string>
@@ -64,11 +64,12 @@
     <string name="notification_channel_name_known">Kända samtal</string>
     <string name="notification_channel_group_name_services">Tjänster</string>
     <string name="notification_channel_group_name_blocked_calls">Blockerade samtal</string>
-    <string name="app_name">Ytterligare en samtalsblockerare</string>
     <string name="notification_channel_group_name_incoming_calls">Inkommande samtal</string>
     <string name="add_web_review">Lägg till recension (internet)</string>
     <string name="default_phone_app_set">Välj \"Ytterligare en till samtalsblockerare\" som en \"Telefon-app\" i \"Standard-appar\" i systeminställningar</string>
     <string name="sia_category_dept_collector">Inkassoman</string>
     <string name="sia_category_none">Inget</string>
     <string name="sia_category_nuisance">Störande</string>
+    <string name="sia_category_safe_personal">Trygg personlig</string>
+    <string name="sia_category_safe_company">Säkert sällskap</string>
 </resources>

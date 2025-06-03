@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
+## [UNRELEASED]
+
+- Added ability to block calls with failed verification (requires Android >= 11 and advanced blocking mode)
+- Added icon to en-US fastlane metadata
+- Fixed fastlane folder names for language nb-NO
+- Fixed fastlane folder names for language pt-BR
+- Fixed gradle-wrapper version mismatch
+- Pinned gradle to `8.4-all` with related SHA256 Sum
+- Update Android Gradle Plugin to 8.3.1
+- Fixed deprecated `android.defaults.buildfeatures.buildconfig=true` build option
+
+### Added
+
+- Galician translation thanks to josé m. ([@ghose](https://hosted.weblate.org/user/ghose/)).
+- Partial Tamil translation thanks to GobinathAL ([@GobinathAL](https://hosted.weblate.org/user/GobinathAL/)).
+- Partial Arabic translation thanks to DJEBBARI.ABDELHAMID ([@dxing96](https://hosted.weblate.org/user/dxing96/)).
+- Partial Chinese (Traditional) translation thanks to hugoalh ([@hugoalh](https://hosted.weblate.org/user/hugoalh/)).
+
+### Changed
+
+- Updated Chinese (Simplified) translation thanks to @haygcao and Jane Kong ([@Myon](https://hosted.weblate.org/user/Myon/)).
+- Updated Portuguese translation thanks to ssantos ([@ssantos](https://hosted.weblate.org/user/ssantos/)) and SC ([@larcansal](https://hosted.weblate.org/user/larcansal/)).
+- Updated Catalan translation thanks to Maite Guix ([@maite.guix](https://hosted.weblate.org/user/maite.guix/)).
+- Updated Ukrainian translation thanks to z Z z ([@ruslan.zeezu](https://hosted.weblate.org/user/ruslan.zeezu/)), DankXylese ([@dankxylese](https://hosted.weblate.org/user/dankxylese/)), and Skrripy.
+- Updated Spanish translation thanks to Alexandre Díaz ([@Tardo](https://hosted.weblate.org/user/Tardo/)) and gallegonovato ([@gallegonovato](https://hosted.weblate.org/user/gallegonovato/)).
+- Updated Russian translation of the app description thanks to AHOHNMYC ([@AHOHNMYC](https://hosted.weblate.org/user/AHOHNMYC/)).
+- Updated Italian translation of the app description thanks to Translator-3000.
+- Updated Italian translation thanks to Iginio Massari ([@darthmassari](https://hosted.weblate.org/user/darthmassari/)).
+- Updated German translation thanks to Ettore Atalan ([@Atalanttore](https://hosted.weblate.org/user/Atalanttore/)).
+
+
 ## [0.0.1] - 2024-03-25
 
 The project has not been updated from the previous maintainer since 2021.
@@ -149,7 +180,7 @@ Cheers
 
 ### Changed
 
-- Changed blocking behavior in Direct Boot mode: blacklisted numbers are not blocked by default.  
+- Changed blocking behavior in Direct Boot mode: denylisted numbers are not blocked by default.
   See #22 for details.
 - \[Internal\] Settings refactoring.
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
@@ -161,7 +192,7 @@ Cheers
 
 ### Changed
 
-- `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).  
+- `ID` and `numberOfCalls` are now optional fields for blacklist import (`pattern` is the only required field now).
   Fields after `pattern` may be omitted.
 - Updated French and Italian translations thanks to J. Lavoie ([@Edanas](https://hosted.weblate.org/user/Edanas/)).
 - Updated Croatian translation thanks to Milo Ivir (@milotype).
@@ -253,7 +284,7 @@ Cheers
 
 ### Changed
 
-- Improved hidden number detection in "normal" (non-"advanced") mode (#2).  
+- Improved hidden number detection in "normal" (non-"advanced") mode (#2).
   The feature is no longer considered experimental.
 - Auto-hide "blocked call" notifications (when tapped).
 - Fallback to standard TLS-stack if Conscrypt can't be loaded.

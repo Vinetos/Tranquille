@@ -215,7 +215,7 @@ public class NotificationHelper {
         String text = numberInfo.name;
 
         text = concat(text, "; ", getCommunityDescriptionPart(context, numberInfo));
-        text = concat(text, "\n", getBlacklistDescriptionPart(context, numberInfo));
+        text = concat(text, "\n", getDenylistDescriptionPart(context, numberInfo));
         text = concat(text, "\n", getNumberDescriptionPart(context, numberInfo));
 
         return text;
@@ -224,11 +224,20 @@ public class NotificationHelper {
     private static String getBlockedDescription(Context context, NumberInfo numberInfo) {
         String text = numberInfo.name;
 
+        text = concat(text, "\n", getFailedVerificationDescriptionPart(context, numberInfo));
         text = concat(text, "\n", getCommunityDescriptionPart(context, numberInfo));
-        text = concat(text, "\n", getBlacklistDescriptionPart(context, numberInfo));
+        text = concat(text, "\n", getDenylistDescriptionPart(context, numberInfo));
         text = concat(text, "\n", getNumberDescriptionPart(context, numberInfo));
 
         return text;
+    }
+
+    private static String getFailedVerificationDescriptionPart(Context context, NumberInfo numberInfo) {
+        if (numberInfo.isFailedVerification) {
+            return context.getString(R.string.info_failed_verification);
+        }
+
+        return null;
     }
 
     private static String getNumberDescriptionPart(Context context, NumberInfo numberInfo) {
@@ -249,10 +258,10 @@ public class NotificationHelper {
         return null;
     }
 
-    private static String getBlacklistDescriptionPart(Context context, NumberInfo numberInfo) {
-        if (numberInfo.blacklistItem != null && numberInfo.contactItem == null) {
-            String name = numberInfo.blacklistItem.getName();
-            return context.getString(R.string.info_in_blacklist)
+    private static String getDenylistDescriptionPart(Context context, NumberInfo numberInfo) {
+        if (numberInfo.denylistItem != null && numberInfo.contactItem == null) {
+            String name = numberInfo.denylistItem.getName();
+            return context.getString(R.string.info_in_denylist)
                     + (!TextUtils.isEmpty(name) ? " (" + name + ")" : "");
         }
 

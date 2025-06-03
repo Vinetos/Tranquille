@@ -55,6 +55,7 @@ public class CallScreeningServiceImpl extends CallScreeningService {
             String number = null;
 
             if (!ignore) {
+
                 Uri handle = callDetails.getHandle();
                 LOG.trace("onScreenCall() handle: {}", handle);
 
@@ -98,8 +99,31 @@ public class CallScreeningServiceImpl extends CallScreeningService {
             }
 
             if (!ignore) {
-                numberInfo = numberInfoService.getNumberInfo(number,
-                        App.getSettings().getCachedAutoDetectedCountryCode(), false);
+                boolean isFailedVerification = false;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (callDetails.getCallerNumberVerificationStatus() ==
+                        Connection.VERIFICATION_STATUS_FAILED
+                    ) {
+                        LOG.trace("onScreenCall() verification failed");
+                        isFailedVerification = true;
+                    }
+                    if (callDetails.getCallerNumberVerificationStatus() ==
+                        Connection.VERIFICATION_STATUS_NOT_VERIFIED
+                    ) {
+                        LOG.trace("onScreenCall() not verified");
+                    }
+                    if (callDetails.getCallerNumberVerificationStatus() ==
+                        Connection.VERIFICATION_STATUS_PASSED
+                    ) {
+                        LOG.trace("onScreenCall() verification passed");
+                    }
+                }
+                numberInfo = numberInfoService.getNumberInfo(
+                    number,
+                    App.getSettings().getCachedAutoDetectedCountryCode(),
+                    false,
+                    isFailedVerification
+                );
 
                 shouldBlock = numberInfoService.shouldBlock(numberInfo);
             }

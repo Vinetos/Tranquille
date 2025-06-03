@@ -131,9 +131,9 @@ public class CallLogItemRecyclerViewAdapter extends GenericRecyclerViewAdapter
 
             if (numberInfo.name != null) return numberInfo.name;
 
-            if (numberInfo.blacklistItem != null
-                    && !TextUtils.isEmpty(numberInfo.blacklistItem.getName())) {
-                return numberInfo.blacklistItem.getName();
+            if (numberInfo.denylistItem != null
+                    && !TextUtils.isEmpty(numberInfo.denylistItem.getName())) {
+                return numberInfo.denylistItem.getName();
             }
 
             return item.number;

@@ -12,6 +12,7 @@ import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabase;
 import dummydomain.yetanothercallblocker.sia.model.database.FeaturedDatabaseItem;
+import fr.vinetos.tranquille.domain.service.DenylistService;
 
 public class NumberInfoService {
 
@@ -32,26 +33,40 @@ public class NumberInfoService {
     protected final CommunityDatabase communityDatabase;
     protected final FeaturedDatabase featuredDatabase;
     protected final ContactsProvider contactsProvider;
-    protected final BlacklistService blacklistService;
+    protected final DenylistService denylistService;
 
     public NumberInfoService(Settings settings, HiddenNumberDetector hiddenNumberDetector,
                              NumberNormalizer numberNormalizer, CommunityDatabase communityDatabase,
                              FeaturedDatabase featuredDatabase, ContactsProvider contactsProvider,
-                             BlacklistService blacklistService) {
+                             DenylistService denylistService) {
         this.settings = settings;
         this.hiddenNumberDetector = hiddenNumberDetector;
         this.numberNormalizer = numberNormalizer;
         this.communityDatabase = communityDatabase;
         this.featuredDatabase = featuredDatabase;
         this.contactsProvider = contactsProvider;
-        this.blacklistService = blacklistService;
+        this.denylistService = denylistService;
     }
 
-    public NumberInfo getNumberInfo(String number, String countryCode, boolean full) {
+    public NumberInfo getNumberInfo(
+        String number,
+        String countryCode,
+        boolean full
+    ) {
+        return getNumberInfo(number, countryCode, full, false);
+    }
+
+    public NumberInfo getNumberInfo(
+        String number,
+        String countryCode,
+        boolean full,
+        boolean isFailedVerification
+    ) {
         LOG.debug("getNumberInfo({}, {}, {}) started", number, countryCode, full);
 
         NumberInfo numberInfo = new NumberInfo();
         numberInfo.number = number;
+        numberInfo.isFailedVerification = isFailedVerification;
 
         if (hiddenNumberDetector != null) {
             numberInfo.isHiddenNumber = hiddenNumberDetector.isHiddenNumber(number);
@@ -113,13 +128,13 @@ public class NumberInfoService {
         }
         LOG.trace("getNumberInfo() rating={}", numberInfo.rating);
 
-        if (blacklistService != null && settings.getBlacklistIsNotEmpty()) {
-            // avoid loading blacklist if blocking for other reason
+        if (denylistService != null && settings.getDenylistIsNotEmpty()) {
+            // avoid loading denylist if blocking for other reason
             if (full || getBlockingReason(numberInfo) == null) {
-                numberInfo.blacklistItem = blacklistService.getBlacklistItemForNumber(number);
+                numberInfo.denylistItem = denylistService.getDenylistItemForNumber(number);
             }
         }
-        LOG.trace("getNumberInfo() blacklistItem={}", numberInfo.blacklistItem);
+        LOG.trace("getNumberInfo() denylistItem={}", numberInfo.denylistItem);
 
         numberInfo.blockingReason = getBlockingReason(numberInfo);
         LOG.trace("getNumberInfo() blockingReason={}", numberInfo.blockingReason);
@@ -129,6 +144,12 @@ public class NumberInfoService {
     }
 
     protected NumberInfo.BlockingReason getBlockingReason(NumberInfo numberInfo) {
+        // We must do that prior to contact checking as we don't want someone to impersonate a
+        // contact
+        if (numberInfo.isFailedVerification && settings.getBlockFailedVerificationEnabled()) {
+            return NumberInfo.BlockingReason.FAILED_VERIFICATION;
+        }
+
         if (numberInfo.contactItem != null) return null;
 
         if (numberInfo.isHiddenNumber && settings.getBlockHiddenNumbers()) {
@@ -141,9 +162,9 @@ public class NumberInfoService {
             return NumberInfo.BlockingReason.SIA_RATING;
         }
 
-        if (numberInfo.blacklistItem != null && settings.getBlockBlacklisted()
-                && canBlock(NumberInfo.BlockingReason.BLACKLISTED)) {
-            return NumberInfo.BlockingReason.BLACKLISTED;
+        if (numberInfo.denylistItem != null && settings.getBlockDenylisted()
+                && canBlock(NumberInfo.BlockingReason.DENYLISTED)) {
+            return NumberInfo.BlockingReason.DENYLISTED;
         }
 
         return null;
@@ -158,8 +179,8 @@ public class NumberInfoService {
             return true;
         }
 
-        if (reason == NumberInfo.BlockingReason.BLACKLISTED
-                && settings.isBlockingBlacklistedInLimitedModeAllowed()) {
+        if (reason == NumberInfo.BlockingReason.DENYLISTED
+                && settings.isBlockingDenylistedInLimitedModeAllowed()) {
             LOG.trace("canBlock() allowed: " + reason);
             return true;
         }
@@ -173,9 +194,9 @@ public class NumberInfoService {
     }
 
     public void blockedCall(NumberInfo numberInfo) {
-        if (blacklistService != null && numberInfo.blacklistItem != null
-                && numberInfo.blockingReason == NumberInfo.BlockingReason.BLACKLISTED) {
-            blacklistService.addCall(numberInfo.blacklistItem, new Date());
+        if (denylistService != null && numberInfo.denylistItem != null
+                && numberInfo.blockingReason == NumberInfo.BlockingReason.DENYLISTED) {
+            denylistService.addCall(numberInfo.denylistItem, new Date());
         }
     }
 

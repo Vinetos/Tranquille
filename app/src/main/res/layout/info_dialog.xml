@@ -38,14 +38,14 @@
         tools:text="Featured company name" />
 
     <TextView
-        android:id="@+id/blacklist_name"
+        android:id="@+id/denylist_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
         android:textSize="20sp"
-        tools:text="Blacklist name" />
+        tools:text="Denylist name" />
 
     <include
         layout="@layout/reviews_summary"
@@ -54,11 +54,11 @@
         android:layout_marginTop="6dp" />
 
     <TextView
-        android:id="@+id/in_blacklist"
+        android:id="@+id/in_denylist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:gravity="center_horizontal"
-        android:text="@string/info_in_blacklist" />
+        android:text="@string/info_in_denylist" />
 
 </LinearLayout>

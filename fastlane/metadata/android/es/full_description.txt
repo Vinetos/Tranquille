@@ -5,9 +5,11 @@ usando una base de datos de números de teléfono fuera de línea.
 
 * Utiliza una base de datos de números de teléfono sin conexión.
 * Bloquea automáticamente las llamadas no deseadas (opcional).
+* Lista negra local con soporte para comodines.
 * Muestra una notificación con el resumen del número de teléfono (clasificación, recuento de revisiones, categoría) durante las llamadas entrantes (opcional).
 * Actualizaciones automáticas de la base de datos incremental/delta (opcional).
 * Puede ver revisiones en línea del número de la persona que llama (proporcionado por un servicio de terceros).
+* "Modo avanzado de bloqueo de llamada" para bloquear llamadas en Android 7+ antes de que la llamada empiece a sonar (necesita ser activado manualmente en la configuración de la app).
 
 <b>Cómo utilizarlo:</b>
 
@@ -19,11 +21,12 @@ usando una base de datos de números de teléfono fuera de línea.
 * También puede marcar la casilla de verificación «Usar contactos» si desea que sus contactos no sean tratados como llamadas desconocidas.
 * Después de estos pasos todo debería funcionar. ¡Disfrútalo!
 
-See <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">frequently asked questions</a> to learn more.
+Vea <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/FAQ.md">preguntas más frecuentes</a> para obtener más información.
 
 La base de datos de números telefónicos principales se descarga de <a href="https://gitlab.com/xynngh/YetAnotherCallBlocker_data">un repositorio de Gitlab</a>.
 <b>Las actualizaciones delta y las consultas de revisión detallada se realizan utilizando servidores de terceros.</b>
-No se envía ninguna información identificable por el usuario (excepto el número de teléfono que será cargada para las reseñas).
+No se envía ninguna información identificable por el usuario (excepto el número de teléfono
+que será cargada para las reseñas).
 
 Otro bloqueador de llamadas está aún en desarrollo. Cualquier ayuda es muy bienvenida.
 

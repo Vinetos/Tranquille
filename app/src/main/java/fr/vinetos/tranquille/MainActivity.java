@@ -33,6 +33,7 @@ import fr.vinetos.tranquille.event.CallEndedEvent;
 import fr.vinetos.tranquille.event.MainDbDownloadFinishedEvent;
 import fr.vinetos.tranquille.event.MainDbDownloadingEvent;
 import fr.vinetos.tranquille.event.SecondaryDbUpdateFinished;
+import fr.vinetos.tranquille.presentation.denylist.DenylistActivity;
 import fr.vinetos.tranquille.work.TaskService;
 import fr.vinetos.tranquille.work.UpdateScheduler;
 
@@ -272,8 +273,8 @@ public class MainActivity extends AppCompatActivity {
         reloadCallLog();
     }
 
-    public void onOpenBlacklist(MenuItem item) {
-        startActivity(BlacklistActivity.getIntent(this));
+    public void onOpenDenylist(MenuItem item) {
+        startActivity(new Intent(this, DenylistActivity.class));
     }
 
     public void onOpenSettings(MenuItem item) {

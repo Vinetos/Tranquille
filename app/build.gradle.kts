@@ -1,17 +1,18 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("org.greenrobot.greendao")
+//    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.sqldelight)
+    kotlin("android")
 }
 
 android {
     namespace = "fr.vinetos.tranquille"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "fr.vinetos.tranquille"
-        minSdk = 14
-        targetSdk = 34
+        minSdk = 21
+        targetSdk = 36
         versionCode = 1
         versionName = "0.0.1"
         multiDexEnabled = true
@@ -43,6 +44,9 @@ android {
         abortOnError = false
         lintConfig = file("lint.xml")
     }
+    buildFeatures {
+        buildConfig = true
+    }
 
     applicationVariants.all {
         val variant = this
@@ -50,12 +54,16 @@ android {
     }
 }
 
-greendao {
-    schemaVersion = 1
+sqldelight {
+    databases {
+        create("Database") {
+            packageName.set("fr.vinetos.tranquille.data")
+            dialect(libs.sqldelight.dialects.sql)
+        }
+    }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.preference)
@@ -70,8 +78,15 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.lib.phone.number.info)
     implementation(libs.commons.csv)
-    implementation(libs.greendao)
+    implementation(libs.sqldelight.driver)
+    implementation(libs.sqldelight.coroutines)
+    implementation(libs.bundles.sqlite)
     implementation(libs.eventbus)
+
+    // todo add kotlin coriutines dependency
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
     annotationProcessor(libs.eventbus.annotation.processor)
 
